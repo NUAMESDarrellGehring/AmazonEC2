@@ -3,6 +3,9 @@
 ?>
 <html> 
 <body> 
-	<input name = "myFile" type = "file"> 
+	<form>
+	<input name = "myFile" type = "file">
+	<input name = "Submit" type = "submit">
+	</form> 
 </body> 
 </html>
