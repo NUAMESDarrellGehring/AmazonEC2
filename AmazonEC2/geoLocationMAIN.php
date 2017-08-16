@@ -6,7 +6,7 @@
 	<form>
 	<input name = "myFile" type = "file">
 	<br>
-	<input name = "Submit" type = "submit">
+	<input name = "submit" type = "submit" value = "Submit">
 	</form> 
 </body> 
 </html>
