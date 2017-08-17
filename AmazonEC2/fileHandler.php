@@ -14,7 +14,8 @@ $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
     if($textFileType != "docx" || $textFileType != "doc" || $textFileType != "txt"){
         echo "File Type Is Invalid - Valid Types Are: .docx, .doc, or .txt";
         $uploadOk = 0;
+        echo $textFileType;
     }
-    else{echo "file is valid"; echo $textFileType;}
+    else{echo "file is valid"; }
     
 ?>
