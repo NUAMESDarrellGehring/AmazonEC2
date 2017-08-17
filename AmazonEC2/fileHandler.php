@@ -22,19 +22,22 @@ $target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);
 $uploadOk = 1;
 $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
+//Does the file exist? ----------------------
+if($_FILES["uploadedFile"]["size"] > 0){
+
 //Is it a valid file type? -------------------
     if($textFileType != "docx" && $textFileType != "doc" && $textFileType != "txt"){
         echo "File Type Is Invalid - Valid Types Are: .docx, .doc, or .txt";
         echo "<br>";
         $uploadOk = 0;
     }
-    
+//Is it a valid file size? -------------------
     if($_FILES["uploadedFile"]["size"] > 700000){
         echo "File Is Too Large: Max Size Is 700 KB";
         echo "<br>";
         $uploadOk = 0;
     }
-    
+//Does it check any errors? ------------------    
     if($uploadOk == 0){
         echo "File Upload Failed";
         echo "<br>";
@@ -42,6 +45,6 @@ $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         echo "File Upload Successful";
         echo "<br>";
     }
-    
+}    
     
 ?>
