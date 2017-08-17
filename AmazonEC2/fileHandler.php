@@ -15,6 +15,10 @@ $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         echo "File Type Is Invalid - Valid Types Are: .docx, .doc, or .txt";
         $uploadOk = 0;
     }
-    else{echo "file is valid"; }
+    else{echo "file is valid"; $files = glob("uploads/");
+    foreach($files as $file){
+        if(is_file($file))
+            echo "goof";
+    }}
     
 ?>
