@@ -11,6 +11,7 @@ if(isset($_POST["submit"])) {
     var_dump($check->getExtension());
     
 }
-echo "See this";
-echo isset($_POST["submit"]);
+else{
+    echo "Not true";
+}
 ?>
