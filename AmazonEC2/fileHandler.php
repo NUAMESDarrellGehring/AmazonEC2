@@ -17,8 +17,8 @@ $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         $uploadOk = 0;
     }
     
-    if($_FILES["uploadedFile"]["size"] > 600000){
-        echo "File Is Too Large: Max Size Is 600 KB";
+    if($_FILES["uploadedFile"]["size"] > 700000){
+        echo "File Is Too Large: Max Size Is 700 KB";
         echo "<br>";
         $uploadOk = 0;
     }
