@@ -13,5 +13,6 @@ if(isset($_POST["submit"])) {
 }
 else{
     echo "Not true";
+    echo $textFileType;
 }
 ?>
