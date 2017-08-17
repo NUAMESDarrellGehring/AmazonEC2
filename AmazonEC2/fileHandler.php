@@ -15,10 +15,17 @@ $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         echo "File Type Is Invalid - Valid Types Are: .docx, .doc, or .txt";
         $uploadOk = 0;
     }
-    else{echo "file is valid"; $files = glob("uploads/");
-    foreach($files as $file){
-        if(is_file($file))
-            echo "goof";
-    }}
+    
+    if($_FILES["uploadedFile"]["size"] > 600000){
+        echo "Sorry, Your File Is Too Large: Max Size Is 600 KB";
+        $uploadOk = 0;
+    }
+    
+    if($uploadOk = 0){
+        echo "File Upload Failed";
+    }else{
+        echo "File Upload Successful";
+    }
+    
     
 ?>
