@@ -6,5 +6,14 @@ $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
 echo $textFileType;
 
-//if($textFileType ==)
+if($textFileType == "docx" || $textFileType == "doc" || $textFileType == "txt"){
+    
+    echo "Valid File Type";
+    
+}else{
+
+    echo "File Type Is Invalid";
+
+}
+   
 ?>
