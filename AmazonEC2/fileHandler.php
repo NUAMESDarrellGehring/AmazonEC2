@@ -21,7 +21,7 @@ $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         $uploadOk = 0;
     }
     
-    if($uploadOk = 0){
+    if($uploadOk == 0){
         echo "File Upload Failed";
     }else{
         echo "File Upload Successful";
