@@ -45,6 +45,20 @@ if($_FILES["uploadedFile"]["size"] > 0){
         echo "File Upload Successful";
         echo "<br>";
     }
-}    
+} 
+
+$servername = "localhost";
+$username = "root";
+$password = "skull71";
+
+$conn = new mysqli($servername, $username, $password);
+
+if ($conn->connect_error){
+    die();
+    console.log("Connection failed: " . $conn->connect_error);
+}
+
+console.log("Connected to mySQL successfully");
+
     
 ?>
