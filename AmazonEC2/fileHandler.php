@@ -45,16 +45,25 @@ if($_FILES["uploadedFile"]["size"] > 0){
         echo "File Upload Successful";
         echo "<br>";
     }
+    
+    $servername = "localhost";
+    $username = "root";
+    $password = "skull71";
+    
+    $conn = new mysqli($servername, $username, $password);
+    
+    if ($conn->connect_error){
+        die("Connection failed: " . $conn->connect_error);
+    }
+    
+    $conn->query("USE cityInfoDB");
+    $conn->query("DROP TABLE IF EXISTS cityInfo");
+    $conn->query("CREATE TABLE cityInfo()");
+    
+    
 } 
 
-$servername = "localhost";
-$username = "root";
-$password = "skull71";
 
-$conn = new mysqli($servername, $username, $password);
 
-if ($conn->connect_error){
-    die("Connection failed: " . $conn->connect_error);
-}
 
 ?>
