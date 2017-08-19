@@ -58,7 +58,13 @@ if($_FILES["uploadedFile"]["size"] > 0){
     
     $conn->query("USE cityInfoDB");
     $conn->query("DROP TABLE IF EXISTS cityInfo");
-    $conn->query("CREATE TABLE cityInfo()");
+    if($conn->query("CREATE TABLE cityInfo(
+        city char(30) NOT NULL,
+        state char(2) NOT NULL,
+        population int NOT NULL,
+        latitude decimal(10,10) NOT NULL,
+        longitude decimal(10,10) NOT NULL    
+    )")===TRUE){echo("trues");};
     
     
 } 
