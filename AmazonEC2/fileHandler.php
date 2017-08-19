@@ -60,11 +60,11 @@ if($_FILES["uploadedFile"]["size"] > 0){
     
     //work on later
     if($conn->query("LOAD DATA LOCAL INFILE ".$_FILES["uploadedFile"]['tmp_name']."
-     INTO TABLE cityInfo
+    INTO TABLE cityInfo
     FIELDS
-    TERMINATED BY '\t'
-            OPTIONALLY ENCLOSED BY '\"'
-            (city,state,population,latitude,longitude)
+        TERMINATED BY '\t'
+        OPTIONALLY ENCLOSED BY '\"'
+    (city,state,population,latitude,longitude)
     ")){echo("File Successfully Processed");}else{echo("Error:" . $conn->error );};
 } 
 
