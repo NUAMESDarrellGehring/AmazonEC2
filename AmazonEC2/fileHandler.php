@@ -67,7 +67,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
     )");
     
     //work on later
-    if($conn->query("LOAD DATA LOCAL INFILE '$target_file'" .
+    if($conn->query("LOAD DATA LOCAL INFILE 'uploadedfile'" .
     " INTO cityInfo
     FIELDS
     TERMINATED BY '\t'
