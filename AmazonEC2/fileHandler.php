@@ -58,15 +58,22 @@ if($_FILES["uploadedFile"]["size"] > 0){
     
     $conn->query("USE cityInfoDB");
     $conn->query("DROP TABLE IF EXISTS cityInfo");
-    if($conn->query("CREATE TABLE cityInfo(
+    $conn->query("CREATE TABLE cityInfo(
         city char(30) NOT NULL,
         state char(2) NOT NULL,
         population int NOT NULL,
         latitude decimal(10,10) NOT NULL,
         longitude decimal(10,10) NOT NULL    
-    )")===TRUE){echo("trues");}else{echo("false");};
+    )");
     
-    
+    //work on later
+    $conn->query("LOAD LOCAL DATA INFILE '$target_file'" .
+    " INTO cityInfo
+    FIELDS
+    TERMINATED BY '\t'
+            OPTIONALLY ENCLOSED BY \'\"\'
+            (city,state,population,latitude,longitude)
+    ");
 } 
 
 
