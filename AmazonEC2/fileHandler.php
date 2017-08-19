@@ -38,17 +38,6 @@ if($_FILES["uploadedFile"]["size"] > 0){
     if($uploadOk == 0){
         echo "File Upload Failed";
         echo "<br>";
-    }else{
-        
-        
-        
-        if(move_uploaded_file($_FILES["uploadedFile"]['tmp_name'], $target_file)) { 
-            echo "File Upload Successful";
-        } else {
-            echo "File Upload Failed!  (Source File: ".$_FILES["uploadedFile"]['tmp_name'].", Destination: ".$target_file;
-        };
-        
-        echo "<br>";
     }
     
     $servername = "localhost";
