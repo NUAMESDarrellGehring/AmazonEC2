@@ -64,7 +64,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
         population int NOT NULL,
         latitude decimal(10,10) NOT NULL,
         longitude decimal(10,10) NOT NULL    
-    )")===TRUE){echo("trues");};
+    )")===TRUE){echo("trues");}else{echo("false");};
     
     
 } 
