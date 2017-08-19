@@ -63,7 +63,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
     INTO TABLE cityInfo
     FIELDS
         TERMINATED BY '\t'
- 
+        OPTIONALLY ENCLOSED BY '\"'
     (city,state,population,latitude,longitude)
     ")){echo("File Successfully Processed");}else{echo("Error: " . $conn->error );};
 } 
