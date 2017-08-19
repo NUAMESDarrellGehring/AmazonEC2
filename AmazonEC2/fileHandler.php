@@ -11,16 +11,13 @@
 </html>
 
 <?php
-$files = glob("uploads/");
-foreach($files as $file){
-    if(is_file($file))
-       unlink($file);
-}
 
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);
 $uploadOk = 1;
 $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+echo var_export($_FILES, true);
 
 //Does the file exist? ----------------------
 if($_FILES["uploadedFile"]["size"] > 0){
@@ -32,7 +29,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
         $uploadOk = 0;
     }
 //Is it a valid file size? -------------------
-    if($_FILES["uploadedFile"]["size"] > 700000){
+    if($_FILES["uploadedFile"]["size"] > 1024 * 700){
         echo "File Is Too Large: Max Size Is 700 KB";
         echo "<br>";
         $uploadOk = 0;
@@ -42,8 +39,15 @@ if($_FILES["uploadedFile"]["size"] > 0){
         echo "File Upload Failed";
         echo "<br>";
     }else{
-        if(move_uploaded_file($_FILES["uploadedFile"], $target_file)){echo("true");}else{echo("false");};
-        echo "File Upload Successful";
+        
+        
+        
+        if(move_uploaded_file($_FILES["uploadedFile"]['tmp_name'], $target_file)) { 
+            echo "File Upload Successful";
+        } else {
+            echo "File Upload Failed!  (Source File: ".$_FILES["uploadedFile"]['tmp_name'].", Destination: ".$target_file;
+        };
+        
         echo "<br>";
     }
     
@@ -68,8 +72,8 @@ if($_FILES["uploadedFile"]["size"] > 0){
     )");
     
     //work on later
-    if($conn->query("LOAD DATA LOCAL INFILE '$target_file'" .
-    " INTO TABLE cityInfo
+    if($conn->query("LOAD DATA LOCAL INFILE ".$_FILES["uploadedFile"]['tmp_name']."
+     INTO TABLE cityInfo
     FIELDS
     TERMINATED BY '\t'
             OPTIONALLY ENCLOSED BY '\"'
