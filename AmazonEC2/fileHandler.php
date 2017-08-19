@@ -18,7 +18,7 @@ foreach($files as $file){
 }
 
 $target_dir = "uploads/";
-$target_file = $target_dir . basename(["uploadedFile"]);
+$target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);
 $uploadOk = 1;
 $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
@@ -42,7 +42,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
         echo "File Upload Failed";
         echo "<br>";
     }else{
-        move_uploaded_file(["uploadedfile"], $target_dir);
+        move_uploaded_file($_FILES["uploadedFile"]["name"], $target_dir);
         echo "File Upload Successful";
         echo "<br>";
     }
