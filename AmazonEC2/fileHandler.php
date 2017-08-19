@@ -17,8 +17,6 @@ $target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);
 $uploadOk = 1;
 $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
-echo var_export($_FILES, true);
-
 //Does the file exist? ----------------------
 if($_FILES["uploadedFile"]["size"] > 0){
 
