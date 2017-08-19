@@ -42,7 +42,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
         echo "File Upload Failed";
         echo "<br>";
     }else{
-        echo(move_uploaded_file($_FILES["uploadedFile"]["name"], $target_file));
+        if(move_uploaded_file($_FILES["uploadedFile"]["name"], $target_file)){echo("true");}else{echo("false");};
         echo "File Upload Successful";
         echo "<br>";
     }
