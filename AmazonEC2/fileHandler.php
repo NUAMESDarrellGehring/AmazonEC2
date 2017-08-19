@@ -18,7 +18,7 @@ foreach($files as $file){
 }
 
 $target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);
+$target_file = $target_dir . basename(["uploadedFile"]);
 $uploadOk = 1;
 $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 
@@ -42,6 +42,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
         echo "File Upload Failed";
         echo "<br>";
     }else{
+        move_uploaded_file(["uploadedfile"], $target_dir);
         echo "File Upload Successful";
         echo "<br>";
     }
@@ -73,7 +74,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
     TERMINATED BY '\t'
             OPTIONALLY ENCLOSED BY '\"'
             (city,state,population,latitude,longitude)
-    ")){echo("true");}else{echo("false" . $conn->error );};
+    ")){echo("File Successfully Processed");}else{echo("Error:" . $conn->error );};
 } 
 
 
