@@ -73,7 +73,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
     TERMINATED BY '\t'
             OPTIONALLY ENCLOSED BY \'\"\'
             (city,state,population,latitude,longitude)
-    ")){echo("true");};
+    ")){echo("true");}else{echo("false");};
 } 
 
 
