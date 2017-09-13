@@ -70,6 +70,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
     
     //if($conn->query)
    echo sizeof($pluginDB);
+   echo $pluginDB[0];
    echo "Test: We've reached the end of this program!";
 } 
 
