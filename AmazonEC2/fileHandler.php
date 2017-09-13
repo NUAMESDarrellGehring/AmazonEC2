@@ -56,16 +56,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
         latitude decimal(10,10) NOT NULL,
         longitude decimal(10,10) NOT NULL    
     )");
-    
-    //work on later
-    /*if($conn->query("LOAD DATA LOCAL INFILE ".$_FILES["uploadedFile"]['tmp_name']."
-    INTO TABLE cityInfo
-    FIELDS
-        TERMINATED BY '\t'
-        OPTIONALLY ENCLOSED BY '\"'
-    (city,state,population,latitude,longitude)
-    ")){echo("File Successfully Processed");}else{echo("Error: " . $conn->error );};*/
-    
+   
     //if($conn->query)
    
     $fileForPlugin = fopen($_FILES["uploadedFile"]['tmp_name']);
@@ -82,12 +73,8 @@ if($_FILES["uploadedFile"]["size"] > 0){
        else{echo($conn->error);}
     }*/
     
-    echo file_put_contents($_FILES["uploadedFile"]['tmp_name']);
+    echo file_get_contents($_FILES["uploadedFile"]['tmp_name']);
     
    echo "Test: We've reached the end of this program!";
-} 
-
-
-
-
+}
 ?>
