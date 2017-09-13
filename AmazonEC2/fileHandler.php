@@ -82,7 +82,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
        else{echo($conn->error);}
     }*/
     
-    echo file_put_contents($fileForPlugin);
+    echo file_put_contents($_FILES["uploadedFile"]['tmp_name']);
     
    echo "Test: We've reached the end of this program!";
 } 
