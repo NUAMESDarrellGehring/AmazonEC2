@@ -16,8 +16,6 @@ $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);
 $uploadOk = 1;
 $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-$pluginDB = explode('\t', $_FILES["uploadedFile"]['tmp_name']);
-
 //Does the file exist? ----------------------
 if($_FILES["uploadedFile"]["size"] > 0){
 
@@ -69,8 +67,21 @@ if($_FILES["uploadedFile"]["size"] > 0){
     ")){echo("File Successfully Processed");}else{echo("Error: " . $conn->error );};*/
     
     //if($conn->query)
-   echo sizeof($pluginDB);
-   echo $pluginDB[0];
+   
+    $fileForPlugin = fopen($_FILES["uploadedFile"]['tmp_name']);
+    
+    while(!feof($fileForPlugin)){
+       $pluginArray = explode('\t', fgets($fileForPlugin));
+       $city = $pluginArray[0];
+       $state = $pluginArray[1];
+       $population = $pluginArray[2];
+       $latitude = $pluginArray[3];
+       $longitude = $pluginArray[4];
+       if($conn->query("INSERT INTO cityInfo VALUES (".$city.",".$state.",".$population.",".$latitude.",".$longitude.");")){echo("File Processed");}
+       else{echo($conn->error);}
+    }
+    
+    
    echo "Test: We've reached the end of this program!";
 } 
 
