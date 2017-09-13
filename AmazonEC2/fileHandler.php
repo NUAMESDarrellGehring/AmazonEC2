@@ -82,7 +82,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
        else{echo($conn->error);}
     }*/
     
-    echo fgetc($fileForPlugin);
+    echo file_put_contents($fileForPlugin);
     
    echo "Test: We've reached the end of this program!";
 } 
