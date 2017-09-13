@@ -82,9 +82,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
        else{echo($conn->error);}
     }*/
     
-    $pluginArray = explode('\t', fgets($fileForPlugin));
-    $city = $pluginArray[0];
-    echo $city;
+    echo fgetc($fileForPlugin);
     
    echo "Test: We've reached the end of this program!";
 } 
