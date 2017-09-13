@@ -77,8 +77,9 @@ if($_FILES["uploadedFile"]["size"] > 0){
        $population = $pluginArray[2];
        $latitude = $pluginArray[3];
        $longitude = $pluginArray[4];
-       if($conn->query("INSERT INTO cityInfo VALUES (".$city.",".$state.",".$population.",".$latitude.",".$longitude.");")){echo("File Processed");}
-       else{echo($conn->error);}
+       echo $city;
+       //if($conn->query("INSERT INTO cityInfo VALUES (".$city.",".$state.",".$population.",".$latitude.",".$longitude.");")){echo("File Processed");}
+       //else{echo($conn->error);}
     }
     
     
