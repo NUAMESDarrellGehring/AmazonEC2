@@ -69,7 +69,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
     ")){echo("File Successfully Processed");}else{echo("Error: " . $conn->error );};*/
     
     //if($conn->query)
-   // echo $pluginDB[3];
+   echo "There should be a word or number here: ".$pluginDB[3];
    echo "Test: We've reached the end of this program!";
 } 
 
