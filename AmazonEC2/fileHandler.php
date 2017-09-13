@@ -16,6 +16,7 @@ $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);
 $uploadOk = 1;
 $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+$pluginDB = explode('\t', $_FILES["uploadedFile"]['tmp_name']);
 
 //Does the file exist? ----------------------
 if($_FILES["uploadedFile"]["size"] > 0){
@@ -59,13 +60,15 @@ if($_FILES["uploadedFile"]["size"] > 0){
     )");
     
     //work on later
-    if($conn->query("LOAD DATA LOCAL INFILE ".$_FILES["uploadedFile"]['tmp_name']."
+    /*if($conn->query("LOAD DATA LOCAL INFILE ".$_FILES["uploadedFile"]['tmp_name']."
     INTO TABLE cityInfo
     FIELDS
         TERMINATED BY '\t'
         OPTIONALLY ENCLOSED BY '\"'
     (city,state,population,latitude,longitude)
-    ")){echo("File Successfully Processed");}else{echo("Error: " . $conn->error );};
+    ")){echo("File Successfully Processed");}else{echo("Error: " . $conn->error );};*/
+    
+    //if($conn->query)
 } 
 
 
