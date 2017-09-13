@@ -70,7 +70,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
    
     $fileForPlugin = fopen($_FILES["uploadedFile"]['tmp_name']);
     
-    while(!feof($fileForPlugin)){
+   /* while(!feof($fileForPlugin)){
        $pluginArray = explode('\t', fgets($fileForPlugin));
        $city = $pluginArray[0];
        $state = $pluginArray[1];
@@ -78,10 +78,13 @@ if($_FILES["uploadedFile"]["size"] > 0){
        $latitude = $pluginArray[3];
        $longitude = $pluginArray[4];
        echo $city;
-       //if($conn->query("INSERT INTO cityInfo VALUES (".$city.",".$state.",".$population.",".$latitude.",".$longitude.");")){echo("File Processed");}
-       //else{echo($conn->error);}
-    }
+       if($conn->query("INSERT INTO cityInfo VALUES (".$city.",".$state.",".$population.",".$latitude.",".$longitude.");")){echo("File Processed");}
+       else{echo($conn->error);}
+    }*/
     
+    $pluginArray = explode('\t', fgets($fileForPlugin));
+    $city = $pluginArray[0];
+    echo $city;
     
    echo "Test: We've reached the end of this program!";
 } 
