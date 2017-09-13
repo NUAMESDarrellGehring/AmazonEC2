@@ -70,7 +70,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
        if($conn->query("INSERT INTO cityInfo VALUES ('".$city."','".$state."','".$population."','".$latitude."','".$longitude."');")){}
        else{echo($conn->error);}
     }
-
+    $fclose($fileForPlugin);
    echo "Test: We've reached the end of this program!";
 }
 ?>
