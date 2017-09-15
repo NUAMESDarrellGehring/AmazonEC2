@@ -59,16 +59,20 @@ if($_FILES["uploadedFile"]["size"] > 0){
       
     $fileForPlugin = fopen($_FILES["uploadedFile"]['tmp_name']);
     
-    while(!feof($fileForPlugin)){
-       $pluginArray = explode('\t', fgets($fileForPlugin));
-       $city = $pluginArray[0];
-       $state = $pluginArray[1];
-       $population = $pluginArray[2];
-       $latitude = $pluginArray[3];
-       $longitude = $pluginArray[4];
+    $cnt = 0;
+    while(($lineOfData = fgetcsv($fileFor, 2048, "\t")) !== false) {
+        if($cnt < 10) {
+            echo "Line[".$i."]: ".var_export($lineOfData, false)."\n<br>"; 
+        }
+        $city = $lineOfData[0];
+        $state = $lineOfData[1];
+        $population = $lineOfData[2];
+        $latitude = $lineOfData[3];
+       $longitude = $lineOfData[4];
        echo $city;
        if($conn->query("INSERT INTO cityInfo VALUES ('".$city."','".$state."','".$population."','".$latitude."','".$longitude."');")){}
        else{echo($conn->error);}
+       $cnt++;
     }
     $fclose($fileForPlugin);
    echo "Test: We've reached the end of this program!";
