@@ -20,7 +20,7 @@ if(isset($_FILES["uploadedFile"]["error"])) {
         8 => 'A PHP extension stopped the file upload.'
     );
     
-    debug(var_export($phpFileUploadErrors, true));
+    //debug(var_export($phpFileUploadErrors, true));
     
     try {
         throw new Exception("File Upload Error: ".$phpFileUploadErrors[$_FILES["uploadedFile"]["error"]]);
