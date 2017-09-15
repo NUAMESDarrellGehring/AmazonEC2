@@ -25,7 +25,9 @@ if(isset($_FILES["uploadedFile"]["error"])) {
     try {
         throw new Exception("File Upload Error: ".$phpFileUploadErrors[$_FILES["uploadedFile"]["error"]]);
     } catch(Exception $ex) {
-        debug("ERROR[".$_FILES["uploadedFile"]["error"]."]: ".$ex->getMessage());
+        $tmp_dir = ini_get('upload_tmp_dir') ? ini_get('upload_tmp_dir') : sys_get_temp_dir();
+        
+        debug("ERROR[".$_FILES["uploadedFile"]["error"]."] (".$tmp_dir.") ".$ex->getMessage());
         exit;
     }
 }
