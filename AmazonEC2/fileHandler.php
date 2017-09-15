@@ -6,7 +6,7 @@ function debug($str) {
     }
 }
 
-debug("Start Of Process");
+debug("Start Of Process: ".var_export($_FILES, false));
 
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);
