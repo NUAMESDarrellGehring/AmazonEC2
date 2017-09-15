@@ -6,7 +6,7 @@ function debug($str) {
     }
 }
 
-debug("Start Of Process: ".var_export($_FILES, false));
+debug("Start Of Process: ".var_export($_FILES, true));
 
 if(isset($_FILES["uploadedFile"]["error"])) {
     $phpFileUploadErrors = array(
@@ -21,7 +21,7 @@ if(isset($_FILES["uploadedFile"]["error"])) {
     );
     
     try {
-        throw new Exception("File Upload Error: ".$$phpFileUploadErrors[$_FILES["uploadedFile"]["error"]]);
+        throw new Exception("File Upload Error: ".$phpFileUploadErrors[$_FILES["uploadedFile"]["error"]]);
     } catch(Exception $ex) {
         debug("ERROR[".$_FILES["uploadedFile"]["error"]."]: ".$ex->getMessage());
         exit;
