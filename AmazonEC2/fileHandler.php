@@ -8,6 +8,20 @@ function debug($str) {
 
 debug("Start Of Process: ".var_export($_FILES, false));
 
+if(isset($_FILES["uploadedFile"]["error"])) {
+    switch($_FILES["uploadedFile"]["error"]) {
+        case UPLOAD_ERR_OK:
+            break;
+        case UPLOAD_ERR_NO_FILE:
+            throw new RuntimeException('No file sent.');
+        case UPLOAD_ERR_INI_SIZE:
+        case UPLOAD_ERR_FORM_SIZE:
+            throw new RuntimeException('Exceeded filesize limit.');
+        default:
+            throw new RuntimeException('Unknown errors.');
+    }
+}
+
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);
 $uploadOk = 1;
