@@ -9,20 +9,21 @@ function debug($str) {
 debug("Start Of Process: ".var_export($_FILES, false));
 
 if(isset($_FILES["uploadedFile"]["error"])) {
+    $phpFileUploadErrors = array(
+        0 => 'There is no error, the file uploaded with success',
+        1 => 'The uploaded file exceeds the upload_max_filesize directive in php.ini',
+        2 => 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form',
+        3 => 'The uploaded file was only partially uploaded',
+        4 => 'No file was uploaded',
+        6 => 'Missing a temporary folder',
+        7 => 'Failed to write file to disk.',
+        8 => 'A PHP extension stopped the file upload.',
+    );
+    
     try {
-        switch($_FILES["uploadedFile"]["error"]) {
-            case UPLOAD_ERR_OK:
-                break;
-            case UPLOAD_ERR_NO_FILE:
-                throw new RuntimeException('No file sent.');
-            case UPLOAD_ERR_INI_SIZE:
-            case UPLOAD_ERR_FORM_SIZE:
-                throw new RuntimeException('Exceeded filesize limit.');
-            default:
-                throw new RuntimeException('Unknown errors.');
-        }
+        throw new Exception("File Upload Error: ".$$phpFileUploadErrors[$_FILES["uploadedFile"]["error"]]);
     } catch(Exception $ex) {
-        debug("ERROR!: ".$ex->getMessage());
+        debug("ERROR[".$_FILES["uploadedFile"]["error"]."]: ".$ex->getMessage());
         exit;
     }
 }
@@ -113,7 +114,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
 <html>
 	<body>
 			Input File:
-		<form method="post" enctype="multipart/form-data">
+		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
 			<br>
 			<input type="file" name="uploadedFile" id="uploadedFile">
