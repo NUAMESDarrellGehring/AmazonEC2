@@ -21,7 +21,7 @@ if(isset($_FILES["uploadedFile"]["error"])) {
     );
     
     //debug(var_export($phpFileUploadErrors, true));
-    
+    //test
     try {
         throw new Exception("File Upload Error: ".$phpFileUploadErrors[$_FILES["uploadedFile"]["error"]]);
     } catch(Exception $ex) {
