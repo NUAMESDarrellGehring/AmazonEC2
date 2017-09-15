@@ -2,6 +2,7 @@
 	<body>
 			Input File:
 		<form action="fileHandler.php" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="debug" value="1">
 			<br>
 			<input type="file" name="uploadedFile" id="uploadedFile">
 			<br>
@@ -13,7 +14,7 @@
 <?php
 
 function debug($str) {
-    if(isset($_REQUEST['debug'])) {
+    if(isset($_REQUEST['debug']) && $_REQUEST['debug'] == "1") {
         echo $str."\n<br>";
     }
 }
