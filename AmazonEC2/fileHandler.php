@@ -94,7 +94,7 @@ if($_FILES["uploadedFile"]["size"] > 0){
 <html>
 	<body>
 			Input File:
-		<form action="." method="post" enctype="multipart/form-data">
+		<form method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
 			<br>
 			<input type="file" name="uploadedFile" id="uploadedFile">
