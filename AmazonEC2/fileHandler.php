@@ -75,10 +75,9 @@ $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
            $cnt++;
         }
         $fclose($fileForPlugin);
-       echo "Test: We've reached the end of this program!";
+       echo "Test: We've reached the end of this program!!!";
     }
 ?>
-
 <html>
 	<body>
 			Input File:
