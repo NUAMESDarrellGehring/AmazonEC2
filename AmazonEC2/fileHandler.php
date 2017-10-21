@@ -58,9 +58,7 @@ $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         
         $cnt = 0;
         while(($lineOfData = fgetcsv($fileFor, 2048, "\t")) !== false) {
-            
-           debug("Processing Line [".$i."]: ".var_export($lineOfData, false));
-            
+                        
            if($cnt < 10) {
                 echo "Line[".$i."]: ".var_export($lineOfData, false)."\n<br>"; 
             } else exit;
