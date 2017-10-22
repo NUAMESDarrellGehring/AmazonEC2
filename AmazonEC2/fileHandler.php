@@ -15,7 +15,7 @@ if($_FILES["uploadedFile"]["size"] == 0){
 }
 
 //Is it a valid file type? -------------------
-if($fileExtension != "csv"){
+if($fileExtension != "txt"){
     echo "File Type Is Invalid - Valid Types Are: .csv";
     echo "<br>";
     $uploadOk = 0;
