@@ -1,30 +1,32 @@
 <?php
 
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);
+//$target_dir = "uploads/";
+//$target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);
 $uploadOk = 1;
-$textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+//$textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+$fileExtension = pathinfo($_FILES["uploadedFile"]["name"],PATHINFO_EXTENSION);
 
 //Does the file exist? ----------------------
-    if($_FILES["uploadedFile"]["size"] == 0){
-        echo "File Does Not Exist";
-        echo "<br>";
-        $uploadOk = 0;
-    }
-    
+if($_FILES["uploadedFile"]["size"] == 0){
+    echo "File Does Not Exist";
+    echo "<br>";
+    $uploadOk = 0;
+}
+
 //Is it a valid file type? -------------------
-    if($textFileType != "docx" && $textFileType != "doc" && $textFileType != "txt"){
-        echo "File Type Is Invalid - Valid Types Are: .docx, .doc, or .txt";
-        echo "<br>";
-        $uploadOk = 0;
-    }
+if($textFileType != "csv"){
+    echo "File Type Is Invalid - Valid Types Are: .csv";
+    echo "<br>";
+    $uploadOk = 0;
+}
         
 //Is it a valid file size? -------------------
-    if($_FILES["uploadedFile"]["size"] > 1024 * 700){
-        echo "File Is Too Large: Max Size Is 700 KB";
-        echo "<br>";
-        $uploadOk = 0;
-    }
+if($_FILES["uploadedFile"]["size"] > 1024 * 700){
+    echo "File Is Too Large: Max Size Is 700 KB";
+    echo "<br>";
+    $uploadOk = 0;
+}
         
 //Does it check any errors? ------------------    
     if($uploadOk == 0){
@@ -54,26 +56,47 @@ $textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
             longitude decimal(10,10) NOT NULL    
         )");
           
-        $fileForPlugin = fopen($_FILES["uploadedFile"]['tmp_name']);
+        $fileForPlugin = null;
+        try {
+            $fileForPlugin = fopen($_FILES["uploadedFile"]['tmp_name']);
         
-        $cnt = 0;
-        while(($lineOfData = fgetcsv($fileFor, 2048, "\t")) !== false) {
-                        
-           if($cnt < 10) {
-                echo "Line[".$i."]: ".var_export($lineOfData, false)."\n<br>"; 
-            } else exit;
-            $city = $lineOfData[0];
-            $state = $lineOfData[1];
-            $population = $lineOfData[2];
-            $latitude = $lineOfData[3];
-           $longitude = $lineOfData[4];
-           echo $city;
-           if($conn->query("INSERT INTO cityInfo VALUES ('".$city."','".$state."','".$population."','".$latitude."','".$longitude."');")){}
-           else{echo($conn->error);}
-           $cnt++;
+        
+            if($fileForPlugin === false) {
+                throw new Exception("Failed to open uploaded file for reading (".$_FILES["uploadedFile"]['tmp_name'].")");
+            }
+            
+            $cnt = 0;
+            while(($lineOfData = fgetcsv($fileForPlugin, 2048, "\t")) !== false) {
+                            
+                if($cnt > 10) {
+                 exit;
+                }
+                
+                echo "Line[".($cnt + 1)."]: ".var_export($lineOfData, false)."\n<br>";
+                
+                $city = $lineOfData[0];
+                $state = $lineOfData[1];
+                $population = $lineOfData[2];
+                $latitude = $lineOfData[3];
+               $longitude = $lineOfData[4];
+               echo $city;
+               if($conn->query("INSERT INTO cityInfo VALUES ('".$city."','".$state."','".$population."','".$latitude."','".$longitude."');")) {
+                   
+               } else {
+                    echo($conn->error);
+                    exit;
+               }
+               $cnt++;
+            }
+        } catch(Exception $ex) {
+            throw $ex;    
+        } finally {
+            try {
+                fclose($fileForPlugin);
+            } catch(Exception $ex2) { }
         }
-        $fclose($fileForPlugin);
-       echo "Test: We've reached the end of this program!!!";
+        
+        echo "Test: We've reached the end of this program!!!";
     }
 ?>
 <html>
