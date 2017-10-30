@@ -113,7 +113,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
         }
         
         //About to do math on data just recieved
-        $conn.query("")
+       // $conn.query("")
         
         debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
     }
