@@ -101,8 +101,8 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
                    } else {
                        throw new Exception("Query Failed (".$sql."): ".$conn->error);
                    }
-                   $cnt++;
                 }
+                $cnt++;
             }
         } catch(Exception $ex) {
             throw $ex;    
