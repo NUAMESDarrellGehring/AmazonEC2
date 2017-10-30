@@ -80,29 +80,29 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             }
             
             while(($lineOfData = fgetcsv($fileForPlugin, 2048, "\t")) !== false) {
-                            
-                if($updateCnt !== -1 && $cnt > $updateCnt) {
-                    debugLog("Max Updates Hit.  Exiting.");
-                    exit;
+                if($cnt!=0){          
+                    if($updateCnt !== -1 && $cnt > $updateCnt) {
+                        debugLog("Max Updates Hit.  Exiting.");
+                        exit;
+                    }
+                    
+                    debugLog("Line[".($cnt + 1)."]: ".var_export($lineOfData, false));
+                    
+                    $city = $conn->real_escape_string($lineOfData[0]);
+                    $state = $conn->real_escape_string($lineOfData[1]);
+                    $population = $conn->real_escape_string($lineOfData[2]);
+                    $latitude = $conn->real_escape_string($lineOfData[3]);
+                    $longitude = $conn->real_escape_string($lineOfData[4]);
+                   
+                   $sql = "INSERT INTO cityInfo VALUES ('".$city."','".$state."','".$population."','".$latitude."','".$longitude."')";
+                   
+                   if($conn->query($sql)) {
+                       debugLog("Line[".($cnt + 1)."]: ('".$sql."') Data Inserted Into DB.");
+                   } else {
+                       throw new Exception("Query Failed (".$sql."): ".$conn->error);
+                   }
+                   $cnt++;
                 }
-                
-                debugLog("Line[".($cnt + 1)."]: ".var_export($lineOfData, false));
-                
-                $city = $conn->real_escape_string($lineOfData[0]);
-                $state = $conn->real_escape_string($lineOfData[1]);
-                $population = $conn->real_escape_string($lineOfData[2]);
-                $latitude = $conn->real_escape_string($lineOfData[3]);
-                $longitude = $conn->real_escape_string($lineOfData[4]);
-               echo $city;
-               
-               $sql = "INSERT INTO cityInfo VALUES ('".$city."','".$state."','".$population."','".$latitude."','".$longitude."')";
-               
-               if($conn->query($sql)) {
-                   debugLog("Line[".($cnt + 1)."]: ('".$sql."') Data Inserted Into DB.");
-               } else {
-                   throw new Exception("Query Failed (".$sql."): ".$conn->error);
-               }
-               $cnt++;
             }
         } catch(Exception $ex) {
             throw $ex;    
