@@ -121,22 +121,19 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
 
 <html>
 	<body>
-		<script> getLocation(); </script>
-			Input File:
-		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="debug" value="1">
-			<br>
-			<input type="file" name="uploadedFile" id="uploadedFile">
-			<br>
-			<input type ="submit" name="submitStatus" value="Submit">
-			<br>
-			Max Inserts: <input type="text" value="10" name="updateCnt">
-			<br>
-			Debug: 
-			<select type="select" name="debug">
-				<option value="1">Yes</option>
-				<option value="0" selected>No</option>
-			</select>
-		</form>
+		 <script>
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script> 
 	</body>
 </html>
