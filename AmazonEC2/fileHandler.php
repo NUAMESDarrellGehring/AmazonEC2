@@ -60,8 +60,8 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             city char(30) NOT NULL,
             state char(2) NOT NULL,
             population int NOT NULL,
-            latitude decimal(10,10) NOT NULL,
-            longitude decimal(10,10) NOT NULL    
+            latitude decimal(10,8) NOT NULL,
+            longitude decimal(11,8) NOT NULL    
         )");
           
         $fileForPlugin = null;
