@@ -88,11 +88,11 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
                 
                 debugLog("Line[".($cnt + 1)."]: ".var_export($lineOfData, false));
                 
-                $city = PDO::quote($lineOfData[0]);
-                $state = PDO::quote($lineOfData[1]);
-                $population = PDO::quote($lineOfData[2]);
-                $latitude = PDO::quote($lineOfData[3]);
-                $longitude = PDO::quote($lineOfData[4]);
+                $city = mysqli::real_escape_string($lineOfData[0]);
+                $state = mysqli::real_escape_string($lineOfData[1]);
+                $population = mysqli::real_escape_string($lineOfData[2]);
+                $latitude = mysqli::real_escape_string($lineOfData[3]);
+                $longitude = mysqli::real_escape_string($lineOfData[4]);
                echo $city;
                
                $sql = "INSERT INTO cityInfo VALUES ('".$city."','".$state."','".$population."','".$latitude."','".$longitude."')";
