@@ -24,7 +24,7 @@ if($_FILES["uploadedFile"]["size"] == 0){
 
 //Is it a valid file type? -------------------
 if($fileExtension != "txt"){
-    echo "File Type Is Invalid - Valid Types Are: .csv";
+    echo "File Type Is Invalid - Valid Types Are: .txt";
     echo "<br>";
     $uploadOk = 0;
 }
@@ -80,7 +80,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             }
             
             while(($lineOfData = fgetcsv($fileForPlugin, 2048, "\t")) !== false) {
-                if($cnt!=0){          
+                if($cnt!=0){          // Count goes by one; this line will skip the definition line in the file
                     if($updateCnt !== -1 && $cnt > $updateCnt) {
                         debugLog("Max Updates Hit.  Exiting.");
                         exit;
@@ -108,18 +108,21 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             throw $ex;    
         } finally {
             try {
-                @fclose($fileForPlugin);
-            } catch(Exception $ex2) { }
+                @fclose($fileForPlugin); // Will attempt to close the file for plugin
+            } catch(Exception $ex2) { } // Will catch any errors that begin when file is attemptedly closed
         }
         
-        debugLog("Test: We've reached the end of this program!!!");
-
+        //About to do math on data just recieved
+        $conn.query("")
+        
+        debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
     }
 ?>
+
 <html>
 	<body>
 			Input File:
-		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" onsubmit="getLocation()" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
 			<br>
 			<input type="file" name="uploadedFile" id="uploadedFile">
@@ -133,6 +136,15 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
 				<option value="1">Yes</option>
 				<option value="0" selected>No</option>
 			</select>
+			<script>
+				function getLocation(){
+					if(navigator.geolocation){
+						navigator.geolocation.getCurrentPosition(showPosition);
+					}else{
+						x.innerHTML = "Geolocation not supported by this browser";
+					}	
+				}
+			</script>
 		</form>
 	</body>
 </html>
