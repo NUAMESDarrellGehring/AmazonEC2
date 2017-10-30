@@ -121,9 +121,18 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
 
 <html>
 	<body>
-		<script> if(navigator.geolocation){
-				navigator.geolocation.getCurrentPosition(showPosition);
-				console.log(position.coords.longitude);} </script>
+		<script> var x = document.getElementById("demo");
+		function getLocation() {
+		    if (navigator.geolocation) {
+		        navigator.geolocation.getCurrentPosition(showPosition);
+		    } else {
+		        x.innerHTML = "Geolocation is not supported by this browser.";
+		    }
+		}
+		function showPosition(position) {
+		    x.innerHTML = "Latitude: " + position.coords.latitude +
+		    "<br>Longitude: " + position.coords.longitude;
+		} </script>
 			Input File:
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
