@@ -132,7 +132,9 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
 		function showPosition(position) {
 		    x.innerHTML = "Latitude: " + position.coords.latitude +
 		    "<br>Longitude: " + position.coords.longitude;
-		} </script>
+		} 
+		getLocation();
+		</script>
 			Input File:
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
