@@ -98,7 +98,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
                $sql = "INSERT INTO cityInfo VALUES ('".$city."','".$state."','".$population."','".$latitude."','".$longitude."')";
                
                if($conn->query($sql)) {
-                   debugLog("Line[".($cnt + 1)."]: Data Inserted Into DB.");
+                   debugLog("Line[".($cnt + 1)."]: ('".$sql."') Data Inserted Into DB.");
                } else {
                    throw new Exception("Query Failed (".$sql."): ".$conn->error);
                }
