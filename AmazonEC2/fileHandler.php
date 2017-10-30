@@ -74,13 +74,19 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             }
             
             $cnt = 0;
+            $updateCnt = -1;
+            if(isset($_REQUEST['updateCnt']) && $_REQUEST['updateCnt'] > 0) {
+                $updateCnt = $_REQUEST['updateCnt'];
+            }
+            
             while(($lineOfData = fgetcsv($fileForPlugin, 2048, "\t")) !== false) {
                             
-                if($cnt > 10) {
-                 exit;
+                if($updateCnt !== -1 && $cnt > $updateCnt) {
+                    debugLog("Max Updates Hit.  Exiting.");
+                    exit;
                 }
                 
-                echo "Line[".($cnt + 1)."]: ".var_export($lineOfData, false)."\n<br>";
+                debugLog("Line[".($cnt + 1)."]: ".var_export($lineOfData, false));
                 
                 $city = $lineOfData[0];
                 $state = $lineOfData[1];
@@ -88,11 +94,13 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
                 $latitude = $lineOfData[3];
                $longitude = $lineOfData[4];
                echo $city;
-               if($conn->query("INSERT INTO cityInfo VALUES ('".$city."','".$state."','".$population."','".$latitude."','".$longitude."');")) {
-                   
+               
+               $sql = "INSERT INTO cityInfo VALUES ('".$city."','".$state."','".$population."','".$latitude."','".$longitude."')";
+               
+               if($conn->query($sql)) {
+                   debugLog("Line[".($cnt + 1)."]: Data Inserted Into DB.");
                } else {
-                    echo($conn->error);
-                    exit;
+                   throw new Exception("Query Failed (".$sql."): ".$conn->error);
                }
                $cnt++;
             }
@@ -104,7 +112,8 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             } catch(Exception $ex2) { }
         }
         
-        echo "Test: We've reached the end of this program!!!";
+        debugLog("Test: We've reached the end of this program!!!");
+
     }
 ?>
 <html>
@@ -116,6 +125,8 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
 			<input type="file" name="uploadedFile" id="uploadedFile">
 			<br>
 			<input type ="submit" name="submitStatus" value="Submit">
+			<br>
+			Max Inserts: <input type="text" value="10" name="updateCnt">
 			<br>
 			Debug: 
 			<select type="select" name="debug">
