@@ -1,11 +1,19 @@
 <?php
 
+function debugLog($str) {
+    if(isset($_REQUEST['debug']) && $_REQUEST['debug'] == "1") {
+        echo $str."<br>\n";
+    }
+}
+
 //$target_dir = "uploads/";
 //$target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);
 $uploadOk = 1;
 
 //$textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 $fileExtension = pathinfo($_FILES["uploadedFile"]["name"],PATHINFO_EXTENSION);
+
+debugLog("Received File: ".var_export($_FILES, true));
 
 //Does the file exist? ----------------------
 if($_FILES["uploadedFile"]["size"] == 0){
@@ -108,6 +116,12 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
 			<input type="file" name="uploadedFile" id="uploadedFile">
 			<br>
 			<input type ="submit" name="submitStatus" value="Submit">
+			<br>
+			Debug: 
+			<select type="select" name="debug">
+				<option value="1">Yes</option>
+				<option value="0" selected>No</option>
+			</select>
 		</form>
 	</body>
 </html>
