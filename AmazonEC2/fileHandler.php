@@ -66,7 +66,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
           
         $fileForPlugin = null;
         try {
-            $fileForPlugin = fopen($_FILES["uploadedFile"]['tmp_name']);
+            $fileForPlugin = @fopen($_FILES["uploadedFile"]['tmp_name'], "r");
         
         
             if($fileForPlugin === false) {
@@ -100,7 +100,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             throw $ex;    
         } finally {
             try {
-                fclose($fileForPlugin);
+                @fclose($fileForPlugin);
             } catch(Exception $ex2) { }
         }
         
