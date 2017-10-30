@@ -121,7 +121,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
 
 <html>
 	<body>
-		<script> getLocation(); </script>
+		<script> if(navigator.geolocation){console.log("true");} </script>
 			Input File:
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
