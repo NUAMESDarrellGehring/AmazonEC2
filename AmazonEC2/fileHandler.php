@@ -112,8 +112,13 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             } catch(Exception $ex2) { } // Will catch any errors that begin when file is attemptedly closed
         }
         
-        //About to do math on data just recieved
-       // $conn.query("")
+        $userLng = $_REQUEST['userLng'];
+        echo($userLng);
+        
+        $userLat = $_REQUEST['userLat'];
+        echo($userLat);
+        
+        
         
         debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
     }
@@ -150,6 +155,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
 				<option value="1">Yes</option>
 				<option value="0" selected>No</option>
 			</select>
+			<br>
 			Longitude: <input type="text" value="000.0000000" name="userLng">
 			<br>
 			Latitude: <input type="text" value="000.0000000" name="userLat">
