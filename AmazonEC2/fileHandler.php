@@ -150,6 +150,11 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
 				<option value="1">Yes</option>
 				<option value="0" selected>No</option>
 			</select>
+			Longitude: <input type="text" value="000.0000000" name="userLng">
+			<br>
+			Latitude: <input type="text" value="000.0000000" name="userLat">
+			<br>
+			
 		</form>
 	</body>
 </html>
