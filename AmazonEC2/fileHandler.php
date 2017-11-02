@@ -114,7 +114,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
 }        
         $userLocation = $_REQUEST['userLocation'];
         
-            if(isset($userLocation)){
+            if(isset($_REQUEST['userLocation'])){
                 function geoCodeAddress($addressStr)
                 {
                     $url = "http://maps.google.com/maps/api/geocode/json?address=".urlencode($addressStr)."&sensor=false&region=US";
