@@ -145,14 +145,14 @@ debugLog("Test: We've reached the end of this program!!!"); //Signals end of pro
 
 <html>
 	<body>
-			<br>
-			Input File:
+		<br>
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
-
 			Your Location: <input type="text" name="userLocation">
 			<br><br>
-			------- Debug Section -------
+			------- Debug/File Update Section -------
+			<br>
+			Input File:
 			<br>
 			<input type="file" name="uploadedFile" id="uploadedFile">
 			<br>
