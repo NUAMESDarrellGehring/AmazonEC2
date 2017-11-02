@@ -149,11 +149,13 @@ debugLog("Test: We've reached the end of this program!!!"); //Signals end of pro
 			Input File:
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
-			<input type="file" name="uploadedFile" id="uploadedFile" value="Choose Location File">
+			<input type="file" name="uploadedFile" id="uploadedFile">
 			<br>
 			Your Location: <input type="text" name="userLocation">
 			<br><br>
 			------- Debug Section -------
+			<br>
+			<input type="file" name="uploadedFile" id="uploadedFile">
 			<br>
 			Max Inserts: <input type="text" value="10" name="updateCnt">
 			<br>
