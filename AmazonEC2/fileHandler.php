@@ -133,8 +133,8 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             } else throw new Exception("Unable to GEO code address (".$addressStr.")");
         }
         
-        echo(geoCodeAddress($userLocation)[0]);
-        echo(geoCodeAddress($userLocation)[1]);
+        echo("Longitude of user is: " + geoCodeAddress($userLocation)[0]);
+        echo("Latitude of user is: " + geoCodeAddress($userLocation)[1]);
         
         debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
     }
