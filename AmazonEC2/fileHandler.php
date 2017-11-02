@@ -110,8 +110,8 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
                 @fclose($fileForPlugin); // Will attempt to close the file for plugin
             } catch(Exception $ex2) { } // Will catch any errors that begin when file is attemptedly closed
         }
-}
-        
+    }
+}        
         $userLocation = $_REQUEST['userLocation'];
         
             if(isset($userLocation)){
@@ -140,7 +140,6 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             }
             
         debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
-    }
 ?>
 
 
