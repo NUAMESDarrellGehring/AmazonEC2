@@ -136,8 +136,10 @@ $userLocation = $_REQUEST['userLocation'];
 if(isset($_REQUEST['userLocation'])){
                     
     $stuff =  geoCodeAddress($userLocation);
-    echo("Longitude of user is: ". $stuff[0]);
-    echo("Latitude of user is: ". $stuff[1]);
+    echo "Longitude of user is: ". $stuff[0];
+    echo "<br>";
+    echo "Latitude of user is: ". $stuff[1];
+    echo "<br>";
 }
     
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
