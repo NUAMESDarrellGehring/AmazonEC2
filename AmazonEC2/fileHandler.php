@@ -152,12 +152,11 @@ debugLog("Test: We've reached the end of this program!!!"); //Signals end of pro
 			<br><br>
 			------- Debug/File Update Section -------
 			<br>
-			Input File:
-			<br>
+			Input File: 
 			<input type="file" name="uploadedFile" id="uploadedFile">
-			<br>
+			<br><br>
 			Max Inserts: <input type="text" value="10" name="updateCnt">
-			<br>
+			<br><br>
 			Debug: 
 			<select type="select" name="debug">
 				<option value="1">Yes</option>
