@@ -97,11 +97,8 @@ function debugLog($str) {
     }
 }
 
-//$target_dir = "uploads/";
-//$target_file = $target_dir . basename($_FILES["uploadedFile"]["name"]);
 $uploadOk = 1;
 
-//$textFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 $fileExtension = pathinfo($_FILES["uploadedFile"]["name"],PATHINFO_EXTENSION);
 
 debugLog("Received File: ".var_export($_FILES, true));
@@ -135,10 +132,10 @@ $userLocation = $_REQUEST['userLocation'];
         
 if(isset($_REQUEST['userLocation'])){
                     
-    $stuff =  geoCodeAddress($userLocation);
-    echo "Longitude of user is: ". $stuff[0];
+    $userCoords =  geoCodeAddress($userLocation);
+    echo "Longitude of user is: ". $userCoords[0];
     echo "<br>";
-    echo "Latitude of user is: ". $stuff[1];
+    echo "Latitude of user is: ". $userCoords[1];
     echo "<br>";
 }
     
@@ -151,12 +148,13 @@ debugLog("Test: We've reached the end of this program!!!"); //Signals end of pro
 			Input File:
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
-			<br>
-			<input type="file" name="uploadedFile" id="uploadedFile">
+			<input type="file" name="uploadedFile" id="uploadedFile" value="Choose Location File">
 			<br>
 			<input type ="submit" name="submitStatus" value="Submit">
 			<br>
-			Address: <input type="text" name="userLocation">
+			Your Location: <input type="text" name="userLocation">
+			<br>
+			------- Debug Section -------
 			<br>
 			Max Inserts: <input type="text" value="10" name="updateCnt">
 			<br>
