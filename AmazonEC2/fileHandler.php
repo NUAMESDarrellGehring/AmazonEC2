@@ -154,9 +154,9 @@ debugLog("Test: We've reached the end of this program!!!"); //Signals end of pro
 			<br>
 			Input File: 
 			<input type="file" name="uploadedFile" id="uploadedFile">
-			<br><br>
+			<br>
 			Max Inserts: <input type="text" value="10" name="updateCnt">
-			<br><br>
+			<br>
 			Debug: 
 			<select type="select" name="debug">
 				<option value="1">Yes</option>
@@ -165,7 +165,7 @@ debugLog("Test: We've reached the end of this program!!!"); //Signals end of pro
 			<br>
 			-----------------------------
 			<br>
-			<input type ="submit" name="submitStatus" value="Submit">
+			<input type ="submit" name="submitStatus" value="Submit Request">
 		</form>
 	</body>
 </html>
