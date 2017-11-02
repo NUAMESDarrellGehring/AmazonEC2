@@ -145,6 +145,7 @@ debugLog("Test: We've reached the end of this program!!!"); //Signals end of pro
 
 <html>
 	<body>
+			<br>
 			Input File:
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
