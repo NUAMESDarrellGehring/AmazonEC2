@@ -1,5 +1,30 @@
 <?php
 
+function geoCodeAddress($addressStr)
+{
+    $url = "http://maps.google.com/maps/api/geocode/json?address=".urlencode($addressStr)."&sensor=false&region=US";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    $response_a = json_decode($response);
+    echo "Start Debug Line";
+    echo "<br>";
+    echo "This is the response: ".var_export($response_a->results[0]->geometry->location,true);
+    echo "<br>";
+    echo "End Debug Line";
+    
+    //if(isset($response_a->results[0]->geometry->location)) {
+        $lat = $response_a->results[0]->geometry->location->lat;
+        $lng = $response_a->results[0]->geometry->location->lng;
+        return array($lng, $lat);
+    //} else throw new Exception("Unable to GEO code address (".$addressStr.")");
+}
+
 function debugLog($str) {
     if(isset($_REQUEST['debug']) && $_REQUEST['debug'] == "1") {
         echo $str."<br>\n";
@@ -115,31 +140,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             $userLocation = $_REQUEST['userLocation'];
         
             if(isset($_REQUEST['userLocation'])){
-                function geoCodeAddress($addressStr)
-                {
-                    $url = "http://maps.google.com/maps/api/geocode/json?address=".urlencode($addressStr)."&sensor=false&region=US";
-                    $ch = curl_init();
-                    curl_setopt($ch, CURLOPT_URL, $url);
-                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                    curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
-                    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-                    $response = curl_exec($ch);
-                    curl_close($ch);
-                    $response_a = json_decode($response);
-                    echo "Start Debug Line";
-                    echo "<br>";
-                    echo "This is the response: ".var_export($response_a->results[0]->geometry->location,true);
-                    echo "<br>";
-                    echo "End Debug Line";
-                    
-                    //if(isset($response_a->results[0]->geometry->location)) {
-                        $lat = $response_a->results[0]->geometry->location->lat;
-                        $lng = $response_a->results[0]->geometry->location->lng;
-                        return array($lng, $lat);
-                    //} else throw new Exception("Unable to GEO code address (".$addressStr.")");
-                }
-                
+                                
          
                 echo("Longitude of user is: " + geoCodeAddress($userLocation)[0]);
                 echo("Latitude of user is: " + geoCodeAddress($userLocation)[1]);
