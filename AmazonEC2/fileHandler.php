@@ -163,8 +163,8 @@ debugLog("Test: We've reached the end of this program!!!"); //Signals end of pro
 				<option value="0" selected>No</option>
 			</select>
 			<br>
-			-----------------------------
-			<br>
+			-----------------------------------------
+			<br><br>
 			<input type ="submit" name="submitStatus" value="Submit Request">
 		</form>
 	</body>
