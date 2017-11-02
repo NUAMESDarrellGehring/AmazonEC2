@@ -112,11 +112,13 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             } catch(Exception $ex2) { } // Will catch any errors that begin when file is attemptedly closed
         }
         
+        echo('<br');
         $userLng = $_REQUEST['userLng'];
         echo($userLng);
-        
+        echo('<br');
         $userLat = $_REQUEST['userLat'];
         echo($userLat);
+        echo('<br');
         
         
         
@@ -126,19 +128,25 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
 
 <html>
 	<body>
-		<script> var x = document.getElementById("demo");
-		function getLocation() {
-		    if (navigator.geolocation) {
-		        navigator.geolocation.getCurrentPosition(showPosition);
-		    } else {
-		        x.innerHTML = "Geolocation is not supported by this browser.";
-		    }
-		}
-		function showPosition(position) {
-		    x.innerHTML = "Latitude: " + position.coords.latitude +
-		    "<br>Longitude: " + position.coords.longitude;
-		} 
-		getLocation();
+		<script>
+			function geoCodeAddress($addressStr)
+            {
+            	$url = "http://maps.google.com/maps/api/geocode/json?address=".urlencode($addressStr)."&sensor=false&region=US";
+            	$ch = curl_init();
+            	curl_setopt($ch, CURLOPT_URL, $url);
+            	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            	curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
+            	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+            	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+            	$response = curl_exec($ch);
+            	curl_close($ch);
+            	$response_a = json_decode($response);
+            	if(isset($response_a->results[0]->geometry->location)) {
+            		$lat = $response_a->results[0]->geometry->location->lat;
+            		$lng = $response_a->results[0]->geometry->location->lng;
+            		return array($lng, $lat);
+            	} else throw new Exception("Unable to GEO code address (".$addressStr.")");
+            }
 		</script>
 			Input File:
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
