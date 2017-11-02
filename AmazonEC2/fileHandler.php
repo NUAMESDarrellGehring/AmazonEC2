@@ -17,10 +17,9 @@ debugLog("Received File: ".var_export($_FILES, true));
 
 //Does the file exist? ----------------------
 if($_FILES["uploadedFile"]["size"] == 0){
-    echo "File Does Not Exist";
+    echo "No new files selected. Proceeding.";
     echo "<br>";
     $uploadOk = 0;
-}
 
 //Is it a valid file type? -------------------
 if($fileExtension != "txt"){
@@ -111,7 +110,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
                 @fclose($fileForPlugin); // Will attempt to close the file for plugin
             } catch(Exception $ex2) { } // Will catch any errors that begin when file is attemptedly closed
         }
-        
+}
         $userLocation = $_REQUEST['userLocation'];
         
         function geoCodeAddress($addressStr)
@@ -133,6 +132,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             } else throw new Exception("Unable to GEO code address (".$addressStr.")");
         }
         
+ 
         echo("Longitude of user is: " + geoCodeAddress($userLocation)[0]);
         echo("Latitude of user is: " + geoCodeAddress($userLocation)[1]);
         
