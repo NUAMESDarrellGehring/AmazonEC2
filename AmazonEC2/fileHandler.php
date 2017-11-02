@@ -111,31 +111,34 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             } catch(Exception $ex2) { } // Will catch any errors that begin when file is attemptedly closed
         }
 }
+        
         $userLocation = $_REQUEST['userLocation'];
         
-        function geoCodeAddress($addressStr)
-        {
-            $url = "http://maps.google.com/maps/api/geocode/json?address=".urlencode($addressStr)."&sensor=false&region=US";
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-            $response = curl_exec($ch);
-            curl_close($ch);
-            $response_a = json_decode($response);
-            if(isset($response_a->results[0]->geometry->location)) {
-                $lat = $response_a->results[0]->geometry->location->lat;
-                $lng = $response_a->results[0]->geometry->location->lng;
-                return array($lng, $lat);
-            } else throw new Exception("Unable to GEO code address (".$addressStr.")");
-        }
-        
- 
-        echo("Longitude of user is: " + geoCodeAddress($userLocation)[0]);
-        echo("Latitude of user is: " + geoCodeAddress($userLocation)[1]);
-        
+            if($isset($userLocation)){
+                function geoCodeAddress($addressStr)
+                {
+                    $url = "http://maps.google.com/maps/api/geocode/json?address=".urlencode($addressStr)."&sensor=false&region=US";
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL, $url);
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                    curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+                    $response = curl_exec($ch);
+                    curl_close($ch);
+                    $response_a = json_decode($response);
+                    if(isset($response_a->results[0]->geometry->location)) {
+                        $lat = $response_a->results[0]->geometry->location->lat;
+                        $lng = $response_a->results[0]->geometry->location->lng;
+                        return array($lng, $lat);
+                    } else throw new Exception("Unable to GEO code address (".$addressStr.")");
+                }
+                
+         
+                echo("Longitude of user is: " + geoCodeAddress($userLocation)[0]);
+                echo("Latitude of user is: " + geoCodeAddress($userLocation)[1]);
+            }
+            
         debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
     }
 ?>
