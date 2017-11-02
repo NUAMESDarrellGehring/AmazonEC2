@@ -132,13 +132,12 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
                     echo "This is the response: ".var_export($response_a->results[0]->geometry->location,true);
                     echo "<br>";
                     echo "End Debug Line";
-                    $plugin = var_export($response_a->results[0]->geometry->location);
                     
-                    if(isset($plugin)) {
+                    //if(isset($response_a->results[0]->geometry->location)) {
                         $lat = $response_a->results[0]->geometry->location->lat;
                         $lng = $response_a->results[0]->geometry->location->lng;
                         return array($lng, $lat);
-                    } else throw new Exception("Unable to GEO code address (".$addressStr.")");
+                    //} else throw new Exception("Unable to GEO code address (".$addressStr.")");
                 }
                 
          
