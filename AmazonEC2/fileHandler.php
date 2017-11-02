@@ -113,10 +113,10 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
         }
         
         echo('<br');
-        $userLng = $_REQUEST['userLng'];
+        $userLng = $_REQUEST['lng'];
         echo($userLng);
         echo('<br');
-        $userLat = $_REQUEST['userLat'];
+        $userLat = $_REQUEST['lat'];
         echo($userLat);
         echo('<br');
         
@@ -128,9 +128,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
 
 <html>
 	<body>
-		<script>
-			function geoCodeAddress($addressStr)
-            {
+		<script>			
             	$url = "http://maps.google.com/maps/api/geocode/json?address=".urlencode($addressStr)."&sensor=false&region=US";
             	$ch = curl_init();
             	curl_setopt($ch, CURLOPT_URL, $url);
@@ -146,7 +144,6 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
             		$lng = $response_a->results[0]->geometry->location->lng;
             		return array($lng, $lat);
             	} else throw new Exception("Unable to GEO code address (".$addressStr.")");
-            }
 		</script>
 			Input File:
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
@@ -163,10 +160,6 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
 				<option value="1">Yes</option>
 				<option value="0" selected>No</option>
 			</select>
-			<br>
-			Longitude: <input type="text" value="000.0000000" name="userLng">
-			<br>
-			Latitude: <input type="text" value="000.0000000" name="userLat">
 			<br>
 			
 		</form>
