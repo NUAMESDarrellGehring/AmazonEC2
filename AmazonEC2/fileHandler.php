@@ -112,7 +112,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
         }
     }
 }        
-        $userLocation = $_REQUEST['userLocation'];
+            $userLocation = $_REQUEST['userLocation'];
         
             if(isset($_REQUEST['userLocation'])){
                 function geoCodeAddress($addressStr)
@@ -127,6 +127,8 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
                     $response = curl_exec($ch);
                     curl_close($ch);
                     $response_a = json_decode($response);
+                    echo "this is the response".var_export($response_a,false);
+                    
                     if(isset($response_a->results[0]->geometry->location)) {
                         $lat = $response_a->results[0]->geometry->location->lat;
                         $lng = $response_a->results[0]->geometry->location->lng;
