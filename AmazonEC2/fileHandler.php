@@ -151,8 +151,6 @@ debugLog("Test: We've reached the end of this program!!!"); //Signals end of pro
 			<input type="hidden" name="debug" value="1">
 			<input type="file" name="uploadedFile" id="uploadedFile" value="Choose Location File">
 			<br>
-			<input type ="submit" name="submitStatus" value="Submit">
-			<br>
 			Your Location: <input type="text" name="userLocation">
 			<br><br>
 			------- Debug Section -------
@@ -165,6 +163,9 @@ debugLog("Test: We've reached the end of this program!!!"); //Signals end of pro
 				<option value="0" selected>No</option>
 			</select>
 			<br>
+			-----------------------------
+			<br>
+			<input type ="submit" name="submitStatus" value="Submit">
 		</form>
 	</body>
 </html>
