@@ -84,11 +84,11 @@ function geoCodeAddress($addressStr)
     curl_close($ch);
     $response_a = json_decode($response);
     
-    //if(isset($response_a->results[0]->geometry->location)) {
+    if(isset($response_a->results[0]->geometry->location)) {
         $lat = $response_a->results[0]->geometry->location->lat;
         $lng = $response_a->results[0]->geometry->location->lng;
         return array($lng, $lat);
-    //} else throw new Exception("Unable to GEO code address (".$addressStr.")");
+    } else throw new Exception("Unable to GEO code address (".$addressStr.")");
 }
 
 function debugLog($str) {
