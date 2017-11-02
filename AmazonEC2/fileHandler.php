@@ -153,7 +153,7 @@ debugLog("Test: We've reached the end of this program!!!"); //Signals end of pro
 			<input type ="submit" name="submitStatus" value="Submit">
 			<br>
 			Your Location: <input type="text" name="userLocation">
-			<br>
+			<br><br>
 			------- Debug Section -------
 			<br>
 			Max Inserts: <input type="text" value="10" name="updateCnt">
