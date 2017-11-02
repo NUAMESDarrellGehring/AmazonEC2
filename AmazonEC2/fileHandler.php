@@ -133,7 +133,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
                     echo "<br>";
                     echo "End Debug Line";
                     
-                    if(isset($response_a->results[0]->geometry->location)) {
+                    if(isset(var_export($response_a->results[0]->geometry->location))) {
                         $lat = $response_a->results[0]->geometry->location->lat;
                         $lng = $response_a->results[0]->geometry->location->lng;
                         return array($lng, $lat);
