@@ -12,11 +12,6 @@ function geoCodeAddress($addressStr)
     $response = curl_exec($ch);
     curl_close($ch);
     $response_a = json_decode($response);
-    echo "Start Debug Line";
-    echo "<br>";
-    echo "This is the response: ".var_export($response_a->results[0]->geometry->location,true);
-    echo "<br>";
-    echo "End Debug Line";
     
     //if(isset($response_a->results[0]->geometry->location)) {
         $lat = $response_a->results[0]->geometry->location->lat;
@@ -141,9 +136,9 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
         
             if(isset($_REQUEST['userLocation'])){
                                 
-         
-                echo("Longitude of user is: " + geoCodeAddress($userLocation)[0]);
-                echo("Latitude of user is: " + geoCodeAddress($userLocation)[1]);
+                $stuff =  geoCodeAddress($userLocation);
+                echo("Longitude of user is: " + $stuff[0]);
+                echo("Latitude of user is: " + $stuff[1]);
             }
             
         debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
