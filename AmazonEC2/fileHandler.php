@@ -127,7 +127,7 @@ if($_FILES["uploadedFile"]["size"] > 1024 * 700){
                     $response = curl_exec($ch);
                     curl_close($ch);
                     $response_a = json_decode($response);
-                    echo "this is the response".var_export($response_a,false);
+                    echo "this is the response".var_export($response_a->results[0]->geometry,true);
                     
                     if(isset($response_a->results[0]->geometry->location)) {
                         $lat = $response_a->results[0]->geometry->location->lat;
