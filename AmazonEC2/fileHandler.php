@@ -140,7 +140,8 @@ if(isset($_REQUEST['userLocation'])){
     echo "<br>";
 }
 
-$conn->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";
+if(isset($userSearch)){
+    $conn->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";
             SELECT *, 3956 * 2 * ASIN(SQRT(
             POWER(SIN((@orig_lat -
             abs(
@@ -154,7 +155,7 @@ $conn->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."
             FROM hotels dest
             having distance < @dist
             ORDER BY distance limit 10\G"); 
-
+}
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
 ?>
 
