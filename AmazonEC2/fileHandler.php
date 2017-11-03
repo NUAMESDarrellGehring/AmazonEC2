@@ -1,11 +1,12 @@
 <?php
 
+$servername = "localhost";
+$username = "root";
+$password = "skull71";
+
 function processUploadedFile()
 {
-    $servername = "localhost";
-    $username = "root";
-    $password = "skull71";
-    
+   
     $conn = new mysqli($servername, $username, $password);
     
     if ($conn->connect_error){
