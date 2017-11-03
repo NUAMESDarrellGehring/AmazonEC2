@@ -129,7 +129,8 @@ if($_FILES["uploadedFile"]["size"] !== 0){
 }
 
 $userLocation = $_REQUEST['userLocation'];
-        
+$userSearch = $_REQUEST['userDistOut'];
+
 if(isset($_REQUEST['userLocation'])){
                     
     $userCoords =  geoCodeAddress($userLocation);
@@ -138,7 +139,22 @@ if(isset($_REQUEST['userLocation'])){
     echo "Latitude of user is: ". $userCoords[1];
     echo "<br>";
 }
-    
+
+$conn->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";
+            SELECT *, 3956 * 2 * ASIN(SQRT(
+            POWER(SIN((@orig_lat -
+            abs(
+            dest.lat)) * pi()/180 / 2),
+            2) +  COS(@orig_lat * pi()/180 ) * COS(
+            abs
+            (dest.lat) *
+            pi()/180) *  POWER(SIN((@orig_lon - dest.lon) *
+            pi()/180 / 2), 2) ))
+            as  distance
+            FROM hotels dest
+            having distance < @dist
+            ORDER BY distance limit 10\G"); 
+
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
 ?>
 
@@ -149,6 +165,8 @@ debugLog("Test: We've reached the end of this program!!!"); //Signals end of pro
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
 			Your Location: <input type="text" name="userLocation">
+			<br>
+			Distance to Search Out From: <input type="text" name="userDistOut">
 			<br><br>
 			------- Debug/File Update Section -------
 			<br>
