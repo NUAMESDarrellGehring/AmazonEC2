@@ -148,7 +148,7 @@ if ($connSearch->connect_error){
 }
 
 if(isset($userSearch)){
-    $connSearch->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";
+    echo $connSearch->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";
             SELECT *, 3956 * 2 * ASIN(SQRT(
             POWER(SIN((@orig_lat -
             abs(
