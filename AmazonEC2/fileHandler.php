@@ -140,8 +140,14 @@ if(isset($_REQUEST['userLocation'])){
     echo "<br>";
 }
 
+$connSearch = new mysqli($servername, $username, $password);
+
+if ($connSearch->connect_error){
+    die("Connection failed: " . $connSearch->connect_error);
+}
+
 if(isset($userSearch)){
-    $conn->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";
+    $connSearch->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";
             SELECT *, 3956 * 2 * ASIN(SQRT(
             POWER(SIN((@orig_lat -
             abs(
