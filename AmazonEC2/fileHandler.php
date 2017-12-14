@@ -149,20 +149,19 @@ if ($connSearch->connect_error){
 
 if(isset($userSearch)){
     echo $connSearch->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";
-            SELECT
-            id, (
-                6371 * acos (
-                cos ( radians(78.3232) )
-                * cos( radians( lat ) )
-                * cos( radians( lng ) - radians(65.3234) )
-                + sin ( radians(78.3232) )
-                * sin( radians( lat ) )
-                )
-            ) AS distance
-            FROM markers
-            HAVING distance < 30
-            ORDER BY distance
-            LIMIT 0 , 20;"); 
+            SELECT *, 6371 * 2 * ASIN(SQRT(
+            POWER(SIN((@orig_lat -
+            abs(
+            dest.lat)) * pi()/180 / 2),
+            2) +  COS(@orig_lat * pi()/180 ) * COS(
+            abs
+            (dest.lat) *
+            pi()/180) *  POWER(SIN((@orig_lon - dest.lon) *
+            pi()/180 / 2), 2) ))
+            as  distance
+            FROM cityInfo dest
+            having distance < @dist
+            ORDER BY distance limit 10\G"); 
 }
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
 ?>
