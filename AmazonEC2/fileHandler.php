@@ -162,6 +162,7 @@ if(isset($userSearch)){
             FROM hotels dest
             having distance < @dist
             ORDER BY distance limit 10\G"); 
+    echo("Made it to echo");
 }
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
 ?>
