@@ -161,7 +161,8 @@ if(isset($userSearch)){
             as  distance
             FROM cityInfo dest
             having distance < @dist
-            ORDER BY distance limit 10\G"); 
+            ORDER BY distance limit 10\G");
+    echo "Done With That.";
 }
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
 ?>
