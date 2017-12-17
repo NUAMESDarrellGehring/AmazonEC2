@@ -152,16 +152,16 @@ if(isset($userSearch)){
             SELECT *, 6371 * 2 * ASIN(SQRT(
             POWER(SIN((@orig_lat -
             abs(
-            dest.lat)) * pi()/180 / 2),
+            cityInfo.latitude)) * pi()/180 / 2),
             2) +  COS(@orig_lat * pi()/180 ) * COS(
             abs
-            (dest.lat) *
-            pi()/180) *  POWER(SIN((@orig_lon - dest.lon) *
+            (cityInfo.latitude) *
+            pi()/180) *  POWER(SIN((@orig_lon - cityInfo.longitude) *
             pi()/180 / 2), 2) ))
             as  distance
-            FROM cityInfo dest
+            FROM cityInfoDB cityInfo
             having distance < @dist
-            ORDER BY distance limit 10\G");
+            ORDER BY distance limit 10");
     echo "Done With That.";
 }
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
