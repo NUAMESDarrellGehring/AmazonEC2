@@ -158,7 +158,7 @@ if(isset($userSearch)){
                     ORDER BY distance 
                     LIMIT 0 , 20;");
     
-    $inact = mysql_query($getNearQuery) or die(mysql_error());
+    $inact = $connSearch->query($getNearQuery) or die(mysql_error());
     
     while($row = mysql_fetch_assoc($inact)){
         foreach($row as $cname => $cvalue){
