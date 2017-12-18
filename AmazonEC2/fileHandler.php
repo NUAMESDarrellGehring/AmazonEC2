@@ -154,7 +154,14 @@ if(isset($userSearch)){
                     FROM cityInfo 
                     HAVING distance < 25 
                     ORDER BY distance 
-                    LIMIT 0 , 20;");
+                    LIMIT 0 , 20;
+
+                    SELECT *, ( 3959 * acos( cos( radians(37) ) * cos( radians( cityInfo.latitude ) ) 
+* cos( radians(cityInfo.longitude) - radians(-122) ) + sin( radians(37) ) * sin(radians(cityInfo.latitude)) ) ) AS distance 
+FROM cityInfo 
+HAVING distance < 25 
+ORDER BY distance 
+LIMIT 0 , 20;");
                     echo "Done With That.";
 }
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
