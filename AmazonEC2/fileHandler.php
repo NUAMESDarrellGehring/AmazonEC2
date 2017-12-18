@@ -164,7 +164,7 @@ if(isset($userSearch)){
         print "\r\n";
     }
     //var_dump($queryToPrint);
-    //printf($connSearch->error);
+    printf($connSearch->error);
                    // echo "Done With That.";
 }
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
