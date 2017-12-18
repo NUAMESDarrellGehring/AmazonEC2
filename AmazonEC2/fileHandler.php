@@ -148,7 +148,7 @@ if ($connSearch->connect_error){
 }
 
 if(isset($userSearch)){
-    echo $connSearch->query;
+    //echo $connSearch->query;
     
     $getNearQuery=("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";
                     SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians(cityInfo.latitude) ) 
