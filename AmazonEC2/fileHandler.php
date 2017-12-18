@@ -157,13 +157,13 @@ if(isset($userSearch)){
                     ORDER BY distance 
                     LIMIT 0 , 20;");
     
-    while($row = $connSearch->fetch_assoc($searchOut)){
+    while($row = $searchOut->fetch_assoc()){
         foreach($row as $cname => $cvalue){
             print "$cname: $cvalue\t";
         }
         print "\r\n";
     }
-    //var_dump($queryToPrint);
+    var_dump($searchOut);
     //printf($connSearch->error);
                    // echo "Done With That.";
 }
