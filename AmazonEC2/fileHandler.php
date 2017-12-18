@@ -148,14 +148,24 @@ if ($connSearch->connect_error){
 }
 
 if(isset($userSearch)){
-    echo $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(37) ) * cos( radians( cityInfo.latitude ) ) 
-* cos( radians(cityInfo.longitude) - radians(-122) ) + sin( radians(37) ) * sin(radians(cityInfo.latitude)) ) ) AS distance 
-FROM cityInfo 
-HAVING distance < 25 
-ORDER BY distance 
-LIMIT 0 , 20;
-
-                    ");
+    echo $connSearch->query;
+    
+    $getNearQuery=("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";
+                    SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians(cityInfo.latitude) ) 
+                    * cos( radians(cityInfo.longitude) - radians(@orig_lat) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance 
+                    FROM cityInfo 
+                    HAVING distance < 25 
+                    ORDER BY distance 
+                    LIMIT 0 , 20;");
+    
+    $inact = mysql_query($getNearQuery) or die(mysql_error());
+    
+    while($row = mysql_fetch_assoc($inact)){
+        foreach($row as $cname => $cvalue){
+            print "$cname: $cvalue\t";           
+        }
+        print "\r\n";
+    }
                     echo "Done With That.";
 }
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
