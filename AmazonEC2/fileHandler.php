@@ -157,7 +157,7 @@ if(isset($userSearch)){
                     ORDER BY distance 
                     LIMIT 0 , 20;");
     var_dump($queryToPrint);
-    printf($connSearch->error);
+    //printf($connSearch->error);
                    // echo "Done With That.";
 }
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
