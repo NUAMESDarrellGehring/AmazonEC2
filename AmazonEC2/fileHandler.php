@@ -149,21 +149,13 @@ if ($connSearch->connect_error){
 
 if(isset($userSearch)){
     echo $connSearch->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";
-            SELECT *, 6371 * 2 * ASIN(SQRT(
-            POWER(SIN((@orig_lat -
-            abs(
-            cityInfo.latitude)) * pi()/180 / 2),
-            2) +  COS(@orig_lat * pi()/180 ) * COS(
-            abs
-            (cityInfo.latitude) *
-            pi()/180) *  POWER(SIN((@orig_lon - cityInfo.longitude) *
-            pi()/180 / 2), 2) )) 
-            AS  distance 
-            FROM cityInfo 
-            HAVING distance < @dist 
-            ORDER BY distance 
-            LIMIT 0 , 10");
-    echo "Done With That.";
+                    SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians(cityInfo.latitude) ) 
+                    * cos( radians(cityInfo.longitude) - radians(@orig_lat) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance 
+                    FROM cityInfo 
+                    HAVING distance < 25 
+                    ORDER BY distance 
+                    LIMIT 0 , 20;");
+                    echo "Done With That.";
 }
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
 ?>
