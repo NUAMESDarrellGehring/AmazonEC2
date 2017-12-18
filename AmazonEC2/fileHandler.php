@@ -149,13 +149,20 @@ if ($connSearch->connect_error){
 
 if(isset($userSearch)){
     echo $connSearch->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";
-        set @orig_point=ST_GeomFromText('POINT(".$userCoords[0]." ".$userCoords[1].")');
-        SELECT * FROM cityInfo WHERE ST_Distance_Sphere(@orig_point, ST_Point(cityInfo.longitude, cityInfo.latitude)>0'
-        "
-        
-        
-        );
-    
+            SELECT *, 6371 * 2 * ASIN(SQRT(
+            POWER(SIN((@orig_lat -
+            abs(
+            cityInfo.latitude)) * pi()/180 / 2),
+            2) +  COS(@orig_lat * pi()/180 ) * COS(
+            abs
+            (cityInfo.latitude) *
+            pi()/180) *  POWER(SIN((@orig_lon - cityInfo.longitude) *
+            pi()/180 / 2), 2) )) 
+            AS  distance 
+            FROM cityInfo 
+            HAVING distance < @dist 
+            ORDER BY distance 
+            LIMIT 0 , 10");
     echo "Done With That.";
 }
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
