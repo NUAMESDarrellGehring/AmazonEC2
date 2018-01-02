@@ -150,10 +150,10 @@ if ($connSearch->connect_error){
 if(isset($userSearch)){
     $connSearch->query("USE cityInfoDB;");
     $connSearch->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";");
-    $searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians(cityInfo.latitude) ) * cos( radians(cityInfo.longitude) - radians(@orig_lat) ) + sin( radians(@orig_lon) ) * sin(radians(cityInfo.latitude)) ) ) AS distance FROM cityInfo HAVING distance < 25 ORDER BY distance LIMIT 0 , 20;");
+    $searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lat) ) + sin( radians(@orig_lon) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;");
                     
    
-   //SELECT *, ( 3959 * acos( cos( radians(37) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(-122) ) + sin( radians(37) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < 25  ORDER BY distance  LIMIT 0 , 20;
+   //SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lat) ) + sin( radians(@orig_lon) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;
    
     $rowCnt = $searchOut->num_rows;
     
