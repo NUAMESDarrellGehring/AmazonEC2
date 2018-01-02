@@ -156,10 +156,13 @@ if(isset($userSearch)){
                     HAVING distance < 25 
                     ORDER BY distance 
                     LIMIT 0 , 20;");*/
-    $searchOut = ("SELECT * FROM cityInfo;");
+    $sampR = $connSearch->query("SELECT * FROM cityInfo;");
     
+    $rowCnt = $sampR->num_rows;
     
-    $sampQuery = mysqli_query($connSearch, $searchOut);
+    echo $rowCnt;
+    
+    //$sampQuery = mysqli_query($connSearch, $searchOut);
     //$sampPrint = mysqli_fetch_assoc($sampQuery);
     //echo $sampPrint;
     
