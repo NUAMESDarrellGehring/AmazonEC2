@@ -157,7 +157,7 @@ if(isset($userSearch)){
                     ORDER BY distance 
                     LIMIT 0 , 20;");
     
-    echo mysqli_result($searchOut, 3);
+    echo mysqli_fetch_row($searchOut, 3);
     
     //while($row = $searchOut->fetch_assoc()){
     //    foreach($row as $cname => $cvalue){
