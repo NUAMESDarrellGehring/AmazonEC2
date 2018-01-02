@@ -148,9 +148,11 @@ if ($connSearch->connect_error){
 }
 
 if(isset($userSearch)){
-    $connSearch->query("USE cityInfoDB");
-    $connSearch->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";");
-    $searchOut = ("SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians(cityInfo.latitude) ) 
+    //$connSearch->query("USE cityInfoDB");
+    //$connSearch->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";");
+    $searchOut = ("USE cityInfoDB".
+                    "set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";"
+                    ."SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians(cityInfo.latitude) ) 
                     * cos( radians(cityInfo.longitude) - radians(@orig_lat) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance 
                     FROM cityInfo 
                     HAVING distance < 25 
