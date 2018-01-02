@@ -161,7 +161,7 @@ if(isset($userSearch)){
     $sampArray = mysqli_query($connSearch, $searchOut);
     
     while($row = mysqli_fetch_array($sampArray)){
-        print_r($row);
+        echo($row);
     }
     
     //while($row = $searchOut->fetch_assoc()){
