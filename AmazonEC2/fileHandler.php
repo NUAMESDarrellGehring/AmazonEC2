@@ -157,11 +157,21 @@ if(isset($userSearch)){
                     ORDER BY distance 
                     LIMIT 0 , 20;");
     
-    $resultsOf = mysqli_stmt_get_result($searchOut);
     
-    foreach($resultsOf as $printRes){
-        echo $printRes , "<br>";
+    $compone = mysqli_stmt_init($connSearch);
+    $comptwo = mysqli_stmt_prepare($compone, $searchOut);
+    $compthree = mysqli_stmt_execute($compone);
+    $compfour = mysqli_stmt_get_result($compone);
+    
+    while($row = mysqli_fetch_array($compfour, MYSQLI_NUM))
+    {
+        foreach ($row as $r)
+        {
+            print "$r ";
+        }
+        print "\n";
     }
+    
     
     //while($row = $searchOut->fetch_assoc()){
     //    foreach($row as $cname => $cvalue){
