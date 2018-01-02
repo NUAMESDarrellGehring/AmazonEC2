@@ -158,11 +158,10 @@ if(isset($userSearch)){
                     LIMIT 0 , 20;");
     
     
-    $sampArray = mysqli_query($connSearch, $searchOut);
+    $sampQuery = mysqli_query($connSearch, $searchOut);
+    $sampPrint = mysqli_fetch_assoc($sampQuery);
+    print_r($sampPrint);
     
-    while($row = mysqli_fetch_array($sampArray)){
-        echo($row);
-    }
     
     //while($row = $searchOut->fetch_assoc()){
     //    foreach($row as $cname => $cvalue){
