@@ -150,21 +150,30 @@ if ($connSearch->connect_error){
 if(isset($userSearch)){
     $connSearch->query("USE cityInfoDB;");
     $connSearch->query("SET @orig_lat=$userCoords[1]; set @orig_lon=$userCoords[0]; set @dist=$userSearch;");
-            
+        
+    $latRes = mysqli_query($connSearch, "SELECT @orig_lat;");
+    $lonRes = mysqli_query($connSearch, "SELECT @orig_lon;");
+    $desRes = mysqli_query($connSearch, "SELECT @dist;");
+    
+    $row = $latRes->fetch_array(MYSQL_BOTH);
+    $rowdose = $lonRes->fetch_array(MYSQL_BOTH);
+    $rowtres = $desRes->fetch_array(MYSQL_BOTH);
+    
+    if($row[0]==NULL){echo "Fuck!!!!";};
+    
+    echo $row[0];
+    echo $rowdose[0];
+    echo $rowtres[0];
+    
     $searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lat) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lon) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;");
-    
-    //echo $searchOut;
-    
-    $numRow = $searchOut->num_rows;
-    echo $numRow;
-    
-    //while($row = $searchOut->fetch_assoc()){
-    //    echo $row["city"];
-    //}
-    
+                    
     // SELECT *, ( 3959 * acos( cos( radians(37) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(-122) ) + sin( radians(37) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < 25  ORDER BY distance  LIMIT 0 , 20;
     
-   //SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lat) ) + sin( radians(@orig_lon) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;    
+   //SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lat) ) + sin( radians(@orig_lon) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;
+   
+    $rowCnt = $searchOut->num_rows;
+    
+    echo $rowCnt;
     
 }
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
