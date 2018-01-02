@@ -165,9 +165,12 @@ if(isset($userSearch)){
     //while($row = $sampQuery->fetch_row()){
      //       echo($row);
     //}
-    
-    while($row = mysqli_fetch_assoc($sampQuery)){
-        echo $row["city"];
+    if($sampQuery->num_rows > 0){
+        while($row = mysqli_fetch_assoc($sampQuery)){
+            echo $row["city"];
+        }
+    }else{
+        echo "No rows to print. Fuck.";
     }
     //    foreach($row as $cname => $cvalue){
     //        print "$cname: $cvalue\t";
