@@ -153,7 +153,7 @@ if(isset($userSearch)){
             
     $searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lat) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lon) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;");
     
-    echo $searchOut;
+    //echo $searchOut;
     
     $numRow = $searchOut->num_rows;
     echo $numRow;
