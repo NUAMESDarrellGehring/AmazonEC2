@@ -166,9 +166,9 @@ if(isset($userSearch)){
                     echo mysqli_error($connSearch);
     }
                     
-    $rowCnt = $searchOut->num_rows;
+    //$rowCnt = $searchOut->num_rows;
     
-    echo $rowCnt;
+    //echo $rowCnt;
     
     //$sampQuery = mysqli_query($connSearch, $searchOut);
     //$sampPrint = mysqli_fetch_assoc($sampQuery);
