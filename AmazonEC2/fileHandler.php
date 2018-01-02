@@ -159,9 +159,12 @@ if(isset($userSearch)){
     
     
     $sampQuery = mysqli_query($connSearch, $searchOut);
-    $sampPrint = mysqli_fetch_assoc($sampQuery);
-    echo $sampPrint;
+    //$sampPrint = mysqli_fetch_assoc($sampQuery);
+    //echo $sampPrint;
     
+    while($row = $sampQuery->fetch_row()){
+            print_r($row);
+    }
     
     //while($row = $searchOut->fetch_assoc()){
     //    foreach($row as $cname => $cvalue){
