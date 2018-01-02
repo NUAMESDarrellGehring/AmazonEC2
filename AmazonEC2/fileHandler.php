@@ -150,8 +150,10 @@ if ($connSearch->connect_error){
 if(isset($userSearch)){
     $connSearch->query("USE cityInfoDB;");
     $connSearch->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";");
+    
     $latRes = mysqli_query($connSearch, "SELECT @orig_lat;");
-    var_dump($latRes);
+    $row = $latRes->fetch_array(MYSQL_BOTH);
+    echo $row[0];
     
     $searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lat) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lon) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;");
                     
