@@ -164,7 +164,7 @@ if(isset($userSearch)){
                     ORDER BY distance
                     LIMIT 0 , 20;")){
                     echo mysqli_error($connSearch);
-    }
+    }else{echo("no errors");}
                     
     //$rowCnt = $searchOut->num_rows;
     
