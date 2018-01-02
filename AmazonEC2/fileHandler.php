@@ -158,20 +158,11 @@ if(isset($userSearch)){
                     LIMIT 0 , 20;");
     
     
-    $compone = mysqli_stmt_init($connSearch);
-    $comptwo = mysqli_stmt_prepare($compone, $searchOut);
-    $compthree = mysqli_stmt_execute($compone);
-    $compfour = mysqli_stmt_get_result($compone);
+    $sampArray = mysqli_query($connSearch, $searchOut);
     
-    while($row = mysqli_fetch_array($compfour, MYSQLI_NUM))
-    {
-        foreach ($row as $r)
-        {
-            print "$r ";
-        }
-        print "\n";
+    while($row = mysqli_fetch_array($sampArray)){
+        print_r($row);
     }
-    
     
     //while($row = $searchOut->fetch_assoc()){
     //    foreach($row as $cname => $cvalue){
