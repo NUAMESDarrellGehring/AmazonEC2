@@ -162,11 +162,13 @@ if(isset($userSearch)){
     //$sampPrint = mysqli_fetch_assoc($sampQuery);
     //echo $sampPrint;
     
-    while($row = $sampQuery->fetch_row()){
-            echo($row);
-    }
+    //while($row = $sampQuery->fetch_row()){
+     //       echo($row);
+    //}
     
-    //while($row = $searchOut->fetch_assoc()){
+    while($row = $sampQueryt->fetch_assoc()){
+        echo $row["city"];
+    }
     //    foreach($row as $cname => $cvalue){
     //        print "$cname: $cvalue\t";
     //    }
