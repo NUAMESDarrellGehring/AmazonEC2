@@ -166,7 +166,7 @@ if(isset($userSearch)){
      //       echo($row);
     //}
     
-    while($row = $sampQuery->fetch_assoc()){
+    while($row = mysqli_fetch_assoc($sampQuery)){
         echo $row["city"];
     }
     //    foreach($row as $cname => $cvalue){
