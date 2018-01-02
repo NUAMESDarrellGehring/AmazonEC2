@@ -151,6 +151,8 @@ if(isset($userSearch)){
     $connSearch->query("USE cityInfoDB;");
     $connSearch->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";");
     
+    $connSearch->query("SET @orig_lat=100");
+    
     $latRes = mysqli_query($connSearch, "SELECT @orig_lat;");
     $row = $latRes->fetch_array(MYSQL_BOTH);
     
