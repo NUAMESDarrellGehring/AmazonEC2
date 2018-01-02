@@ -159,7 +159,7 @@ if(isset($userSearch)){
     
     if(!$connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians(cityInfo.latitude) )
                     * cos( radians(cityInfo.longitude) - radians(@orig_lat) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance
-                    FROooOoOoOoOoOM cityInfo
+                    FROM cityInfo
                     HAVING distance < 25
                     ORDER BY distance
                     LIMIT 0 , 20;")){
