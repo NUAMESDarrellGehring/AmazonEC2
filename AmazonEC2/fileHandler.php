@@ -149,13 +149,8 @@ if ($connSearch->connect_error){
 
 if(isset($userSearch)){
     $connSearch->query("USE cityInfoDB");
-    $connSearch->query("set @orig_lat=".$userCoords[1]."; set @orig_lon=".$userCoords[0]."; set @dist=".$userSearch.";");
-    $searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians(cityInfo.latitude) ) 
-                    * cos( radians(cityInfo.longitude) - radians(@orig_lat) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance 
-                    FROM cityInfo 
-                    HAVING distance < 25 
-                    ORDER BY distance 
-                    LIMIT 0 , 20;");
+    $connSearch->query("set @orig_lat=41.0602216; set @orig_lon=-111.9710529; set @dist=600;");
+    $searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians(cityInfo.latitude) ) * cos( radians(cityInfo.longitude) - radians(@orig_lat) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance FROM cityInfo HAVING distance < 25 ORDER BY distance LIMIT 0 , 20;");
                     
     $rowCnt = $searchOut->num_rows;
     
@@ -168,13 +163,13 @@ if(isset($userSearch)){
     //while($row = $sampQuery->fetch_row()){
      //       echo($row);
     //}
-    if($sampQuery->num_rows > 0){
-        while($row = mysqli_fetch_assoc($sampQuery)){
-            echo $row["city"];
-        }
-    }else{
-        echo "No rows to print. Fuck.";
-    }
+    //if($sampQuery->num_rows > 0){
+    //    while($row = mysqli_fetch_assoc($sampQuery)){
+    //        echo $row["city"];
+    //    }
+    //}else{
+    //    echo "No rows to print. Fuck.";
+    //}
     //    foreach($row as $cname => $cvalue){
     //        print "$cname: $cvalue\t";
     //    }
