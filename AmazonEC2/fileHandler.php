@@ -160,7 +160,7 @@ if(isset($userSearch)){
     
     $sampQuery = mysqli_query($connSearch, $searchOut);
     $sampPrint = mysqli_fetch_assoc($sampQuery);
-    print_r($sampPrint);
+    echo $sampPrint;
     
     
     //while($row = $searchOut->fetch_assoc()){
