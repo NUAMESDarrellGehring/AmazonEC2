@@ -153,8 +153,8 @@ if(isset($userSearch)){
             
     $searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lat) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lon) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;");
                     
-    while($row = mysqli_fetch_array($searchOut)){
-        echo $row;
+    while($row = $searchOut->fetch_assoc()){
+        echo $row["city"];
     }
     
     // SELECT *, ( 3959 * acos( cos( radians(37) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(-122) ) + sin( radians(37) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < 25  ORDER BY distance  LIMIT 0 , 20;
