@@ -166,7 +166,7 @@ if(isset($userSearch)){
      //       echo($row);
     //}
     
-    while($row = $sampQueryt->fetch_assoc()){
+    while($row = $sampQuery->fetch_assoc()){
         echo $row["city"];
     }
     //    foreach($row as $cname => $cvalue){
