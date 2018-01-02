@@ -149,8 +149,13 @@ if ($connSearch->connect_error){
 
 if(isset($userSearch)){
     $connSearch->query("USE cityInfoDB;");
-    $connSearch->query("SET @orig_lat=$userCoords[1]; set @orig_lon=$userCoords[0]; set @dist=$userSearch;");
-        
+    //$connSearch->query("SET @orig_lat=$userCoords[1]; set @orig_lon=$userCoords[0]; set @dist=$userSearch;");
+    
+    $connSearch->query("SET @orig_lat=$userCoords[1];");
+    $connSearch->query("SET @orig_lon=$userCoords[0];");
+    $connSearch->query("SET @dist=$userSearch;");
+    
+    
     $latRes = mysqli_query($connSearch, "SELECT @orig_lat;");
     $lonRes = mysqli_query($connSearch, "SELECT @orig_lon;");
     $desRes = mysqli_query($connSearch, "SELECT @dist;");
