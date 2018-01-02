@@ -163,7 +163,7 @@ if(isset($userSearch)){
     //echo $sampPrint;
     
     while($row = $sampQuery->fetch_row()){
-            print_r($row);
+            echo($row);
     }
     
     //while($row = $searchOut->fetch_assoc()){
