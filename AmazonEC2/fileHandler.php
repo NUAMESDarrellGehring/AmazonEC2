@@ -158,7 +158,7 @@ if(isset($userSearch)) {
             
     $connSearch->query($sql);
     
-    echo "Query1: ".$sql;
+    echo "<br>Query1: ".$sql."\n<br>";
 
     //$sql = "SET @orig_lat=".$userCoords[0]."; set @orig_lon=".$userCoords[1]."; set @dist=".$userSearch.";";
     //$connSearch->query($sql);
@@ -178,10 +178,19 @@ if(isset($userSearch)) {
     $sql = "SELECT *, ( 3959 * acos( cos( radians(".$userCoords[0].") ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(".$userCoords[1].") ) + sin( radians(".$userCoords[0].") ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < ".$userSearch." ORDER BY distance LIMIT 0 , 20;";
     $results = $connSearch->query($sql);
     if($results !== false) {
-        $tmpArray = mysqli_fetch_array($results);
-        echo "Results: ".var_export($tmpArray, true);
+        $cnt = 0;
+        $str = "Results:<br><ul>";
+        while($row = mysqli_fetch_row($results)) {
+            $str .= "<li>".var_export($row, false)."</li>";
+            $cnt++;
+        }
+        $str .= "</ul>";
+        $str .= "<br>Total Rows: ".$cnt."</br>";
+        
+        echo $str;
+        
     } else {
-        throw new Exception("Query Failed (". mysql_error().").  Query='".$sql."'");
+        throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
     }
                     
     // SELECT *, ( 3959 * acos( cos( radians(37) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(-122) ) + sin( radians(37) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < 25  ORDER BY distance  LIMIT 0 , 20;
