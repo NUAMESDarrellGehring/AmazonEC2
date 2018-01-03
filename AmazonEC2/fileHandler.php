@@ -179,15 +179,14 @@ if(isset($userSearch)) {
     $sql = "
         SELECT 
         	*,
-        	(
-        		3959 * 
-        		DEGREES(ACOS(COS(RADIANS(latpoint)) * COS(RADIANS(latitude)) * COS(RADIANS(longpoint) - RADIANS(longitude))
-        		 + SIN(RADIANS(latpoint))
-        		 * SIN(RADIANS(latitude))))
-        	) AS distance_in_miles
+        	(3963.17 * ACOS(COS(RADIANS(latpoint)) 
+                 * COS(RADIANS(latitude)) 
+                 * COS(RADIANS(longpoint) - RADIANS(longitude)) 
+                 + SIN(RADIANS(latpoint)) 
+                 * SIN(RADIANS(latitude)))) AS distance_in_miles
          FROM cityInfo
          JOIN (
-             SELECT  -111.9710529 AS latpoint, 41.0602216 AS longpoint
+             SELECT  ".$userCoords[0]." AS latpoint, ".$userCoords[1]."AS longpoint
         ) AS p ON 1=1
         ORDER BY 
         	distance_in_miles
@@ -200,7 +199,7 @@ if(isset($userSearch)) {
         $cnt = 0;
         $str = "Results:<br><ul>\n";
         while($row = mysqli_fetch_assoc($results)) {
-            $str .= "<li>".$row['city'].": ".$row['population']." (".$row['distance_in_miles'].") <!--".var_export($row, true)."--></li>\n";
+            $str .= "<li>".$row['city'].": ".$row['population']." (".$row['distance_in_miles']." miles) <!--".var_export($row, true)."--></li>\n";
             $cnt++;
         }
         $str .= "</ul>";
