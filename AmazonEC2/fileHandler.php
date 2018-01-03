@@ -184,7 +184,7 @@ if(isset($userSearch)) {
         $cnt = 0;
         $str = "Results:<br><ul>";
         while($row = mysqli_fetch_assoc($results)) {
-            $str .= "<li>".$row['city'].": ".$row['population']."</li>";
+            $str .= "<li>".$row['city'].": ".$row['population']." <!--".var_export($row, true)."--></li>";
             $cnt++;
         }
         $str .= "</ul>";
