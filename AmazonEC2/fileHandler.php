@@ -152,7 +152,7 @@ if ($connSearch->connect_error){
     die("Connection failed: " . $connSearch->connect_error);
 }
 
-if(isset($userSearch) && $userCoords[0]!=NULL) {
+if(isset($userSearch)) {
     
     $sql = "USE cityInfoDB;";
             
@@ -202,7 +202,8 @@ if(isset($userSearch) && $userCoords[0]!=NULL) {
         
         
     } else {
-        throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
+        //Will throw error on page startup as nothing is yet defined. Only use for debug.
+        //throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
     }
     
 
