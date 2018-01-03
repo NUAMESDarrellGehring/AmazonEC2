@@ -179,7 +179,7 @@ if(isset($userSearch)) {
         LIMIT 15;";
        
     $results = $connSearch->query($sql);
-    if($results !== false) {
+    /*if($results !== false) {
         $cnt = 0;
         echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>";
         echo "$(document).ready(function() {";
@@ -189,12 +189,12 @@ if(isset($userSearch)) {
         echo "        ]";
         echo "    } );";
         echo "} );";
-        echo "</script>";
+        echo "</script>";*/
         
-        //echo '<table style="width:10%">';
-        //echo '<th>City</th>';
+        echo '<table style="width:10%">';
+        echo '<th>City</th>';
         while($row = mysqli_fetch_assoc($results)) {
-            //echo '<tr><td>'.$row['city'].'</td></tr>';
+            echo '<tr><td>'.$row['city'].'</td></tr>';
             $cnt++;
         }
         echo '</table>';
