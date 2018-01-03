@@ -188,6 +188,8 @@ if(isset($userSearch)) {
          JOIN (
              SELECT  ".$userCoords[0]." AS latpoint, ".$userCoords[1]."AS longpoint
         ) AS p ON 1=1
+        HAVING
+            distance_in_miles <= ".$userSearch."
         ORDER BY 
         	distance_in_miles
         LIMIT 15;";
