@@ -202,12 +202,11 @@ if(isset($userSearch)) {
         
         echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>";
         echo '$(document).ready(function(){';
-        echo '  $("#cityTable").dataTable();';
+        echo '  $("#cityTable").DataTable();';
         echo '})'; 
         echo '</script>'; //Turns prior defined table into a jQuery datatable
         
     } else {
-        //Will throw error on page startup as nothing is yet defined. Only use for debug.
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
     }
     
