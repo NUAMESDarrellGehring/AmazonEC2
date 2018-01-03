@@ -181,22 +181,22 @@ if(isset($userSearch)) {
     $results = $connSearch->query($sql);
     if($results !== false) {
         $cnt = 0;
-        //$str = "Results:<br><ul>\n";
         
+        echo "$(document).ready(function() {";
+        echo "   $('#example').DataTable( {";
+        echo "        columns: [";
+        echo "        { title: 'City' }";
+        echo "        ]";
+        echo "    } );";
+        echo "} );";
         
         //echo '<table style="width:10%">';
         //echo '<th>City</th>';
-        
-        echo "<script>";
-        echo "var cityTable = $('#cityTable').DataTable();";
-        //echo "</script>";
-        
         while($row = mysqli_fetch_assoc($results)) {
             //echo '<tr><td>'.$row['city'].'</td></tr>';
-            echo '''cityTable.rows.add("City":"'''.$row['city'].'''"); .draw''';
             $cnt++;
         }
-        //echo '</table>';
+        echo '</table>';
         
         
     } else {
