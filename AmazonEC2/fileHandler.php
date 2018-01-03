@@ -193,7 +193,7 @@ if(isset($userSearch)) {
         
         while($row = mysqli_fetch_assoc($results)) {
             //echo '<tr><td>'.$row['city'].'</td></tr>';
-            echo '''cityTable.rows.add("City":"'''.$row['city'].'''").draw''';
+            echo '''cityTable.rows.add("City":"'''.$row['city'].'''"); .draw''';
             $cnt++;
         }
         //echo '</table>';
