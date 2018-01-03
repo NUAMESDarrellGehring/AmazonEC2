@@ -158,24 +158,8 @@ if(isset($userSearch)) {
             
     $connSearch->query($sql);
     
-    echo "<br>Query1: ".$sql."\n<br>";
-
-    //$sql = "SET @orig_lat=".$userCoords[0]."; set @orig_lon=".$userCoords[1]."; set @dist=".$userSearch.";";
-    //$connSearch->query($sql);
+    debugLog("<br>Query1: ".$sql."\n<br>");
     
-    //echo "Query2: ".$sql;
-    
-    //$connSearch->query("SET @orig_lat=$userCoords[1];");
-    
-    //$latRes = mysqli_query($connSearch, "SELECT @orig_lat;");
-    //$row = $latRes->fetch_array(MYSQL_BOTH);
-    
-    //if($row[0]==NULL){echo "Oops it don't work haha";};
-    
-    //echo $row[0];
-    
-    //$searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lat) ) * cos( radians( h ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lon) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;");
-    //$sql = "SELECT *, ( 3959 * acos( cos( radians(".$userCoords[0].") ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(".$userCoords[1].") ) + sin( radians(".$userCoords[0].") ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < ".$userSearch." ORDER BY distance LIMIT 0 , 20;";
     $sql = "
         SELECT 
         	*,
@@ -193,34 +177,30 @@ if(isset($userSearch)) {
         ORDER BY 
         	distance_in_miles
         LIMIT 15;";
-    
-    //$sql = "select * from cityInfo limit 0,10";
-    
+       
     $results = $connSearch->query($sql);
     if($results !== false) {
         $cnt = 0;
-        $str = "Results:<br><ul>\n";
+        //$str = "Results:<br><ul>\n";
+        
+        
+        echo '<table style="width:100%">';
+        echo '<th>City</th>';
         while($row = mysqli_fetch_assoc($results)) {
-            $str .= "<li>".$row['city'].": ".$row['population']." (".$row['distance_in_miles']." miles) <!--".var_export($row, true)."--></li>\n";
+            //$str .= "<li>".$row['city'].": ".$row['population']." (".$row['distance_in_miles']." miles) <!--".var_export($row, true)."--></li>\n";
+            echo '<tr><td>'.$row['city'].'</td></tr>';
             $cnt++;
         }
-        $str .= "</ul>";
-        $str .= "<br>Total Rows: ".$cnt."</br>";
-        $str .= "<br>Query: ".$sql."<br>";
+        echo '</table>';
+        //$str .= "</ul>";
+        //$str .= "<br>Total Rows: ".$cnt."</br>";
+        //$str .= "<br>Query: ".$sql."<br>";
         
-        echo $str;
+        //echo $str;
         
     } else {
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
     }
-                    
-    // SELECT *, ( 3959 * acos( cos( radians(37) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(-122) ) + sin( radians(37) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < 25  ORDER BY distance  LIMIT 0 , 20;
-    
-   //SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lat) ) + sin( radians(@orig_lon) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;
-   
-    //$rowCnt = $searchOut->num_rows;
-    
-    //echo $rowCnt;
     
 }
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
