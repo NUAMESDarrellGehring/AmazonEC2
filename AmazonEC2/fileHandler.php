@@ -174,8 +174,26 @@ if(isset($userSearch)) {
     
     //echo $row[0];
     
-    //$searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lat) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lon) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;");
-    $sql = "SELECT *, ( 3959 * acos( cos( radians(".$userCoords[0].") ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(".$userCoords[1].") ) + sin( radians(".$userCoords[0].") ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < ".$userSearch." ORDER BY distance LIMIT 0 , 20;";
+    //$searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lat) ) * cos( radians( h ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lon) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;");
+    //$sql = "SELECT *, ( 3959 * acos( cos( radians(".$userCoords[0].") ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(".$userCoords[1].") ) + sin( radians(".$userCoords[0].") ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < ".$userSearch." ORDER BY distance LIMIT 0 , 20;";
+    $sql = "
+        SELECT 
+        	*,
+        	(
+        		111.045* DEGREES(ACOS(COS(RADIANS(cityInfo.latitude))
+        		 * COS(RADIANS(latitude))
+        		 * COS(RADIANS(longpoint) - RADIANS(cityInfo.longitude))
+        		 + SIN(RADIANS(latpoint))
+        		 * SIN(RADIANS(latitude)))
+        	) AS distance_in_km
+         FROM cityInfo
+         JOIN (
+             SELECT ".$userCoords[0]." AS latpoint, ".$userCoords[1]." AS longpoint
+        ) AS p ON 1=1
+        ORDER BY 
+        	distance_in_km
+        LIMIT 15;
+    ";
     
     //$sql = "select * from cityInfo limit 0,10";
     
