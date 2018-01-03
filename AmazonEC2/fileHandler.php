@@ -140,10 +140,10 @@ $userSearch = $_REQUEST['userDistOut'];
 if(isset($_REQUEST['userLocation'])){
                     
     $userCoords =  geoCodeAddress($userLocation);
-    echo "Longitude of user is: ". $userCoords[0];
-    echo "<br>";
-    echo "Latitude of user is: ". $userCoords[1];
-    echo "<br>";
+    debugLog("Longitude of user is: ".$userCoords[0]);
+    debugLog("<br>");
+    debugLog("Latitude of user is: ". $userCoords[1]);
+    debugLog("<br>");
 }
 
 $connSearch = new mysqli($servername, $username, $password);
