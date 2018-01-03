@@ -204,7 +204,7 @@ if(isset($userSearch)) {
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
     }
     
-}
+
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
 ?>
 
