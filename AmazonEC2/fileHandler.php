@@ -183,7 +183,7 @@ if(isset($userSearch)) {
     if($results !== false) {
         $cnt = 0;
         $str = "Results:<br><ul>";
-        while($row = mysqli_fetch_row($results)) {
+        while($row = mysqli_fetch_assoc($results)) {
             $str .= "<li>".var_export($row, true)."</li>";
             $cnt++;
         }
