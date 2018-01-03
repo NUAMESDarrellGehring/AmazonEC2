@@ -182,9 +182,9 @@ if(isset($userSearch)) {
     $results = $connSearch->query($sql);
     if($results !== false) {
         $cnt = 0;
-        $str = "Results:<br><ul>";
+        $str = "Results:<br><ul>\n";
         while($row = mysqli_fetch_assoc($results)) {
-            $str .= "<li>".$row['city'].": ".$row['population']." <!--".var_export($row, true)."--></li>";
+            $str .= "<li>".$row['city'].": ".$row['population']." <!--".var_export($row, true)."--></li>\n";
             $cnt++;
         }
         $str .= "</ul>";
