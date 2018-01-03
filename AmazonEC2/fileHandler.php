@@ -152,7 +152,7 @@ if ($connSearch->connect_error){
     die("Connection failed: " . $connSearch->connect_error);
 }
 
-if(isset($userSearch)) {
+if(isset($userSearch) && $userCoords[0]!=NULL) {
     
     $sql = "USE cityInfoDB;";
             
