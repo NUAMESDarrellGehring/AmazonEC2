@@ -98,6 +98,11 @@ function debugLog($str) {
     }
 }
 
+function echoResults($results) {
+    $arr = mysqli_fetch_array($results);
+    var_export($results, true);
+}
+
 $uploadOk = 1;
 
 $fileExtension = pathinfo($_FILES["uploadedFile"]["name"],PATHINFO_EXTENSION);
@@ -147,38 +152,45 @@ if ($connSearch->connect_error){
     die("Connection failed: " . $connSearch->connect_error);
 }
 
-if(isset($userSearch)){
-    $connSearch->query("USE cityInfoDB;");
-    //$connSearch->query("SET @orig_lat=$userCoords[1]; set @orig_lon=$userCoords[0]; set @dist=$userSearch;");
+if(isset($userSearch)) {
     
-    $connSearch->query("SET @orig_lat=$userCoords[1];");
-    $connSearch->query("SET @orig_lon=$userCoords[0];");
-    $connSearch->query("SET @dist=$userSearch;");
+    $sql = "USE cityInfoDB;";
+            
+    $connSearch->query($sql);
     
+    echo "Query1: ".$sql;
+
+    //$sql = "SET @orig_lat=".$userCoords[0]."; set @orig_lon=".$userCoords[1]."; set @dist=".$userSearch.";";
+    //$connSearch->query($sql);
     
-    $latRes = mysqli_query($connSearch, "SELECT @orig_lat;");
-    $lonRes = mysqli_query($connSearch, "SELECT @orig_lon;");
-    $desRes = mysqli_query($connSearch, "SELECT @dist;");
+    //echo "Query2: ".$sql;
     
-    $row = $latRes->fetch_array(MYSQL_BOTH);
-    $rowdose = $lonRes->fetch_array(MYSQL_BOTH);
-    $rowtres = $desRes->fetch_array(MYSQL_BOTH);
+    //$connSearch->query("SET @orig_lat=$userCoords[1];");
     
-    if($row[0]==NULL){echo "Fuck!!!!";};
+    //$latRes = mysqli_query($connSearch, "SELECT @orig_lat;");
+    //$row = $latRes->fetch_array(MYSQL_BOTH);
     
-    echo $row[0];
-    echo $rowdose[0];
-    echo $rowtres[0];
+    //if($row[0]==NULL){echo "Oops it don't work haha";};
     
-    $searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lat) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lon) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;");
+    //echo $row[0];
+    
+    //$searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lat) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lon) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;");
+    $sql = "SELECT *, ( 3959 * acos( cos( radians(".$userCoords[0].") ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(".$userCoords[1].") ) + sin( radians(".$userCoords[0].") ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < ".$userSearch." ORDER BY distance LIMIT 0 , 20;";
+    $results = $connSearch->query($sql);
+    if($results !== false) {
+        $tmpArray = mysqli_fetch_array($results);
+        echo "Results: ".var_export($tmpArray, true);
+    } else {
+        throw new Exception("Query Failed (". mysql_error().").  Query='".$sql."'");
+    }
                     
     // SELECT *, ( 3959 * acos( cos( radians(37) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(-122) ) + sin( radians(37) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < 25  ORDER BY distance  LIMIT 0 , 20;
     
    //SELECT *, ( 3959 * acos( cos( radians(@orig_lon) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lat) ) + sin( radians(@orig_lon) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;
    
-    $rowCnt = $searchOut->num_rows;
+    //$rowCnt = $searchOut->num_rows;
     
-    echo $rowCnt;
+    //echo $rowCnt;
     
 }
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
