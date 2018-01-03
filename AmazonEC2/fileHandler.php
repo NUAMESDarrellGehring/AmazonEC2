@@ -179,9 +179,9 @@ if(isset($userSearch)) {
         LIMIT 15;";
        
     $results = $connSearch->query($sql);
-    /*if($results !== false) {
+    if($results !== false) {
         $cnt = 0;
-        echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>";
+        /*echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>";
         echo "$(document).ready(function() {";
         echo "   $('#example').DataTable( {";
         echo "        columns: [";
@@ -192,22 +192,27 @@ if(isset($userSearch)) {
         echo "</script>";*/
         
         $cnt = 0;
-        echo '<table style="width:10%">';
+        echo '<table style="width:10%" id="cityTable">';
         echo '<th>City</th>';
         while($row = mysqli_fetch_assoc($results)) {
             echo '<tr><td>'.$row['city'].'</td></tr>';
             $cnt++;
         }
         echo '</table>';
-        
+        echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>";
+        echo '$(function(){';
+        echo '  $("#cityTable").dataTable();';
+        echo '})';
+        echo '</script>';
         
     } else {
         //Will throw error on page startup as nothing is yet defined. Only use for debug.
-        //throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
+        throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
     }
     
 
 debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
+}
 ?>
 
 
