@@ -181,7 +181,7 @@ if(isset($userSearch)) {
     $results = $connSearch->query($sql);
     if($results !== false) {
         $cnt = 0;
-        
+        echo "<script>";
         echo "$(document).ready(function() {";
         echo "   $('#example').DataTable( {";
         echo "        columns: [";
@@ -189,6 +189,7 @@ if(isset($userSearch)) {
         echo "        ]";
         echo "    } );";
         echo "} );";
+        echo "</script>";
         
         //echo '<table style="width:10%">';
         //echo '<th>City</th>';
