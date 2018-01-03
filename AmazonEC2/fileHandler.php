@@ -184,19 +184,20 @@ if(isset($userSearch)) {
         //$str = "Results:<br><ul>\n";
         
         
-        echo '<table style="width:10%">';
-        echo '<th>City</th>';
+        //echo '<table style="width:10%">';
+        //echo '<th>City</th>';
+        
+        echo "<script>";
+        echo "var cityTable = $('#cityTable').DataTable();";
+        //echo "</script>";
+        
         while($row = mysqli_fetch_assoc($results)) {
-            //$str .= "<li>".$row['city'].": ".$row['population']." (".$row['distance_in_miles']." miles) <!--".var_export($row, true)."--></li>\n";
-            echo '<tr><td>'.$row['city'].'</td></tr>';
+            //echo '<tr><td>'.$row['city'].'</td></tr>';
+            echo '''cityTable.rows.add("City":"'''.$row['city'].'''").draw''';
             $cnt++;
         }
-        echo '</table>';
-        //$str .= "</ul>";
-        //$str .= "<br>Total Rows: ".$cnt."</br>";
-        //$str .= "<br>Query: ".$sql."<br>";
+        //echo '</table>';
         
-        //echo $str;
         
     } else {
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
@@ -209,6 +210,9 @@ debugLog("Test: We've reached the end of this program!!!"); //Signals end of pro
 
 <html>
 	<body>
+		<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		</head> 
 		<br>
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
