@@ -184,7 +184,7 @@ if(isset($userSearch)) {
         //$str = "Results:<br><ul>\n";
         
         
-        echo '<table style="width:100%">';
+        echo '<table style="width:10%">';
         echo '<th>City</th>';
         while($row = mysqli_fetch_assoc($results)) {
             //$str .= "<li>".$row['city'].": ".$row['population']." (".$row['distance_in_miles']." miles) <!--".var_export($row, true)."--></li>\n";
