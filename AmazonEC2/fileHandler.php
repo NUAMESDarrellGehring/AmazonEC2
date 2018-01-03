@@ -186,6 +186,7 @@ if(isset($userSearch)) {
         }
         $str .= "</ul>";
         $str .= "<br>Total Rows: ".$cnt."</br>";
+        $str .= "<br>Query: ".$sql."<br>";
         
         echo $str;
         
