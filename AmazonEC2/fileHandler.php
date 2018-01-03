@@ -181,7 +181,7 @@ if(isset($userSearch)) {
     $results = $connSearch->query($sql);
     if($results !== false) {
         $cnt = 0;
-        echo "<script>";
+        echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>";
         echo "$(document).ready(function() {";
         echo "   $('#example').DataTable( {";
         echo "        columns: [";
