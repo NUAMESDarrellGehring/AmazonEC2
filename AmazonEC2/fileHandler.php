@@ -203,7 +203,7 @@ if(isset($userSearch)) {
         echo '$(function(){';
         echo '  $("#cityTable").dataTable();';
         echo '})'; 
-        echo '</script>'; //Turns prior defined table into a jQuery datatable.
+        echo '</script>'; //Turns prior defined table into a jQuery datatable
         
     } else {
         //Will throw error on page startup as nothing is yet defined. Only use for debug.
