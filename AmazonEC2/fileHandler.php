@@ -199,8 +199,9 @@ if(isset($userSearch)) {
             $cnt++;
         }
         echo '</table>';
+        
         echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>";
-        echo '$(function(){';
+        echo '$(document).ready(function(){';
         echo '  $("#cityTable").dataTable();';
         echo '})'; 
         echo '</script>'; //Turns prior defined table into a jQuery datatable
