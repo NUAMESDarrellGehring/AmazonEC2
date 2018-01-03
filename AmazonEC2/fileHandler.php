@@ -177,7 +177,7 @@ if(isset($userSearch)) {
     //$searchOut = $connSearch->query("SELECT *, ( 3959 * acos( cos( radians(@orig_lat) ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(@orig_lon) ) + sin( radians(@orig_lat) ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < @dist  ORDER BY distance  LIMIT 0 , 20;");
     $sql = "SELECT *, ( 3959 * acos( cos( radians(".$userCoords[0].") ) * cos( radians( cityInfo.latitude ) )  * cos( radians(cityInfo.longitude) - radians(".$userCoords[1].") ) + sin( radians(".$userCoords[0].") ) * sin(radians(cityInfo.latitude)) ) ) AS distance  FROM cityInfo  HAVING distance < ".$userSearch." ORDER BY distance LIMIT 0 , 20;";
     
-    $sql = "select * from cityInfo limit 0,10";
+    //$sql = "select * from cityInfo limit 0,10";
     
     $results = $connSearch->query($sql);
     if($results !== false) {
