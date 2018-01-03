@@ -186,7 +186,7 @@ if(isset($userSearch)) {
                  * SIN(RADIANS(latitude)))) AS distance_in_miles
          FROM cityInfo
          JOIN (
-             SELECT  ".$userCoords[0]." AS latpoint, ".$userCoords[1]."AS longpoint
+             SELECT  ".$userCoords[1]." AS latpoint, ".$userCoords[0]."AS longpoint
         ) AS p ON 1=1
         HAVING
             distance_in_miles <= ".$userSearch."
