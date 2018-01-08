@@ -219,6 +219,10 @@ if(isset($userSearch)) {
 	<body>
 		<head>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+			
+			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+			
 		</head> 
 
         <!-- Tell the browser that this is javascript -->
