@@ -152,6 +152,9 @@ if ($connSearch->connect_error){
     die("Connection failed: " . $connSearch->connect_error);
 }
 
+//Array for our results from query (if any)
+$resultsArr = array();
+
 if(isset($userSearch)) {
     
     $sql = "USE cityInfoDB;";
@@ -192,13 +195,9 @@ if(isset($userSearch)) {
         echo "</script>";*/
         
         $cnt = 0;
-        echo '<table id="cityTable">';
-        echo '<th>City</th>';
         while($row = mysqli_fetch_assoc($results)) {
-            echo '<tr><td>'.$row['city'].'</td></tr>';
-            $cnt++;
+            $resultsArr[] = $row;
         }
-        echo '</table>';
         
         /*echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>";
         echo '$(document).ready(function(){';
@@ -234,6 +233,31 @@ if(isset($userSearch)) {
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		</head> 
 		<br>
+		
+		<?php 
+            if(count($resultsArr) > 0) { 
+		?>    
+		<table>
+			<th>
+				<td>City</td>
+				<td>State</td>
+			</th>
+		<?php 
+		  foreach($row as $resultsArr) {
+		?>
+			<tr>
+				<td><?= $row['City'] ?></td>
+				<td><?= $row['State'] ?></td>
+			</tr>
+		<?php
+		  }
+		?>
+						
+		</table>
+		<?php  
+		}
+		?>
+				
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
 			Your Location: <input type="text" name="userLocation">
