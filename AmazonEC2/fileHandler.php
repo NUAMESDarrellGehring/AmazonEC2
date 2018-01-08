@@ -238,12 +238,12 @@ if(isset($userSearch)) {
             if(count($resultsArr) > 0) { 
 		?>    
 		<table>
-			<th>
+			<tr>
 				<td>City</td>
 				<td>State</td>
-			</th>
+			</tr>
 		<?php 
-		  foreach($row as $resultsArr) {
+		  foreach($resultsArr as $row) {
 		?>
 			<tr>
 				<td><?= $row['City'] ?></td>
