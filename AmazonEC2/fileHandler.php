@@ -251,9 +251,9 @@ if(isset($userSearch)) {
 		<table id="cityTable" style="">
 			<thead>
     			<tr>
-    				<td>City</td>
-    				<td>State</td>
-    				<td>Distance In Miles</td>
+    				<th>City</th>
+    				<th>State</th>
+    				<th>Distance In Miles</th>
     			</tr>
 			</thead>
 			<tbody>
