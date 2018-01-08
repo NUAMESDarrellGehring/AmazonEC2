@@ -241,7 +241,7 @@ if(isset($userSearch)) {
 		<?php 
             if(count($resultsArr) > 0) { 
 		?>    
-		<table>
+		<table id="cityTable" style="">
 			<tr>
 				<td>City</td>
 				<td>State</td>
