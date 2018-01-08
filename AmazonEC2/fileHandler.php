@@ -200,11 +200,11 @@ if(isset($userSearch)) {
         }
         echo '</table>';
         
-        /*echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>";
+        echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>";
         echo '$(document).ready(function(){';
         echo '  $("#cityTable").DataTable();';
         echo '})'; 
-        echo '</script>'; //Turns prior defined table into a jQuery datatable*/
+        echo '</script>'; //Turns prior defined table into a jQuery datatable
         
     } else {
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
