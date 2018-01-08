@@ -192,7 +192,7 @@ if(isset($userSearch)) {
         echo "</script>";*/
         
         $cnt = 0;
-        echo '<table style="width:10%" id="cityTable">';
+        echo '<table id="cityTable">';
         echo '<th>City</th>';
         while($row = mysqli_fetch_assoc($results)) {
             echo '<tr><td>'.$row['city'].'</td></tr>';
