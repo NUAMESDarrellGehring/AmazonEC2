@@ -243,7 +243,7 @@ if(isset($userSearch)) {
 				<td>State</td>
 			</tr>
 		<?php 
-		  foreach($resultsArr as $row) {
+		  foreach($resultsArr as $key => $value) {
 		?>
 			<tr>
 				<td><?= $row['City'] ?></td>
