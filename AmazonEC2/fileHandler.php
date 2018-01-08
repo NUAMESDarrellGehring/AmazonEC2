@@ -227,9 +227,13 @@ if(isset($userSearch)) {
 
         <!-- Tell the browser that this is javascript -->
         <script>
+        	console.log("Start");
             $(document).ready(function() {
+            	console.log("Ready Start");
             	$("#cityTable").DataTable();
-            }); 
+            	console.log("Ready End");
+            });
+            console.log("End"); 
         </script>
 
 		<br>
