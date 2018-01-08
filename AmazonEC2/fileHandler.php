@@ -230,7 +230,7 @@ if(isset($userSearch)) {
         	console.log("Start");
             $(document).ready(function() {
             	console.log("Ready Start");
-            	$("#cityTable").DataTable();
+            	$("#cityTable").dataTable();
             	console.log("Ready End");
             });
             console.log("End"); 
