@@ -215,23 +215,19 @@ if(isset($userSearch)) {
 
 ?>
 
-<!-- //Import the library -->
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-
-
-<!-- Tell the browser that this is javascript -->
-<script>
-    $(document).ready(function() {
-    	$("#cityTable").DataTable();
-    }); 
-</script>
-
-
 <html>
 	<body>
 		<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		</head> 
+
+        <!-- Tell the browser that this is javascript -->
+        <script>
+            $(document).ready(function() {
+            	$("#cityTable").DataTable();
+            }); 
+        </script>
+
 		<br>
 		
 		<?php 
