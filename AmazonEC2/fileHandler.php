@@ -211,9 +211,21 @@ if(isset($userSearch)) {
     }
     
 
-debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
+    debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
 }
+
 ?>
+
+<!-- //Import the library -->
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+
+<!-- Tell the browser that this is javascript -->
+<script>
+    $(document).ready(function() {
+    	$("#cityTable").DataTable();
+    }); 
+</script>
 
 
 <html>
