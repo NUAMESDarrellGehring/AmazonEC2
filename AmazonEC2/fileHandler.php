@@ -249,24 +249,27 @@ if(isset($userSearch)) {
             if(count($resultsArr) > 0) { 
 		?>    
 		<table id="cityTable" style="">
-			<tr>
-				<td>City</td>
-				<td>State</td>
-				<td>Distance In Miles</td>
-			</tr>
+			<thead>
+    			<tr>
+    				<td>City</td>
+    				<td>State</td>
+    				<td>Distance In Miles</td>
+    			</tr>
+			</thead>
+			<tbody>
 		<?php 
 		  foreach($resultsArr as $row) {
 		?>
-			<!-- Row: <?= var_export($row, true) ?> -->
-			<tr>
-				<td><?= $row['city'] ?></td>
-				<td><?= $row['state'] ?></td>
-				<td><?= $row['distance_in_miles'] ?></td>
-			</tr>
+    			<!-- Row: <?= var_export($row, true) ?> -->
+    			<tr>
+    				<td><?= $row['city'] ?></td>
+    				<td><?= $row['state'] ?></td>
+    				<td><?= $row['distance_in_miles'] ?></td>
+    			</tr>
 		<?php
 		  }
 		?>
-						
+			</tbody>	
 		</table>
 		<?php  
 		}
