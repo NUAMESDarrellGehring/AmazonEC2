@@ -243,8 +243,9 @@ if(isset($userSearch)) {
 				<td>State</td>
 			</tr>
 		<?php 
-		  foreach($resultsArr as $key => $value) {
+		  foreach($resultsArr as $row) {
 		?>
+			<!-- Row: <?= var_export($row, true) ?> -->
 			<tr>
 				<td><?= $row['City'] ?></td>
 				<td><?= $row['State'] ?></td>
