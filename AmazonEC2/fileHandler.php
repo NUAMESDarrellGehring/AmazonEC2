@@ -241,14 +241,16 @@ if(isset($userSearch)) {
 			<tr>
 				<td>City</td>
 				<td>State</td>
+				<td>Distance In Miles</td>
 			</tr>
 		<?php 
 		  foreach($resultsArr as $row) {
 		?>
 			<!-- Row: <?= var_export($row, true) ?> -->
 			<tr>
-				<td><?= $row['City'] ?></td>
-				<td><?= $row['State'] ?></td>
+				<td><?= $row['city'] ?></td>
+				<td><?= $row['state'] ?></td>
+				<td><?= $row['distance_in_miles'] ?></td>
 			</tr>
 		<?php
 		  }
