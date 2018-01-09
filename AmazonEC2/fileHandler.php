@@ -241,13 +241,7 @@ if(isset($userSearch)) {
           center: uluru
         });
 
-		<?php foreach($combArray as $row){ ?>
-		var pos = {lat: <?=$row["longitude"]?>, lng: <?=$row["latitude"]?>}
-        var marker = new google.maps.Marker({
-          position: pos,
-          map: map
-        });
-        <?php }?>
+
       }
     </script>
     <script async defer
