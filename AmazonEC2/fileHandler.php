@@ -188,7 +188,7 @@ if(isset($userSearch)) {
             $resultsArr[] = $row;
         }
         
-        for($i=14;$i<29;$i++){
+        for($i=15;$i<30;$i++){
             $interestArr[($i-14)] = ($resultsArr[$i]);
         }
         
