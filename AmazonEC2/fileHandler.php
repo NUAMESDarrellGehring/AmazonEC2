@@ -195,10 +195,17 @@ if(isset($userSearch)) {
             echo $resultsArr[$i]['city']." Has a popularity index of ".$resultsWeightedQuery."<br>";
         }
         
-        foreach($interestArr as $samp){
+        /*foreach($interestArr as $samp){
             var_export($samp, true);
             echo $samp["distance_in_miles"]."<br>";
-        }    
+        }*/
+        krsort($interestArr);
+        
+        foreach($interestArr as $key => $value){
+            var_export($value, true);
+            echo $value["city"]." has an popularity index of ".$key;
+        }
+        
         
         
         
