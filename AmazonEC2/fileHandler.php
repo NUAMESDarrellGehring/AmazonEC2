@@ -137,7 +137,7 @@ if($_FILES["uploadedFile"]["size"] !== 0){
 $userLocation = $_REQUEST['userLocation'];
 $userSearch = $_REQUEST['userDistOut'];
 
-if(isset($_REQUEST['userLocation'])){
+if(isset($_REQUEST['userLocation'])&&isset($_REQUEST['userSearch'])){
                     
     $userCoords =  geoCodeAddress($userLocation);
     debugLog("Longitude of user is: ".$userCoords[0]);
@@ -155,7 +155,7 @@ if ($connSearch->connect_error){
 //Array for our results from query (if any)
 $resultsArr = array();
 
-if(isset($userSearch)&&isset($userLocation)) {
+if(isset($userSearch)) {
     
     $sql = "USE cityInfoDB;";
             
