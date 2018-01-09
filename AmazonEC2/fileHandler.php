@@ -260,8 +260,11 @@ if(isset($userSearch)) {
     			</tr>
 			</thead>
 			<tbody>
-		<?php 
+		<?php
+		  $counter = 0;
 		  foreach($resultsArr as $row) {
+		      if($counter<15){
+		          $counter++;
 		?>
     			<!-- Row: <?= var_export($row, true) ?> -->
     			<tr>
@@ -270,6 +273,7 @@ if(isset($userSearch)) {
     				<td><?= $row['distance_in_miles'] ?></td>
     			</tr>
 		<?php
+		      }
 		  }
 		?>
 			</tbody>	
