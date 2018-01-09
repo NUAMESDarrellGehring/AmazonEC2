@@ -188,13 +188,13 @@ if(isset($userSearch)) {
             $resultsArr[] = $row;
         }
         
-        for($i=14;$i<19;$i++){
+        for($i=14;$i<29;$i++){
             $interestArr[($i-14)] = ($resultsArr[$i]);
         }
         
         foreach($interestArr as $samp){
             var_export($samp, true);
-            echo $samp["distance_in_miles"];
+            echo $samp["distance_in_miles"]."<br>";
         }    
         
         
