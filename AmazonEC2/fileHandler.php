@@ -176,34 +176,28 @@ if(isset($userSearch)) {
              SELECT  ".$userCoords[1]." AS latpoint, ".$userCoords[0]."AS longpoint
         ) AS p ON 1=1
         HAVING
-            distance_in_miles <= ".$userSearch."
+            distance_in_miles <= ".($userSearch+20)."
         ORDER BY 
         	distance_in_miles
-        LIMIT 15;";
+        LIMIT 30;";
        
     $results = $connSearch->query($sql);
     if($results !== false) {
-        $cnt = 0;
-        /*echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>";
-        echo "$(document).ready(function() {";
-        echo "   $('#example').DataTable( {";
-        echo "        columns: [";
-        echo "        { title: 'City' }";
-        echo "        ]";
-        echo "    } );";
-        echo "} );";
-        echo "</script>";*/
-        
         $cnt = 0;
         while($row = mysqli_fetch_assoc($results)) {
             $resultsArr[] = $row;
         }
         
-        /*echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'>";
-        echo '$(document).ready(function(){';
-        echo '  $("#cityTable").DataTable();';
-        echo '})'; 
-        echo '</script>'; //Turns prior defined table into a jQuery datatable*/
+        for($i=14;$i<19;$i++){
+            $interestArr[($i-14)] = ($resultsArr[$i]);
+        }
+        
+        foreach($interestArr as $samp){
+            var_export($samp, true);
+            echo $samp["distance_in_miles"];
+        }    
+        
+        
         
     } else {
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
