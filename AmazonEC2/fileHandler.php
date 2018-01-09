@@ -223,7 +223,7 @@ if(isset($userSearch)) {
 
   <head>
     <style>
-       #locationsMap {
+       #map {
         height: 400px;
         width: 100%;
        }
@@ -232,11 +232,11 @@ if(isset($userSearch)) {
   
   <body>
     <h3>Your Locations</h3>
-    <div id="locationsMap"></div>
+    <div id="map"></div>
     <script>
       function initMap() {
         var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('locationMap'), {
+        var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 4,
           center: uluru
         });
