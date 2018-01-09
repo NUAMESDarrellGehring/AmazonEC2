@@ -144,78 +144,77 @@ if(isset($_REQUEST['userLocation'])&&isset($_REQUEST['userSearch'])){
     debugLog("<br>");
     debugLog("Latitude of user is: ". $userCoords[1]);
     debugLog("<br>");
-}
 
-$connSearch = new mysqli($servername, $username, $password);
-
-if ($connSearch->connect_error){
-    die("Connection failed: " . $connSearch->connect_error);
-}
-
-//Array for our results from query (if any)
-$resultsArr = array();
-
-if(isset($userSearch)) {
+    $connSearch = new mysqli($servername, $username, $password);
     
-    $sql = "USE cityInfoDB;";
-            
-    $connSearch->query($sql);
-    
-    debugLog("<br>Query1: ".$sql."\n<br>");
-    
-    $sql = "
-        SELECT 
-        	*,
-        	(3963.17 * ACOS(COS(RADIANS(latpoint)) 
-                 * COS(RADIANS(latitude)) 
-                 * COS(RADIANS(longpoint) - RADIANS(longitude)) 
-                 + SIN(RADIANS(latpoint)) 
-                 * SIN(RADIANS(latitude)))) AS distance_in_miles
-         FROM cityInfo
-         JOIN (
-             SELECT  ".$userCoords[1]." AS latpoint, ".$userCoords[0]."AS longpoint
-        ) AS p ON 1=1
-        HAVING
-            distance_in_miles <= ".($userSearch+20)."
-        ORDER BY 
-        	distance_in_miles
-        LIMIT 50;";
-       
-    $results = $connSearch->query($sql);
-    if($results !== false) {
-        $cnt = 0;
-        while($row = mysqli_fetch_assoc($results)) {
-            $resultsArr[] = $row;
-        }
-        
-        for($i=15;$i<50;$i++){
-            var_export($resultsArr,true);
-            $resultsWeightedQuery = (($resultsArr[$i]["population"])/1000)-(($resultsArr[$i]["distance_in_miles"])^2);
-            $interestArr[($resultsWeightedQuery)] = ($resultsArr[$i]);
-        }
-        
-        /*foreach($interestArr as $samp){
-            var_export($samp, true);
-            echo $samp["distance_in_miles"]."<br>";
-        }*/
-        krsort($interestArr);
-        
-        foreach($interestArr as $key => $value){
-            var_export($value, true);
-            debugLog($value["city"]." has an popularity index of ".$key."<br>");
-        }
-        
-        
-        
-        
-    } else {
-        throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
+    if ($connSearch->connect_error){
+        die("Connection failed: " . $connSearch->connect_error);
     }
     
-
-    debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
+    //Array for our results from query (if any)
+    $resultsArr = array();
+    
+    if(isset($userSearch)) {
+        
+        $sql = "USE cityInfoDB;";
+                
+        $connSearch->query($sql);
+        
+        debugLog("<br>Query1: ".$sql."\n<br>");
+        
+        $sql = "
+            SELECT 
+            	*,
+            	(3963.17 * ACOS(COS(RADIANS(latpoint)) 
+                     * COS(RADIANS(latitude)) 
+                     * COS(RADIANS(longpoint) - RADIANS(longitude)) 
+                     + SIN(RADIANS(latpoint)) 
+                     * SIN(RADIANS(latitude)))) AS distance_in_miles
+             FROM cityInfo
+             JOIN (
+                 SELECT  ".$userCoords[1]." AS latpoint, ".$userCoords[0]."AS longpoint
+            ) AS p ON 1=1
+            HAVING
+                distance_in_miles <= ".($userSearch+20)."
+            ORDER BY 
+            	distance_in_miles
+            LIMIT 50;";
+           
+        $results = $connSearch->query($sql);
+        if($results !== false) {
+            $cnt = 0;
+            while($row = mysqli_fetch_assoc($results)) {
+                $resultsArr[] = $row;
+            }
+            
+            for($i=15;$i<50;$i++){
+                var_export($resultsArr,true);
+                $resultsWeightedQuery = (($resultsArr[$i]["population"])/1000)-(($resultsArr[$i]["distance_in_miles"])^2);
+                $interestArr[($resultsWeightedQuery)] = ($resultsArr[$i]);
+            }
+            
+            /*foreach($interestArr as $samp){
+                var_export($samp, true);
+                echo $samp["distance_in_miles"]."<br>";
+            }*/
+            krsort($interestArr);
+            
+            foreach($interestArr as $key => $value){
+                var_export($value, true);
+                debugLog($value["city"]." has an popularity index of ".$key."<br>");
+            }
+            
+            
+            
+            
+        } else {
+            throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
+        }
+        
+    
+        debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
+    }
 }
-
 ?>
 
 <html>
