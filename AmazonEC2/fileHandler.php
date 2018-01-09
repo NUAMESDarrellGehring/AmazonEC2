@@ -263,7 +263,7 @@ if(isset($userSearch)) {
 		<?php
 		  $counter = 0;
 		  foreach($resultsArr as $row) {
-		      if($counter<15){
+		      if($counter<13){
 		          $counter++;
 		?>
     			<!-- Row: <?= var_export($row, true) ?> -->
@@ -275,6 +275,20 @@ if(isset($userSearch)) {
 		<?php
 		      }
 		  }
+		  $counter = 0;
+		  foreach($interestArr as $row) {
+		      if($counter<2){
+		          $counter++;
+	   ?>
+	   				<tr>
+	   					<td><?= $row['city'] ?></td>
+    					<td><?= $row['state'] ?></td>
+    					<td><?= $row['distance_in_miles'] ?></td>
+	   				<tr>
+	   
+	   <?php
+		      }
+		  } 
 		?>
 			</tbody>	
 		</table>
