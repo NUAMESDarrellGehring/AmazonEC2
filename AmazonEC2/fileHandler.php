@@ -212,7 +212,7 @@ if(isset($userSearch)) {
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
     }
     
-
+    //the google api key is AIzaSyBnYeMEUWJEQH0FQKUZhsL3mesL333Vzbg
     debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
 }
 
@@ -295,7 +295,40 @@ if(isset($userSearch)) {
 		<?php  
 		}
 		?>
+	
+	
+	  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnYeMEUWJEQH0FQKUZhsL3mesL333Vzbg&callback=initMap">
+    </script>
+  </body>
+	
 				
+				
+	
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
 			<br>
