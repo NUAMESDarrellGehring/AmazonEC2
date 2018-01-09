@@ -219,6 +219,43 @@ if(isset($userSearch)) {
 ?>
 
 <html>
+
+
+  <head>
+    <style>
+       #locationsMap {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  
+  <body>
+    <h3>Your Locations</h3>
+    <div id="locationsMap"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('locationMap'), {
+          zoom: 4,
+          center: uluru
+        });
+
+		<?php foreach($combArray as $row){ ?>
+		var pos = {lat: <?=$row["longitude"]?>, lng: <?=$row["latitude"]?>}
+        var marker = new google.maps.Marker({
+          position: pos,
+          map: map
+        });
+        <?php }?>
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnYeMEUWJEQH0FQKUZhsL3mesL333Vzbg&callback=initMap">
+    </script>
+  </body>
+
+
 	<body>
 		<head>
 			<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
@@ -265,6 +302,7 @@ if(isset($userSearch)) {
 		  foreach($resultsArr as $row) {
 		      if($counter<13){
 		          $counter++;
+		          $combArray[]=$row;
 		?>
     			<!-- Row: <?= var_export($row, true) ?> -->
     			<tr>
@@ -279,6 +317,7 @@ if(isset($userSearch)) {
 		  foreach($interestArr as $row) {
 		      if($counter<2){
 		          $counter++;
+		          $combArray[]=$row;
 	   ?>
 	   				<tr>
 	   					<td><?= $row['city'] ?></td>
@@ -295,36 +334,6 @@ if(isset($userSearch)) {
 		<?php  
 		}
 		?>
-	
-	
-	  <head>
-    <style>
-       #map {
-        height: 400px;
-        width: 100%;
-       }
-    </style>
-  </head>
-  <body>
-    <h3>My Google Maps Demo</h3>
-    <div id="map"></div>
-    <script>
-      function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnYeMEUWJEQH0FQKUZhsL3mesL333Vzbg&callback=initMap">
-    </script>
-  </body>
 	
 				
 				
