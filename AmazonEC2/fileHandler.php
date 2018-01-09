@@ -189,7 +189,7 @@ if(isset($userSearch)) {
         }
         
         for($i=15;$i<50;$i++){
-            $resultsWeightedQuery = (($resultsArr[$i]["population"])/1000)-(($resultsArr[$i]["distance"])^2);
+            $resultsWeightedQuery = (($resultsArr[$i]["population"])/1000)-(($resultsArr[$i]["distance_in_miles"])^2);
             $interestArr[($resultsWeightedQuery)] = ($resultsArr[$i]);
         }
         
