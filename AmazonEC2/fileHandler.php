@@ -298,6 +298,7 @@ if(isset($userSearch)) {
 				
 		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="debug" value="1">
+			<br>
 			Your Location: <input type="text" name="userLocation">
 			<br>
 			Distance to Search Out From: <input type="text" name="userDistOut">
