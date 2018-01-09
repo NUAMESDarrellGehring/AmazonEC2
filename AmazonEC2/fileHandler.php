@@ -202,7 +202,7 @@ if(isset($userSearch)) {
         
         foreach($interestArr as $key => $value){
             var_export($value, true);
-            echo $value["city"]." has an popularity index of ".$key."<br>";
+            debugLog($value["city"]." has an popularity index of ".$key."<br>");
         }
         
         
