@@ -189,8 +189,10 @@ if(isset($userSearch)) {
         }
         
         for($i=15;$i<50;$i++){
+            var_export($resultsArr,true);
             $resultsWeightedQuery = (($resultsArr[$i]["population"])/1000)-(($resultsArr[$i]["distance_in_miles"])^2);
             $interestArr[($resultsWeightedQuery)] = ($resultsArr[$i]);
+            echo $resultsArr[$i][$city]." Has a popularity index of ".$resultsWeightedQuery;
         }
         
         foreach($interestArr as $samp){
