@@ -155,7 +155,7 @@ if ($connSearch->connect_error){
 //Array for our results from query (if any)
 $resultsArr = array();
 
-if(isset($userSearch)) {
+if(isset($userSearch)&&isset($userLocation)) {
     
     $sql = "USE cityInfoDB;";
             
