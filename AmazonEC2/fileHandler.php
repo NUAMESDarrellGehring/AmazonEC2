@@ -179,7 +179,7 @@ if(isset($userSearch)) {
             distance_in_miles <= ".($userSearch+20)."
         ORDER BY 
         	distance_in_miles
-        LIMIT 30;";
+        LIMIT 50;";
        
     $results = $connSearch->query($sql);
     if($results !== false) {
@@ -188,8 +188,9 @@ if(isset($userSearch)) {
             $resultsArr[] = $row;
         }
         
-        for($i=15;$i<30;$i++){
-            $interestArr[($i-14)] = ($resultsArr[$i]);
+        for($i=15;$i<50;$i++){
+            $resultsWeightedQuery = (($resultsArr[$i]["population"])/1000)-(($resultsArr[$i]["distance"])^2);
+            $interestArr[($resultsWeightedQuery)] = ($resultsArr[$i]);
         }
         
         foreach($interestArr as $samp){
