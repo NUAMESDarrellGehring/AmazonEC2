@@ -205,7 +205,20 @@ if(isset($userSearch)) {
             debugLog($value["city"]." has an popularity index of ".$key."<br>");
         }
         
-        
+        $counter = 0;
+        foreach($resultsArr as $row) {
+            if($counter<13){
+                $counter++;
+                $combArray[]=$row;
+            }
+        }
+        $counter = 0;
+        foreach($interestArr as $row) {
+            if($counter<2){
+                $counter++;
+                $combArray[]=$row;
+            }
+        } 
         
         
     } else {
@@ -291,38 +304,8 @@ if(isset($userSearch)) {
     			</tr>
 			</thead>
 			<tbody>
-		<?php
-		  $counter = 0;
-		  foreach($resultsArr as $row) {
-		      if($counter<13){
-		          $counter++;
-		          $combArray[]=$row;
-		?>
-    			<!-- Row: <?= var_export($row, true) ?> -->
-    			<tr>
-    				<td><?= $row['city'] ?></td>
-    				<td><?= $row['state'] ?></td>
-    				<td><?= $row['distance_in_miles'] ?></td>
-    			</tr>
-		<?php
-		      }
-		  }
-		  $counter = 0;
-		  foreach($interestArr as $row) {
-		      if($counter<2){
-		          $counter++;
-		          $combArray[]=$row;
-	   ?>
-	   				<tr>
-	   					<td><?= $row['city'] ?></td>
-    					<td><?= $row['state'] ?></td>
-    					<td><?= $row['distance_in_miles'] ?></td>
-	   				<tr>
 	   
 	   <?php
-		      }
-		  } 
-		  $counter = 0;
 		  foreach($combArray as $row) {
 		?>
 					<tr>
