@@ -216,7 +216,7 @@ if(isset($userSearch)) {
                     $counter++;
                     
                     if($counter<=2){
-                    $combArray[] = $interestArr;
+                    $combArray[] = $interestArr[$row];
                     
                 }
                 }
