@@ -205,8 +205,24 @@ if(isset($userSearch)) {
             debugLog($value["city"]." has an popularity index of ".$key."<br>");
         }
         
-        
-        
+        $combArray[] = null;
+        for($i=0;$i<14;$i++){
+            if($i<13){
+                $combArray[] = $resultsArr[$i];
+            }
+            else{
+                $counter = 0;
+                foreach($interestArr as $row){
+                    $counter++;
+                    
+                    if($counter<=2){
+                    $combArray[] = $interestArr;
+                    
+                }
+                }
+            
+            }
+        }
         
     } else {
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
@@ -240,17 +256,7 @@ if(isset($userSearch)) {
           zoom: 4,
           center: uluru
         });
-
-		<?php foreach($combArray as $row){ 
-		      var_export($row,true)
-		    ?>
-		
-		var pos = {lat: <?=$row["longitude"]?>, lng: <?=$row["latitude"]?>}
-        var marker = new google.maps.Marker({
-          position: pos,
-          map: map
-        });
-        <?php }?>
+        
       }
     </script>
     <script async defer
@@ -302,10 +308,7 @@ if(isset($userSearch)) {
 			<tbody>
 		<?php
 		  $counter = 0;
-		  foreach($resultsArr as $row) {
-		      if($counter<13){
-		          $counter++;
-		          $combArray[]=$row;
+		  foreach($combArray as $row) {
 		?>
     			<!-- Row: <?= var_export($row, true) ?> -->
     			<tr>
@@ -314,24 +317,8 @@ if(isset($userSearch)) {
     				<td><?= $row['distance_in_miles'] ?></td>
     			</tr>
 		<?php
-		      }
 		  }
-		  $counter = 0;
-		  foreach($interestArr as $row) {
-		      if($counter<2){
-		          $counter++;
-		          $combArray[]=$row;
 	   ?>
-	   				<tr>
-	   					<td><?= $row['city'] ?></td>
-    					<td><?= $row['state'] ?></td>
-    					<td><?= $row['distance_in_miles'] ?></td>
-	   				<tr>
-	   
-	   <?php
-		      }
-		  } 
-		?>
 			</tbody>	
 		</table>
 		<?php  
