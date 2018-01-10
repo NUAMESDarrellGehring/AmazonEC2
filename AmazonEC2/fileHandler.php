@@ -205,24 +205,8 @@ if(isset($userSearch)) {
             debugLog($value["city"]." has an popularity index of ".$key."<br>");
         }
         
-        $combArray[] = null;
-        for($i=0;$i<14;$i++){
-            if($i<13){
-                $combArray[] = $resultsArr[$i];
-            }
-            else{
-                $counter = 0;
-                foreach($interestArr as $row){
-                    $counter++;
-                    var_export($row,true);
-                    if($counter<=2){
-                    $combArray[] = $interestArr[$row];
-                    
-                }
-                }
-            
-            }
-        }
+        
+        
         
     } else {
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
@@ -256,6 +240,7 @@ if(isset($userSearch)) {
           zoom: 4,
           center: uluru
         });
+
         
       }
     </script>
@@ -308,7 +293,10 @@ if(isset($userSearch)) {
 			<tbody>
 		<?php
 		  $counter = 0;
-		  foreach($combArray as $row) {
+		  foreach($resultsArr as $row) {
+		      if($counter<13){
+		          $counter++;
+		          $combArray[]=$row;
 		?>
     			<!-- Row: <?= var_export($row, true) ?> -->
     			<tr>
@@ -317,8 +305,35 @@ if(isset($userSearch)) {
     				<td><?= $row['distance_in_miles'] ?></td>
     			</tr>
 		<?php
+		      }
 		  }
+		  $counter = 0;
+		  foreach($interestArr as $row) {
+		      if($counter<2){
+		          $counter++;
+		          $combArray[]=$row;
 	   ?>
+	   				<tr>
+	   					<td><?= $row['city'] ?></td>
+    					<td><?= $row['state'] ?></td>
+    					<td><?= $row['distance_in_miles'] ?></td>
+	   				<tr>
+	   
+	   <?php
+		      }
+		  } 
+		  $counter = 0;
+		  foreach($combArray as $row) {
+		?>
+					<tr>
+	   					<td><?= $row['city'] ?></td>
+    					<td><?= $row['state'] ?></td>
+    					<td><?= $row['distance_in_miles'] ?></td>
+	   				<tr>
+	   
+	   <?php
+		      
+		  } ?>
 			</tbody>	
 		</table>
 		<?php  
