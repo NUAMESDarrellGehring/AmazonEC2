@@ -214,7 +214,7 @@ if(isset($userSearch)) {
                 $counter = 0;
                 foreach($interestArr as $row){
                     $counter++;
-                    
+                    var_export($row,true);
                     if($counter<=2){
                     $combArray[] = $interestArr[$row];
                     
