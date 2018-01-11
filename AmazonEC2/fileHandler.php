@@ -250,10 +250,10 @@ if(isset($userSearch)) {
       function initMap() {
         console.log(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>);
         console.log(<?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>);
-        var uluru = {lat: parseFloat(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>), lng: parseFloat(<?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>)};
+        var centerVar = {lat: parseFloat(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>), lng: parseFloat(<?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>)};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
+          zoom: 10,
+          center: centerVar
         });
 
         
