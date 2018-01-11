@@ -252,7 +252,7 @@ if(isset($userSearch)) {
         console.log(<?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>);
         var centerVar = {lat: parseFloat(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>), lng: parseFloat(<?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>)};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 10,
+          zoom: 6,
           center: centerVar
         });
 
