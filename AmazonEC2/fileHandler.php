@@ -248,6 +248,7 @@ if(isset($userSearch)) {
     <div id="map"></div>
     <script>
       function initMap() {
+        console.log(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>);
         var uluru = {lat: <?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>, lng: <?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 4,
