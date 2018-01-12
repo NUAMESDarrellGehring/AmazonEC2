@@ -188,39 +188,6 @@ if(isset($userSearch)) {
             $combArray[] = $row;
         }
         
-        /*for($i=15;$i<50;$i++){
-            var_export($resultsArr,true);
-            $resultsWeightedQuery = (($resultsArr[$i]["population"])/1000)-(($resultsArr[$i]["distance_in_miles"])^2);
-            $interestArr[($resultsWeightedQuery)] = ($resultsArr[$i]);
-        }
-        
-        foreach($interestArr as $samp){
-            var_export($samp, true);
-            echo $samp["distance_in_miles"]."<br>";
-        }
-        krsort($interestArr);
-        
-        foreach($interestArr as $key => $value){
-            var_export($value, true);
-            debugLog($value["city"]." has an popularity index of ".$key."<br>");
-        }
-        
-        $counter = 0;
-        foreach($resultsArr as $row) {
-            if($counter<13){
-                $counter++;
-                $combArray[]=$row;
-            }
-        }
-        $counter = 0;
-        foreach($interestArr as $row) {
-            if($counter<2){
-                $counter++;
-                $combArray[]=$row;
-            }
-        } */
-        
-        
     } else {
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
     }
@@ -306,7 +273,7 @@ if(isset($userSearch)) {
 		<?php 
             if(count($combArray) > 0) { 
 		?>    
-		<table id="cityTable" style="">
+		<table id="cityTable" style="" width=40%>
 			<thead>
     			<tr>
     				<th>City</th>
