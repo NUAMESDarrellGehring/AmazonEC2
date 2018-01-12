@@ -194,7 +194,7 @@ if(isset($userSearch)) {
             $interestArr[($resultsWeightedQuery)] = ($resultsArr[$i]);
         }
         
-        /*foreach($interestArr as $samp){
+        foreach($interestArr as $samp){
             var_export($samp, true);
             echo $samp["distance_in_miles"]."<br>";
         }
