@@ -261,7 +261,7 @@ if(isset($userSearch)) {
         var marker = new google.maps.Marker({
             position: markerCoords,
             map: map,
-            title: 'Hello World!'
+            title: <?php echo json_encode($row['city'], JSON_HEX_TAG); ?>
         });
         <?php }?>
   		
