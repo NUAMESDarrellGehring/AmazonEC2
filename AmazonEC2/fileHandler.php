@@ -273,7 +273,7 @@ if(isset($userSearch)) {
 		<?php 
             if(count($combArray) > 0) { 
 		?>    
-		<table id="cityTable" style="width:400px">
+		<table id="cityTable" style="width:600px">
 			<thead>
     			<tr>
     				<th>City</th>
