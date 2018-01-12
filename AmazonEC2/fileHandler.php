@@ -178,7 +178,7 @@ if(isset($userSearch)) {
         HAVING
             distance_in_miles <= ".($userSearch+20)."
         ORDER BY 
-        	(population/1000)-(POWER(distance_in_miles, 2))
+        	-((population/1000)-(POWER(distance_in_miles, 2)))
         LIMIT 15;";
        
     $results = $connSearch->query($sql);
