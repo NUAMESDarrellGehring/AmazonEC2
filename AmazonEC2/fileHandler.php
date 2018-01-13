@@ -205,7 +205,7 @@ if(isset($userSearch)) {
 	       position: absolute;
 	       top: 18px;
 	       right: 18px;
-	       width: 850px;
+	       width: 200px;
 	       height: 2000px;
 	   }
 	   
