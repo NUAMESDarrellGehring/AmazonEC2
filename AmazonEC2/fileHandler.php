@@ -225,7 +225,6 @@ if(isset($userSearch)) {
   </head>
   
   <body>
-    <h3>Your Locations</h3>
     <div class="topLeft" id="map"></div>
     <script>
       function initMap() {
@@ -284,6 +283,7 @@ if(isset($userSearch)) {
 
 		<br>
 		
+		<div class="topRight" id="tableDiv">
 		<?php 
             if(count($combArray) > 0) { 
 		?>    
@@ -314,7 +314,7 @@ if(isset($userSearch)) {
 		<?php  
 		}
 		?>
-	
+		</div>
 				
 				
 	
