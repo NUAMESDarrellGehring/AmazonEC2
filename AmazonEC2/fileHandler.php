@@ -205,6 +205,8 @@ if(isset($userSearch)) {
 	       position: absolute;
 	       top: 18px;
 	       right: 18px;
+	       width: 850px;
+	       height: 200px;
 	   }
 	   
 	   .topLeft {
@@ -287,7 +289,7 @@ if(isset($userSearch)) {
 		<?php 
             if(count($combArray) > 0) { 
 		?>    
-		<table id="cityTable" style="width:850px" style="height:200px">
+		<table id="cityTable">
 			<thead>
     			<tr>
     				<th>City</th>
