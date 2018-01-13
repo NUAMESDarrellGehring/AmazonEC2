@@ -206,7 +206,7 @@ if(isset($userSearch)) {
 	       top: 18px;
 	       right: 18px;
 	       width: 850px;
-	       height: 200px;
+	       height: 2000px;
 	   }
 	   
 	   .topLeft {
