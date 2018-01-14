@@ -225,6 +225,7 @@ if(isset($userSearch)) {
 	   }
 	   
        .border{
+           position: relative;
            border: 4px solid #000;
            padding: 4px;
        }
