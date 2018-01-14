@@ -209,7 +209,7 @@ if(isset($userSearch)) {
         .rainbow_border{
             border: 4px solid hsl(0, 100%, 50%);
             -webkit-animation: rainbow 5s infinite alternate;
-            border-spacing: 9px;
+            border-spacing: 1px;
         }
 	   .topRight {
 	       position: absolute;
