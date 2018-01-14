@@ -339,7 +339,7 @@ if(isset($userSearch)) {
 		?>
 		</div>
 				
-		<div class="rainbowBorder" id="border">
+		<div class="rainbow_border" id="border">
     		<div class="topLeft" id="usrInBox">
         		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
         			<input type="hidden" name="debug" value="1">
