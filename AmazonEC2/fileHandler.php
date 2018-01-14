@@ -330,30 +330,31 @@ if(isset($userSearch)) {
 		</div>
 				
 				
-	
-		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="debug" value="1">
-			<br>
-			Your Location: <input type="text" name="userLocation">
-			<br>
-			Distance to Search Out From: <input type="text" name="userDistOut">
-			<br><br>
-			------- Debug/File Update Section -------
-			<br>
-			Input File: 
-			<input type="file" name="uploadedFile" id="uploadedFile">
-			<br>
-			Max Inserts: <input type="text" value="10" name="updateCnt">
-			<br>
-			Debug: 
-			<select type="select" name="debug">
-				<option value="1">Yes</option>
-				<option value="0" selected>No</option>
-			</select>
-			<br>
-			-----------------------------------------
-			<br><br>
-			<input type ="submit" name="submitStatus" value="Submit Request">
-		</form>
+		<div class="topLeft" id="usrInBox">
+    		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+    			<input type="hidden" name="debug" value="1">
+    			<br>
+    			Your Location: <input type="text" name="userLocation">
+    			<br>
+    			Distance to Search Out From: <input type="text" name="userDistOut">
+    			<br><br>
+    			------- Debug/File Update Section -------
+    			<br>
+    			Input File: 
+    			<input type="file" name="uploadedFile" id="uploadedFile">
+    			<br>
+    			Max Inserts: <input type="text" value="10" name="updateCnt">
+    			<br>
+    			Debug: 
+    			<select type="select" name="debug">
+    				<option value="1">Yes</option>
+    				<option value="0" selected>No</option>
+    			</select>
+    			<br>
+    			-----------------------------------------
+    			<br><br>
+    			<input type ="submit" name="submitStatus" value="Submit Request">
+    		</form>
+    	</div>
 	</body>
 </html>
