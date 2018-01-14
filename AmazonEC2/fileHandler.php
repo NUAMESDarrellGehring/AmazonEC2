@@ -179,7 +179,7 @@ if(isset($userSearch)) {
             distance_in_miles <= ".($userSearch+20)."
         ORDER BY 
         	-((population/1000)-(distance_in_miles^2))
-        LIMIT 15;";
+        LIMIT 55;";
        
     $results = $connSearch->query($sql);
     if($results !== false) {
@@ -278,10 +278,6 @@ if(isset($userSearch)) {
             $(document).ready(function() {
             	console.log("Ready Start");
             	$("#cityTable").dataTable({
-            		lengthMenu: [
-                        [ 10, 25, 50, -1 ],
-                        [ '10 rows', '25 rows', '50 rows', 'Show all' ]
-                    ],
             		"pageLength": 10
                 });
             	
