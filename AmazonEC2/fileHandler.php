@@ -278,7 +278,7 @@ if(isset($userSearch)) {
             $(document).ready(function() {
             	console.log("Ready Start");
             	$("#cityTable").dataTable({
-					"pageLength":
+					"pageLength":10
                 });
             	
             	console.log("Ready End");
