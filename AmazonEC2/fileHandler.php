@@ -278,7 +278,7 @@ if(isset($userSearch)) {
             $(document).ready(function() {
             	console.log("Ready Start");
             	$("#cityTable").dataTable({
-            		"iDisplayLength": 10
+            		"pageLength": 10
                 });
             	
             	console.log("Ready End");
@@ -292,7 +292,7 @@ if(isset($userSearch)) {
 		<?php 
             if(count($combArray) > 0) { 
 		?>    
-		<table id="cityTable">
+		<table id="cityTable" data-page-length="10">
 			<thead>
     			<tr>
     				<th>City</th>
