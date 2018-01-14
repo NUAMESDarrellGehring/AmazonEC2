@@ -205,8 +205,6 @@ if(isset($userSearch)) {
 	       position: absolute;
 	       top: 18px;
 	       right: 18px;
-	       width: 850px;
-	       height: 400px;
 	   }
 	   
 	   .topLeft {
@@ -258,17 +256,15 @@ if(isset($userSearch)) {
 
 	<body>
 		<head>
-		
-		
 			<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
-			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 		
 		
-			<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 			
 			
-			<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+			<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 			
 			
 			
@@ -280,7 +276,6 @@ if(isset($userSearch)) {
             $(document).ready(function() {
             	console.log("Ready Start");
             	$("#cityTable").dataTable();
-            	
             	console.log("Ready End");
             });
             console.log("End"); 
@@ -292,7 +287,7 @@ if(isset($userSearch)) {
 		<?php 
             if(count($combArray) > 0) { 
 		?>    
-		<table id="cityTable">
+		<table id="cityTable" style="width:800px">
 			<thead>
     			<tr>
     				<th>City</th>
