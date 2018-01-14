@@ -211,7 +211,8 @@ if(isset($userSearch)) {
 	       position: absolute;
 	       top: 18px;
 	       left: 18px;
-           border:4px solid #000;
+           border: 4px solid #000;
+           padding: 4px;
 	   }
 	   .bottomRight{
 	       position: absolute;
