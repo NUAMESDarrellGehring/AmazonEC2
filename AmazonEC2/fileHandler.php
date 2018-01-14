@@ -258,7 +258,7 @@ if(isset($userSearch)) {
 
 	<body>
 		<head>
-			<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
+			<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.11.1/themes/cupertino/jquery-ui.css">
 			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 		
 		
