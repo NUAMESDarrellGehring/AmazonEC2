@@ -218,7 +218,7 @@ if(isset($userSearch)) {
   <head>
     <style>
        #map {
-        height: 400px;
+        height: 430px;
         width: 40%;
        }
     </style>
