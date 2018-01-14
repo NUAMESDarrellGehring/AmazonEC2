@@ -224,12 +224,6 @@ if(isset($userSearch)) {
 	       left: 18px;
 	   }
 	   
-       .border{
-           position: relative;
-           border: 4px solid #000;
-           padding: 4px;
-       }
-	   
 	</style>
 
   <head>
@@ -242,99 +236,97 @@ if(isset($userSearch)) {
   </head>
   
   <body>
-  	<div class="border" id="borderDiv">
-        <div class="bottomRight" id="map"></div>
+    <div class="bottomRight" id="map"></div>
+    <script>
+      function initMap() {
+        console.log(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>);
+        console.log(<?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>);
+        var centerVar = {lat: parseFloat(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>), lng: parseFloat(<?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>)};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: centerVar
+          
+        });
+		<?php foreach($combArray as $row){?>
+		var markerCoords = {lat: parseFloat(<?php echo json_encode($row['latitude'], JSON_HEX_TAG); ?>), lng: parseFloat(<?php echo json_encode($row['longitude'], JSON_HEX_TAG); ?>)};
+        var marker = new google.maps.Marker({
+            position: markerCoords,
+            map: map,
+            title: <?php echo json_encode($row['city'], JSON_HEX_TAG); ?>
+        });
+        <?php }?>
+  		
+        
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnYeMEUWJEQH0FQKUZhsL3mesL333Vzbg&callback=initMap">
+    </script>
+  </body>
+
+
+	<body>
+		<head>
+			<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
+			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+		
+		
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+			
+			
+			<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+			
+			
+			
+		</head> 
+
+        <!-- Tell the browser that this is javascript -->
         <script>
-          function initMap() {
-            console.log(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>);
-            console.log(<?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>);
-            var centerVar = {lat: parseFloat(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>), lng: parseFloat(<?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>)};
-            var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 8,
-              center: centerVar
-              
-            });
-    		<?php foreach($combArray as $row){?>
-    		var markerCoords = {lat: parseFloat(<?php echo json_encode($row['latitude'], JSON_HEX_TAG); ?>), lng: parseFloat(<?php echo json_encode($row['longitude'], JSON_HEX_TAG); ?>)};
-            var marker = new google.maps.Marker({
-                position: markerCoords,
-                map: map,
-                title: <?php echo json_encode($row['city'], JSON_HEX_TAG); ?>
-            });
-            <?php }?>
-      		
-            
-          }
-        </script>
-        <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnYeMEUWJEQH0FQKUZhsL3mesL333Vzbg&callback=initMap">
-        </script>
-      </body>
-    
-    
-    	<body>
-    		<head>
-    			<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
-    			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-    		
-    		
-    			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    			
-    			
-    			<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    			
-    			
-    			
-    		</head> 
-    
-            <!-- Tell the browser that this is javascript -->
-            <script>
-            	console.log("Start");
-                $(document).ready(function() {
-                	console.log("Ready Start");
-                	$("#cityTable").dataTable( {
-                		"order": [],
-                    });
-                	console.log("Ready End");
+        	console.log("Start");
+            $(document).ready(function() {
+            	console.log("Ready Start");
+            	$("#cityTable").dataTable( {
+            		"order": [],
                 });
-                console.log("End"); 
-            </script>
-    
-    		<br>
-    		
-    		<div class="bottomLeft" id="tableDiv">
-    		<?php 
-                if(count($combArray) > 0) { 
-    		?>    
-    		<table id="cityTable" style="width:800px">
-    			<thead>
-        			<tr>
-        				<th>City</th>
-        				<th>State</th>
-        				<th>Distance In Miles</th>
-        			</tr>
-    			</thead>
-    			<tbody>
-    	   
-    	   <?php
-    		  foreach($combArray as $row) {
-    		?>
-    					<tr>
-    	   					<td><?= $row['city'] ?></td>
-        					<td><?= $row['state'] ?></td>
-        					<td><?= $row['distance_in_miles'] ?></td>
-    	   				</tr>
-    	   
-    	   <?php
-    		      
-    		  } ?>
-    			</tbody>	
-    		</table>
-    		<?php  
-    		}
-    		?>
-    		</div>
+            	console.log("Ready End");
+            });
+            console.log("End"); 
+        </script>
+
+		<br>
+		
+		<div class="bottomLeft" id="tableDiv">
+		<?php 
+            if(count($combArray) > 0) { 
+		?>    
+		<table id="cityTable" style="width:800px">
+			<thead>
+    			<tr>
+    				<th>City</th>
+    				<th>State</th>
+    				<th>Distance In Miles</th>
+    			</tr>
+			</thead>
+			<tbody>
+	   
+	   <?php
+		  foreach($combArray as $row) {
+		?>
+					<tr>
+	   					<td><?= $row['city'] ?></td>
+    					<td><?= $row['state'] ?></td>
+    					<td><?= $row['distance_in_miles'] ?></td>
+	   				</tr>
+	   
+	   <?php
+		      
+		  } ?>
+			</tbody>	
+		</table>
+		<?php  
+		}
+		?>
 		</div>
 				
 				
