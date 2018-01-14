@@ -260,14 +260,19 @@ if(isset($userSearch)) {
 		<head>
 			<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
 			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-					
+		
+		
+			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+			
 			
 			<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-						
+			
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+			<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+			
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 			
 			<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-			<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 			
 			
 			
