@@ -304,7 +304,7 @@ if(isset($userSearch)) {
 	   					<td><?= $row['city'] ?></td>
     					<td><?= $row['state'] ?></td>
     					<td><?= $row['distance_in_miles'] ?></td>
-	   				<tr>
+	   				</tr>
 	   
 	   <?php
 		      
