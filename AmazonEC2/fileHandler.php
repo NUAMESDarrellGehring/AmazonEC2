@@ -201,6 +201,15 @@ if(isset($userSearch)) {
 <html>
 
 	<style>
+	   @-webkit-keyframes rainbow {
+            0% {border-color: hsl(0, 100%, 50%);}
+            100% {border-color: hsl(255, 100%, 50%);}
+        }
+
+        .rainbow_border{
+            border: 4px solid hsl(0, 100%, 50%);
+            -webkit-animation: rainbow 5s infinite alternate;
+        }
 	   .topRight {
 	       position: absolute;
 	       top: 18px;
@@ -208,6 +217,8 @@ if(isset($userSearch)) {
 	   }
 	   
 	   .topLeft {
+	       border: 4px solid hsl(0, 100%, 50%);
+           -webkit-animation: rainbow 5s infinite alternate;
 	       position: absolute;
 	       top: 18px;
 	       left: 18px;
