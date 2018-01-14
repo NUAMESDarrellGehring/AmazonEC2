@@ -212,6 +212,11 @@ if(isset($userSearch)) {
 	       top: 18px;
 	       left: 18px;
 	   }
+	   .bottomRight{
+	       position: absolute;
+	       top: 50%;
+	       right: 18px;
+	   }
 	   
 	</style>
 
@@ -225,7 +230,7 @@ if(isset($userSearch)) {
   </head>
   
   <body>
-    <div class="topLeft" id="map"></div>
+    <div class="bottomRight" id="map"></div>
     <script>
       function initMap() {
         console.log(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>);
