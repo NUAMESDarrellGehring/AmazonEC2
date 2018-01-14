@@ -209,6 +209,7 @@ if(isset($userSearch)) {
         .rainbow_border{
             border: 4px solid hsl(0, 100%, 50%);
             -webkit-animation: rainbow 5s infinite alternate;
+            border-spacing: 9px;
         }
 	   .topRight {
 	       position: absolute;
@@ -217,9 +218,6 @@ if(isset($userSearch)) {
 	   }
 	   
 	   .topLeft {
-	       border: 4px solid hsl(0, 100%, 50%);
-           -webkit-animation: rainbow 5s infinite alternate;
-           border-spacing: 4px;
 	       position: absolute;
 	       top: 18px;
 	       left: 18px;
@@ -341,32 +339,33 @@ if(isset($userSearch)) {
 		?>
 		</div>
 				
-				
-		<div class="topLeft" id="usrInBox">
-    		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
-    			<input type="hidden" name="debug" value="1">
-    			<br>
-    			Your Location: <input type="text" name="userLocation">
-    			<br>
-    			Distance to Search Out From: <input type="text" name="userDistOut">
-    			<br><br>
-    			------- Debug/File Update Section -------
-    			<br>
-    			Input File: 
-    			<input type="file" name="uploadedFile" id="uploadedFile">
-    			<br>
-    			Max Inserts: <input type="text" value="10" name="updateCnt">
-    			<br>
-    			Debug: 
-    			<select type="select" name="debug">
-    				<option value="1">Yes</option>
-    				<option value="0" selected>No</option>
-    			</select>
-    			<br>
-    			-----------------------------------------
-    			<br><br>
-    			<input type ="submit" name="submitStatus" value="Submit Request">
-    		</form>
-    	</div>
+		<div class="rainbowBorder" id="border">
+    		<div class="topLeft" id="usrInBox">
+        		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+        			<input type="hidden" name="debug" value="1">
+        			<br>
+        			Your Location: <input type="text" name="userLocation">
+        			<br>
+        			Distance to Search Out From: <input type="text" name="userDistOut">
+        			<br><br>
+        			------- Debug/File Update Section -------
+        			<br>
+        			Input File: 
+        			<input type="file" name="uploadedFile" id="uploadedFile">
+        			<br>
+        			Max Inserts: <input type="text" value="10" name="updateCnt">
+        			<br>
+        			Debug: 
+        			<select type="select" name="debug">
+        				<option value="1">Yes</option>
+        				<option value="0" selected>No</option>
+        			</select>
+        			<br>
+        			-----------------------------------------
+        			<br><br>
+        			<input type ="submit" name="submitStatus" value="Submit Request">
+        		</form>
+        	</div>
+        </div>
 	</body>
 </html>
