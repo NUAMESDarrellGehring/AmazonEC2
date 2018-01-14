@@ -214,8 +214,14 @@ if(isset($userSearch)) {
 	   }
 	   .bottomRight{
 	       position: absolute;
-	       top: 50%;
+	       bottom: 18px;
 	       right: 18px;
+	   }
+	   
+	   .bottomLeft{
+	       position: absolute;
+	       bottom: 18px;
+	       left: 18px;
 	   }
 	   
 	</style>
@@ -290,7 +296,7 @@ if(isset($userSearch)) {
 
 		<br>
 		
-		<div class="topRight" id="tableDiv">
+		<div class="bottomLeft" id="tableDiv">
 		<?php 
             if(count($combArray) > 0) { 
 		?>    
