@@ -205,8 +205,8 @@ if(isset($userSearch)) {
 	       position: absolute;
 	       top: 18px;
 	       right: 18px;
-	       width: 200px;
-	       height: 2000px;
+	       width: 850px;
+	       height: 400px;
 	   }
 	   
 	   .topLeft {
@@ -277,7 +277,10 @@ if(isset($userSearch)) {
         	console.log("Start");
             $(document).ready(function() {
             	console.log("Ready Start");
-            	$("#cityTable").dataTable();
+            	$("#cityTable").dataTable({
+					"pageLength":
+                });
+            	
             	console.log("Ready End");
             });
             console.log("End"); 
