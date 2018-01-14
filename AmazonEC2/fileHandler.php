@@ -268,6 +268,8 @@ if(isset($userSearch)) {
 			
 			<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 			
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+			<script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 			
 			
 		</head> 
