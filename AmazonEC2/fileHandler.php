@@ -155,7 +155,7 @@
 				
 				console.log("Our post request is a success.");
 
-				//console.log(processArray);
+				console.log(retrievedArr);
 				
     			return false;
     		}
