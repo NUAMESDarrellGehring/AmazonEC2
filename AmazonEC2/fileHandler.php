@@ -333,6 +333,21 @@ if(isset($userSearch)) {
 
     		function dynamicDataTable(){
 				let locToSend = $("input[name='userLocation']").val();
+				let distToSearch = $("input[name='userDistOut']").val();
+
+				$.post(
+					"http://34.212.128.254/AmazonEC2/locationsByInterest.php", 
+					{
+						'userLocation': 'locToSend', 
+						'userDistOut': 'distToSearch'
+					}
+				).done(function(data) {
+				    console.log(data);
+				    console.log("finished it.");
+			  	}).fail(function() {
+					console.log("Something went awry.");
+				})
+				
     			console.log(locToSend);
     			return false;
     		}
