@@ -96,7 +96,7 @@ if(isset($userSearch)) {
     }
     
     $returnData = array(
-        "cities" => $data,
+        "data_returned" => $data,
         "longitude" => $userCoords[0],
         "latitude" => $userCoords[1]
     );

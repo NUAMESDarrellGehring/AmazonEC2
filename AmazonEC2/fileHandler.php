@@ -149,16 +149,17 @@
 					}
 				).done(function(data) {
 				    console.log(data);
-				    retrievedArr = data;
 				    console.log("Our post has returned data.");
 
-		            /*$(document).ready(function() {
-		            	console.log("Ready Start");
-		            	$("#cityTable").dataTable( {
-		            		"order": [],
-		                });
-		            	console.log("Ready End");
-		            });*/
+	            	$("#cityTable").dataTable( {
+	            		"order": [],
+	            		"data" : data['data_returned'],
+	            		"columns": [
+	            			{title: "City"},
+	            			{title: "State"},
+	            			{title: "Distance in Miles"}
+	            		]
+	                });
 		            
 			  	}).fail(function() {
 					console.log("Our post has something wrong with it.");
