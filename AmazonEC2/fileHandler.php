@@ -138,6 +138,8 @@
 				let distToSearch = $("input[name='userDistOut']").val();
 
 				console.log("locToSend and distToSearch are set.");
+
+				var retrievedArr;
 				
 				$.post(
 					"http://34.212.128.254/AmazonEC2/locationsByInterest.php", 
@@ -147,7 +149,7 @@
 					}
 				).done(function(data) {
 				    console.log(data);
-				    var retrievedArr = data;
+				    retrievedArr = data;
 				    console.log("Our post has returned data.");
 			  	}).fail(function() {
 					console.log("Our post has something wrong with it.");
