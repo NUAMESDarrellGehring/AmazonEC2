@@ -84,17 +84,18 @@ if(isset($userSearch)) {
         LIMIT 15;";
     
     $results = $connSearch->query($sql);
+    $data = array();
     if($results !== false) {
         $cnt = 0;
         while($row = mysqli_fetch_assoc($results)) {
-            $combArray[] = $row;
+            $data[] = $row;
         }
         
     } else {
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
     }
     
-    $processArray->cities = $combArray;
+    $processArray->cities = $data;
     $processArray->longitude = $userCoords[0];
     $processArray->latitude = $userCoords[1];
     
