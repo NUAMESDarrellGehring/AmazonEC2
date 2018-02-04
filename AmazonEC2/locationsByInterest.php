@@ -95,11 +95,13 @@ if(isset($userSearch)) {
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
     }
     
-    $processArray->cities = $data;
-    $processArray->longitude = $userCoords[0];
-    $processArray->latitude = $userCoords[1];
+    $returnData = array(
+        "cities" => $data,
+        "longitude" => $userCoords[0],
+        "latitude" => $userCoords[1]
+    );
     
-    echo json_encode($processArray);
+    echo json_encode($returnData);
     
     //the google api key is AIzaSyBnYeMEUWJEQH0FQKUZhsL3mesL333Vzbg
     debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
