@@ -132,6 +132,8 @@
 		<script type="text/javascript">
 
     		function dynamicDataTable(){
+				console.log("Start dynamicDataTable.");
+        		
 				let locToSend = $("input[name='userLocation']").val();
 				let distToSearch = $("input[name='userDistOut']").val();
 
