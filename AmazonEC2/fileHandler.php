@@ -166,7 +166,6 @@
 				
 				console.log("Our post request is a success.");
 
-				while(retrievedArr==undefined){};
 				
 				console.log(retrievedArr);
 				
