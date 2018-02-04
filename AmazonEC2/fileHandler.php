@@ -334,13 +334,14 @@ if(isset($userSearch)) {
     		function dynamicDataTable(){
 				let locToSend = $("input[name='userLocation']").val();
     			console.log(locToSend);
+    			return false;
     		}
 		
 		</script>		
 				
 				
 		<div class="topLeft" id="usrInBox">
-    		<form action="dynamicDataTable()" method="post" enctype="multipart/form-data">
+    		<form onSubmit="return dynamicDataTable()" method="post" enctype="multipart/form-data">
     			<input type="hidden" name="debug" value="1">
     			<br>
     			Your Location: <input type="text" name="userLocation">
