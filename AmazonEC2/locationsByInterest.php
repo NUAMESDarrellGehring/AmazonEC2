@@ -35,36 +35,6 @@ function echoResults($results) {
     var_export($results, true);
 }
 
-$uploadOk = 1;
-
-$fileExtension = pathinfo($_FILES["uploadedFile"]["name"],PATHINFO_EXTENSION);
-
-debugLog("Received File: ".var_export($_FILES, true));
-
-//Does the file exist? ----------------------
-if($_FILES["uploadedFile"]["size"] !== 0){
-    //Is it a valid file type? -------------------
-    if($uploadOk !== 0 && $fileExtension != "txt"){
-        echo "File Type Is Invalid - Valid Types Are: .txt";
-        echo "<br>";
-        $uploadOk = 0;
-    }
-    
-    //Is it a valid file size? -------------------
-    if($uploadOk !== 0 && $_FILES["uploadedFile"]["size"] > 1024 * 700){
-        echo "File Is Too Large: Max Size Is 700 KB";
-        echo "<br>";
-        $uploadOk = 0;
-    }
-    
-    //Does it check any errors? ------------------
-    if($uploadOk == 0){
-        echo "File Upload Failed";
-        echo "<br>";
-    } else {
-        processUploadedFile();
-    }
-}
 
 $userLocation = $_REQUEST['userLocation'];
 $userSearch = $_REQUEST['userDistOut'];
