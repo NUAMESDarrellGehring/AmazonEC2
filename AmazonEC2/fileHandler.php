@@ -329,9 +329,18 @@ if(isset($userSearch)) {
 		?>
 		</div>
 				
+		<script type="text/javascript">
+
+    		function dynamicDataTable(){
+				let locToSend = $("input[name='userLocation']").val();
+    			console.log(locToSend);
+    		}
+		
+		</script>		
+				
 				
 		<div class="topLeft" id="usrInBox">
-    		<form action=""<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+    		<form action="dynamicDataTable()" method="post" enctype="multipart/form-data">
     			<input type="hidden" name="debug" value="1">
     			<br>
     			Your Location: <input type="text" name="userLocation">
