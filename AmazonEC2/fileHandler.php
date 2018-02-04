@@ -344,8 +344,8 @@ if(isset($userSearch)) {
 				$.post(
 					"http://34.212.128.254/AmazonEC2/locationsByInterest.php", 
 					{
-						'userLocation': 'locToSend', 
-						'userDistOut': 'distToSearch'
+						'locToSend': 'userLocation', 
+						'distToSearch': 'userDistOut'
 					}
 				).done(function(data) {
 				    console.log(data);
