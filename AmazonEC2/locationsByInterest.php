@@ -1,5 +1,9 @@
 <?php
 
+$servername = "localhost";
+$username = "root";
+$password = "skull71";
+
 function geoCodeAddress($addressStr)
 {
     $url = "http://maps.google.com/maps/api/geocode/json?address=".urlencode($addressStr)."&sensor=false&region=US";
