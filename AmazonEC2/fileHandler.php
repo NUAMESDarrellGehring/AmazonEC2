@@ -142,8 +142,8 @@
 				$.post(
 					"http://34.212.128.254/AmazonEC2/locationsByInterest.php", 
 					{
-						locToSend: 'userLocation', 
-						distToSearch: 'userDistOut'
+						'locToSend': 'userLocation', 
+						'distToSearch': 'userDistOut'
 					}
 				).done(function(data) {
 				    console.log(data);
