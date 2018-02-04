@@ -141,25 +141,24 @@
 
 				var retrievedArr;
 				
-				var postToScrip = $.post(
+				$.post(
 					"http://34.212.128.254/AmazonEC2/locationsByInterest.php", 
 					{
 						'userLocation': locToSend, 
 						'userDistOut': distToSearch
 					}
-				).fail(function() {
+				).done(function(data) {
+				    console.log(data);
+				    retrievedArr = data;
+				    console.log("Our post has returned data.");
+			  	}).fail(function() {
 					console.log("Our post has something wrong with it.");
 				})
 				
-				postToScrip.done(function(data) {
-				    console.log(data);
-				    retrievedArr = data;
-				    retrievedArr = "yella";
-				    console.log("Our post has returned data.");
-			  	})
-				
 				console.log("Our post request is a success.");
 
+				while(retrievedArr==null){};
+				
 				console.log(retrievedArr);
 				
     			return false;
