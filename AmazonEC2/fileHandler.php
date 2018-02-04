@@ -150,6 +150,7 @@
 				).done(function(data) {
 				    console.log(data);
 				    retrievedArr = data;
+				    retrievedArr = "yella";
 				    console.log("Our post has returned data.");
 			  	}).fail(function() {
 					console.log("Our post has something wrong with it.");
