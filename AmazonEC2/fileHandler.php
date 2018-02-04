@@ -147,7 +147,7 @@
 					}
 				).done(function(data) {
 				    console.log(data);
-				    var goofert = data;
+				    var processArray = data;
 				    console.log("Our post has returned data.");
 			  	}).fail(function() {
 					console.log("Our post has something wrong with it.");
@@ -155,7 +155,7 @@
 				
 				console.log("Our post request is a success.");
 
-				//console.log(processArray);
+				console.log(processArray);
 				
     			return false;
     		}
