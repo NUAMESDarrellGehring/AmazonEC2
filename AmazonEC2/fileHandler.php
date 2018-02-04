@@ -149,6 +149,9 @@
 				})
 				
     			console.log(locToSend);
+
+				alert("test");
+    			
     			return false;
     		}
 		
