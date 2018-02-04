@@ -151,6 +151,15 @@
 				    console.log(data);
 				    retrievedArr = data;
 				    console.log("Our post has returned data.");
+
+		            /*$(document).ready(function() {
+		            	console.log("Ready Start");
+		            	$("#cityTable").dataTable( {
+		            		"order": [],
+		                });
+		            	console.log("Ready End");
+		            });*/
+		            
 			  	}).fail(function() {
 					console.log("Our post has something wrong with it.");
 				})
