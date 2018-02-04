@@ -137,6 +137,8 @@
 				let locToSend = $("input[name='userLocation']").val();
 				let distToSearch = $("input[name='userDistOut']").val();
 
+				console.log("locToSend and distToSearch are set.");
+				
 				$.post(
 					"http://34.212.128.254/AmazonEC2/locationsByInterest.php", 
 					{
@@ -149,6 +151,8 @@
 			  	}).fail(function() {
 					console.log("Something went awry.");
 				})
+				
+				console.log("Our post request is a success.");
 				
     			console.log(locToSend);
 
