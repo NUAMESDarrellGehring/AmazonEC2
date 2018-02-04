@@ -147,7 +147,7 @@
 					}
 				).done(function(data) {
 				    console.log(data);
-				    var processArray = data;
+				    var retrievedArr = data;
 				    console.log("Our post has returned data.");
 			  	}).fail(function() {
 					console.log("Our post has something wrong with it.");
