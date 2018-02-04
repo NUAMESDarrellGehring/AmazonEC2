@@ -165,7 +165,7 @@ if(isset($userSearch)) {
     
     $sql = "
         SELECT
-        	*,
+        	city, state,
         	(3963.17 * ACOS(COS(RADIANS(latpoint))
                  * COS(RADIANS(latitude))
                  * COS(RADIANS(longpoint) - RADIANS(longitude))
