@@ -134,7 +134,7 @@ function getData($lng, $lat, $distance)
                  * SIN(RADIANS(latitude)))) AS distance_in_miles
          FROM cityInfo
          JOIN (
-             SELECT  ".$lat." AS latpoint, ".$lng."AS longpoint
+             SELECT  ".$lat." AS latpoint, ".$lng." AS longpoint
         ) AS p ON 1=1
         HAVING
             distance_in_miles <= ".($distance+20)."
