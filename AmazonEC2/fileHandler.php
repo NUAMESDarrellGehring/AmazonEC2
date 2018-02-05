@@ -21,7 +21,13 @@
 	   .bottomLeft{
 	       position: absolute;
 	       bottom: 18px;
-	       left: 18px;
+	       left: 18px;   
+                table.dataTable thead .sorting, 
+                table.dataTable thead .sorting_asc, 
+                table.dataTable thead .sorting_desc {
+                    background : none;
+                }
+            }
 	   }
 	   
 	</style>
