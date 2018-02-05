@@ -41,7 +41,7 @@ try {
                 "data" => $data,
                 "draw" => 1,
                 "recordsTotal" => 15,
-                "recordsFiltered" => 15
+                "recordsFiltered" => 10
             ));
             exit;
             
