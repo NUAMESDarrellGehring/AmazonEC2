@@ -135,10 +135,11 @@
 			        "ajax": {
 			            "url": "http://34.212.128.254/AmazonEC2/locationsByInterest.php",
 			            "type": "POST",
-				        "draw": 1,
-				        "recordsTotal": 15,
-				        "recordsFiltered": 15,
+
 			            "data": {
+					        "draw": 1,
+					        "recordsTotal": 15,
+					        "recordsFiltered": 15,
 				            'action' : 'getData',
 			            	'lng': lng,
 			            	'lat': lat, 
