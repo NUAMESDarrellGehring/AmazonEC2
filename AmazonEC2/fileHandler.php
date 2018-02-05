@@ -133,6 +133,7 @@
 			        //"processing": true,
 			        "serverSide": true,
 			        "ajax": {
+						"draw": 1,
 			            "url": "http://34.212.128.254/AmazonEC2/locationsByInterest.php",
 			            "type": "POST",
 			            "data": {
