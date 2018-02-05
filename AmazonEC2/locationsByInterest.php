@@ -37,7 +37,9 @@ try {
             $data = getData($lat, $lng, $distance);
             
             header('Content-Type: application/json');
-            echo json_encode($data);
+            echo json_encode(array(
+                "data" => $data
+            ));
             exit;
             
         break;
