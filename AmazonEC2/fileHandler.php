@@ -97,7 +97,7 @@
 
 				console.log("locToSend and distToSearch are set.");
 
-				$('#example').DataTable( {
+				$('#cityTable').DataTable( {
 			        "processing": true,
 			        "serverSide": true,
 			        "ajax": {
