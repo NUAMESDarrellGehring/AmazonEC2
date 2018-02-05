@@ -106,6 +106,8 @@
 						'userDistOut': distToSearch
 					}
 				).done(function(data) {
+					data = JSON.parse(data);
+					if(data == false) throw "Invalid JSON";
 				    console.log(data);
 				    console.log("Our post has returned data (" + data['data_returned'].length + " rows).");
 
@@ -117,11 +119,6 @@
 			  	}).fail(function() {
 					console.log("Our post has something wrong with it.");
 				})
-				
-				console.log("Our post request is a success.");
-
-				
-				console.log(retrievedArr);
 				
     			return false;
     		}
