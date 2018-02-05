@@ -52,7 +52,7 @@ try {
                 "data" => $data,
                 "draw" => 1,
                 "recordsTotal" => $rowCount,
-                "recordsFiltered" => $length,
+                "recordsFiltered" => $rowCount,
             ));
             exit;
             
