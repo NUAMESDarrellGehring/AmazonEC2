@@ -106,8 +106,12 @@ function echoResults($results) {
     var_export($results, true);
 }
 
-function getData($lng, $lat, $distance)
+function getData($lat, $lng, $distance)
 {
+    if($lat == null) throw new Exception("lat cannot be null");
+    if($lng == null) throw new Exception("lng cannot be null");
+    if($distance == null) throw new Exception("distance cannot be null");
+    
     $servername = "localhost";
     $username = "root";
     $password = "skull71";
@@ -134,7 +138,7 @@ function getData($lng, $lat, $distance)
                  * SIN(RADIANS(latitude)))) AS distance_in_miles
          FROM cityInfo
          JOIN (
-             SELECT  ".$lat." AS latpoint, ".$lng." AS longpoint
+             SELECT ".$lat." AS latpoint, ".$lng." AS longpoint
         ) AS p ON 1=1
         HAVING
             distance_in_miles <= ".($distance+20)."
