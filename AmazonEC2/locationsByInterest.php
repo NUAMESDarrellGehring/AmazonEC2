@@ -1,7 +1,4 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "skull71";
 
 $action = "";
 if(isset($_REQUEST['action'])) {
@@ -117,6 +114,10 @@ function getData($lng, $lat, $distance)
         debugLog("<br>");
     }
     */
+    
+    $servername = "localhost";
+    $username = "root";
+    $password = "skull71";
     
     $connSearch = new mysqli($servername, $username, $password);
     
