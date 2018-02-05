@@ -38,7 +38,10 @@ try {
             
             header('Content-Type: application/json');
             echo json_encode(array(
-                "data" => $data
+                "data" => $data,
+                "draw" => 1,
+                "recordsTotal" => 15,
+                "recordsFiltered" => 15
             ));
             exit;
             
