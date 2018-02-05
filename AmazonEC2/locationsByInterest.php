@@ -175,7 +175,7 @@ function getData($lat, $lng, $distance, &$rowCount = null, $length = null, $star
             $data[] = $row;
         }
         
-        $rowCount = mysqli_fetch_array($result2)['total'];
+        $rowCount = mysqli_fetch_array($results2)['total'];
         
     } else {
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
