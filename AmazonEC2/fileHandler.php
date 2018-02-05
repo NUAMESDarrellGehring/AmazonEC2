@@ -119,9 +119,9 @@
         		
 				let distToSearch = $("input[name='userDistOut']").val();
 
-				console.log("locToSend and distToSearch are set.");
-
-				 $("#cityTable").DataTable().fnDestroy();
+				if(typeof($("#cityTable").dataTable()) != "undefined") {
+					$("#cityTable").dataTable().fnDestroy();
+				}
 				
 				$('#cityTable').DataTable( {
 			        "processing": true,
