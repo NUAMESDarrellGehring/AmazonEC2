@@ -27,7 +27,7 @@
 	   table.dataTable thead .sorting, 
        table.dataTable thead .sorting_asc, 
        table.dataTable thead .sorting_desc {
-           background : none;
+            background : none;
        }
 	   
 	</style>
@@ -88,8 +88,8 @@
 		</head> 
 
       	
-		<div class="dataTable" id="tableDiv">
-    		<table id="cityTable" class="display" style="width:800px"></table>
+		<div class="bottomLeft" id="tableDiv">
+    		<table id="cityTable" class="dataTable" style="width:800px"></table>
 	   </div>
 				
 		<script type="text/javascript">
