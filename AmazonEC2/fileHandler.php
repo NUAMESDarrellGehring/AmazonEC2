@@ -112,8 +112,13 @@
 				    console.log("Our post has returned data (" + data['data_returned'].length + " rows).");
 
 	            	$("#cityTable").dataTable({
-	            		"order": [],
-	            		"data" : data['data_returned']
+	            		order: [],
+	            		data : data['data_returned'],
+	            		columns: [
+	                        { title: "City" },
+	                        { title: "State" },
+	                        { title: "Distance in Miles" }
+	                    ]
 	                });
 		            
 			  	}).fail(function() {
