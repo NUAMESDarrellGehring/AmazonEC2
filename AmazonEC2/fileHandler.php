@@ -116,7 +116,6 @@
 				    }
 				    
 	            	$("#cityTable").dataTable({
-	            		order: [],
 	            		data : data['data_returned'],
 	            		columns: [
 	                        { title: "City" },
