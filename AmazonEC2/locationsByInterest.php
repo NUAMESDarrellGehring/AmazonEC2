@@ -15,6 +15,8 @@ try {
             $lat = null;
             $lng = null;
             $distance = null;
+            $length = null;
+            $start = null;
             
             if(isset($_REQUEST['lat']) && $_REQUEST['lat'] != "") {
                 $lat = $_REQUEST['lat'];
@@ -34,14 +36,23 @@ try {
                 throw new Exception("Missing required parameter, distance");
             }
             
-            $data = getData($lat, $lng, $distance);
+            if(isset($_REQUEST['length']) && $_REQUEST['length'] != "") {
+                $length = $_REQUEST['length'];
+            }
+            
+            if(isset($_REQUEST['start']) && $_REQUEST['start'] != "") {
+                $start = $_REQUEST['start'];
+            }
+                
+            $rowCount = 0;
+            $data = getData($lat, $lng, $distance, $rowCount, $length, $start);
             
             header('Content-Type: application/json');
             echo json_encode(array(
                 "data" => $data,
                 "draw" => 1,
-                "recordsTotal" => 15,
-                "recordsFiltered" => 15,
+                "recordsTotal" => $rowCount,
+                "recordsFiltered" => $length,
             ));
             exit;
             
@@ -111,7 +122,7 @@ function echoResults($results) {
     var_export($results, true);
 }
 
-function getData($lat, $lng, $distance)
+function getData($lat, $lng, $distance, &$rowCount = null, $length = null, $start = null)
 {
     if($lat == null) throw new Exception("lat cannot be null");
     if($lng == null) throw new Exception("lng cannot be null");
@@ -134,7 +145,7 @@ function getData($lat, $lng, $distance)
     debugLog("<br>Query1: ".$sql."\n<br>");
     
     $sql = "
-        SELECT
+        SELECT SQL_CALC_FOUND_ROWS 
         	city, state,
         	(3963.17 * ACOS(COS(RADIANS(latpoint))
                  * COS(RADIANS(latitude))
@@ -148,16 +159,23 @@ function getData($lat, $lng, $distance)
         HAVING
             distance_in_miles <= ".($distance+20)."
         ORDER BY
-        	-((population/1000)-(distance_in_miles^2))
-        LIMIT 15;";
+        	-((population/1000)-(distance_in_miles^2))";
+    
+    if($length != null && $start != null) {
+        $sql .= " LIMIT (".$start.", ".$length.")";
+    }
     
     $results = $connSearch->query($sql);
+    $results2 = $connSearch->query("select FOUND_ROWS() as total");
+    
     $data = array();
     if($results !== false) {
         $cnt = 0;
         while($row = mysqli_fetch_assoc($results)) {
             $data[] = $row;
         }
+        
+        $rowCount = mysqli_fetch_array($result2)['total'];
         
     } else {
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
