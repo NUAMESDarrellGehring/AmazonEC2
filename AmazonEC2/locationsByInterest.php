@@ -162,7 +162,7 @@ function getData($lat, $lng, $distance, &$rowCount = null, $length = null, $star
         	-((population/1000)-(distance_in_miles^2))";
     
     if($length != null && $start != null) {
-        $sql .= " LIMIT (".$start.", ".$length.")";
+        $sql .= " LIMIT ".$start.", ".$length;
     }
     
     $results = $connSearch->query($sql);
