@@ -133,6 +133,7 @@
 			        //"processing": true,
 			        "serverSide": true,
 			        //"destroy": true,
+			        "stateSave": true,
 			        "ajax": {
 				        "dataType": "json",
 			            "url": "http://34.212.128.254/AmazonEC2/locationsByInterest.php",
