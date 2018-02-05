@@ -83,11 +83,7 @@
 
       	
 		<div class="bottomLeft" id="tableDiv">
-    		<table id="cityTable" style="width:800px">
-    		<thead></thead>
-
-<tbody></tbody>
-    		</table>
+    		<table id="cityTable" class="display" style="width:800px"></table>
 	   </div>
 				
 		<script type="text/javascript">
