@@ -21,14 +21,14 @@
 	   .bottomLeft{
 	       position: absolute;
 	       bottom: 18px;
-	       left: 18px;   
-                table.bottomLeft thead .sorting, 
-                table.bottomLeft thead .sorting_asc, 
-                table.bottomLeft thead .sorting_desc {
-                    background : none;
-                }
-            }
+	       left: 18px;
 	   }
+	   
+	   table.dataTable thead .sorting, 
+       table.dataTable thead .sorting_asc, 
+       table.dataTable thead .sorting_desc {
+           background : none;
+       }
 	   
 	</style>
 
@@ -88,7 +88,7 @@
 		</head> 
 
       	
-		<div class="bottomLeft" id="tableDiv">
+		<div class="dataTable" id="tableDiv">
     		<table id="cityTable" class="display" style="width:800px"></table>
 	   </div>
 				
