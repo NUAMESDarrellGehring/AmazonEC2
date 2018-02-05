@@ -132,7 +132,6 @@
 				$('#cityTable').DataTable( {
 			        //"processing": true,
 			        "serverSide": true,
-			        "bDestroy": true,
 			        "stateSave": true,
 			        "ajax": {
 				        "dataType": "json",
