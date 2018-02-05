@@ -7,66 +7,70 @@ if(isset($_REQUEST['action'])) {
 
 //Figure out what we're trying to do
 
-switch(strtolower($action)) {
-    
-    //Get the data
-    case "getdata":
-        $lat = null;
-        $lng = null;
-        $distance = null;
+try {
+    switch(strtolower($action)) {
         
-        if(isset($_REQUEST['lat']) && $_REQUEST['lat'] != "") {
-            $lat = $_REQUEST['lat'];
-        } else{
-            throw new Exception("Missing required parameter, lat");
-        }
+        //Get the data
+        case "getdata":
+            $lat = null;
+            $lng = null;
+            $distance = null;
+            
+            if(isset($_REQUEST['lat']) && $_REQUEST['lat'] != "") {
+                $lat = $_REQUEST['lat'];
+            } else{
+                throw new Exception("Missing required parameter, lat");
+            }
+            
+            if(isset($_REQUEST['lng']) && $_REQUEST['lng'] != "") {
+                $lnt = $_REQUEST['lng'];
+            } else{
+                throw new Exception("Missing required parameter, lng");
+            }
+            
+            if(isset($_REQUEST['distance']) && $_REQUEST['distance'] != "") {
+                $distance = $_REQUEST['distance'];
+            } else{
+                throw new Exception("Missing required parameter, distance");
+            }
+            
+            $data = getData($lat, $lng, $distance);
+            
+            header('Content-Type: application/json');
+            echo json_encode($data);
+            
+        break;
         
-        if(isset($_REQUEST['lng']) && $_REQUEST['lng'] != "") {
-            $lnt = $_REQUEST['lng'];
-        } else{
-            throw new Exception("Missing required parameter, lng");
-        }
+        //GEO Code an address
+        case "geocodeaddress":
+            $userLocation = $_REQUEST['userLocation'];
+            
+            $data = array();
+            
+            if(isset($_REQUEST['userLocation'])){
+                $userCoords =  geoCodeAddress($userLocation);
+                debugLog("Longitude of user is: ".$userCoords[0]);
+                debugLog("<br>");
+                debugLog("Latitude of user is: ". $userCoords[1]);
+                debugLog("<br>");
+                $data['lng'] = $userCoords[0];
+                $data['lat'] = $userCoords[1];
+            } else {
+                $data['error'] = "Unable to GEO Locate Address (".$userLocation.")";
+            }
+            
+            header('Content-Type: application/json');
+            echo json_encode($data);
+                    
+        break;
         
-        if(isset($_REQUEST['distance']) && $_REQUEST['distance'] != "") {
-            $distance = $_REQUEST['distance'];
-        } else{
-            throw new Exception("Missing required parameter, distance");
-        }
-        
-        $data = getData($lat, $lng, $distance);
-        
-        header('Content-Type: application/json');
-        echo json_encode($data);
-        
-    break;
-    
-    //GEO Code an address
-    case "geocodeaddress":
-        $userLocation = $_REQUEST['userLocation'];
-        
-        $data = array();
-        
-        if(isset($_REQUEST['userLocation'])){
-            $userCoords =  geoCodeAddress($userLocation);
-            debugLog("Longitude of user is: ".$userCoords[0]);
-            debugLog("<br>");
-            debugLog("Latitude of user is: ". $userCoords[1]);
-            debugLog("<br>");
-            $data['lng'] = $userCoords[0];
-            $data['lat'] = $userCoords[1];
-        } else {
-            $data['error'] = "Unable to GEO Locate Address (".$userLocation.")";
-        }
-        
-        header('Content-Type: application/json');
-        echo json_encode($data);
-                
-    break;
-    
-    default:
-        throw new Exception("Unsupported Action: ".$action);
+        default:
+            throw new Exception("Unsupported Action: ".$action);
+    }
+} catch(Exception $ex) {
+    header('Content-Type: application/json');
+    echo json_encode(array( "error" => $ex) );
 }
-
 
 function geoCodeAddress($addressStr)
 {
@@ -122,7 +126,7 @@ function getData($lng, $lat, $distance)
     $connSearch = new mysqli($servername, $username, $password);
     
     if ($connSearch->connect_error){
-        die("Connection failed: " . $connSearch->connect_error);
+        throw new Exception("Connection failed: " . $connSearch->connect_error);
     }
     
     //Array for our results from query (if any)
