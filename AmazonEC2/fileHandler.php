@@ -81,53 +81,11 @@
 			
 		</head> 
 
-        <!-- Tell the browser that this is javascript -->
-        <script>
-        	console.log("Start");
-            $(document).ready(function() {
-            	console.log("Ready Start");
-            	$("#cityTable").dataTable( {
-            		"order": [],
-                });
-            	console.log("Ready End");
-            });
-            console.log("End"); 
-        </script>
-
-		<br>
-		
+      	
 		<div class="bottomLeft" id="tableDiv">
-		<?php 
-            if(count($combArray) > 0) { 
-		?>    
-		<table id="cityTable" style="width:800px">
-			<thead>
-    			<tr>
-    				<th>City</th>
-    				<th>State</th>
-    				<th>Distance In Miles</th>
-    			</tr>
-			</thead>
-			<tbody>
-	   
-	   <?php
-		  foreach($combArray as $row) {
-		?>
-					<tr>
-	   					<td><?= $row['city'] ?></td>
-    					<td><?= $row['state'] ?></td>
-    					<td><?= $row['distance_in_miles'] ?></td>
-	   				</tr>
-	   
-	   <?php
-		      
-		  } ?>
-			</tbody>	
-		</table>
-		<?php  
-		}
-		?>
-		</div>
+    		<table id="cityTable" style="width:800px">
+    		</table>
+	   </div>
 				
 		<script type="text/javascript">
 
