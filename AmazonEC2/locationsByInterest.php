@@ -101,6 +101,8 @@ if(isset($userSearch)) {
         "latitude" => $userCoords[1]
     );
     
+    header('Content-Type: application/json');
+    
     echo json_encode($returnData);
     
     //the google api key is AIzaSyBnYeMEUWJEQH0FQKUZhsL3mesL333Vzbg
