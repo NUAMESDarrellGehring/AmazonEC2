@@ -40,7 +40,6 @@ try {
             echo json_encode(array(
                 "data" => $data,
                 "draw" => 1,
-                "length" => 10,
                 "recordsTotal" => 15,
                 "recordsFiltered" => 15
             ));

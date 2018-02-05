@@ -130,9 +130,9 @@
 				console.log("About to draw");
 				
 				$('#cityTable').DataTable( {
+					"pageLength": 10,
 			        "processing": true,
 			        "serverSide": true,
-			        "iDisplayLength": 10,
 			        "ajax": {
 				        "dataType": "json",
 			            "url": "http://34.212.128.254/AmazonEC2/locationsByInterest.php",
