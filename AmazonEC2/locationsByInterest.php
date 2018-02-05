@@ -42,7 +42,6 @@ try {
                 "draw" => 1,
                 "recordsTotal" => 15,
                 "recordsFiltered" => 15,
-                "pageLength" => 10
             ));
             exit;
             

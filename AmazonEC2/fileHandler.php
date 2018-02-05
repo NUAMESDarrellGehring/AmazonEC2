@@ -83,7 +83,7 @@
 
       	
 		<div class="bottomLeft" id="tableDiv">
-    		<table id="cityTable" class="display" style="width:800px" data-page-length='10'></table>
+    		<table id="cityTable" class="display" style="width:800px"></table>
 	   </div>
 				
 		<script type="text/javascript">
@@ -130,9 +130,9 @@
 				console.log("About to draw");
 				
 				$('#cityTable').DataTable( {
-					"pageLength": 10,
 			        "processing": true,
 			        "serverSide": true,
+			        "totalRecs": 10,
 			        "ajax": {
 				        "dataType": "json",
 			            "url": "http://34.212.128.254/AmazonEC2/locationsByInterest.php",
