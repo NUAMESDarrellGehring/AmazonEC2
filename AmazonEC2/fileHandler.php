@@ -137,7 +137,6 @@
 			            "type": "POST",
 			            "contentType": "application/json; charset=utf-8",
 			            "dataType": "json",
-			            "dataSrc": "Data",
 			            "data": {
 				            'action' : 'getData',
 			            	'lng': lng,
