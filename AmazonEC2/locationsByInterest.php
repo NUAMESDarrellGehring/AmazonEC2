@@ -40,8 +40,8 @@ try {
             echo json_encode(array(
                 "data" => $data,
                 "draw" => 1,
-                "recordsTotal" => 15,
-                "recordsFiltered" => 10
+                "recordsTotal" => 10,
+                "recordsFiltered" => 15
             ));
             exit;
             
