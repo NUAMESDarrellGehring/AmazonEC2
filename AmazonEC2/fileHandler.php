@@ -131,10 +131,10 @@
 				
 				$('#cityTable').DataTable( {
 			        //"processing": true,
+			   		"bLengthChange" : false,
 			        "serverSide": true,
 			        "stateSave": true,
 			        "ajax": {
-				        "lengthChange" : false,
 				        "dataType": "json",
 			            "url": "http://34.212.128.254/AmazonEC2/locationsByInterest.php",
 			            "type": "POST",
