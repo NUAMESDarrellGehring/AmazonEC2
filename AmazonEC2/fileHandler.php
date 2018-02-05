@@ -107,9 +107,9 @@
 					}
 				).done(function(data) {
 				    console.log(data);
-				    console.log("Our post has returned data (" + data'data_returned'].length + " rows).");
+				    console.log("Our post has returned data (" + data['data_returned'].length + " rows).");
 
-	            	$("#cityTable").dataTable( {
+	            	$("#cityTable").dataTable({
 	            		"order": [],
 	            		"data" : data['data_returned']
 	                });
