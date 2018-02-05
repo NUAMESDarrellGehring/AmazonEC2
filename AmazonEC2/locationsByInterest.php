@@ -38,6 +38,7 @@ try {
             
             header('Content-Type: application/json');
             echo json_encode($data);
+            exit;
             
         break;
         
@@ -169,6 +170,8 @@ function getData($lng, $lat, $distance)
         } else {
             throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
         }
+        
+        echo "TEST: ".var_export($data, true);
         
         return $data;
         
