@@ -135,6 +135,9 @@
 			        "ajax": {
 			            "url": "http://34.212.128.254/AmazonEC2/locationsByInterest.php",
 			            "type": "POST",
+			            "contentType": "application/json; charset=utf-8",
+			            "dataType": "json",
+			            "dataSrc": "Data"
 			            "data": {
 				            'action' : 'getData',
 			            	'lng': lng,
