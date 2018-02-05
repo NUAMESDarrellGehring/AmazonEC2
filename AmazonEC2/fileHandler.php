@@ -119,12 +119,13 @@
         		
 				let distToSearch = $("input[name='userDistOut']").val();
 
-				if(typeof($("#cityTable").dataTable()) != "undefined") {
-					console.log("Starting Destroy...");
-					$("#cityTable").dataTable().fnDestroy();
-					console.log("Done Destroying.");
-				}
 
+				if ( ! $.fn.DataTable.isDataTable( '#cityTable' ) ) {
+					console.log("Starting Destroy...");
+				  	$('#cityTable').destroy();
+				  	console.log("Done Destroying.");
+				}
+			
 				console.log("About to draw");
 				
 				$('#cityTable').DataTable( {
