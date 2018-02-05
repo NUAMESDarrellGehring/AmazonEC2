@@ -132,7 +132,7 @@
 				$('#cityTable').DataTable( {
 			        //"processing": true,
 			   		"bLengthChange": false,
-			   		"bSearch": false,
+			   		"bFilter": false,
 			        "serverSide": true,
 			        "stateSave": true,
 			        "ajax": {
