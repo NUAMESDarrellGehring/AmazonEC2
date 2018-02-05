@@ -131,7 +131,10 @@
 				
 				$('#cityTable').DataTable( {
 			        //"processing": true,
-			        "serverSide": false,
+			        "serverSide": true,
+			        "draw": 1,
+			        "recordsTotal": 57,
+			        "recordsFiltered": 57,
 			        "ajax": {
 			            "url": "http://34.212.128.254/AmazonEC2/locationsByInterest.php",
 			            "type": "POST",
