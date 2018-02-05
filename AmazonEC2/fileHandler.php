@@ -121,8 +121,10 @@
 
 
 				if ( ! $.fn.DataTable.isDataTable( '#cityTable' ) ) {
-					console.log("Starting Destroy...");
-				  	$('#cityTable').destroy();
+					console.log("Starting Clear...");
+				  	$('#cityTable').DataTable().clear();
+				  	console.log("Clear Done.  Destroying....");
+				  	$('#cityTable').DataTable().destroy();
 				  	console.log("Done Destroying.");
 				}
 			
