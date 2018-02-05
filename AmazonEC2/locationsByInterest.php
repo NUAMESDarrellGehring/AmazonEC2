@@ -158,8 +158,6 @@ function getData($lat, $lng, $distance)
         throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
     }
     
-    echo "TEST: ".var_export($data, true);
-    
     return $data;
     
     //the google api key is AIzaSyBnYeMEUWJEQH0FQKUZhsL3mesL333Vzbg
