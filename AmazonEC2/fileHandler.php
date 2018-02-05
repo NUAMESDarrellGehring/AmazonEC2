@@ -120,8 +120,12 @@
 				let distToSearch = $("input[name='userDistOut']").val();
 
 				if(typeof($("#cityTable").dataTable()) != "undefined") {
+					console.log("Starting Destroy...");
 					$("#cityTable").dataTable().fnDestroy();
+					console.log("Done Destroying.");
 				}
+
+				console.log("About to draw");
 				
 				$('#cityTable').DataTable( {
 			        "processing": true,
@@ -142,7 +146,9 @@
 			            { "data": "distance_in_miles", title: "Distance In Miles" }
 			        ]
 			    } );
-			    
+
+				console.log("end dynamicDataTable.");
+				
 				return false;
     		}
 		
