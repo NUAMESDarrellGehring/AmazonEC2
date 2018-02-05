@@ -89,10 +89,34 @@
 				
 		<script type="text/javascript">
 
-    		function dynamicDataTable(){
+			function geoCodeAddress() {
+				let locToSend = $("input[name='userLocation']").val();
+
+				$.post(
+					"http://34.212.128.254/AmazonEC2/locationsByInterest.php", 
+					{
+						'action' : "geoCodeAddress",
+						'userLocation': locToSend 
+					}
+				).done(function(data) {
+					if(typeof(data['error']) != "undefined") {
+						//error!
+						alert(data['error']);
+					} else {
+						//data!!
+						dynamicDataTable(data['lng'], data['lat']);
+					}
+		  		}).fail(function() {
+						console.log("Our post has something wrong with it.");
+				});
+				
+				return false;
+
+			}
+		
+    		function dynamicDataTable(lng, lat){
 				console.log("Start dynamicDataTable.");
         		
-				let locToSend = $("input[name='userLocation']").val();
 				let distToSearch = $("input[name='userDistOut']").val();
 
 				console.log("locToSend and distToSearch are set.");
@@ -104,8 +128,10 @@
 			            "url": "http://34.212.128.254/AmazonEC2/locationsByInterest.php",
 			            "type": "POST",
 			            "data": {
-			            	'userLocation': locToSend, 
-							'userDistOut': distToSearch
+				            'action' : 'getData',
+			            	'lng': lng,
+			            	'lat': lat, 
+							'distance': distToSearch
 			            }
 			        },
 			        "columns": [
@@ -115,47 +141,14 @@
 			        ]
 			    } );
 			    
-return false;
-				
-				var retrievedArr;
-				
-				$.post(
-					"http://34.212.128.254/AmazonEC2/locationsByInterest.php", 
-					{
-						'userLocation': locToSend, 
-						'userDistOut': distToSearch
-					}
-				).done(function(data) {
-					//data = JSON.parse(data);
-					//if(data == false) throw "Invalid JSON";
-				    console.log(data);
-				    console.log("Our post has returned data (" + data['data_returned'].length + " rows).");
-
-				    if($("#cityTable").dataTable()) {
-				    	//$("#cityTable").dataTable().fnDestroy();
-				    }
-				    
-	            	$("#cityTable").dataTable({
-	            		data : data['data_returned'],
-	            		columns: [
-	                        { title: "City" },
-	                        { title: "State" },
-	                        { title: "Distance in Miles" }
-	                    ]
-	                });
-		            
-			  	}).fail(function() {
-					console.log("Our post has something wrong with it.");
-				})
-				
-    			return false;
+				return false;
     		}
 		
 		</script>		
 				
 				
 		<div class="topLeft" id="usrInBox">
-    		<form onSubmit="return dynamicDataTable()" method="post" enctype="multipart/form-data">
+    		<form onSubmit="return geoCodeAddress()" method="post" enctype="multipart/form-data">
     			<input type="hidden" name="debug" value="1">
     			<br>
     			Your Location: <input type="text" name="userLocation">
