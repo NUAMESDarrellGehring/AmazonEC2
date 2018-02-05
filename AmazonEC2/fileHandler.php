@@ -147,9 +147,9 @@
 			            }
 			        },
 			        "columns": [
-			            { "data": "city", title: "City"},
-			            { "data": "state", title: "State"},
-			            { "data": "distance_in_miles", title: "Distance In Miles" }
+			            { "data": "city", title: "City", "orderable": false},
+			            { "data": "state", title: "State", "orderable": false},
+			            { "data": "distance_in_miles", title: "Distance In Miles", "orderable": false}
 			        ]
 			    } );
 
