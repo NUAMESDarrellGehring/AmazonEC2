@@ -22,6 +22,9 @@ try {
                 throw new Exception("Missing required parameter, lat");
             }
             
+            echo "TEST: ".var_export($_REQUEST['lng'], true);
+            exit;
+            
             if(isset($_REQUEST['lng']) && $_REQUEST['lng'] != "") {
                 $lnt = $_REQUEST['lng'];
             } else{
