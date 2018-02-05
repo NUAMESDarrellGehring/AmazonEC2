@@ -112,7 +112,7 @@
 				    console.log("Our post has returned data (" + data['data_returned'].length + " rows).");
 
 				    if($("#cityTable").dataTable()) {
-				    	$("#cityTable").dataTable().fnDestroy();
+				    	//$("#cityTable").dataTable().fnDestroy();
 				    }
 				    
 	            	$("#cityTable").dataTable({
