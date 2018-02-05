@@ -131,7 +131,8 @@
 				
 				$('#cityTable').DataTable( {
 			        //"processing": true,
-			   		"bLengthChange" : false,
+			   		"bLengthChange": false,
+			   		"bSearch": false,
 			        "serverSide": true,
 			        "stateSave": true,
 			        "ajax": {
