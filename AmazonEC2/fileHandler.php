@@ -121,6 +121,8 @@
 
 				console.log("locToSend and distToSearch are set.");
 
+				 $("#cityTable").DataTable().fnDestroy();
+				
 				$('#cityTable').DataTable( {
 			        "processing": true,
 			        "serverSide": true,
