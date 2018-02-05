@@ -97,6 +97,26 @@
 
 				console.log("locToSend and distToSearch are set.");
 
+				$('#example').DataTable( {
+			        "processing": true,
+			        "serverSide": true,
+			        "ajax": {
+			            "url": "http://34.212.128.254/AmazonEC2/locationsByInterest.php",
+			            "type": "POST",
+			            "data": {
+			            	'userLocation': locToSend, 
+							'userDistOut': distToSearch
+			            }
+			        },
+			        "columns": [
+			            { "data": "city", title: "City"},
+			            { "data": "state", title: "State"},
+			            { "data": "distance_in_miles", title: "Distance In Miles" }
+			        ]
+			    } );
+			    
+return false;
+				
 				var retrievedArr;
 				
 				$.post(
