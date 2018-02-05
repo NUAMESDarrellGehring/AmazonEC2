@@ -120,7 +120,7 @@
 				let distToSearch = $("input[name='userDistOut']").val();
 
 
-				if ( ! $.fn.DataTable.isDataTable( '#cityTable' ) ) {
+				if ($.fn.DataTable.isDataTable( '#cityTable' ) ) {
 					console.log("Starting Clear...");
 				  	$('#cityTable').DataTable().clear();
 				  	console.log("Clear Done.  Destroying....");
