@@ -84,6 +84,9 @@
       	
 		<div class="bottomLeft" id="tableDiv">
     		<table id="cityTable" style="width:800px">
+    		<thead></thead>
+
+<tbody></tbody>
     		</table>
 	   </div>
 				
