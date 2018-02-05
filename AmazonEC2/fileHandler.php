@@ -132,7 +132,7 @@
 				$('#cityTable').DataTable( {
 			        "processing": true,
 			        "serverSide": true,
-			        "totalRecs": 10,
+			        "deferLoading": 15,
 			        "ajax": {
 				        "dataType": "json",
 			            "url": "http://34.212.128.254/AmazonEC2/locationsByInterest.php",
