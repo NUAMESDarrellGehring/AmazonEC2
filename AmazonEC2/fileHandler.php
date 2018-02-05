@@ -111,7 +111,7 @@
 				    console.log(data);
 				    console.log("Our post has returned data (" + data['data_returned'].length + " rows).");
 
-				    $("#cityTable").dataTable().fnDestroy();
+				    try { $("#cityTable").dataTable().fnDestroy(); } catch(ex) { }
 				    
 	            	$("#cityTable").dataTable({
 	            		order: [],
