@@ -62,7 +62,8 @@ try {
             
             header('Content-Type: application/json');
             echo json_encode($data);
-                    
+            exit;
+            
         break;
         
         default:
@@ -71,6 +72,7 @@ try {
 } catch(Exception $ex) {
     header('Content-Type: application/json');
     echo json_encode(array( "error" => $ex) );
+    exit;
 }
 
 function geoCodeAddress($addressStr)
@@ -106,20 +108,6 @@ function echoResults($results) {
 
 function getData($lng, $lat, $distance)
 {
-    /*
-    $userLocation = $_REQUEST['userLocation'];
-    $userSearch = $_REQUEST['userDistOut'];
-    
-    if(isset($_REQUEST['userLocation'])){
-        
-        $userCoords =  geoCodeAddress($userLocation);
-        debugLog("Longitude of user is: ".$userCoords[0]);
-        debugLog("<br>");
-        debugLog("Latitude of user is: ". $userCoords[1]);
-        debugLog("<br>");
-    }
-    */
-    
     $servername = "localhost";
     $username = "root";
     $password = "skull71";
@@ -130,54 +118,48 @@ function getData($lng, $lat, $distance)
         throw new Exception("Connection failed: " . $connSearch->connect_error);
     }
     
-    //Array for our results from query (if any)
-    $resultsArr = array();
+    $sql = "USE cityInfoDB;";
     
-    if(isset($userSearch)) {
-        
-        $sql = "USE cityInfoDB;";
-        
-        $connSearch->query($sql);
-        
-        debugLog("<br>Query1: ".$sql."\n<br>");
-        
-        $sql = "
-            SELECT
-            	city, state,
-            	(3963.17 * ACOS(COS(RADIANS(latpoint))
-                     * COS(RADIANS(latitude))
-                     * COS(RADIANS(longpoint) - RADIANS(longitude))
-                     + SIN(RADIANS(latpoint))
-                     * SIN(RADIANS(latitude)))) AS distance_in_miles
-             FROM cityInfo
-             JOIN (
-                 SELECT  ".$lat." AS latpoint, ".$lng."AS longpoint
-            ) AS p ON 1=1
-            HAVING
-                distance_in_miles <= ".($distance+20)."
-            ORDER BY
-            	-((population/1000)-(distance_in_miles^2))
-            LIMIT 15;";
-        
-        $results = $connSearch->query($sql);
-        $data = array();
-        if($results !== false) {
-            $cnt = 0;
-            while($row = mysqli_fetch_assoc($results)) {
-                $data[] = $row;
-            }
-            
-        } else {
-            throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
+    $connSearch->query($sql);
+    
+    debugLog("<br>Query1: ".$sql."\n<br>");
+    
+    $sql = "
+        SELECT
+        	city, state,
+        	(3963.17 * ACOS(COS(RADIANS(latpoint))
+                 * COS(RADIANS(latitude))
+                 * COS(RADIANS(longpoint) - RADIANS(longitude))
+                 + SIN(RADIANS(latpoint))
+                 * SIN(RADIANS(latitude)))) AS distance_in_miles
+         FROM cityInfo
+         JOIN (
+             SELECT  ".$lat." AS latpoint, ".$lng."AS longpoint
+        ) AS p ON 1=1
+        HAVING
+            distance_in_miles <= ".($distance+20)."
+        ORDER BY
+        	-((population/1000)-(distance_in_miles^2))
+        LIMIT 15;";
+    
+    $results = $connSearch->query($sql);
+    $data = array();
+    if($results !== false) {
+        $cnt = 0;
+        while($row = mysqli_fetch_assoc($results)) {
+            $data[] = $row;
         }
         
-        echo "TEST: ".var_export($data, true);
-        
-        return $data;
-        
-        //the google api key is AIzaSyBnYeMEUWJEQH0FQKUZhsL3mesL333Vzbg
-        //debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
+    } else {
+        throw new Exception("<b>Query Failed (". mysql_error().").  Query='".$sql."'</b>");
     }
+    
+    echo "TEST: ".var_export($data, true);
+    
+    return $data;
+    
+    //the google api key is AIzaSyBnYeMEUWJEQH0FQKUZhsL3mesL333Vzbg
+    //debugLog("Test: We've reached the end of this program!!!"); //Signals end of program
 }
 
 ?>
