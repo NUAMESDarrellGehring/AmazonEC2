@@ -83,7 +83,7 @@
 
       	
 		<div class="bottomLeft" id="tableDiv">
-    		<table id="cityTable" class="display" style="width:800px"></table>
+    		<table id="cityTable" class="display" style="width:800px" data-page-length='10'></table>
 	   </div>
 				
 		<script type="text/javascript">
