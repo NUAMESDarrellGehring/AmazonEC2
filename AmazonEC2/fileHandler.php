@@ -136,8 +136,8 @@
 			            "url": "http://34.212.128.254/AmazonEC2/locationsByInterest.php",
 			            "type": "POST",
 				        "draw": 1,
-				        "recordsTotal": 57,
-				        "recordsFiltered": 57,
+				        "recordsTotal": 15,
+				        "recordsFiltered": 15,
 			            "data": {
 				            'action' : 'getData',
 			            	'lng': lng,
