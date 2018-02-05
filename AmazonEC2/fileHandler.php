@@ -130,7 +130,7 @@
 				console.log("About to draw");
 				
 				$('#cityTable').DataTable( {
-			        //"processing": true,
+			        "processing": true,
 			        "serverSide": true,
 			        "iDisplayLength": 10,
 			        "ajax": {
