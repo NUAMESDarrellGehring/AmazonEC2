@@ -154,7 +154,7 @@
 			        ]
 			    } );
 
-				console.log(city[0]);
+				console.log(data=>city);
 				
 				console.log("end dynamicDataTable.");
 				
