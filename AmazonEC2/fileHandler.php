@@ -130,7 +130,6 @@
 				console.log("About to draw");
 				
 				$('#cityTable').DataTable( {
-					console.log("woah."),
 			        "processing": true,
 			   		"bLengthChange": false,
 			   		"bFilter": false,
@@ -155,6 +154,8 @@
 			            { "data": "distance_in_miles", title: "Distance In Miles", "orderable": false}
 			        ]
 
+				} ).on( 'xhr', function ( e, settings, json ) {
+				    console.log( 'Ajax event occurred. Returned data: ', json );
 				} );
 				
 				console.log("end dynamicDataTable.");
