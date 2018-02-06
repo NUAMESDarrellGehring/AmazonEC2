@@ -158,6 +158,7 @@
 				    console.log( 'Ajax event occurred. Returned data: ', json );
 
 				    console.log(json.data[0][0]);
+				    console.log(json.data[0][1]);
 				} );
 				
 				console.log("end dynamicDataTable.");
