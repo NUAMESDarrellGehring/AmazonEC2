@@ -154,7 +154,7 @@
 			            { "data": "distance_in_miles", title: "Distance In Miles", "orderable": false}
 			        ]
 
-				} ).on( 'xhr', function ( e, settings, json ) {
+				} ).on( 'xhr', function(json) { //xhr is an event that occurs when an ajax action IS COMPLETED 
 				    console.log( 'Ajax event occurred. Returned data: ', json );
 				} );
 				
