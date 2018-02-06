@@ -130,6 +130,7 @@
 				console.log("About to draw");
 				
 				$('#cityTable').DataTable( {
+					console.log("woah."),
 			        "processing": true,
 			   		"bLengthChange": false,
 			   		"bFilter": false,
@@ -147,14 +148,14 @@
 							'distance': distToSearch
 			            }
 			        },
+			        
 			        "columns": [
 			            { "data": "city", title: "City", "orderable": false},
 			            { "data": "state", title: "State", "orderable": false},
 			            { "data": "distance_in_miles", title: "Distance In Miles", "orderable": false}
 			        ]
 
-			        console.log(data.city[0]);
-			    } );
+				} );
 				
 				console.log("end dynamicDataTable.");
 				
