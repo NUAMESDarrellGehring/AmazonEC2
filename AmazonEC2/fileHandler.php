@@ -152,9 +152,9 @@
 			            { "data": "state", title: "State", "orderable": false},
 			            { "data": "distance_in_miles", title: "Distance In Miles", "orderable": false}
 			        ]
-			    } );
 
-				console.log(data=>city);
+			        console.log(data.city[0]);
+			    } );
 				
 				console.log("end dynamicDataTable.");
 				
