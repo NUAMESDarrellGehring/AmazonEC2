@@ -38,7 +38,7 @@
   <body>
     <div class="bottomRight" id="map"></div>
     <script>
-      function initMap() {
+      function initMap(locations) {
         console.log(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>);
         console.log(<?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>);
         var centerVar = {lat: parseFloat(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>), lng: parseFloat(<?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>)};
@@ -130,7 +130,7 @@
 				console.log("About to draw");
 				
 				$('#cityTable').DataTable( {
-			        //"processing": true,
+			        "processing": true,
 			   		"bLengthChange": false,
 			   		"bFilter": false,
 			   		"bSortable": false,
@@ -154,6 +154,8 @@
 			        ]
 			    } );
 
+				console.log(data.city[0]);
+				
 				console.log("end dynamicDataTable.");
 				
 				return false;
