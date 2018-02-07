@@ -163,7 +163,7 @@
 				    for(int i=0; i<=9; i++){
 					    console.log(json.data[i].state);
 					    console.log(json.data[i].city);
-				    }
+				    };
 				} );
 				
 				console.log("end dynamicDataTable.");
