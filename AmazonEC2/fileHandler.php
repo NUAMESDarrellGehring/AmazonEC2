@@ -59,7 +59,7 @@
             	title: locations[i].city
         	});
         }
-      }
+      };
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnYeMEUWJEQH0FQKUZhsL3mesL333Vzbg&callback=initMap">
@@ -166,6 +166,7 @@
 					    console.log(json.data[i].state);
 					    console.log(json.data[i].city);
 				    };
+				    initMap(json.data);
 				} );
 				
 				console.log("end dynamicDataTable.");
