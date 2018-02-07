@@ -160,7 +160,7 @@
 				    console.log(json.data[0].city);
 				    console.log(json.data[0].state);
 
-				    for(int i=0, i<=9, i++){
+				    for(let i=0; i<=json.data.length; i++){
 					    console.log(json.data[i].state);
 					    console.log(json.data[i].city);
 				    };
