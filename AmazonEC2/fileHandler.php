@@ -39,6 +39,9 @@
     <div class="bottomRight" id="map"></div>
     <script>
       function initMap(locations) {
+
+  		console.log(locations[0].latitude);
+        
         var centerVar = {lat: locations[0].latitude, lng: locations[0].longitude};
 
 		if(map==undefined){
