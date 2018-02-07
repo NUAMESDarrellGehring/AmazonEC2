@@ -39,8 +39,6 @@
     <div class="bottomRight" id="map"></div>
     <script>
       function initMap(locations) {
-
-  		console.log(locations[0].latitude);
         
         var centerVar = {lat: parseFloat(locations[0].latitude), lng: parseFloat(locations[0].longitude)};
 
@@ -158,14 +156,6 @@
 
 				} ).on( 'xhr', function(e, settings, json) { //xhr is an event that occurs when an ajax action IS COMPLETED 
 				    console.log( 'Ajax event occurred. Returned data: ', json );
-
-				    console.log(json.data[0].city);
-				    console.log(json.data[0].state);
-
-				    for(let i=0; i<json.data.length; i++){
-					    console.log(json.data[i].state);
-					    console.log(json.data[i].city);
-				    };
 				    initMap(json.data);
 				} );
 				
