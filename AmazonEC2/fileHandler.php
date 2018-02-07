@@ -56,7 +56,7 @@
         	var marker = new google.maps.Marker({
             	position: markerCoords,
             	map: map,
-            	title: <?php echo json_encode($row['city'], JSON_HEX_TAG); ?>
+            	title: locations[i].city
         	});
         }
       }
