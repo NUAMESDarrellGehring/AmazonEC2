@@ -159,9 +159,7 @@
 
 				    console.log(json.data[0][0]);
 				    console.log(json.data[0][1]);
-				} ).on( 'page.dt', function(e, settings, json) {
-					console.log("Page changed");
-				};
+				} );
 				
 				console.log("end dynamicDataTable.");
 				
