@@ -39,7 +39,7 @@
     <div class="bottomRight" id="map"></div>
     <script>
       function initMap(locations) {
-        var centerVar = {lat: locations[0].lat, lng: locations[0].lat)};
+        var centerVar = {lat: locations[0].lat, lng: locations[0].lat};
 
 		if(!isset(map)){
             var map = new google.maps.Map(document.getElementById('map'), {
