@@ -39,24 +39,26 @@
     <div class="bottomRight" id="map"></div>
     <script>
       function initMap(locations) {
-        console.log(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>);
-        console.log(<?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>);
-        var centerVar = {lat: parseFloat(<?php echo json_encode($combArray[0]['latitude'], JSON_HEX_TAG); ?>), lng: parseFloat(<?php echo json_encode($combArray[0]['longitude'], JSON_HEX_TAG); ?>)};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: centerVar
-          
-        });
-		<?php foreach($combArray as $row){?>
-		var markerCoords = {lat: parseFloat(<?php echo json_encode($row['latitude'], JSON_HEX_TAG); ?>), lng: parseFloat(<?php echo json_encode($row['longitude'], JSON_HEX_TAG); ?>)};
-        var marker = new google.maps.Marker({
-            position: markerCoords,
-            map: map,
-            title: <?php echo json_encode($row['city'], JSON_HEX_TAG); ?>
-        });
-        <?php }?>
-  		
-        
+        var centerVar = {lat: locations[0].lat, lng: locations[0].lat)};
+
+		if(!isset(map)){
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 8,
+            });
+		}
+
+		map.clearMarkers();
+		
+		map.setCenter(centerVar);
+
+        for(let i=0; i<locations.length; i++{
+			var markerCoords = {lat: locations[i].lat, lng: locations[i].lng};
+        	var marker = new google.maps.Marker({
+            	position: markerCoords,
+            	map: map,
+            	title: <?php echo json_encode($row['city'], JSON_HEX_TAG); ?>
+        	});
+        }
       }
     </script>
     <script async defer
