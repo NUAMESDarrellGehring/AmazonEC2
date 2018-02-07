@@ -145,7 +145,7 @@ function getData($lat, $lng, $distance, &$rowCount = null, $length = null, $star
     
     $sql = "
         SELECT SQL_CALC_FOUND_ROWS 
-        	city, state,
+        	city, state, latitude, longitude,
         	(3963.17 * ACOS(COS(RADIANS(latpoint))
                  * COS(RADIANS(latitude))
                  * COS(RADIANS(longpoint) - RADIANS(longitude))
