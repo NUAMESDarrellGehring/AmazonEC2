@@ -45,15 +45,16 @@
             var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 8,
             });
+            console.log("Map created");
 		}
 
 		if(map.marker!=undefined){
 			map.marker.setMap(null)
+			console.log("Markers removed.");
 		}
 		
 		map.setCenter(centerVar);
-
-		var allMarkers[];
+		console.log("Center zoom set.");
 		
         for(let i=0; i<locations.length; i++){
 			var markerCoords = {lat: locations[i].lat, lng: locations[i].lng};
@@ -62,7 +63,6 @@
             	map: map,
             	title: locations[i].city
         	});
-        	allMarkers.push(marker);
         }
       };
     </script>
