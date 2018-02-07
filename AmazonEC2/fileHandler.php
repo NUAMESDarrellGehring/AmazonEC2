@@ -40,9 +40,9 @@
     <script>
       function initMap(locations) {
         
-        var centerVar = {lat: parseFloat(locations[0].latitude), lng: parseFloat(locations[0].longitude)};
 
 		if(map==undefined){
+	        var centerVar = {lat: parseFloat(locations[0].latitude), lng: parseFloat(locations[0].longitude)};
             var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 8,
             });
