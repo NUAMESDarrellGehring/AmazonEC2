@@ -56,16 +56,15 @@
     		}
     		map.setCenter(centerVar);
     		console.log("Center zoom set.");
+            for(let i=0; i<locations.length; i++){
+    			var markerCoords = {lat: parseFloat(locations[i].latitude), lng: parseFloat(locations[i].longitude)};
+            	var marker = new google.maps.Marker({
+                	position: markerCoords,
+                	map: map,
+                	title: locations[i].city
+            	});
+            }
 		}
-		
-        for(let i=0; i<locations.length; i++){
-			var markerCoords = {lat: parseFloat(locations[i].latitude), lng: parseFloat(locations[i].longitude)};
-        	var marker = new google.maps.Marker({
-            	position: markerCoords,
-            	map: map,
-            	title: locations[i].city
-        	});
-        }
       };
     </script>
     <script async defer
