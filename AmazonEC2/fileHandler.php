@@ -47,10 +47,16 @@
             });
 		}
 
-		map.clearMarkers();
+		if(allMarkers!=undefined){
+			for(let i=0; i<allMarkers.length; i++){
+				allMarkers[i].setMap(null);
+			}
+		}
 		
 		map.setCenter(centerVar);
 
+		var allMarkers[];
+		
         for(let i=0; i<locations.length; i++){
 			var markerCoords = {lat: locations[i].lat, lng: locations[i].lng};
         	var marker = new google.maps.Marker({
@@ -58,6 +64,7 @@
             	map: map,
             	title: locations[i].city
         	});
+        	allMarkers.push(marker);
         }
       };
     </script>
