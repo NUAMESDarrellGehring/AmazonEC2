@@ -39,7 +39,7 @@
     <div class="bottomRight" id="map"></div>
     <script>
       function initMap(locations) {
-        var centerVar = {lat: locations[0].lat, lng: locations[0].lat};
+        var centerVar = {lat: locations[0].latitude, lng: locations[0].longitude};
 
 		if(map==undefined){
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -57,7 +57,7 @@
 		console.log("Center zoom set.");
 		
         for(let i=0; i<locations.length; i++){
-			var markerCoords = {lat: locations[i].lat, lng: locations[i].lng};
+			var markerCoords = {lat: locations[i].latitude, lng: locations[i].longitude};
         	var marker = new google.maps.Marker({
             	position: markerCoords,
             	map: map,
