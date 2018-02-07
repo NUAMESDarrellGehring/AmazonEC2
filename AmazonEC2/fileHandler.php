@@ -41,7 +41,7 @@
       function initMap(locations) {
         
 
-		if(map==undefined){
+		if(map==undefined && locations!=undefined){
 	        var centerVar = {lat: parseFloat(locations[0].latitude), lng: parseFloat(locations[0].longitude)};
             var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 8,
