@@ -49,13 +49,14 @@
             console.log("Map created");
 		}
 
-		if(map.marker!=undefined){
-			map.marker.setMap(null)
-			console.log("Markers removed.");
+		if(map!=undefined){	
+    		if(map.marker!=undefined){
+    			map.marker.setMap(null)
+    			console.log("Markers removed.");
+    		}
+    		map.setCenter(centerVar);
+    		console.log("Center zoom set.");
 		}
-		
-		map.setCenter(centerVar);
-		console.log("Center zoom set.");
 		
         for(let i=0; i<locations.length; i++){
 			var markerCoords = {lat: parseFloat(locations[i].latitude), lng: parseFloat(locations[i].longitude)};
