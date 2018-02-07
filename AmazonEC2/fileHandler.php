@@ -47,10 +47,8 @@
             });
 		}
 
-		if(allMarkers!=undefined){
-			for(let i=0; i<allMarkers.length; i++){
-				allMarkers[i].setMap(null);
-			}
+		if(map.marker!=undefined){
+			map.marker.setMap(null)
 		}
 		
 		map.setCenter(centerVar);
