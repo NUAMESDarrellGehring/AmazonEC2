@@ -51,7 +51,7 @@
 		
 		map.setCenter(centerVar);
 
-        for(let i=0; i<locations.length; i++{
+        for(let i=0; i<locations.length; i++){
 			var markerCoords = {lat: locations[i].lat, lng: locations[i].lng};
         	var marker = new google.maps.Marker({
             	position: markerCoords,
