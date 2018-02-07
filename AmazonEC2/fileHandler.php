@@ -42,7 +42,7 @@
 
   		console.log(locations[0].latitude);
         
-        var centerVar = {lat: locations[0].latitude, lng: locations[0].longitude};
+        var centerVar = {lat: parseFloat(locations[0].latitude), lng: parseFloat(locations[0].longitude)};
 
 		if(map==undefined){
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -60,7 +60,7 @@
 		console.log("Center zoom set.");
 		
         for(let i=0; i<locations.length; i++){
-			var markerCoords = {lat: locations[i].latitude, lng: locations[i].longitude};
+			var markerCoords = {lat: parseFloat(locations[i].latitude), lng: parseFloat(locations[i].longitude)};
         	var marker = new google.maps.Marker({
             	position: markerCoords,
             	map: map,
