@@ -79,22 +79,15 @@
 		<head>
 			<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
 			<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
-		
-		
 			<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-			
-			
 			<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-			
-			
-			
 		</head> 
 
       	
-		<div class="bottomLeft" id="tableDiv">
+	   	<div class="bottomLeft" id="tableDiv">
     		<table id="cityTable" class="display" style="width:800px"></table>
-	   </div>
+	   	</div>
 				
 		<script type="text/javascript">
 
@@ -140,7 +133,6 @@
 				console.log("About to draw");
 				
 				$('#cityTable').DataTable( {
-			        "processing": true,
 			   		"bLengthChange": false,
 			   		"bFilter": false,
 			   		"bSortable": false,
