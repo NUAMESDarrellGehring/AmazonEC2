@@ -112,26 +112,3 @@ if($_FILES["uploadedFile"]["size"] !== 0){
 }
 
 ?>
-
-<html>			
-	<body>
-		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-			------- Debug/File Update Section -------
-			<br>
-			Input File: 
-			<input type="file" name="uploadedFile" id="uploadedFile">
-			<br>
-			Max Inserts: <input type="text" value="10" name="updateCnt">
-			<br>
-			Debug: 
-			<select type="select" name="debug">
-				<option value="1">Yes</option>
-				<option value="0" selected>No</option>
-			</select>
-			<br>
-			-----------------------------------------
-			<br><br>
-			<input type ="submit" name="submitStatus" value="Submit Request">
-		</form>
-	</body>
-</html>
