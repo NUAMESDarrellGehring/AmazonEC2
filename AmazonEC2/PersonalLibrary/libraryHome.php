@@ -35,4 +35,8 @@
 		Password: <input type="password" name="password"><br>
 		<input type="submit" name="submitStatus" value="Login">
 	</form>
+	<br>
+	<a href="http://34.212.128.254/AmazonEC2/PersonalLibrary/registrationPage.php">
+	Click here to register!
+	</a>
 </html>
