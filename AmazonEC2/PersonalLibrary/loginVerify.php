@@ -20,10 +20,10 @@
         
         if(mysqli_num_rows($loginCheckResponse)>0){
             $status = array("success");   
-            return json_encode($status);
+            echo json_encode($status);
         }else{
             $status = array("failure");
-            return json_encode($status);
+            echo json_encode($status);
         }
         
     }
