@@ -32,7 +32,7 @@
 
 <html>			
 	<body>
-		<form onSubmit="return uploadFile" method="post" enctype="multipart/form-data">
+		<form onSubmit="return uploadFile()" method="post" enctype="multipart/form-data">
 			------- Debug/File Update Section -------
 			<br>
 			Input File: 
