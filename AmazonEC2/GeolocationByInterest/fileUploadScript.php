@@ -8,6 +8,11 @@ function debugLog($str) {
 
 function processUploadedFile(){
   
+    ini_set('upload_max_filesize', '1M');
+    ini_set('post_max_size', '1M');
+    ini_set('max_input_time', 300);
+    ini_set('max_execution_time', 300);
+    
     $servername = "localhost";
     $username = "root";
     $password = "skull71";
