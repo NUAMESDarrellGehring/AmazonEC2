@@ -13,9 +13,9 @@
 			var updates = $("input[name='updateCnt']").val();
 
 		    var dataToSend = new FormData();                  
-		    data.append('uploadedFile', file_data);
-		    data.append('debug', debug);
-		    data.append('updateCnt', updates);
+		    dataToSend.append('uploadedFile', file_data);
+		    dataToSend.append('debug', debug);
+		    dataToSend.append('updateCnt', updates);
 			
 			$.ajax({
     			url:"http://34.212.128.254/AmazonEC2/fileUploadScript.php",
