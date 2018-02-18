@@ -1,8 +1,8 @@
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-	function uploadFile(){
-		$(document).ready(function() {
+	$(document).ready(function(){
+		function uploadFile(){
 			if($('#fileInput').prop('files')[0]!=undefined){
 				console.log("We found the file!");
 				var file = $('#fileInput').prop('files')[0];
@@ -26,8 +26,8 @@
 						console.log("Success!");
 					})
 			return false;
-	    });
-	};
+	    }
+	});;
 </script>
 
 <html>			
