@@ -29,8 +29,8 @@
 </script>
 <html>
 	<form onsubmit="return loginVerify()" method="post" enctype="multipart/form-data">
-		<input type="text" name="email">
-		<input type="password" name="password">
+		Email: <input type="text" name="email"><br>
+		Password: <input type="password" name="password"><br>
 		<input type="submit" name="submitStatus" value="Login">
 	</form>
 </html>
