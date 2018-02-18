@@ -4,12 +4,12 @@
 	function loginVerify(){
 		console.log("Verifying log-in...");
 
-		let password = $("input[name='password']").val();
-		let email = $("input[name='email']").val();
+		var password = $("input[name='password']").val();
+		var email = $("input[name='email']").val();
 
 		var logindata = new FormData();
-		logindata.append('email', 'whosit at bloop');
-		logindata.append('password', 'poopyboii');
+		logindata.append('email', password);
+		logindata.append('password', email);
 		
 		$.ajax({
 			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/loginVerify.php",

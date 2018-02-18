@@ -1,12 +1,12 @@
 <?php
-    if(isset($_POST['email'])&&isset($_POST['password'])){
+    if(isset($_REQUEST['email'])&&isset($_REQUEST['password'])){
         $servername = "localhost";
         $username = "root";
         $password = "skull71";
         
-        $userEmail = $_POST['email'];
+        $userEmail = $_REQUEST['email'];
         //Key should be argonn
-        $userPass = crypt($_POST['password'], "argonn");
+        $userPass = crypt($_REQUEST['password'], "argonn");
         
         $conn = new mysqli($servername, $username, $password);
         
