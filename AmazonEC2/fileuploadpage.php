@@ -3,12 +3,11 @@
 <script>
 	function uploadFile(){
 		$(document).ready(function() {
-			if(document.getElementById("#fileInput")!=undefined){
+			if($('#fileInput').prop('files')[0]!=undefined){
 				console.log("We found the file!");
-				var file = document.getElementById("#fileInput");
+				var file = $('#fileInput').prop('files')[0];
 			}else{
 				alert("Please select a file.")
-				console.log(document.getElementById("#fileInput"));
 				return false;
 			}
 			var debug = $("input[name='debug']").val();
