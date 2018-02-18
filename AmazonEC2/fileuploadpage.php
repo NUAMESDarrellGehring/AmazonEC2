@@ -6,7 +6,7 @@
 		if($("input[name='uploadedFile']").val()!=undefined){
 			let file = $("input[name='uploadedFile']").val();
 		}else{
-			prompt("Please select a file.")
+			alert("Please select a file.")
 			return false;
 		}
 		let debug = $("input[name='debug']").val();
@@ -22,7 +22,7 @@
 					console.log(xhr.responseText);
 				}).success(
 					console.log("Success!");
-				);
+				)
 		return false;
 	};
 </script>
