@@ -4,6 +4,12 @@ $servername = "localhost";
 $username = "root";
 $password = "skull71";
 
+function debugLog(string $data){
+    if($_REQUEST('dubug')==1){
+        echo $data;
+    }
+};
+
 function processUploadedFile(){
     
     $conn = new mysqli($servername, $username, $password);
