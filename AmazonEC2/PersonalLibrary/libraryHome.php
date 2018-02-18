@@ -8,8 +8,8 @@
 		let email = $("input[name='email']").val();
 
 		var logindata = new FormData();
-		logindata.append('email', email);
-		logindata.append('password', password);
+		logindata.append('email', 'whosit at bloop');
+		logindata.append('password', 'poopyboii');
 		
 		$.ajax({
 			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/loginVerify.php",
