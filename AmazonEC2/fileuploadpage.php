@@ -5,7 +5,7 @@
 
 		if($("$('#fileinput').prop('files')[0]").val()!=undefined){
 			console.log("We found the file!");
-			let file = $('#fileinput').prop('files')[0]);
+			let file = $('#fileinput').prop('files')[0];
 		}else{
 			alert("Please select a file.")
 			return false;
