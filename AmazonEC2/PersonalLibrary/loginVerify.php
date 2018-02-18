@@ -22,8 +22,8 @@
             $status = array();
             while($row = mysqli_fetch_assoc($results)) {
                 $status[] = $row;
-            }
             echo json_encode($status);
+            }
         }else{
             $status = array("failure");
             echo json_encode($status);

@@ -19,11 +19,11 @@
 			processData: false,
 			type: 'POST',
 			success: function(data){
-				if(data=='["success"]'){
-					console.log("Successful Log In")
-				}else{
+				if(data=='["failure"]'){
 					alert("The email or password is invalid. Please try again.");
 					console.log(data);
+				}else{
+					console.log("Successful Login!");
 				}
 			},
 			fail: function(data){
