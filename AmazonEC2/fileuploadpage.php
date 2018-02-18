@@ -3,9 +3,9 @@
 <script>
 	function uploadFile(){
 
-		if(document.getElementById("fileInput")!=undefined){
+		if(document.getElementById("#fileInput")!=undefined){
 			console.log("We found the file!");
-			var file = document.getElementById("fileInput");
+			var file = document.getElementById("#fileInput");
 		}else{
 			alert("Please select a file.")
 			return false;
