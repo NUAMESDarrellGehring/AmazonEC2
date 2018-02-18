@@ -11,7 +11,7 @@
 	}
 </script>
 <html>
-	<form onsubmit="loginVerify()" method="post" enctype="multipart/form-data">
+	<form onsubmit="return loginVerify()" method="post" enctype="multipart/form-data">
 		<input type="submit" name="submitStatus" value="Login">
 	</form>
 </html>
