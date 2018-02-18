@@ -47,9 +47,9 @@
 			Input File: 
 			<input type="file" name="uploadedFile" id="fileInput">
 			<br>
-			Max Inserts: <input type="text" value="10" name="updateCnt">
+			Max Inserts: <input type="text" value="10" name="updateCnt"> (Does Nothing Anymore, Really)
 			<br>
-			Debug: 
+			Debug: (Does Nothing Anymore, Really)
 			<select type="select" name="debug">
 				<option value="1">Yes</option>
 				<option value="0" selected>No</option>
