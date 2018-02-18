@@ -20,9 +20,9 @@
 				}
 				).fail(function(xhr, status, error) {
 					console.log(xhr.responseText);
-				}).success(
+				}).success(function(){
 					console.log("Success!");
-				)
+				})
 		return false;
 	};
 </script>
