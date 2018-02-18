@@ -35,7 +35,7 @@
 			------- Debug/File Update Section -------
 			<br>
 			Input File: 
-			<input type="file" name="uploadedFile" id="fileInput">
+			<input type="file" name="uploadedFile" id="fileinput">
 			<br>
 			Max Inserts: <input type="text" value="10" name="updateCnt">
 			<br>
