@@ -4,7 +4,7 @@
 	function uploadFile(){
 
 		if($("input[name='uploadedFile']").val()!=undefined){
-			console.log("We found th efile");
+			console.log("We found th file!");
 			let file = $("input[name='uploadedFile']").val();
 		}else{
 			alert("Please select a file.")
@@ -20,12 +20,11 @@
 					'updateCnt': updates
 				}
 				).fail(function(xhr, status, error) {
-					console.log("oops");
+					console.log("Something whent wrong!"");
 					console.log(xhr.responseText);
 				}).success(function(){
 					console.log("Success!");
 				})
-		console log("done there");
 		return false;
 	};
 </script>
