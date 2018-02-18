@@ -22,12 +22,17 @@
     			type:'POST',
     			contentType: false,
     			processData: false,
-			}).fail(function(xhr, status, error) {
-				console.log("Something whent wrong!");
-				console.log(xhr.responseText);
-			}).success(function(){
-				console.log("Success!");
+    			success: 
+        			function(){
+    					console.log("Success!");
+    				},
+				fail: 
+					function(xhr, status, error) {
+    					console.log("Something went wrong!");
+    					console.log(xhr.responseText);
+					}
 			});
+			
 			return false;
 	    }
 </script>
