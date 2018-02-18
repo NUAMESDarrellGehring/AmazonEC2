@@ -12,7 +12,7 @@
         
         $sql = "USE library";
         
-        $conn->query($sql);
+        $conn->query($sql); 
         
         $loginCheckQuery = "SELECT * FROM loginInfo WHERE email = '".$userEmail."', password = '".$userPass."';";
         
