@@ -138,7 +138,7 @@
 			        "stateSave": true,
 			        "ajax": {
 				        "dataType": "json",
-			            "url": "http://34.212.128.254/AmazonEC2/GeolocationByInterest/locationsByInterest.php",
+			            "url": "http://34.212.128.254/AmazonEC2/GeolocationByInterest/locationsByInterest.php", //had to change this address
 			            "type": "POST",
 			            "data": {
 				            'action' : 'getData',
