@@ -14,6 +14,7 @@
 		$.ajax({
 			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/loginVerify.php",
 			data: logindata,
+			processData: false,
 			type: 'POST',
 			success: function(data){
 				console.log(data);
