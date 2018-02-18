@@ -28,6 +28,7 @@
 					})
 			return false;
 	    });
+	};
 </script>
 
 <html>			
