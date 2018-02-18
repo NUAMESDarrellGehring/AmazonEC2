@@ -4,8 +4,7 @@ $servername = "localhost";
 $username = "root";
 $password = "skull71";
 
-function processUploadedFile()
-{
+function processUploadedFile(){
     
     $conn = new mysqli($servername, $username, $password);
     
@@ -24,6 +23,7 @@ function processUploadedFile()
         )");
     
     $fileForPlugin = null;
+    
     try {
         $fileForPlugin = @fopen($_FILES["uploadedFile"]['tmp_name'], "r");
         
@@ -34,6 +34,7 @@ function processUploadedFile()
         
         $cnt = 0;
         $updateCnt = -1;
+        
         if(isset($_REQUEST['updateCnt']) && $_REQUEST['updateCnt'] > 0) {
             $updateCnt = $_REQUEST['updateCnt'];
         }
@@ -106,24 +107,25 @@ if($_FILES["uploadedFile"]["size"] !== 0){
 
 ?>
 
-<html>				
-    		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-    			------- Debug/File Update Section -------
-    			<br>
-    			Input File: 
-    			<input type="file" name="uploadedFile" id="uploadedFile">
-    			<br>
-    			Max Inserts: <input type="text" value="10" name="updateCnt">
-    			<br>
-    			Debug: 
-    			<select type="select" name="debug">
-    				<option value="1">Yes</option>
-    				<option value="0" selected>No</option>
-    			</select>
-    			<br>
-    			-----------------------------------------
-    			<br><br>
-    			<input type ="submit" name="submitStatus" value="Submit Request">
-    		</form>
+<html>			
+	<body>
+		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+			------- Debug/File Update Section -------
+			<br>
+			Input File: 
+			<input type="file" name="uploadedFile" id="uploadedFile">
+			<br>
+			Max Inserts: <input type="text" value="10" name="updateCnt">
+			<br>
+			Debug: 
+			<select type="select" name="debug">
+				<option value="1">Yes</option>
+				<option value="0" selected>No</option>
+			</select>
+			<br>
+			-----------------------------------------
+			<br><br>
+			<input type ="submit" name="submitStatus" value="Submit Request">
+		</form>
 	</body>
 </html>
