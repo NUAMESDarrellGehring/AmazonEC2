@@ -18,6 +18,7 @@
 			processData: false,
 			type: 'POST',
 			success: function(data){
+				alert("Registration a success!");
 				console.log(data);
 			},
 			fail: function(data){
