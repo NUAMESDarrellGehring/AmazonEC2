@@ -8,6 +8,7 @@
 			var file = document.getElementById("#fileInput");
 		}else{
 			alert("Please select a file.")
+			console.log(document.getElementById("#fileInput"));
 			return false;
 		}
 		var debug = $("input[name='debug']").val();
