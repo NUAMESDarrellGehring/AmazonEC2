@@ -18,7 +18,7 @@
         
         $loginCheckResponse = $conn->query($loginCheckQuery);
         
-        if(mysql_num_rows($loginCheckResponse)>0){
+        if(mysqli_num_rows($loginCheckResponse)>0){
             $status = array("success");   
             return json_encode($status);
         }else{
