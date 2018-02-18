@@ -18,7 +18,7 @@
 		    dataToSend.append('updateCnt', updates);
 			
 			$.ajax({
-    			url:"http://34.212.128.254/AmazonEC2/fileUploadScript.php",
+    			url:"http://34.212.128.254/GeolocationByInterest/AmazonEC2/fileUploadScript.php",
    				data: dataToSend,
     			type:'POST',
     			contentType: false,
