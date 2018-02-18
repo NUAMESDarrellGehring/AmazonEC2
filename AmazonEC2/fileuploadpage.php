@@ -12,13 +12,14 @@
 			var debug = $("input[name='debug']").val();
 			var updates = $("input[name='updateCnt']").val();
 
+		    var dataToSend = new FormData();                  
+		    data.append('uploadedFile', file_data);
+		    data.append('debug', debug);
+		    data.append('updateCnt', updates);
+			
 			$.ajax({
     			url:"http://34.212.128.254/AmazonEC2/fileUploadScript.php",
-   				data:	{
-					'uploadedFile': file,
-					'debug': debug,
-					'updateCnt': updates
-						},
+   				data: dataToSend,
     			type:'POST',
     			contentType: false,
     			processData: false,
