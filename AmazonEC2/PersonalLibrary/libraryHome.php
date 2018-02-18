@@ -6,14 +6,15 @@
 
 		var password = $("input[name='password']").val();
 		var email = $("input[name='email']").val();
-/*
+
 		var logindata = new FormData();
 		logindata.append('email', password);
 		logindata.append('password', email);
-	*/	
+			
 		$.ajax({
 			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/loginVerify.php",
-			data: { "email":email, "password":password },
+			data: logindata,
+			contentType: false,
 			processData: false,
 			type: 'POST',
 			success: function(data){
