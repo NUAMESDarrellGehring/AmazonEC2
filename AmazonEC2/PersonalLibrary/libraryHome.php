@@ -10,7 +10,8 @@
 		var logindata = new FormData();
 		logindata.append('email', email);
 		logindata.append('password', password);
-			
+
+		//Ajax post request
 		$.ajax({
 			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/loginVerify.php",
 			data: logindata,
