@@ -14,7 +14,7 @@
         
         $conn->query($sql); 
         
-        $loginCheckQuery = "SELECT * FROM loginInfo WHERE email = '".$userEmail."', password = '".$userPass."';";
+        $loginCheckQuery = "SELECT * FROM loginInfo WHERE emailAddress = '".$userEmail."' AND password = '".$userPass."';";
         
         $loginCheckResponse = $conn->query($loginCheckQuery);
         
