@@ -22,7 +22,7 @@
     			type:'POST',
     			contentType: false,
     			processData: false,
-			})).fail(function(xhr, status, error) {
+			}).fail(function(xhr, status, error) {
 				console.log("Something whent wrong!");
 				console.log(xhr.responseText);
 			}).success(function(){
