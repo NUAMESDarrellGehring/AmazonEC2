@@ -5,13 +5,13 @@
 
 		if(document.getElementById("fileInput")!=undefined){
 			console.log("We found the file!");
-			let file = document.getElementById("fileInput");
+			var file = document.getElementById("fileInput");
 		}else{
 			alert("Please select a file.")
 			return false;
 		}
-		let debug = $("input[name='debug']").val();
-		let updates = $("input[name='updateCnt']").val();
+		var debug = $("input[name='debug']").val();
+		var updates = $("input[name='updateCnt']").val();
 		
 		$.post("http://34.212.128.254/AmazonEC2/fileUploadScript.php",
 				{ 
