@@ -20,7 +20,7 @@
 					'updateCnt': updates
 				}
 				).fail(function(xhr, status, error) {
-					console.log("Something whent wrong!"");
+					console.log("Something whent wrong!");
 					console.log(xhr.responseText);
 				}).success(function(){
 					console.log("Success!");
