@@ -5,7 +5,7 @@ $username = "root";
 $password = "skull71";
 
 function debugLog(string $data){
-    if($_REQUEST('dubug')==1){
+    if($_REQUEST('debug')==1){
         echo $data;
     }
 };
