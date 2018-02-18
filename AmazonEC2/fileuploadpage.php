@@ -23,13 +23,14 @@
     			contentType: false,
     			processData: false,
     			success: 
-        			function(){
+        			function(data){
     					console.log("Success!");
+    					console.log(data);
     				},
 				fail: 
-					function(xhr, status, error) {
+					function(data) {
     					console.log("Something went wrong!");
-    					console.log(xhr.responseText);
+    					console.log(data);
 					}
 			});
 			
