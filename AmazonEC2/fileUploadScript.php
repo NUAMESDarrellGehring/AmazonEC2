@@ -1,9 +1,5 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "skull71";
-
 function debugLog($str) {
     if(isset($_REQUEST['debug']) && $_REQUEST['debug'] == "1") {
         echo $str."<br>\n";
@@ -11,6 +7,10 @@ function debugLog($str) {
 }
 
 function processUploadedFile(){
+  
+    $servername = "localhost";
+    $username = "root";
+    $password = "skull71";
     
     $conn = new mysqli($servername, $username, $password);
     
