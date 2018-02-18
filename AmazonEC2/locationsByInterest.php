@@ -110,6 +110,7 @@ function geoCodeAddress($addressStr)
     } else throw new Exception("Unable to GEO code address (".$addressStr.")");
 }
 
+//This function is obselete inside of here, but won't break anything
 function debugLog($str) {
     if(isset($_REQUEST['debug']) && $_REQUEST['debug'] == "1") {
         echo $str."<br>\n";
