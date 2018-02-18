@@ -23,6 +23,7 @@
 					console.log("Successful Log In")
 				}else{
 					alert("The email or password is invalid. Please try again.");
+					console.log(data[0]);
 				}
 			},
 			fail: function(data){
