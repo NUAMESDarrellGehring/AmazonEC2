@@ -2,32 +2,32 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 	function uploadFile(){
-
-		if(document.getElementById("#fileInput")!=undefined){
-			console.log("We found the file!");
-			var file = document.getElementById("#fileInput");
-		}else{
-			alert("Please select a file.")
-			console.log(document.getElementById("#fileInput"));
+		$(document).ready(function() {
+			if(document.getElementById("#fileInput")!=undefined){
+				console.log("We found the file!");
+				var file = document.getElementById("#fileInput");
+			}else{
+				alert("Please select a file.")
+				console.log(document.getElementById("#fileInput"));
+				return false;
+			}
+			var debug = $("input[name='debug']").val();
+			var updates = $("input[name='updateCnt']").val();
+			
+			$.post("http://34.212.128.254/AmazonEC2/fileUploadScript.php",
+					{ 
+						'uploadedFile': file,
+						'debug': debug,
+						'updateCnt': updates
+					}
+					).fail(function(xhr, status, error) {
+						console.log("Something whent wrong!");
+						console.log(xhr.responseText);
+					}).success(function(){
+						console.log("Success!");
+					})
 			return false;
-		}
-		var debug = $("input[name='debug']").val();
-		var updates = $("input[name='updateCnt']").val();
-		
-		$.post("http://34.212.128.254/AmazonEC2/fileUploadScript.php",
-				{ 
-					'uploadedFile': file,
-					'debug': debug,
-					'updateCnt': updates
-				}
-				).fail(function(xhr, status, error) {
-					console.log("Something whent wrong!");
-					console.log(xhr.responseText);
-				}).success(function(){
-					console.log("Success!");
-				})
-		return false;
-	};
+	    });
 </script>
 
 <html>			
