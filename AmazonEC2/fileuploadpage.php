@@ -11,19 +11,23 @@
 			}
 			var debug = $("input[name='debug']").val();
 			var updates = $("input[name='updateCnt']").val();
-			
-			$.post("http://34.212.128.254/AmazonEC2/fileUploadScript.php",
-					{ 
-						'uploadedFile': file,
-						'debug': debug,
-						'updateCnt': updates
-					}
-					).fail(function(xhr, status, error) {
-						console.log("Something whent wrong!");
-						console.log(xhr.responseText);
-					}).success(function(){
-						console.log("Success!");
-					})
+
+			$.ajax({
+    			url:"http://34.212.128.254/AmazonEC2/fileUploadScript.php",
+   				data:	{
+					'uploadedFile': file,
+					'debug': debug,
+					'updateCnt': updates
+						},
+    			type:'POST',
+    			contentType: false,
+    			processData: false,
+			})).fail(function(xhr, status, error) {
+				console.log("Something whent wrong!");
+				console.log(xhr.responseText);
+			}).success(function(){
+				console.log("Success!");
+			});
 			return false;
 	    }
 </script>
