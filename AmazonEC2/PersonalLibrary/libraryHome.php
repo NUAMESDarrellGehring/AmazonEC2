@@ -7,6 +7,7 @@
 		$.ajax({
 
 		});
+		return false;
 	}
 </script>
 <html>
