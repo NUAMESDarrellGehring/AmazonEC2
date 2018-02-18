@@ -4,14 +4,33 @@
 	function loginVerify(){
 		console.log("Verifying log-in...");
 
-		$.ajax({
+		let password = $("input[name='password']").val();
+		let email = $("input[name='email']").val();
 
+		var logindata = new FormData();
+		logindata.append('email', email);
+		logindata.append('password', password);
+		
+		$.ajax({
+			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/loginVerify.php",
+			data: logindata,
+			type: 'POST',
+			success: function(data){
+				console.log(data);
+			},
+			fail: function(data){
+				console.log("Failure!");
+				console.log(data);
+			}
+			
 		});
 		return false;
 	}
 </script>
 <html>
 	<form onsubmit="return loginVerify()" method="post" enctype="multipart/form-data">
+		<input type="text" name="email">
+		<input type="password" name="password">
 		<input type="submit" name="submitStatus" value="Login">
 	</form>
 </html>
