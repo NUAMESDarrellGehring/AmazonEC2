@@ -3,9 +3,9 @@
 <script>
 	function uploadFile(){
 
-		if($("$('#fileinput').prop('files')[0]").val()!=undefined){
+		if(document.getElementById("fileInput")!=undefined){
 			console.log("We found the file!");
-			let file = $('#fileinput').prop("files")[0];
+			let file = document.getElementById("fileInput");
 		}else{
 			alert("Please select a file.")
 			return false;
@@ -35,7 +35,7 @@
 			------- Debug/File Update Section -------
 			<br>
 			Input File: 
-			<input type="file" name="uploadedFile" id="fileinput">
+			<input type="file" name="uploadedFile" id="fileInput">
 			<br>
 			Max Inserts: <input type="text" value="10" name="updateCnt">
 			<br>
