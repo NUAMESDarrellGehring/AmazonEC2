@@ -10,9 +10,7 @@
 	}
 </script>
 <html>
-	<body>
-    	<form onsubmit="loginVerify" method="post" enctype="multipart/form-data">
-    		<input type="submit" name="submitStatus" value="Login">
-    	</form>
-	</body>
+	<form onsubmit="loginVerify" method="post" enctype="multipart/form-data">
+		<input type="submit" name="submitStatus" value="Login">
+	</form>
 </html>
