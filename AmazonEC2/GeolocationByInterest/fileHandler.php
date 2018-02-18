@@ -93,7 +93,7 @@
 				let locToSend = $("input[name='userLocation']").val();
 
 				$.post(
-					"http://34.212.128.254/AmazonEC2/locationsByInterest.php", 
+					"http://34.212.128.254/AmazonEC2/GeolocationByInterest/locationsByInterest.php", 
 					{
 						'action' : "geoCodeAddress",
 						'userLocation': locToSend 
