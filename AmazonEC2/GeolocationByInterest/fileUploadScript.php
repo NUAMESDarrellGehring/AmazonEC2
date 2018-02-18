@@ -39,19 +39,9 @@ function processUploadedFile(){
         }
         
         $cnt = 0;
-        $updateCnt = -1;
-        
-        if(isset($_REQUEST['updateCnt']) && $_REQUEST['updateCnt'] > 0) {
-            $updateCnt = $_REQUEST['updateCnt'];
-        }
         
         while(($lineOfData = fgetcsv($fileForPlugin, 2048, "\t")) !== false) {
             if($cnt!=0){          // Count goes by one; this line will skip the definition line in the file
-                if($updateCnt !== -1 && $cnt > $updateCnt) {
-                    debugLog("Max Updates Hit.  Exiting.");
-                    exit;
-                }
-                
                 debugLog("Line[".($cnt + 1)."]: ".var_export($lineOfData, false));
                 
                 $city = $conn->real_escape_string($lineOfData[0]);
