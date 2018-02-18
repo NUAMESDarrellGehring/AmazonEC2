@@ -13,7 +13,7 @@
 			var updates = $("input[name='updateCnt']").val();
 
 		    var dataToSend = new FormData();                  
-		    dataToSend.append('uploadedFile', file_data);
+		    dataToSend.append('uploadedFile', file);
 		    dataToSend.append('debug', debug);
 		    dataToSend.append('updateCnt', updates);
 			
