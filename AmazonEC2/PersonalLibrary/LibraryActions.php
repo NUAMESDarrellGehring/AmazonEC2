@@ -25,7 +25,7 @@
             break;
             
             default:
-                $output = array(error => "Something went wrong!");
+                $output = array("Something went wrong!");
         }
     } catch(Exception $ex) {
         $output = json_encode(array("error" => $ex->getMessage()));
