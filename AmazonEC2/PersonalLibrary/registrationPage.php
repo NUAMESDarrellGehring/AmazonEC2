@@ -21,7 +21,13 @@
 			success: function(data){
 				if(typeof(data['error']) != "undefined") {
 					//We got an error back
-					alert(data['error']);
+					
+					if(data['error'].indexOf("Duplicate") != -1) {
+						//Duplicate User
+						alert("This user already has an account.");
+					} else {
+						alert("Unknown Error:\n" + data['error']);
+					}
 					console.log(data);
 				} else {
 					//No error
