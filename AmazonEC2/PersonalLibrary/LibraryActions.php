@@ -29,7 +29,7 @@ session_start();
                 $output = array("Something went wrong!");
         }
     } catch(Exception $ex) {
-        $output = json_encode(array("error" => $ex->getMessage()));
+        $output = array("error" => $ex->getMessage());
     } finally {
         header('Content-Type: application/json');
         echo json_encode($output);
