@@ -23,6 +23,9 @@
             case "getBooks":
                 
             break;
+            
+            default:
+                $output = array(error => "Something went wrong!");
         }
     } catch(Exception $ex) {
         $output = json_encode(array("error" => $ex->getMessage()));
