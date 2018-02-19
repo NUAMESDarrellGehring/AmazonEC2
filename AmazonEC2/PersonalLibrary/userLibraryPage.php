@@ -100,8 +100,8 @@
         
         } ).on( 'xhr', function(e, settings, json) { //xhr is an event that occurs when an ajax action IS COMPLETED 
             console.log( 'Ajax event occurred. Returned data: ', json );
-        } )
-        );
+        	} 
+    	);
         
         console.log("end dynamicDataTable.");
 	});
