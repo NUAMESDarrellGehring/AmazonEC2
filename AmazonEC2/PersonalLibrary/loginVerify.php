@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     if(isset($_REQUEST['email'])&&isset($_REQUEST['password'])){
         $servername = "localhost";
         $username = "root";
