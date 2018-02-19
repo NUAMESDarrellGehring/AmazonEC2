@@ -35,6 +35,21 @@ abstract class BaseDBWrapper
         }
     }
     
+    public function getQueryResultsLimited($sql, $start, $length){
+        
+        $results = $this->conn->query($sql." LIMIT ".$start.", ".$length.";");
+        if($results === false) {
+            //Error!
+            throw new Exception("Query Failed (".$sql."): ".mysqli_error($conn));
+        } else {
+            $data = array();
+            while($row = mysqli_fetch_assoc($results)) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+    }
+    
     public function runQuery($sql)
     {
         $results = $this->conn->query($sql);

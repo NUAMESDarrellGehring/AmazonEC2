@@ -1,5 +1,4 @@
 <?php
-session_start();
     try{
         require_once("Libraries.php");
         session_start();
@@ -22,11 +21,13 @@ session_start();
             break;
             
             case "getbooks":
-                
+                $start = $_REQUEST['start'];
+                $length = $_REQUEST['length'];
+                $output = array($library->getbooks($start, $length));
             break;
             
             default:
-                $output = array("Something went wrong!");
+                $output = array("Something went wrong! Please try again later.");
         }
     } catch(Exception $ex) {
         $output = array("error" => $ex->getMessage());
