@@ -2,7 +2,8 @@
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-	if("<?php echo $_SESSION['id'];?>"=undefined){
+	var sessionActive = "<?= $_SESSION['id'] ?>";
+	if(sessionActive == "") {
 		window.location.href = 'http://34.212.128.254/AmazonEC2/PersonalLibrary/libraryHome.php';
 	}
 </script>
