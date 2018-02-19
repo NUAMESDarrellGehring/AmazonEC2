@@ -23,6 +23,11 @@ try {
                 $emailAddress = $_REQUEST['email'];
                 $password = $_REQUEST['password'];
                 $userId = $user->addUser($emailAddress, $password);
+                
+                echo "UserId: ".$userId;
+                echo "User: ".var_export($user->getUser($userId), false);
+                
+                
                 return json_encode($user->getUser($userId));
             } else {
                 throw new Exception("Missing one or more required request parameters: email, password");
