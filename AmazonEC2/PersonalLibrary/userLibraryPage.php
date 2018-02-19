@@ -56,15 +56,7 @@
 		return false;
 	}
 </script>
-    	<table id="cityTable" style="width:800px">
-        	<thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Author First</th>
-                    <th>Author Last</th>
-                </tr>
-        	</thead>
-    	</table>
+    	<body><table id="cityTable" style="width:800px"></table></body>
 <script>
 
 	$(document).ready(function() {
