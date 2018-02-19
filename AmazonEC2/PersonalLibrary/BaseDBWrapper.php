@@ -17,7 +17,7 @@ abstract class BaseDBWrapper
     
     public function __destruct()
     {
-        try { $conn->close(); } catch(Exception $ex) { }
+        try { $this->conn->close(); } catch(Exception $ex) { }
     }
     
     public function getQueryResults($sql)
@@ -40,7 +40,7 @@ abstract class BaseDBWrapper
         $results = $this->conn->query($sql);
         if($results === false) {
             //Error!
-            throw new Exception("Query Failed (".$sql."): ".mysqli_error($conn));
+            throw new Exception("Query Failed (".$sql."): ".mysqli_error($this->conn));
         } else {
             return $results;
         }
