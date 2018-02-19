@@ -24,6 +24,7 @@
 					console.log(data);
 				}else{
 					console.log("Successful Login!");
+					window.location.href = 'http://34.212.128.254/AmazonEC2/PersonalLibrary/userLibraryPage.php';
 				}
 			},
 			fail: function(data){

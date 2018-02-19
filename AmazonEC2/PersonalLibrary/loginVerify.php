@@ -22,8 +22,10 @@
             $status = array();
             while($row = mysqli_fetch_assoc($loginCheckResponse)) {
                 $status[] = $row;
-            echo json_encode($status);
             }
+            $_SESSION['USER_ID']=$status[0];
+            $_SESSION['USER_EMAIL']=$status[1];
+            echo json_encode($status);
         }else{
             $status = array("failure");
             echo json_encode($status);
