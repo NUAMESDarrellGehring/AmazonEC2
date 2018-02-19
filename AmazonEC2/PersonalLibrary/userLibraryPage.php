@@ -13,8 +13,6 @@
 	}
 </script>
 
-    		<table id="cityTable" class="display" style="width:800px"></table>
-
 <script>
 	function addBook(){
 		var authorfirst = $("input[name='authorfirst']").val();
@@ -58,7 +56,7 @@
 		return false;
 	}
 </script>
-
+    	<table id="cityTable" style="width:800px"></table>
 <script>
 
 	$(document).ready(function() {
