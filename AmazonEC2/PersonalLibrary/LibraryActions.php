@@ -31,6 +31,6 @@
         $output = json_encode(array("error" => $ex->getMessage()));
     } finally {
         header('Content-Type: application/json');
-        echo $output;
+        echo json_encode($output);
     }
 ?>
