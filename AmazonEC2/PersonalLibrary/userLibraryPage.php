@@ -13,6 +13,8 @@
 	}
 </script>
 
+    		<table id="cityTable" class="display" style="width:800px"></table>
+
 <script>
 	function addBook(){
 		var authorfirst = $("input[name='authorfirst']").val();
