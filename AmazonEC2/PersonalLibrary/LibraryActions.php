@@ -12,7 +12,8 @@
     
     switch($pageAction) {
         case "createBook":
-            $library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast']);
+            echo json_encode($library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast']));
+            
         break;
         
         case "deleteBook":
