@@ -10,22 +10,30 @@
 		var logindata = new FormData();
 		logindata.append('email', email);
 		logindata.append('password', password);
+		logindata.append('pageAction', 'createuser'); //Tell the user actions what to do
 			
 		$.ajax({
-			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/createAccount.php",
+			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/UserActions.php",
 			data: logindata,
 			contentType: false,
 			processData: false,
 			type: 'POST',
 			success: function(data){
-				alert("Registration a success!");
-				console.log(data);
+				if(typeof(data['error']) != "undefined") {
+					//We got an error back
+					alert(data['error']);
+					console.log(data);
+				} else {
+					//No error
+					console.log("Successful Registration!");
+					console.log(data);
+					window.location.href = 'http://34.212.128.254/AmazonEC2/PersonalLibrary/libraryHome.php';
+				}
 			},
 			fail: function(data){
 				console.log("Failure!");
 				console.log(data);
 			}
-			
 		});
 		return false;
 	}

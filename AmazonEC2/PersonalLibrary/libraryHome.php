@@ -10,20 +10,24 @@
 		var logindata = new FormData();
 		logindata.append('email', email);
 		logindata.append('password', password);
-
+		logindata.append('pageAction', 'userlogin');
+		
 		//Ajax post request
 		$.ajax({
-			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/loginVerify.php",
+			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/UserActions.php",
 			data: logindata,
 			contentType: false,
 			processData: false,
 			type: 'POST',
 			success: function(data){
-				if(data=='["failure"]'){
-					alert("The email or password is invalid. Please try again.");
+				if(typeof(data['error']) != "undefined") {
+					//We got an error back
+					alert(data['error']);
 					console.log(data);
-				}else{
+				} else {
+					//No error
 					console.log("Successful Login!");
+					console.log(data);
 					window.location.href = 'http://34.212.128.254/AmazonEC2/PersonalLibrary/userLibraryPage.php';
 				}
 			},
