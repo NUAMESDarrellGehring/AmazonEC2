@@ -5,6 +5,8 @@ require_once("Users.php");
 //Start the session
 session_start();
 
+$output = "NULL!!";
+
 try {
     
     $pageAction = "";
@@ -26,9 +28,8 @@ try {
                 
                 echo "UserId: ".$userId;
                 echo "User: ".var_export($user->getUser($userId), false);
-                
-                
-                return json_encode($user->getUser($userId));
+                                
+                $output = json_encode($user->getUser($userId));
             } else {
                 throw new Exception("Missing one or more required request parameters: email, password");
             }
@@ -41,7 +42,7 @@ try {
                 if($currentUser != null) {
                     $_SESSION['USER_ID']=$currentUser['ID'];
                     $_SESSION['USER_EMAIL']=$currentUser['emailAddress'];
-                    return json_encode($currentUser);
+                    $output = json_encode($currentUser);
                 } else {
                     throw new Exception("Invalid Username / Password");
                 }
@@ -56,7 +57,10 @@ try {
     }
 
 } catch(Exception $ex) {
-    return json_encode(array("error" => $ex->getMessage()));
+    $output = json_encode(array("error" => $ex->getMessage()));
+} finally {
+    header('Content-Type: application/json');
+    echo $output;
 }
 
 ?>
