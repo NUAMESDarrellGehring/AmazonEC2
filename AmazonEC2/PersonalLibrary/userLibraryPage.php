@@ -1,7 +1,7 @@
+<?php session_start();?>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
-	<?php session_start();?>
 	if(<?php $_SESSION['id'] ?>=undefined){
 		window.location.href = 'http://34.212.128.254/AmazonEC2/PersonalLibrary/libraryHome.php';
 	}
