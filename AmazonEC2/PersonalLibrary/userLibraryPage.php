@@ -88,9 +88,9 @@
             },
             
             "columns": [
-                { "output": "title", title: "Book", "orderable": false},
-                { "output": "authorfirst", title: "Author First", "orderable": false},
-                { "output": "authorlast", title: "Author Last", "orderable": false}
+                { "data": "title", title: "Book", "orderable": false},
+                { "data": "authorfirst", title: "Author First", "orderable": false},
+                { "data": "authorlast", title: "Author Last", "orderable": false}
             ],
 
             "error": function(xhr, status, error) {
