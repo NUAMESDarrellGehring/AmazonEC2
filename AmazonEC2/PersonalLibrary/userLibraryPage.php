@@ -85,7 +85,7 @@
                 "url": "http://34.212.128.254/AmazonEC2/PersonalLibrary/LibraryActions.php", //had to change this address
                 "type": "POST",
                 "data": {
-                    'action' : 'getbooks',
+                    'pageAction' : 'getbooks',
                 }
             },
             
