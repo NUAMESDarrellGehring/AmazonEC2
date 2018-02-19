@@ -53,7 +53,6 @@
 		return false;
 	}
 
-	function dynamicDataTable(){
 		console.log("Start dynamicDataTable.");
 		
 		if ($.fn.DataTable.isDataTable( '#cityTable' ) ) {
@@ -94,7 +93,6 @@
 		console.log("end dynamicDataTable.");
 		
 		return false;
-	}
 </script>
 
 <html>
