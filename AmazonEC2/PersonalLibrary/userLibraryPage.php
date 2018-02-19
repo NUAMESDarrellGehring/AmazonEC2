@@ -23,7 +23,7 @@
 		bookdata.append('pageAction', "createBook")//Tell the user actions what to do
 			
 		$.ajax({
-			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/UserActions.php",
+			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/LibraryActions.php",
 			data: bookdata,
 			contentType: false,
 			processData: false,
