@@ -98,7 +98,7 @@
         } );
         
         console.log("end dynamicDataTable.");
-	}
+	});
 </script>
 
 <html>
