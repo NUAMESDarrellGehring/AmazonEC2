@@ -13,7 +13,7 @@
         
         switch($pageAction) {
             case "createBook":
-                $output = $library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast']);
+                $output = array($library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast']));
             break;
             
             case "deleteBook":
