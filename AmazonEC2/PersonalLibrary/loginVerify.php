@@ -20,7 +20,7 @@
         
         if(mysqli_num_rows($loginCheckResponse)>0){
             $status = array();
-            while($row = mysqli_fetch_assoc($results)) {
+            while($row = mysqli_fetch_assoc($loginCheckResponse)) {
                 $status[] = $row;
             echo json_encode($status);
             }
