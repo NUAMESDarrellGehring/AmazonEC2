@@ -13,15 +13,15 @@ session_start();
         $library = new Library();
         
         switch($pageAction) {
-            case "createBook":
+            case "createbook":
                 $output = array($library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast']));
             break;
             
-            case "deleteBook":
+            case "deletebook":
             
             break;
             
-            case "getBooks":
+            case "getbooks":
                 
             break;
             
