@@ -27,7 +27,7 @@
 					//No error
 					console.log("Successful Registration!");
 					console.log(data);
-					window.location.href = 'http://34.212.128.254/AmazonEC2/PersonalLibrary/libraryHome.php';
+					//window.location.href = 'http://34.212.128.254/AmazonEC2/PersonalLibrary/libraryHome.php';
 				}
 			},
 			fail: function(data){
