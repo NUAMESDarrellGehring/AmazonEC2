@@ -12,7 +12,7 @@ abstract class BaseDBWrapper
         
     public function __construct()
     {
-        $conn = new mysqli($this->servername, $this->username, $this->password, 'library');
+        $this->conn = new mysqli($this->servername, $this->username, $this->password, 'library');
     }
     
     public function __destruct()
@@ -22,7 +22,7 @@ abstract class BaseDBWrapper
     
     public function getQueryResults($sql)
     {
-        $results = $conn->query($sql);
+        $results = $this->conn->query($sql);
         if($results === false) {
             //Error!
             throw new Exception("Query Failed (".$sql."): ".mysqli_error($conn));
@@ -37,7 +37,7 @@ abstract class BaseDBWrapper
     
     public function runQuery($sql)
     {
-        $results = $conn->query($sql);
+        $results = $this->conn->query($sql);
         if($results === false) {
             //Error!
             throw new Exception("Query Failed (".$sql."): ".mysqli_error($conn));
@@ -48,12 +48,12 @@ abstract class BaseDBWrapper
     
     public function getLastInsertId()
     {
-        return $conn->insert_id;
+        return $this->conn->insert_id;
     }
     
     public function escapeString($str)
     {
-        return $conn->real_escape_string($str);
+        return $this->conn->real_escape_string($str);
     }
     
 }
