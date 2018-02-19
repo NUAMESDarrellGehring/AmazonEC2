@@ -12,7 +12,7 @@ abstract class BaseDBWrapper
         
     public function __construct()
     {
-        $conn = new mysqli($servername, $username, $password, 'library');
+        $conn = new mysqli($this->servername, $this->username, $this->password, 'library');
     }
     
     public function __destruct()
