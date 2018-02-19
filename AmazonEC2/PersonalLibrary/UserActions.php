@@ -1,5 +1,7 @@
 <?php 
 
+require_once("Users.php");
+
 //Start the session
 session_start();
 

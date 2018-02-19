@@ -1,4 +1,7 @@
 <?php
+
+require_once("BaseDBWrapper.php");
+
 class User extends BaseDBWrapper
 {
     private function encryptPassword($password)
