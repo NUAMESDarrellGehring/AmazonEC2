@@ -91,14 +91,16 @@
                 { "output": "title", title: "Book", "orderable": false},
                 { "output": "authorfirst", title: "Author First", "orderable": false},
                 { "output": "authorlast", title: "Author Last", "orderable": false}
-            ]
+            ],
+
+            "error": function(xhr, status, error) {
+        	  			var err = eval("(" + xhr.responseText + ")");
+        	  			alert(err.Message);
+        			}
         
         } ).on( 'xhr', function(e, settings, json) { //xhr is an event that occurs when an ajax action IS COMPLETED 
             console.log( 'Ajax event occurred. Returned data: ', json );
-        } ).error(function(xhr, status, error) {
-        	  var err = eval("(" + xhr.responseText + ")");
-        	  alert(err.Message);
-        	}
+        } )
         );
         
         console.log("end dynamicDataTable.");
