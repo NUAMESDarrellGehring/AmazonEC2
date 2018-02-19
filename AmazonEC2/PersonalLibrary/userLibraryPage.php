@@ -51,8 +51,8 @@
 				console.log(data);
 			}
 		});
+		return false;
 	}
-	return false;
 </script>
 
 <html>
