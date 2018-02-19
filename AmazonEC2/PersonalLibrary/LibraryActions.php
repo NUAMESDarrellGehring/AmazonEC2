@@ -1,4 +1,5 @@
 <?php
+session_start();
     try{
         require_once("Libraries.php");
         session_start();
