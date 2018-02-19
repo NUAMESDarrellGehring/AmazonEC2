@@ -11,7 +11,7 @@ class User extends BaseDBWrapper
     
     public function addUser($emailAddress, $password)
     {
-        $result = runQuery("INSERT INTO loginInfo(emailAddress, password) VALUES('".$this->escapeString($emailAddress)."', '".$this->encryptPassword($password)."');");
+        $result = $this->runQuery("INSERT INTO loginInfo(emailAddress, password) VALUES('".$this->escapeString($emailAddress)."', '".$this->encryptPassword($password)."');");
         return $this->getLastInsertId();
     }
     
@@ -35,7 +35,7 @@ class User extends BaseDBWrapper
     
     public function getUserWithPassword($emailAddress, $password)
     {
-        $data = getQueryResults("select * from loginInfo where emailAddress = '".$this->escapeString($emailAddress)."' and password = '".$this->encryptPassword($password)."'");
+        $data = $this->getQueryResults("select * from loginInfo where emailAddress = '".$this->escapeString($emailAddress)."' and password = '".$this->encryptPassword($password)."'");
         if(count($data) > 0) {
             return $data[0];
         } else return null;
