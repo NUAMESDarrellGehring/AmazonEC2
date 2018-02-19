@@ -3,7 +3,7 @@
 
     class Library extends BaseDBWrapper{
 
-        public function addbook(String $title, String $authorfirst, String $authorlast){
+        public function addbook(string $title, string $authorfirst, string $authorlast){
             return $this->getQueryResults("INSERT INTO books(title, authorfirst, authorlast, bookownerid) VALUES('".$title."','".$authorfirst."','".$authorlast."',".$_SESSION['USER_ID'].");");
         }
         
