@@ -51,6 +51,41 @@
         }else{
         	console.log("Success - user id #"+sessionActive);
         }
+
+        function removeBook(){
+    		var authorlast = $("input[name='authorlast']").val();
+    		var title = $("input[name='title']").val();
+
+    		var bookdata = new FormData();
+    		bookdata.append('authorlast', authorlast);
+    		bookdata.append('title', title); 
+    		bookdata.append('pageAction', "deleteBook")
+
+    		$.ajax({
+    			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/LibraryActions.php",
+    			data: bookdata,
+    			contentType: false,
+    			processData: false,
+    			type: 'POST',
+    			success: function(data){
+    				if(typeof(data['error']) != "nonexistant") {
+    					//We got an error back
+    					alert("That book doesn't exist yet!");
+    					console.log(data);
+    				} else {
+    					//No error
+    					console.log("Successful Removal!");
+    					console.log(data);
+    				}
+					dynamicDataTable();
+    			},
+    			fail: function(data){
+    				console.log("Failure!");
+    				console.log(data);
+    			}
+    		});
+    		return false;
+    	}
         
     	function addBook(){
     		var authorfirst = $("input[name='authorfirst']").val();
@@ -147,12 +182,26 @@
     	$(document).ready(function() {
             dynamicDataTable();
     	});
+
+    	function userChoice(){
+			let choice = $("input[name='choice']").val();
+
+			if(choice==0){
+				removeBook();
+			} else if (choice==1){
+				addBook();
+			}
+    	}
     </script>
 
     	<form onsubmit="return addBook();" method="post" enctype="multipart/form-data">
     		Author's First Name: <input type="text" name="authorfirst"><br>
     		Author's Last Name: <input type="text" name="authorlast"><br>
     		Book Title: <input type="text" name="title"><br>
-    		<input type="submit" name="submit" value="Add Book">
+    		<select type="select" name="choice">
+				<option value="1">Add</option>
+				<option value="0" selected>Remove</option>
+			</select>
+    		<input type="submit" name="submit" value="Submit">
     	</form>
 </html>

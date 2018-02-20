@@ -9,7 +9,11 @@
         }
         
         public function removebook(String $title, String $authorlast){
-            
+            if(sizeof($this->getQueryResults("SELECT * FROM books WHERE title='".$title."' AND authorlast='".$authorlast."';"))>0){
+                return($this->runQuery("DELETE FROM books WHERE title='".$title."' AND authorlast='".$authorlast."';"));
+            }else{
+                return(array("error" => "That book doesn't exist yet!"));
+            }
         }
         
         public function getbooks($start, $length){
