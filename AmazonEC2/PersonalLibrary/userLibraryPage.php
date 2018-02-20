@@ -182,11 +182,11 @@
     	function userChoice(){
 			console.log("Beginning userChoice");	
 			var choice = $("input[name='choice']").find(":selected").text();
-			if(choice==0){
+			if(choice=="0"){
 				removeBook();
 				console.log("Removing Status: "+choice);
 				return false;
-			} else if (choice==1){
+			} else if (choice=="1"){
 				addBook();
 				console.log("Creating Status: "+choice)
 				return false;
