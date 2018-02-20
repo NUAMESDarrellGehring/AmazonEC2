@@ -196,7 +196,7 @@
     	});
     </script>
 
-    	<form onsubmit="return addBook();" method="post" enctype="multipart/form-data">
+    	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
     		Author's First Name: <input type="text" name="authorfirst"><br>
     		Author's Last Name: <input type="text" name="authorlast"><br>
     		Book Title: <input type="text" name="title"><br>
