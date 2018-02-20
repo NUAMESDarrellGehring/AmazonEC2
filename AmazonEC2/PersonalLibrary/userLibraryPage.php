@@ -180,20 +180,19 @@
 		};
 
     	function userChoice(){
-    		var e = document.getElementById("choice");
-    		var choice = e.options[e.selectedIndex].value;
+    		var chosenVal = $("input[name='choice']").val();
     		
 			console.log("Beginning userChoice");	
-			if(choice==2){
+			if(chosenVal==2){
 				removeBook();
-				console.log("Removing Status: "+choice);
+				console.log("Removing Status: "+chosenVal);
 				return false;
-			} else if (choice==1){
+			} else if (chosenVal==1){
 				addBook();
-				console.log("Creating Status: "+choice)
+				console.log("Creating Status: "+chosenVal)
 				return false;
 			} else {
-				console.log("Choice "+choice+" is not available.");
+				console.log("chosenVal "+chosenVal+" is not available.");
 				return false;
 			}
     	}
