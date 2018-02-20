@@ -13,7 +13,7 @@
         
         switch($pageAction) {
             case "createbook":
-                $output = array($library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast']));
+                $output = array("data" => $library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast']));
             break;
             
             case "deletebook":
@@ -33,6 +33,6 @@
         $output = array("error" => $ex->getMessage());
     } finally {
         header('Content-Type: application/json');
-        echo json_encode(array("data" => $output));
+        echo json_encode($output);
     }
 ?>
