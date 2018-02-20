@@ -8,7 +8,7 @@
             return $this->runQuery("INSERT INTO books(title, authorfirst, authorlast, bookownerid) VALUES('".$this->escapeString($title)."','".$this->escapeString($authorfirst)."','".$this->escapeString($authorlast)."',".$_SESSION['USER_ID'].");");
         }
         
-        public function removebook(String $title, String $authorlast){
+        public function removebook($title, $authorlast){
             if(sizeof($this->getQueryResults("SELECT * FROM books WHERE title='".$title."' AND authorlast='".$authorlast."';"))>0){
                 return($this->runQuery("DELETE FROM books WHERE title='".$title."' AND authorlast='".$authorlast."';"));
             }else{
