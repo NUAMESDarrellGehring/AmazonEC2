@@ -178,22 +178,22 @@
             
             console.log("end dynamicDataTable.");
 		};
-        
-    	$(document).ready(function() {
-            dynamicDataTable();
-    	});
 
     	function userChoice(){
 			let choice = $("input[name='choice']").val();
 
 			if(choice==0){
 				removeBook();
-				console.log("Removing Status: "choice);
+				console.log("Removing Status: "+choice);
 			} else if (choice==1){
 				addBook();
 				console.log("Creating Status: "+choice)
 			}
     	}
+
+    	$(document).ready(function() {
+            dynamicDataTable();
+    	});
     </script>
 
     	<form onsubmit="return addBook();" method="post" enctype="multipart/form-data">
