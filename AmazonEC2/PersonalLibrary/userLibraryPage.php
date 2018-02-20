@@ -84,7 +84,6 @@
     					//No error
     					console.log("Successful Addition!");
     					console.log(data);
-    					dynamicDataTable();
     				}
     			},
     			fail: function(data){
@@ -95,8 +94,7 @@
     		return false;
     	}
 
-    	function dynamicDataTable(){
-
+		function dynamicDataTable(){
             console.log("Start dynamicDataTable.");
             
             if ($.fn.DataTable.isDataTable( '#cityTable' ) ) {
@@ -141,11 +139,11 @@
         	);
             
             console.log("end dynamicDataTable.");
-    	};
-
-    	$(document).ready(function(){
-			dynamicDataTable;
-    	});	
+		};
+        
+    	$(document).ready(function() {
+            dynamicDataTable();
+    	});
     </script>
 
     	<form onsubmit="return addBook();" method="post" enctype="multipart/form-data">
