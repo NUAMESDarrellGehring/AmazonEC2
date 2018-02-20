@@ -74,7 +74,7 @@
     					console.log(data);
     				} else {
     					//No error
-    					console.log("Successful Removal!"+data['data']['error']);
+    					console.log("Successful Removal!");
     					console.log(data);
     				}
 					dynamicDataTable();
