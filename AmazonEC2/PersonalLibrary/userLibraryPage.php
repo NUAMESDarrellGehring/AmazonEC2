@@ -207,7 +207,7 @@
     		Author's Last Name: <input type="text" name="authorlast"><br>
     		Book Title: <input type="text" name="title"><br>
     		Add/Remove: <select name="choice" id="choice">
-				<option value="1" selected>Add</option>
+				<option value="1">Add</option>
 				<option value="2">Remove</option>
 			</select><br>
     		<input type="submit" name="submit" value="Submit">
