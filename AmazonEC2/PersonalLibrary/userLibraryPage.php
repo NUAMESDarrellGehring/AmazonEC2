@@ -181,7 +181,7 @@
 
     	function userChoice(){
 			console.log("Beginning userChoice");	
-			var choice = $("select[name='choice']").val;
+			var choice = $("select[name='choice'] option:selected").val;
 			if(choice==2){
 				removeBook();
 				console.log("Removing Status: "+choice);
