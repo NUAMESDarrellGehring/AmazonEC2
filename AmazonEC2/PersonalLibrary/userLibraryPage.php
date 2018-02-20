@@ -93,53 +93,55 @@
     		});
     		return false;
     	}
-    
-    	$(document).ready(function() {
-            console.log("Start dynamicDataTable.");
-            
-            if ($.fn.DataTable.isDataTable( '#cityTable' ) ) {
-            	console.log("Starting Clear...");
-              	$('#cityTable').DataTable().clear();
-              	console.log("Clear Done.  Destroying....");
-              	$('#cityTable').DataTable().destroy();
-              	console.log("Done Destroying.");
-            }
-            
-            console.log("About to draw");
-            
-            $('#cityTable').DataTable( {
-            		"bLengthChange": false,
-            		"bFilter": false,
-            		"bSortable": false,
-                "serverSide": true,
-                "stateSave": true,
-                "ajax": {
-                    "dataType": "json",
-                    "url": "http://34.212.128.254/AmazonEC2/PersonalLibrary/LibraryActions.php", //had to change this address
-                    "type": "POST",
-                    "data": {
-                        'pageAction' : 'getbooks'
-                    }
-                },
+
+    	function dynamicDataTable(){
+        	$(document).ready(function() {
+                console.log("Start dynamicDataTable.");
                 
-                "columns": [
-                    { "data": "title", title: "Book", "orderable": false},
-                    { "data": "authorfirst", title: "Author First", "orderable": false},
-                    { "data": "authorlast", title: "Author Last", "orderable": false}
-                ],
-    
-                "error": function(xhr, status, error) {
-            	  			var err = eval("(" + xhr.responseText + ")");
-            	  			alert(err.Message);
-            			}
-            
-            } ).on( 'xhr', function(e, settings, json) { //xhr is an event that occurs when an ajax action IS COMPLETED 
-                console.log( 'Ajax event occurred. Returned data: ', json );
-            	} 
-        	);
-            
-            console.log("end dynamicDataTable.");
-    	});
+                if ($.fn.DataTable.isDataTable( '#cityTable' ) ) {
+                	console.log("Starting Clear...");
+                  	$('#cityTable').DataTable().clear();
+                  	console.log("Clear Done.  Destroying....");
+                  	$('#cityTable').DataTable().destroy();
+                  	console.log("Done Destroying.");
+                }
+                
+                console.log("About to draw");
+                
+                $('#cityTable').DataTable( {
+                		"bLengthChange": false,
+                		"bFilter": false,
+                		"bSortable": false,
+                    "serverSide": true,
+                    "stateSave": true,
+                    "ajax": {
+                        "dataType": "json",
+                        "url": "http://34.212.128.254/AmazonEC2/PersonalLibrary/LibraryActions.php", //had to change this address
+                        "type": "POST",
+                        "data": {
+                            'pageAction' : 'getbooks'
+                        }
+                    },
+                    
+                    "columns": [
+                        { "data": "title", title: "Book", "orderable": false},
+                        { "data": "authorfirst", title: "Author First", "orderable": false},
+                        { "data": "authorlast", title: "Author Last", "orderable": false}
+                    ],
+        
+                    "error": function(xhr, status, error) {
+                	  			var err = eval("(" + xhr.responseText + ")");
+                	  			alert(err.Message);
+                			}
+                
+                } ).on( 'xhr', function(e, settings, json) { //xhr is an event that occurs when an ajax action IS COMPLETED 
+                    console.log( 'Ajax event occurred. Returned data: ', json );
+                	} 
+            	);
+                
+                console.log("end dynamicDataTable.");
+        	});
+    	};
     </script>
 
     	<form onsubmit="return addBook();" method="post" enctype="multipart/form-data">
