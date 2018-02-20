@@ -33,6 +33,6 @@
         $output = array("error" => $ex->getMessage());
     } finally {
         header('Content-Type: application/json');
-        return json_encode($output);
+        echo json_encode($output);
     }
 ?>
