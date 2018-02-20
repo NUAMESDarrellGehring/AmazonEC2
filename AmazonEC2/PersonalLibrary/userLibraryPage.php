@@ -188,8 +188,10 @@
 
 			if(choice==0){
 				removeBook();
+				console.log("Removing Status: "choice);
 			} else if (choice==1){
 				addBook();
+				console.log("Creating Status: "+choice)
 			}
     	}
     </script>

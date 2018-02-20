@@ -12,7 +12,7 @@
             if(sizeof($this->getQueryResults("SELECT * FROM books WHERE title='".$title."' AND authorlast='".$authorlast."';"))>0){
                 return($this->runQuery("DELETE FROM books WHERE title='".$title."' AND authorlast='".$authorlast."';"));
             }else{
-                return(array("error" => "That book doesn't exist yet!"));
+                return(array("error" => "nonexistant"));
             }
         }
         
