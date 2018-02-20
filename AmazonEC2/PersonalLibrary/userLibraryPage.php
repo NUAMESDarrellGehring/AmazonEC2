@@ -33,7 +33,15 @@
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     
    	<div class="bottomLeft" id="tableDiv">
-		<table id="cityTable" class="display" style="width:800px"></table>
+		<table id="cityTable" class="display" style="width:800px">
+    		<thead>
+                <tr>
+                    <th>Book</th>
+                    <th>Author First</th>
+                    <th>Author Last</th>
+                </tr>
+            </thead>
+		</table>
    	</div>
     
     <script type="text/javascript">
