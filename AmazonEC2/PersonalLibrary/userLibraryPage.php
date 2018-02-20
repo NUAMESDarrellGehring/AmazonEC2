@@ -182,11 +182,11 @@
     	function userChoice(){
 			console.log("Beginning userChoice");	
 			var choice = $("select[name='choice']").val;
-			if(choice==1){
+			if(choice==2){
 				removeBook();
 				console.log("Removing Status: "+choice);
 				return false;
-			} else if (choice==0){
+			} else if (choice==1){
 				addBook();
 				console.log("Creating Status: "+choice)
 				return false;
@@ -206,8 +206,8 @@
     		Author's Last Name: <input type="text" name="authorlast"><br>
     		Book Title: <input type="text" name="title"><br>
     		<select type="select" name="choice">
-				<option value="0">Add</option>
-				<option value="1" selected>Remove</option>
+				<option value="1">Add</option>
+				<option value="2" selected>Remove</option>
 			</select>
     		<input type="submit" name="submit" value="Submit">
     	</form>
