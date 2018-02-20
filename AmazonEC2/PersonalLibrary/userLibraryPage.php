@@ -180,8 +180,10 @@
 		};
 
     	function userChoice(){
+    		var e = document.getElementById("choice");
+    		var choice = e.options[e.selectedIndex].value;
+    		
 			console.log("Beginning userChoice");	
-			var choice = $("select[name='choice'] option:selected").val;
 			if(choice==2){
 				removeBook();
 				console.log("Removing Status: "+choice);
@@ -205,7 +207,7 @@
     		Author's First Name: <input type="text" name="authorfirst"><br>
     		Author's Last Name: <input type="text" name="authorlast"><br>
     		Book Title: <input type="text" name="title"><br>
-    		<select type="select" name="choice">
+    		<select name="choice" id="choice">
 				<option value="1">Add</option>
 				<option value="2" selected>Remove</option>
 			</select>
