@@ -186,11 +186,14 @@
 			if(choice==0){
 				removeBook();
 				console.log("Removing Status: "+choice);
+				return false;
 			} else if (choice==1){
 				addBook();
 				console.log("Creating Status: "+choice)
+				return false;
 			} else {
 				console.log("Choice "+choice+" is not available.");
+				return false;
 			}
     	}
 
