@@ -68,13 +68,13 @@
     			processData: false,
     			type: 'POST',
     			success: function(data){
-    				if(data['data']['error']]=="nonexistant") {
+    				if(data['data']['error']=="nonexistant") {
     					//We got an error back
     					alert("That book doesn't exist yet!");
     					console.log(data);
     				} else {
     					//No error
-    					console.log("Successful Removal!"+data[0]);
+    					console.log("Successful Removal!"+data['data']['error']);
     					console.log(data);
     				}
 					dynamicDataTable();
