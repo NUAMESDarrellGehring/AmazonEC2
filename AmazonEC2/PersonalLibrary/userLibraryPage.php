@@ -180,7 +180,7 @@
 		};
 
     	function userChoice(){
-    		var chosenVal = $("input[name='choice']").val();
+    		var chosenVal = $('#choice').find(":selected").val();;
     		
 			console.log("Beginning userChoice");	
 			if(chosenVal==2){
