@@ -56,6 +56,8 @@
     		var authorfirst = $("input[name='authorfirst']").val();
     		var authorlast = $("input[name='authorlast']").val();
     		var title = $("input[name='title']").val();
+
+			console.log(authorfirst+" "+authorlast+" "+title);
     		
     		var bookdata = new FormData();
     		bookdata.append('authorfirst', authorfirst);
