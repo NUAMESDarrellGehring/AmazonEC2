@@ -68,7 +68,7 @@
     			processData: false,
     			type: 'POST',
     			success: function(data){
-    				if(data[0]=="nonexistant") {
+    				if(data['error'].indexOf("nonexistant") != -1) {
     					//We got an error back
     					alert("That book doesn't exist yet!");
     					console.log(data);
