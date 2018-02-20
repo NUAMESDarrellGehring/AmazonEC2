@@ -87,6 +87,7 @@
     					console.log("Successful Addition!");
     					console.log(data);
     				}
+					dynamicDataTable();
     			},
     			fail: function(data){
     				console.log("Failure!");
