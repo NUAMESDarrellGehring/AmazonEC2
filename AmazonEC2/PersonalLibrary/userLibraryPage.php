@@ -180,14 +180,17 @@
 		};
 
     	function userChoice(){
-			let choice = $("input[name='choice']").val();
-
+			console.log("Beginning userChoice");
+			
+			var choice = $("input[name='choice']").val();
 			if(choice==0){
 				removeBook();
 				console.log("Removing Status: "+choice);
 			} else if (choice==1){
 				addBook();
 				console.log("Creating Status: "+choice)
+			} else {
+				console.log("Choice "+choice+" is not available.");
 			}
     	}
 
