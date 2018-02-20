@@ -32,6 +32,10 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     
+   	<div class="bottomLeft" id="tableDiv">
+		<table id="cityTable" class="display" style="width:800px"></table>
+   	</div>
+    
     <script type="text/javascript">
         var sessionActive = "<?= (isset($_SESSION['USER_ID']) ? $_SESSION['USER_ID'] : "") ?>";
         if(sessionActive == "") {
