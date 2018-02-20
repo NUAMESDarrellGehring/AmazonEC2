@@ -23,7 +23,7 @@
             case "getbooks":
                 $start = $_REQUEST['start'];
                 $length = $_REQUEST['length'];
-                $output = array($library->getbooks($start, $length));
+                $output = $library->getbooks($start, $length);
             break;
             
             default:
