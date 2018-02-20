@@ -16,7 +16,7 @@
             $resultcountuntrimmed = sizeof($this->getQueryResults("SELECT * FROM books WHERE bookownerid = ".$_SESSION['USER_ID']));
             $results = $this->getQueryResultsLimited("SELECT * FROM books WHERE bookownerid = ".$_SESSION['USER_ID'], $start, $length);
             
-            $data = array("data" => $results, "recordsTotal" => $results, "recordsFiltered" => $rowCount);
+            $data = array("data" => $results, "recordsTotal" => $resultcountuntrimmed, "recordsFiltered" => $resultcountuntrimmed);
             
             return $data;
         }
