@@ -68,7 +68,7 @@
     			processData: false,
     			type: 'POST',
     			success: function(data){
-    				if(typeof(data['error']) != "nonexistant") {
+    				if(data['error']!=undefined&&typeof(data['error']) != "nonexistant") {
     					//We got an error back
     					alert("That book doesn't exist yet!");
     					console.log(data);
@@ -180,8 +180,7 @@
 		};
 
     	function userChoice(){
-			console.log("Beginning userChoice");
-			
+			console.log("Beginning userChoice");	
 			var choice = $("input[name='choice']").find(":selected").text();
 			if(choice==0){
 				removeBook();
