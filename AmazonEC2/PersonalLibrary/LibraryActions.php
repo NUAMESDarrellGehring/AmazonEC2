@@ -14,11 +14,14 @@
         switch($pageAction) {
             case "createbook":
                 if($_REQUEST['isbn']!=""){
-                    $output = array("data" => $library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast'], $_REQUEST['isbn']));
+                    $output = array("error" => "first statment");
+                    //$output = array("data" => $library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast'], $_REQUEST['isbn']));
                 } else if(strlen($_REQUEST['isbn'])==13&&ctype_digit($_REQUEST['isbn'])){
-                    $output = array("data" => $library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast'], $_REQUEST['isbn']));
+                    $output = array("error" => "second statment");
+                    //$output = array("data" => $library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast'], $_REQUEST['isbn']));
                 } else if(strlen($_REQUEST['isbn'])==10&&ctype_digit($_REQUEST['isbn'])){
-                    $output = array("data" => $library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast'], $_REQUEST['isbn']));
+                    $output = array("error" => "third statment");
+                    //$output = array("data" => $library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast'], $_REQUEST['isbn']));
                 } else {
                     $output = array("error" => "invalidISBN");
                 }
