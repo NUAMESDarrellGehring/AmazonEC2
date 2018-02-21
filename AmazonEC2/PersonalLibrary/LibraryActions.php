@@ -13,7 +13,7 @@
         
         switch($pageAction) {
             case "createbook":
-                if($_REQUEST['isbn']!=""||(ctype_digit($_REQUEST['isbn'])&&strlen($_REQUEST['isbn'])==13)){
+                if($_REQUEST['isbn']==""||(ctype_digit($_REQUEST['isbn'])&&strlen($_REQUEST['isbn'])==13)){
                     $output = array("data" => $library->addbook($_REQUEST['title'], $_REQUEST['authorfirst'], $_REQUEST['authorlast'], $_REQUEST['isbn']));
                 }else{
                     $output = array("error" => "invalidISBN");
