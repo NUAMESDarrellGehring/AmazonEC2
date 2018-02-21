@@ -3,9 +3,15 @@
 
     class Library extends BaseDBWrapper{
 
-        public function addbook($title, $authorfirst, $authorlast){
+        public function addbook($title, $authorfirst, $authorlast, $isbn){
+            if(isset($isbn)){
+                $sql = $isbn;
+            } else {
+                $sql = "NULL";
+            }
             
-            return $this->runQuery("INSERT INTO books(title, authorfirst, authorlast, bookownerid) VALUES('".$this->escapeString($title)."','".$this->escapeString($authorfirst)."','".$this->escapeString($authorlast)."',".$_SESSION['USER_ID'].");");
+            return $this->runQuery("INSERT INTO books(title, authorfirst, authorlast, bookownerid, isbn) VALUES('".$this->escapeString($title)."','".$this->escapeString($authorfirst).
+                                    "','".$this->escapeString($authorlast)."',".$_SESSION['USER_ID'].", ".$this->escapeString($sql).");");
         }
         
         public function removebook($title, $authorlast){

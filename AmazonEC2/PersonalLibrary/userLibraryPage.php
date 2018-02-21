@@ -39,6 +39,7 @@
                     <th>Book</th>
                     <th>Author First</th>
                     <th>Author Last</th>
+                    <th>ISBN#</th>
                 </tr>
             </thead>
 		</table>
@@ -88,6 +89,7 @@
     	}
         
     	function addBook(){
+        	var isbn = $("input[name='isbn']").val();
     		var authorfirst = $("input[name='authorfirst']").val();
     		var authorlast = $("input[name='authorlast']").val();
     		var title = $("input[name='title']").val();
@@ -95,6 +97,7 @@
 			console.log(authorfirst+" "+authorlast+" "+title);
     		
     		var bookdata = new FormData();
+    		bookdata.append('isbn', isbn);
     		bookdata.append('authorfirst', authorfirst);
     		bookdata.append('authorlast', authorlast);
     		bookdata.append('title', title); 
@@ -163,7 +166,8 @@
                 "columns": [
                     { "data": "title", title: "Book", "orderable": false},
                     { "data": "authorfirst", title: "Author First", "orderable": false},
-                    { "data": "authorlast", title: "Author Last", "orderable": false}
+                    { "data": "authorlast", title: "Author Last", "orderable": false},
+                    { "data": "isbn", title: "ISBN#", "orderable": false}
                 ],
     
                 "error": function(xhr, status, error) {
@@ -206,6 +210,7 @@
     		Author's First Name: <input type="text" name="authorfirst"><br>
     		Author's Last Name: <input type="text" name="authorlast"><br>
     		Book Title: <input type="text" name="title"><br>
+    		ISBN: <input type="text" name="isbn"><br>
     		Add/Remove: <select name="choice" id="choice">
 				<option value="1">Add</option>
 				<option value="2">Remove</option>
