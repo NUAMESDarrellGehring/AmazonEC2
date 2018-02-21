@@ -4,7 +4,7 @@
     class Library extends BaseDBWrapper{
 
         public function addbook($title, $authorfirst, $authorlast, $isbn){
-            if(isset($isbn)){
+            if($isbn!=""){
                 $sql = $this->escapeString($isbn);
             } else {
                 $sql = "NULL";
