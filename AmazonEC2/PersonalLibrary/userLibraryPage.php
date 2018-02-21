@@ -116,6 +116,8 @@
     					if(data['error'].indexOf("Duplicate") != -1) {
     						//Duplicate User
     						alert("You already entered this book!");
+    					} else if(data['error'].indexOf("invalidISBN")) {
+        					alert("You've entered an invalid ISBN! It must be 13 digits and contain no characters.");
     					} else {
     						alert("Unknown Error:\n" + data['error']);
     					}
