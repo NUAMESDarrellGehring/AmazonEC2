@@ -5,13 +5,13 @@
 
         public function addbook($title, $authorfirst, $authorlast, $isbn){
             if(isset($isbn)){
-                $sql = $isbn;
+                $sql = $this->escapeString($isbn);
             } else {
                 $sql = "NULL";
             }
             
             return $this->runQuery("INSERT INTO books(title, authorfirst, authorlast, bookownerid, isbn) VALUES('".$this->escapeString($title)."','".$this->escapeString($authorfirst).
-                                    "','".$this->escapeString($authorlast)."',".$_SESSION['USER_ID'].", ".$this->escapeString($sql).");");
+                                    "','".$this->escapeString($authorlast)."',".$_SESSION['USER_ID'].", ".$sql.");");
         }
         
         public function removebook($title, $authorlast){
