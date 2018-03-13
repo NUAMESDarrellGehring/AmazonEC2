@@ -31,6 +31,7 @@
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="dataTables.editor.js"></script>
     
    	<div class="bottomLeft" id="tableDiv">
 		<table id="cityTable" class="display" style="width:800px">
@@ -150,6 +151,8 @@
 					name: "book"
 				}]
 			});
+
+			console.log("made it here");
 
 		    $('#cityTable').on('click', 'tbody td:not(:first-child)', function (e) {
 		        editor.inline(this);
