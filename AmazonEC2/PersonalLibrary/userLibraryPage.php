@@ -31,8 +31,8 @@
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="dataTables.editor.js"></script>
-    
+	<script type="text/javascript" src="Editor-1.7.2/js/dataTables.editor.js"></script>
+	    
    	<div class="bottomLeft" id="tableDiv">
 		<table id="cityTable" class="display" style="width:800px">
     		<thead>
