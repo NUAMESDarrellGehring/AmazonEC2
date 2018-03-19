@@ -156,7 +156,7 @@
 
 		    //$('#cityTable').on('click', 'tbody td:not(:first-child)', function (e) {
 		      //  editor.inline(this);
-		    //} );
+		    //} ); remove thissss
             
             if ($.fn.DataTable.isDataTable( '#cityTable' ) ) {
             	console.log("Starting Clear...");
