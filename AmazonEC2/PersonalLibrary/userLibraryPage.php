@@ -154,9 +154,9 @@
 
 			console.log("made it here");
 
-		    $('#cityTable').on('click', 'tbody td:not(:first-child)', function (e) {
-		        editor.inline(this);
-		    } );
+		    //$('#cityTable').on('click', 'tbody td:not(:first-child)', function (e) {
+		      //  editor.inline(this);
+		    //} );
             
             if ($.fn.DataTable.isDataTable( '#cityTable' ) ) {
             	console.log("Starting Clear...");
