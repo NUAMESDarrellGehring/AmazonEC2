@@ -271,7 +271,7 @@
     		<a href="#">Help & Support</a>
     	</div>
     	
-    	<span onclick="openNav()">open</span>
+ 		<button onclick="openNav()">Open</button>
     
 		<div class="topRight" id="UserSelection">
         	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
