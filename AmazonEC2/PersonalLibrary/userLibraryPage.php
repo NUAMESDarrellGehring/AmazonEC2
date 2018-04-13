@@ -145,17 +145,6 @@
 		function dynamicDataTable(){
             console.log("Start dynamicDataTable.");
 
-			var editor;
-
-			editor = new $.fn.dataTable.Editor({
-				ajax: "http://34.212.128.254/AmazonEC2/PersonalLibrary/editableLibraryHandler.php",
-				table: "#cityTable",
-				fields: [{
-					label: "Book:",
-					name: "book"
-				}]
-			});
-
 			console.log("made it here");
 
 		    //$('#cityTable').on('click', 'tbody td:not(:first-child)', function (e) {
