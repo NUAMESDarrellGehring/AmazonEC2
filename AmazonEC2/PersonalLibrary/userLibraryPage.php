@@ -218,16 +218,26 @@
             dynamicDataTable();
     	});
     </script>
-
-    	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
-    		Author's First Name: <input type="text" name="authorfirst"><br>
-    		Author's Last Name: <input type="text" name="authorlast"><br>
-    		Book Title: <input type="text" name="title"><br>
-    		ISBN: <input type="text" name="isbn"><br>
-    		Add/Remove: <select name="choice" id="choice">
-				<option value="1">Add</option>
-				<option value="2">Remove</option>
-			</select><br>
-    		<input type="submit" name="submit" value="Submit">
-    	</form>
+    	<div class="sidenav" id="Menu">
+    		<a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times</a>
+    		<a href="#">Your Books</a>
+    		<a href="#">Forum</a>
+    		<a href="#">Help & Support</a>
+    	</div>
+    	
+    	<span onclick="openNav()">open</span>
+    
+		<div class="topRight" id="UserSelection">
+        	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
+        		Author's First Name: <input type="text" name="authorfirst"><br>
+        		Author's Last Name: <input type="text" name="authorlast"><br>
+        		Book Title: <input type="text" name="title"><br>
+        		ISBN: <input type="text" name="isbn"><br>
+        		Add/Remove: <select name="choice" id="choice">
+    				<option value="1">Add</option>
+    				<option value="2">Remove</option>
+    			</select><br>
+        		<input type="submit" name="submit" value="Submit">
+        	</form>
+    	</div>
 </html>
