@@ -220,7 +220,7 @@
     </script>
     	<div class="sidenav" id="Menu">
     		<a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times</a>
-    		<a href="#">Your Books</a>
+    		<a href="#">Your Library</a>
     		<a href="#">Forum</a>
     		<a href="#">Help & Support</a>
     	</div>
