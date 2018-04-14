@@ -2,28 +2,28 @@
 <html>
     <style>
        .topRight {
-           position: absolute;
+           position: fixed;
            top: 18px;
            right: 18px;
            transition: 0.5s;
        }
        
        .topLeft {
-           position: absolute;
+           position: fixed;
            top: 18px;
            left: 18px;
            transition: 0.5s;
        }
 
        .bottomRight{
-           position: absolute;
+           position: fixed;
            bottom: 18px;
            right: 18px;
            transition: 0.5s;
        }
        
        .bottomLeft{
-           position: absolute;
+           position: fixed;
            bottom: 18px;
            left: 18px;
            transition: 0.5s;
