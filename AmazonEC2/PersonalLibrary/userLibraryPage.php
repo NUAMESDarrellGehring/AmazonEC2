@@ -273,6 +273,9 @@
     </script>
     
     	<!-- <div class="sidenav" id="Menu"> -->
+    	<a href="/">Menu Test</a>
+		<a href="#" class="toggle-panel"><i class="fa fa-bars"></i></a>
+    
     	<div id="Menu">
     		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times</a>
     		<a href="#">Your Library</a>
