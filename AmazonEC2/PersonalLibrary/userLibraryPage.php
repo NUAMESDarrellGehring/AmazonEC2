@@ -244,12 +244,14 @@
 
     	/* Set the width of the side navigation to 250px */
     	function openNav() {
+    		$("#mainPage").css("position", "absolute")
     	    $("#Menu").css("width", "250");
     	    $("#mainPage").css("marginLeft", "250");
     	}
 
     	/* Set the width of the side navigation to 0 */
     	function closeNav() {
+    	    $("#mainPage").css("position", "relative")
     	    $("#Menu").css("width", "0");
     	    $("#mainPage").css("marginLeft", "0");
     	}
