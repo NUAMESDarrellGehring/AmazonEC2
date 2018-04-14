@@ -286,11 +286,26 @@
             
             $("#bookTable tbody").on('click', 'tr', function() {
 				var data = $("#bookTable").DataTable().row(this).data();
+				$("#creatorForm").dialog();
 				console.log(data);
             });                
     	});
     	
     </script>
+    
+    	<div id="creatorForm" style="display: none;">
+    		<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
+            		Author's First Name: <input type="text" name="authorfirst"><br>
+            		Author's Last Name: <input type="text" name="authorlast"><br>
+            		Book Title: <input type="text" name="title"><br>
+            		ISBN: <input type="text" name="isbn"><br>
+            		Add/Remove: <select name="choice" id="choice">
+        				<option value="1">Add</option>
+        				<option value="2">Remove</option>
+        			</select><br>
+            		<input type="submit" name="submit" value="Submit">
+            </form>
+    	</div>
     
     	<div class="sidenav" id="Menu">
     		<a href="#"><b>Your Library</b></a>
