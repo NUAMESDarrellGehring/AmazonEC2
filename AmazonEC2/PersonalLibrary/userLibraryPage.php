@@ -290,7 +290,7 @@
     		<a href="#">Help & Support</a>
     	</div>
     	
- 		<div class="button" id="menuToggle" onclick="openNav()"></div>
+ 		<div class="button" id="menuToggle" onclick="toggleNav()"></div>
  		
 	   	<div id="mainPage">
     	   	<div class="bottomLeft" id="tableDiv">
