@@ -67,8 +67,7 @@
         }
         
         #mainPage {
-            position: absolute;
-            margin: auto;
+            position: static;
             transition: 0.5s;
         }
     </style>
@@ -251,13 +250,13 @@
 
     	/* Set the width of the side navigation to 250px */
     	function openNav() {
-    	    $("#mainPage").css("left", "250");
+    	    $(".bottomLeft").css("left", "250");
     		$("#Menu").css("width", "250");
     	}
 
     	/* Set the width of the side navigation to 0 */
     	function closeNav() {
-    	    $("#mainPage").css("left", "0")
+    	    $(".bottomLeft").css("left", "18")
     	    $("#Menu").css("width", "0");
     	}
     	
