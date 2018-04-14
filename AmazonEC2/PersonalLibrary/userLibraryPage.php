@@ -247,7 +247,7 @@
 
     	/* Set the width of the side navigation to 0 */
     	function closeNav() {
-    	    $("#mainPage").css("position", "relative")
+    	    $("#mainPage").css("marginLeft", "0")
     	    $("#Menu").css("width", "0");
     	}
     	
