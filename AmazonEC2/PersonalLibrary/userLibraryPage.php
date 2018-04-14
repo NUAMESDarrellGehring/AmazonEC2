@@ -69,16 +69,7 @@
         .sidenav a:hover {
             color: #f1f1f1;
         }
-        
-        /* Position and style the close button (top right corner) */
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-        
+                
         #mainPage {
             position: static;
             transition: 0.5s;
@@ -261,35 +252,45 @@
 			}
     	}
 
+    	function toggleNav() {
+			if(menuOpen==false){
+				openNav();
+			}else{
+				closeNav();
+			}
+    	}
+    	
     	/* Set the width of the side navigation to 250px */
     	function openNav() {
+        	$(".button").css("left", "250");
         	$(".topLeft").css("left", "268");
     	    $(".bottomLeft").css("left", "268");
     		$("#Menu").css("width", "250");
+    		menuOpen = true;
     	}
 
     	/* Set the width of the side navigation to 0 */
     	function closeNav() {
+        	$(".button").css("left", "0");
         	$(".topLeft").css("left", "18");
     	    $(".bottomLeft").css("left", "18")
     	    $("#Menu").css("width", "0");
+    	    menuOpen = false;
     	}
     	
     	$(document).ready(function() {
+        	var menuOpen=false;
             dynamicDataTable();
     	});
     </script>
     
     	<div class="sidenav" id="Menu">
-    		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times</a>
     		<a href="#">Your Library</a>
     		<a href="#">Forum</a>
     		<a href="#">Help & Support</a>
     	</div>
     	
-   
- 		
- 		<div class="button" id="menuu" onclick="openNav()"></div>
+ 		<div class="button" id="menuToggle" onclick="openNav()"></div>
  		
 	   	<div id="mainPage">
     	   	<div class="bottomLeft" id="tableDiv">
