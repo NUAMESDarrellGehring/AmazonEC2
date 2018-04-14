@@ -258,12 +258,14 @@
     	/* Set the width of the side navigation to 0 */
     	function closeNav() {
     	    document.getElementById("mySidenav").style.width = "0";
+    	    $("#Menu").css("width", "0");
     	}
     	
     	$(document).ready(function() {
             dynamicDataTable();
     	});
     </script>
+    
     	<div class="sidenav" id="Menu">
     		<a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times</a>
     		<a href="#">Your Library</a>
