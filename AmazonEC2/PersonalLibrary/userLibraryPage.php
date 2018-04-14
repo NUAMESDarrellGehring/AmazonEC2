@@ -62,7 +62,7 @@
         }
         
         #mainPage {
-            position: relative;
+            position: absolute;
             transition: margin-left .5s;
         }
     </style>
