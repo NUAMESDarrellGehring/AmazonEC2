@@ -1,6 +1,19 @@
 <?php session_start();?>
 <html>
     <style>
+        .button {
+            height: 100%; /* 100% Full-height */
+            width: 20px; /* 0 width - change this with JavaScript */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            top: 0; /* Stay at the top */
+            left: 0;
+            background-color: #111; /* Black*/
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 60px; /* Place content 60px from the top */
+            transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+        }
+    
        .topRight {
            position: absolute;
            top: 18px;
@@ -274,7 +287,9 @@
     		<a href="#">Help & Support</a>
     	</div>
     	
- 		<button onclick="openNav()">Open</button>
+    	<div class="button" id="menuButton">
+ 			<button onclick="openNav()">Open</button>
+ 		</div>
  		
 	   	<div id="mainPage">
     	   	<div class="bottomLeft" id="tableDiv">
