@@ -287,7 +287,7 @@
     </script>
     
     	<div class="sidenav" id="Menu">
-    		<a href="#">Your Library</a>
+    		<a href="#"><b>Your Library</b></a>
     		<a href="#">Forum</a>
     		<a href="#">Help & Support</a>
     	</div>
