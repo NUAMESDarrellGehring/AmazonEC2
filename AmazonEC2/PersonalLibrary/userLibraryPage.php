@@ -68,6 +68,7 @@
         
         #mainPage {
             position: absolute;
+            margin: auto;
             transition: 0.5s;
         }
     </style>
