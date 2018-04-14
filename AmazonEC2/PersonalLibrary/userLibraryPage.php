@@ -62,7 +62,7 @@
             margin-left: 50px;
         }
         
-        #main {
+        #mainPage {
             transition: margin-left .5s;
         }
     </style>
