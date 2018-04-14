@@ -96,6 +96,8 @@
         	console.log("Success - user id #"+sessionActive);
         }
 
+    	var menuOpen=false;
+
         function removeBook(){
     		var authorlast = $("input[name='authorlast']").val();
     		var title = $("input[name='title']").val();
@@ -279,7 +281,6 @@
     	}
     	
     	$(document).ready(function() {
-        	var menuOpen=false;
             dynamicDataTable();
     	});
     </script>
