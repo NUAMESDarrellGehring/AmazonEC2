@@ -273,7 +273,7 @@
     </script>
     
     	<!-- <div class="sidenav" id="Menu"> -->
-    	<div class="sidenav" id="Menu">
+    	<div id="Menu">
     		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times</a>
     		<a href="#">Your Library</a>
     		<a href="#">Forum</a>
