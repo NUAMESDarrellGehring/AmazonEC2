@@ -284,8 +284,8 @@
     	$(document).ready(function() {
             dynamicDataTable();
             
-            $("#bookTable").on('click', 'tr', function() {
-				var data = $("#bookTable").DataTable().row($("#bookTable")).data;
+            $("#bookTable tbody").on('click', 'tr', function() {
+				var data = $("#bookTable").DataTable().row(this).data;
 				console.log(data);
             });                
     	});
