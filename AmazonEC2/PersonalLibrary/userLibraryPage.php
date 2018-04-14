@@ -251,14 +251,6 @@
 				return false;
 			}
     	}
-
-    	function toggleNav() {
-			if(menuOpen==false){
-				openNav();
-			}else{
-				closeNav();
-			}
-    	}
     	
     	/* Set the width of the side navigation to 250px */
     	function openNav() {
@@ -277,9 +269,17 @@
     	    $("#Menu").css("width", "0");
     	    menuOpen = false;
     	}
+
+    	function toggleNav() {
+			if(menuOpen==false){
+				openNav();
+			}else{
+				closeNav();
+			}
+    	}
     	
     	$(document).ready(function() {
-        	var menuOpen=false;
+        	let menuOpen=false;
             dynamicDataTable();
     	});
     </script>
