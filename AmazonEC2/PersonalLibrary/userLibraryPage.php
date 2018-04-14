@@ -24,6 +24,7 @@
             height: 5px;
             background-color: #FFFFFF;
             verticle-align: middle;
+            align: auto;
             transition: 0.4s;
         }
     
