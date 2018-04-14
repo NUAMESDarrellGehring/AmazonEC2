@@ -23,7 +23,7 @@
             width: 20px;
             height: 5px;
             background-color: #FFFFFF;
-            align: center;
+            align: auto;
             transition: 0.4s;
         }
     
