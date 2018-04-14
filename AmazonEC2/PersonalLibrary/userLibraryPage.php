@@ -2,6 +2,7 @@
 <html>
     <style>
         .button {
+            cursor: pointer;
             height: 100%; /* 100% Full-height */
             width: 30px; /* 0 width - change this with JavaScript */
             position: fixed; /* Stay in place */
@@ -12,6 +13,12 @@
             overflow-x: hidden; /* Disable horizontal scroll */
             padding-top: 60px; /* Place content 60px from the top */
             transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+        }
+    
+        .status {
+            cursor: pointer;
+            content: '\00bb';
+            color: #FFFFFF;
         }
     
        .topRight {
@@ -291,7 +298,7 @@
     		<a href="#">Help & Support</a>
     	</div>
     	
- 		<div class="button" id="menuToggle" onclick="toggleNav()"></div>
+ 		<div class="button" id="menuToggle" onclick="toggleNav()"><div class="status"></div></div>
  		
 	   	<div id="mainPage">
     	   	<div class="bottomLeft" id="tableDiv">
