@@ -19,10 +19,10 @@
             cursor: pointer;
             content: '\00bb';
             color: #FFFFFF;
-            width: 35px;
+            width: 20px;
             height: 5px;
             background-color: #333;
-            margin: 6px 0;
+            margin: auto;
             transition: 0.4s;
         }
     
