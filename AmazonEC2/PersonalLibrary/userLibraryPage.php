@@ -25,6 +25,46 @@
            left: 18px;
        }
        
+        .sidenav {
+            height: 100%; /* 100% Full-height */
+            width: 0; /* 0 width - change this with JavaScript */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            top: 0; /* Stay at the top */
+            left: 0;
+            background-color: #111; /* Black*/
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 60px; /* Place content 60px from the top */
+            transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+        }
+        
+        /* The navigation menu links */
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+        
+        /* Position and style the close button (top right corner) */
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        #mainPage {
+            transition: margin-left .5s;
+        }
     </style>
     
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
@@ -37,9 +77,8 @@
 	<link rel="stylesheet" type="text/css" href="Editor-1.7.2/css/editor.dataTables.css">
 	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.3/dt-1.10.16/b-1.5.1/sl-1.2.5/datatables.min.js"></script>
 	<script type="text/javascript" src="Editor-1.7.2/js/dataTables.editor.js"></script>
-	    
-    <script type="text/javascript" src="./sideNav.js"></script>
 	
+    
     <script type="text/javascript">
         var sessionActive = "<?= (isset($_SESSION['USER_ID']) ? $_SESSION['USER_ID'] : "") ?>";
         if(sessionActive == "") {
@@ -203,27 +242,25 @@
 				return false;
 			}
     	}
+
+    	/* Set the width of the side navigation to 250px */
+    	function openNav() {
+    		("#Menu").css("width", "250");
+    	    $("#mainPage").css("marginLeft", "250");
+    	}
+
+    	/* Set the width of the side navigation to 0 */
+    	function closeNav() {
+    	    $("#mainPage").css("position", "relative")
+    	    $("#Menu").css("width", "0");
+    	}
     	
     	$(document).ready(function() {
             dynamicDataTable();
-
-
-            $('#Menu').scotchPanel({
-                containerSelector: 'body',
-                direction: 'left',
-                duration: 300,
-                transition: 'ease',
-                clickSelector: '.toggle-panel',
-                distanceX: '70%',
-                enableEscapeKey: true
-            });
     	});
     </script>
     
-    	<!-- <div class="sidenav" id="Menu"> -->
-    	<a href="#" class="toggle-panel"><i>Test</i></a>
-    
-    	<div id="Menu">
+    	<div class="sidenav" id="Menu">
     		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times</a>
     		<a href="#">Your Library</a>
     		<a href="#">Forum</a>
