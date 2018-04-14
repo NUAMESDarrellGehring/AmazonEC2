@@ -15,18 +15,6 @@
             transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
         }
     
-        .button .status {
-            position: absolute;
-            cursor: pointer;
-            content: '\00bb';
-            color: #FFFFFF;
-            width: 20px;
-            height: 5px;
-            background-color: #FFFFFF;
-            margin: auto;
-            transition: 0.4s;
-        }
-    
        .topRight {
            position: absolute;
            top: 18px;
@@ -304,7 +292,7 @@
     		<a href="#">Help & Support</a>
     	</div>
     	
- 		<div class="button" id="menuToggle" onclick="toggleNav()"><div class="status"></div></div>
+ 		<div class="button" id="menuToggle" onclick="toggleNav()"></div>
  		
 	   	<div id="mainPage">
     	   	<div class="bottomLeft" id="tableDiv">
