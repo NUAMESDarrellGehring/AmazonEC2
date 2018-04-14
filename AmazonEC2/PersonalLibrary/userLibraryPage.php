@@ -285,7 +285,7 @@
             dynamicDataTable();
             $("#bookTable").on('click', 'tr', function() {
 				var data = $("#bookTable").DataTable().row(this).data;
-				alert(data[0]);
+				alert(data);
             });                
     	});
     	
