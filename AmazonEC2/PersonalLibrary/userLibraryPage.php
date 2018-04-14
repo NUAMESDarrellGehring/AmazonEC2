@@ -5,24 +5,28 @@
            position: absolute;
            top: 18px;
            right: 18px;
+           transition: 0.5s;
        }
        
        .topLeft {
            position: absolute;
            top: 18px;
            left: 18px;
+           transition: 0.5s;
        }
 
        .bottomRight{
            position: absolute;
            bottom: 18px;
            right: 18px;
+           transition: 0.5s;
        }
        
        .bottomLeft{
            position: absolute;
            bottom: 18px;
            left: 18px;
+           transition: 0.5s;
        }
        
         .sidenav {
@@ -241,13 +245,13 @@
 
     	/* Set the width of the side navigation to 250px */
     	function openNav() {
-    	    $("#mainPage").css("marginLeft", "250");
+    	    $("#mainPage").css("left", "250");
     		$("#Menu").css("width", "250");
     	}
 
     	/* Set the width of the side navigation to 0 */
     	function closeNav() {
-    	    $("#mainPage").css("marginLeft", "0")
+    	    $("#mainPage").css("left", "0")
     	    $("#Menu").css("width", "0");
     	}
     	
