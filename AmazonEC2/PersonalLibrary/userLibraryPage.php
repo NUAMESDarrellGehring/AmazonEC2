@@ -283,10 +283,9 @@
     	
     	$(document).ready(function() {
             dynamicDataTable();
-
-            var table = $('#bookTable').DataTable();
+            
             $("#bookTable").on('click', 'tr', function() {
-				var data = table.row(this).data;
+				var data = $("#bookTable").DataTable().row(this).data;
 				console.log(data);
             });                
     	});
