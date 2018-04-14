@@ -287,9 +287,9 @@
     		<a href="#">Help & Support</a>
     	</div>
     	
-    	<div class="button" id="menuButton">
- 			<button onclick="openNav()">Open</button>
- 		</div>
+   
+ 		
+ 		<div class="button" id="menuu" onclick="openNav()"></div>
  		
 	   	<div id="mainPage">
     	   	<div class="bottomLeft" id="tableDiv">
