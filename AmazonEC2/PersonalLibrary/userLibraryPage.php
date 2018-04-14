@@ -250,12 +250,14 @@
 
     	/* Set the width of the side navigation to 250px */
     	function openNav() {
-    	    $(".bottomLeft").css("left", "250");
+        	$(".topLeft").css("left", "268");
+    	    $(".bottomLeft").css("left", "268");
     		$("#Menu").css("width", "250");
     	}
 
     	/* Set the width of the side navigation to 0 */
     	function closeNav() {
+        	$(".topLeft").css("left", "18");
     	    $(".bottomLeft").css("left", "18")
     	    $("#Menu").css("width", "0");
     	}
