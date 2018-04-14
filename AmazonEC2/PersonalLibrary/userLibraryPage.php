@@ -202,7 +202,7 @@
             
             console.log("About to draw");
             
-            var bookTable = $('#bookTable').DataTable( {
+            $('#bookTable').DataTable( {
         		"bLengthChange": false,
         		"bFilter": false,
         		"bSortable": false,
@@ -284,7 +284,7 @@
     	$(document).ready(function() {
             dynamicDataTable();
             $("#bookTable").on('click', 'tr', function() {
-				var data = bookTable.DataTable().row(this).data;
+				var data = $("#bookTable").DataTable().row(this).data;
 				console.log(data);
             });                
     	});
