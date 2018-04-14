@@ -16,6 +16,7 @@
         }
     
         .status {
+            position: absolute;
             cursor: pointer;
             content: '\00bb';
             color: #FFFFFF;
