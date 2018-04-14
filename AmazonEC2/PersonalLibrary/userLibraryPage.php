@@ -15,7 +15,7 @@
             transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
         }
     
-        .status {
+        .button .status {
             position: absolute;
             cursor: pointer;
             content: '\00bb';
@@ -23,7 +23,7 @@
             width: 20px;
             height: 5px;
             background-color: #FFFFFF;
-            align: auto;
+            align: center;
             transition: 0.4s;
         }
     
