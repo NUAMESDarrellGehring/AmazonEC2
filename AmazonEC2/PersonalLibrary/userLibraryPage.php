@@ -72,20 +72,7 @@
 	<link rel="stylesheet" type="text/css" href="Editor-1.7.2/css/editor.dataTables.css">
 	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.3/dt-1.10.16/b-1.5.1/sl-1.2.5/datatables.min.js"></script>
 	<script type="text/javascript" src="Editor-1.7.2/js/dataTables.editor.js"></script>
-	
-   	<div class="bottomLeft" id="tableDiv">
-		<table id="cityTable" class="display" style="width:800px">
-    		<thead>
-                <tr>
-                    <th>Book</th>
-                    <th>Author First</th>
-                    <th>Author Last</th>
-                    <th>ISBN#</th>
-                </tr>
-            </thead>
-		</table>
-   	</div>
-    
+	    
     <script type="text/javascript">
         var sessionActive = "<?= (isset($_SESSION['USER_ID']) ? $_SESSION['USER_ID'] : "") ?>";
         if(sessionActive == "") {
@@ -253,11 +240,13 @@
     	/* Set the width of the side navigation to 250px */
     	function openNav() {
     	    $("#Menu").css("width", "250");
+    	    $("#mainPage").css("marginLeft", "250");
     	}
 
     	/* Set the width of the side navigation to 0 */
     	function closeNav() {
     	    $("#Menu").css("width", "0");
+    	    $("#mainPage").css("marginLeft", "0");
     	}
     	
     	$(document).ready(function() {
@@ -273,18 +262,33 @@
     	</div>
     	
  		<button onclick="openNav()">Open</button>
-    
-		<div class="topRight" id="UserSelection">
-        	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
-        		Author's First Name: <input type="text" name="authorfirst"><br>
-        		Author's Last Name: <input type="text" name="authorlast"><br>
-        		Book Title: <input type="text" name="title"><br>
-        		ISBN: <input type="text" name="isbn"><br>
-        		Add/Remove: <select name="choice" id="choice">
-    				<option value="1">Add</option>
-    				<option value="2">Remove</option>
-    			</select><br>
-        		<input type="submit" name="submit" value="Submit">
-        	</form>
-    	</div>
+ 		
+	   	<div id="mainPage">
+    	   	<div class="bottomLeft" id="tableDiv">
+    			<table id="cityTable" class="display" style="width:800px">
+            		<thead>
+                        <tr>
+                            <th>Book</th>
+                            <th>Author First</th>
+                            <th>Author Last</th>
+                            <th>ISBN#</th>
+                        </tr>
+                    </thead>
+        		</table>
+           	</div>
+        
+    		<div class="topRight" id="UserSelection">
+            	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
+            		Author's First Name: <input type="text" name="authorfirst"><br>
+            		Author's Last Name: <input type="text" name="authorlast"><br>
+            		Book Title: <input type="text" name="title"><br>
+            		ISBN: <input type="text" name="isbn"><br>
+            		Add/Remove: <select name="choice" id="choice">
+        				<option value="1">Add</option>
+        				<option value="2">Remove</option>
+        			</select><br>
+            		<input type="submit" name="submit" value="Submit">
+            	</form>
+        	</div>
+        </div>
 </html>
