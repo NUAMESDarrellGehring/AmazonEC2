@@ -19,6 +19,11 @@
             cursor: pointer;
             content: '\00bb';
             color: #FFFFFF;
+            width: 35px;
+            height: 5px;
+            background-color: #333;
+            margin: 6px 0;
+            transition: 0.4s;
         }
     
        .topRight {
