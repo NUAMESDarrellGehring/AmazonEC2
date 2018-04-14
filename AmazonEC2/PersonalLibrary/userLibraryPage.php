@@ -22,7 +22,7 @@
             width: 20px;
             height: 5px;
             background-color: #FFFFFF;
-            margin: auto;
+            verticle-align: middle;
             transition: 0.4s;
         }
     
