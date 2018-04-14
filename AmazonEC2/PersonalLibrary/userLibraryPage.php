@@ -12,6 +12,7 @@
            top: 18px;
            left: 18px;
        }
+
        .bottomRight{
            position: absolute;
            bottom: 18px;
@@ -25,16 +26,16 @@
        }
        
         .sidenav {
-        height: 100%; /* 100% Full-height */
-        width: 0; /* 0 width - change this with JavaScript */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Stay on top */
-        top: 0; /* Stay at the top */
-        left: 0;
-        background-color: #111; /* Black*/
-        overflow-x: hidden; /* Disable horizontal scroll */
-        padding-top: 60px; /* Place content 60px from the top */
-        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+            height: 100%; /* 100% Full-height */
+            width: 0; /* 0 width - change this with JavaScript */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            top: 0; /* Stay at the top */
+            left: 0;
+            background-color: #111; /* Black*/
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 60px; /* Place content 60px from the top */
+            transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
         }
         
         /* The navigation menu links */
@@ -61,8 +62,8 @@
             margin-left: 50px;
         }
         
-        #mainPage {
-            position: absolute;
+        #main {
+            position: relative;
             transition: margin-left .5s;
         }
     </style>
