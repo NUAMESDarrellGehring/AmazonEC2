@@ -245,8 +245,8 @@
 
     	/* Set the width of the side navigation to 250px */
     	function openNav() {
-    		("#Menu").css("width", "250");
     	    $("#mainPage").css("marginLeft", "250");
+    		$("#Menu").css("width", "250");
     	}
 
     	/* Set the width of the side navigation to 0 */
