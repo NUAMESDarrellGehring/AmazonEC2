@@ -307,7 +307,7 @@
         		</table>
            	</div>
         
-    		<div class="topRight" id="UserSelection">
+    		<div class="topLeft" id="UserSelection">
             	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
             		Author's First Name: <input type="text" name="authorfirst"><br>
             		Author's Last Name: <input type="text" name="authorlast"><br>
