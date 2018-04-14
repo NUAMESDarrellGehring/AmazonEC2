@@ -24,7 +24,7 @@
        .topLeft {
            position: absolute;
            top: 18px;
-           left: 18px;
+           left: 38px;
            transition: 0.5s;
        }
 
@@ -38,7 +38,7 @@
        .bottomLeft{
            position: absolute;
            bottom: 18px;
-           left: 18px;
+           left: 38px;
            transition: 0.5s;
        }
        
