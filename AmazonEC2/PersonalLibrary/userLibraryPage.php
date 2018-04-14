@@ -61,7 +61,7 @@
             margin-left: 50px;
         }
         
-        #main {
+        #mainPage {
             position: relative;
             transition: margin-left .5s;
             padding: 16px;
