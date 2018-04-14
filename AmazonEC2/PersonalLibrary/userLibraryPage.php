@@ -3,7 +3,7 @@
     <style>
         .button {
             height: 100%; /* 100% Full-height */
-            width: 20px; /* 0 width - change this with JavaScript */
+            width: 30px; /* 0 width - change this with JavaScript */
             position: fixed; /* Stay in place */
             z-index: 1; /* Stay on top */
             top: 0; /* Stay at the top */
@@ -24,7 +24,7 @@
        .topLeft {
            position: absolute;
            top: 18px;
-           left: 38px;
+           left: 48px;
            transition: 0.5s;
        }
 
@@ -38,7 +38,7 @@
        .bottomLeft{
            position: absolute;
            bottom: 18px;
-           left: 38px;
+           left: 48px;
            transition: 0.5s;
        }
        
@@ -257,8 +257,8 @@
     	/* Set the width of the side navigation to 250px */
     	function openNav() {
         	$(".button").css("left", "250");
-        	$(".topLeft").css("left", "288");
-    	    $(".bottomLeft").css("left", "288");
+        	$(".topLeft").css("left", "298");
+    	    $(".bottomLeft").css("left", "298");
     		$("#Menu").css("width", "250");
     		menuOpen = true;
     	}
@@ -266,8 +266,8 @@
     	/* Set the width of the side navigation to 0 */
     	function closeNav() {
         	$(".button").css("left", "0");
-        	$(".topLeft").css("left", "38");
-    	    $(".bottomLeft").css("left", "38")
+        	$(".topLeft").css("left", "48");
+    	    $(".bottomLeft").css("left", "48")
     	    $("#Menu").css("width", "0");
     	    menuOpen = false;
     	}
