@@ -257,8 +257,8 @@
     	/* Set the width of the side navigation to 250px */
     	function openNav() {
         	$(".button").css("left", "250");
-        	$(".topLeft").css("left", "268");
-    	    $(".bottomLeft").css("left", "268");
+        	$(".topLeft").css("left", "288");
+    	    $(".bottomLeft").css("left", "288");
     		$("#Menu").css("width", "250");
     		menuOpen = true;
     	}
@@ -266,8 +266,8 @@
     	/* Set the width of the side navigation to 0 */
     	function closeNav() {
         	$(".button").css("left", "0");
-        	$(".topLeft").css("left", "18");
-    	    $(".bottomLeft").css("left", "18")
+        	$(".topLeft").css("left", "38");
+    	    $(".bottomLeft").css("left", "38")
     	    $("#Menu").css("width", "0");
     	    menuOpen = false;
     	}
