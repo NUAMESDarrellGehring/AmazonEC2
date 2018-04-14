@@ -279,7 +279,7 @@
     	}
     	
     	$(document).ready(function() {
-        	let menuOpen=false;
+        	var menuOpen=false;
             dynamicDataTable();
     	});
     </script>
