@@ -2,24 +2,20 @@
 <html>
     <style>
        .topRight {
-           position: absolute;
            top: 18px;
            right: 18px;
        }
        
        .topLeft {
-           position: absolute;
            top: 18px;
            left: 18px;
        }
        .bottomRight{
-           position: absolute;
            bottom: 18px;
            right: 18px;
        }
        
        .bottomLeft{
-           position: absolute;
            bottom: 18px;
            left: 18px;
        }
