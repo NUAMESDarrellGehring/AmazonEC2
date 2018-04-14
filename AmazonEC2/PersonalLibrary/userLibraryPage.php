@@ -250,7 +250,6 @@
 
     	/* Set the width of the side navigation to 250px */
     	function openNav() {
-        	$("#cityTable").css("left", "250");
     	    $("#mainPage").css("left", "250");
     		$("#Menu").css("width", "250");
     	}
