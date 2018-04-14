@@ -78,6 +78,8 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jqc-1.12.3/dt-1.10.16/b-1.5.1/sl-1.2.5/datatables.min.js"></script>
 	<script type="text/javascript" src="Editor-1.7.2/js/dataTables.editor.js"></script>
 	    
+    <script type="text/javascript" src="./sideNav.js"></script>
+	
     <script type="text/javascript">
         var sessionActive = "<?= (isset($_SESSION['USER_ID']) ? $_SESSION['USER_ID'] : "") ?>";
         if(sessionActive == "") {
@@ -244,8 +246,7 @@
 
     	/* Set the width of the side navigation to 250px */
     	function openNav() {
-    		$("#mainPage").css("position", "absolute")
-    	    $("#Menu").css("width", "250");
+    		("#Menu").css("width", "250");
     	    $("#mainPage").css("marginLeft", "250");
     	}
 
@@ -253,14 +254,25 @@
     	function closeNav() {
     	    $("#mainPage").css("position", "relative")
     	    $("#Menu").css("width", "0");
-    	    $("#mainPage").css("marginLeft", "0");
     	}
     	
     	$(document).ready(function() {
             dynamicDataTable();
+
+
+            $('#Menu').scotchPanel({
+                containerSelector: 'body',
+                direction: 'left',
+                duration: 300,
+                transition: 'ease',
+                clickSelector: '.toggle-panel',
+                distanceX: '70%',
+                enableEscapeKey: true
+            });
     	});
     </script>
     
+    	<!-- <div class="sidenav" id="Menu"> -->
     	<div class="sidenav" id="Menu">
     		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times</a>
     		<a href="#">Your Library</a>
