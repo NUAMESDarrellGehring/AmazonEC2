@@ -188,21 +188,21 @@
 
 			console.log("made it here");
 
-		    //$('#cityTable').on('click', 'tbody td:not(:first-child)', function (e) {
+		    //$('#bookTable').on('click', 'tbody td:not(:first-child)', function (e) {
 		      //  editor.inline(this);
 		    //} ); remove thissss
             
-            if ($.fn.DataTable.isDataTable( '#cityTable' ) ) {
+            if ($.fn.DataTable.isDataTable( '#bookTable' ) ) {
             	console.log("Starting Clear...");
-              	$('#cityTable').DataTable().clear();
+              	$('#bookTable').DataTable().clear();
               	console.log("Clear Done.  Destroying....");
-              	$('#cityTable').DataTable().destroy();
+              	$('#bookTable').DataTable().destroy();
               	console.log("Done Destroying.");
             }
             
             console.log("About to draw");
             
-            $('#cityTable').DataTable( {
+            $('#bookTable').DataTable( {
         		"bLengthChange": false,
         		"bFilter": false,
         		"bSortable": false,
@@ -283,7 +283,12 @@
     	
     	$(document).ready(function() {
             dynamicDataTable();
+            $("#bookTable").on('click', 'tr', function() {
+				var data = $("#bookTable").DataTable().row(this).data;
+				alert(data[0]);
+            }                
     	});
+    	
     </script>
     
     	<div class="sidenav" id="Menu">
@@ -296,7 +301,7 @@
  		
 	   	<div id="mainPage">
     	   	<div class="bottomLeft" id="tableDiv">
-    			<table id="cityTable" class="display" style="width:800px">
+    			<table id="bookTable" class="display" style="width:800px">
             		<thead>
                         <tr>
                             <th>Book</th>
