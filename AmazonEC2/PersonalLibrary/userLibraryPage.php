@@ -60,6 +60,11 @@
             font-size: 36px;
             margin-left: 50px;
         }
+        
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+        }
     </style>
     
     <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css">
