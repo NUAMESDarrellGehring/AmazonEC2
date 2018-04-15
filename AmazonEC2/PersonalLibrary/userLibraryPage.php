@@ -323,7 +323,7 @@
     </head>
     
     <body>
-    	<div id="creatorForm" class="topRight">
+    	<div id="creatorForm" class="topRight" style:"display: none;">
     		<form id="newEntryForm">
         		Author's First Name: <input type="text" name="authorfirst"><br>
         		Author's Last Name: <input type="text" name="authorlast"><br>
