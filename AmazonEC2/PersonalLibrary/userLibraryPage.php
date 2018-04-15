@@ -373,8 +373,11 @@
         	      width: 450,
         	      modal: true,
         	      buttons: {
-        	        "Submit": editEntry,
-        	        Cancel: function() {
+        	        "Submit": function() {
+            	        editEntry();
+            	        _dialog.dialog("close");
+        	        },
+        	        "Cancel": function() {
         	          _dialog.dialog( "close" );
         	        }
         	      },
