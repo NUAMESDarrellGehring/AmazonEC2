@@ -76,13 +76,13 @@
         */
         
         public function getbooks(
-            $title = null, 
-            $authorfirst = null, 
-            $authorlast = null, 
-            $isbn = null, 
-            $start = 0, 
-            $length = 0,
-            &$rowCount = 0
+            $title,
+            $authorfirst, 
+            $authorlast, 
+            $isbn, 
+            $start, 
+            $length,
+            &$rowCount
         ) {
             
             $sql = "
@@ -126,8 +126,6 @@
                 echo "Query='".$sql.".\nData:'".var_export($results, true)."'\nCount:".$rowCount."\n";
                 exit;
             }
-            
-            
             
             return $results;
             
