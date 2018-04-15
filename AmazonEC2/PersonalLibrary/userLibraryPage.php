@@ -377,9 +377,11 @@
         	        "Submit": function() {
             	        editEntry();
             	        _dialog.dialog("close");
+            	        _dialog.dialog( "destroy" );
         	        },
         	        "Cancel": function() {
         	          _dialog.dialog( "close" );
+        	          _dialog.dialog( "destroy" );
         	        }
         	      },
         	      close: function() {
@@ -390,6 +392,7 @@
         	    $("input[name='authorlastDialog']").val(data['authorlast']);
         	    $("input[name='titleDialog']").val(data['title']);
         	    $("input[name='isbnDialog']").val(data['isbn']);
+        	    
         	    $("input[name='hiddenID']").val(data['id']);
             });                
                 
