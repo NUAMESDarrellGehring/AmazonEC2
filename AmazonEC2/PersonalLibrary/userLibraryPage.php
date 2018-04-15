@@ -285,7 +285,7 @@
         	alert("Adding Entry");
     	}
 
-    	var _dialog = null;
+    	let _dialog = null;
     	$(document).ready(function() {
             dynamicDataTable();
 
@@ -303,7 +303,7 @@
         	        }
         	      },
         	      close: function() {
-        	        $("#newEntryForm").trigger("reset");
+        	        $("#newEntryForm")[0].reset();
         	        allFields.removeClass( "ui-state-error" );
         	      }
         	    });
