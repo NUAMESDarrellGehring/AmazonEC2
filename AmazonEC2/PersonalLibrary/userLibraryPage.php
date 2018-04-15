@@ -151,7 +151,7 @@
     		bookdata.append('authorfirst', authorfirst);
     		bookdata.append('authorlast', authorlast);
     		bookdata.append('title', title); 
-    		bookdata.append('pageAction', "createBook")//Tell the user actions what to do
+    		bookdata.append('pageAction', "createBook");//Tell the user actions what to do
     			
     		$.ajax({
     			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/LibraryActions.php",
@@ -187,6 +187,57 @@
     		return false;
     	}
 
+    	editEntry(){
+        	var bookID = $("input[name='hiddenID']").val();
+        	var isbn = $("input[name='isbnDialog']").val();
+    		var authorfirst = $("input[name='authorfirstDialog']").val();
+    		var authorlast = $("input[name='authorlastDialog']").val();
+    		var title = $("input[name='titleDialog']").val();
+
+			console.log(authorfirst+" "+authorlast+" "+title);
+    		
+    		var bookdata = new FormData();
+    		bookdata.append('bookID', bookID);
+    		bookdata.append('isbn', isbn);
+    		bookdata.append('authorfirst', authorfirst);
+    		bookdata.append('authorlast', authorlast);
+    		bookdata.append('title', title); 
+    		bookdata.append('pageAction', "editBook");
+
+    		$.ajax({
+    			url: "http://34.212.128.254/AmazonEC2/PersonalLibrary/LibraryActions.php",
+    			data: bookdata,
+    			contentType: false,
+    			processData: false,
+    			type: 'POST',
+    			success: function(data){
+    				if(typeof(data['error']) != "undefined") {
+    					//We got an error back
+    					
+    					if(data['error'].indexOf("Duplicate") != -1) {
+    						//Duplicate User
+    						alert("You already entered this book!");
+    					} else if(data['error'].indexOf("invalidisbn") != -1) {
+        					alert("You've entered an invalid ISBN! It must be 13 digits and contain no characters.");
+    					} else {
+    						alert("Unknown Error:\n" + data['error']);
+    					}
+    					console.log(data);
+    				} else {
+    					//No error
+    					console.log("Successful Edit!");
+    					console.log(data);
+    				}
+					dynamicDataTable();
+    			},
+    			fail: function(data){
+    				console.log("Failure!");
+    				console.log(data);
+    			}
+    		});
+    		return false;
+    	}
+    	
 		function dynamicDataTable(){
             console.log("Start dynamicDataTable.");
 
@@ -302,7 +353,7 @@
         	      width: 450,
         	      modal: true,
         	      buttons: {
-        	        "Submit": addEntry,
+        	        "Submit": editEntry,
         	        Cancel: function() {
         	          _dialog.dialog( "close" );
         	        }
@@ -311,14 +362,11 @@
         	        $("#newEntryForm").trigger("reset");
         	      }
         	    });
-
-				console.log(data);
-				console.log(data[0]+ " " + data[1] + " " + data[2] + " " + data[3]);
-				
         	    $("input[name='authorfirstDialog']").val(data['authorfirst']);
         	    $("input[name='authorlastDialog']").val(data['authorlast']);
         	    $("input[name='titleDialog']").val(data['title']);
         	    $("input[name='isbnDialog']").val(data['isbn']);
+        	    $("input[name='hiddenID']").val(data['id']);
             });                
                 
 	   	});
@@ -336,6 +384,7 @@
         		Author's Last Name: <input type="text" name="authorlastDialog"><br>
         		Book Title: <input type="text" name="titleDialog"><br>
         		ISBN: <input type="text" name="isbnDialog"><br>
+        		<input type="hidden" name="hiddenID">
     		</form>
     	</div>
     	

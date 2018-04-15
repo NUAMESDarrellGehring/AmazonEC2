@@ -28,6 +28,11 @@
                 $output = array("data" => $library->removebook($_REQUEST['title'], $_REQUEST['authorlast']));
             break;
             
+            case "editbook":
+                $output = array("data" => $library->editbook($_REQUEST['bookID'], $_REQUEST['title'], 
+                                $_REQUEST['authorfirst'], $_REQUEST['authorlast'], $_REQUEST['isbn']));
+            break;
+            
             case "getbooks":
                 $start = $_REQUEST['start'];
                 $length = $_REQUEST['length'];

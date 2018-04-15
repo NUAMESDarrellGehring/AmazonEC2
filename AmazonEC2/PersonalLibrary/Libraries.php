@@ -22,6 +22,18 @@
             }
         }
         
+        public function editbook($bookID, $title, $authorfirst, $authorlast, $isbn){
+            if($isbn!=""){
+                $sql = $this->escapeString($isbn);
+            } else {
+                $sql = "NULL";
+            }
+            
+            return $this->runQuery("UPDATE books SET title='".$this.escapeString($title)
+                ."', authorfirst='".$this.escapeString($authorfirst)."', authorlast='".$this.escapeString($authorlast)."', isbn=".$sql.""
+                ." WHERE id=".$bookID.";");
+        }
+        
         public function getbooks($start, $length){
             $resultcountuntrimmed = sizeof($this->getQueryResults("SELECT * FROM books WHERE bookownerid = ".$_SESSION['USER_ID']));
             $results = $this->getQueryResultsLimited("SELECT * FROM books WHERE bookownerid = ".$_SESSION['USER_ID'], $start, $length);
