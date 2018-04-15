@@ -77,6 +77,11 @@
             position: static;
             transition: 0.5s;
         }
+        
+        #bookTable {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
     </style>
     
  	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.jqueryui.min.css"/>
