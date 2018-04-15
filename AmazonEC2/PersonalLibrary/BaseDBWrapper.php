@@ -20,24 +20,20 @@ abstract class BaseDBWrapper
         try { $this->conn->close(); } catch(Exception $ex) { }
     }
     
-    public function getQueryResults($sql)
-    {
-        $results = $this->conn->query($sql);
-        if($results === false) {
-            //Error!
-            throw new Exception("Query Failed (".$sql."): ".mysqli_error($conn));
-        } else {
-            $data = array();
-            while($row = mysqli_fetch_assoc($results)) {
-                $data[] = $row;
-            }
-            return $data;
+    public function getQueryResults($sql, $start = null, $length = null){
+        if($start === null || $start < 0) {
+            $start = 0; //Default to start at 0 if invalid or not given
         }
-    }
-    
-    public function getQueryResultsLimited($sql, $start, $length){
+        if($length === null || $length <= 0) {
+            $length = null; //Default to null if invalid or not giver
+        }
         
-        $results = $this->conn->query($sql." LIMIT ".$start.", ".$length.";");
+        $sql .= " LIMIT ".$start;
+        if($length !== null) {
+            $sql .= ", ".$length;
+        }
+        
+        $results = $this->conn->query($sql);
         if($results === false) {
             //Error!
             throw new Exception("Query Failed (".$sql."): ".mysqli_error($conn));

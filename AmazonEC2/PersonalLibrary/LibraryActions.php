@@ -34,9 +34,23 @@
             break;
             
             case "getbooks":
-                $start = $_REQUEST['start'];
-                $length = $_REQUEST['length'];
-                $output = $library->getbooks($start, $length);
+                $start = (isset($_REQUEST['start']) ? $_REQUEST['start'] : null);
+                $length = (isset($_REQUEST['length']) ? $_REQUEST['length'] : null);
+                
+                $title = (isset($_REQUEST['title']) ? $_REQUEST['title'] : null);
+                $authorfirst = (isset($_REQUEST['authorfirst']) ? $_REQUEST['authorfirst'] : null);
+                $authorlast = (isset($_REQUEST['authorlast']) ? $_REQUEST['authorlast'] : null);
+                $isbn = (isset($_REQUEST['isbn']) ? $_REQUEST['isbn'] : null);
+                                
+                $output = $library->getbooks(
+                    $title, 
+                    $authorfirst,
+                    $authorlast,
+                    $isbn,
+                    $start,
+                    $length
+                );
+                
             break;
             
             default:

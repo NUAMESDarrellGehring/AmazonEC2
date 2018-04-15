@@ -246,6 +246,9 @@
 		      //  editor.inline(this);
 		    //} ); remove thissss
             
+            //TO-DO: go get these values from somewhere to search
+            let title = null, authorfirst = null, authorlast = null, isbn = null;
+            
             if ($.fn.DataTable.isDataTable( '#bookTable' ) ) {
             	console.log("Starting Clear...");
               	$('#bookTable').DataTable().clear();
@@ -255,6 +258,24 @@
             }
             
             console.log("About to draw");
+
+            let data = {
+     	       'pageAction' : 'getbooks'
+            }
+
+            //Get search values (if any)
+            if(title !== null && title != "") {
+                data['title'] = title;
+            }
+            if(authorfirst !== null && authorfirst != "") {
+                data['authorfirst'] = authorfirst;
+            }
+            if(authorlast !== null && authorlast != "") {
+                data['authorlast'] = authorlast;
+            }
+            if(isbn !== null && isbn != "") {
+                data['isbn'] = isbn;
+            }
             
             $('#bookTable').DataTable( {
                 
@@ -267,9 +288,7 @@
                     "dataType": "json",
                     "url": "http://34.212.128.254/AmazonEC2/PersonalLibrary/LibraryActions.php", //had to change this address
                     "type": "POST",
-                    "data": {
-                        'pageAction' : 'getbooks'
-                    }
+                    "data": data
                 },
                 
                 "columns": [
