@@ -53,17 +53,21 @@
                     $rowCount
                 );
                 
+                //Draw for datatables
+                $draw = (isset($_REQUEST['draw']) ? $_REQUEST['draw'] : ""); 
+                
                 //Make the data friendly for data tables
                 $output = array(
                     "data" => $results,
                     "recordsTotal" => $rowCount,
-                    "recordsFiltered" => count($results)
+                    "recordsFiltered" => count($results),
+                    "draw" => $draw
                 );
                 
             break;
             
             default:
-                $output = array("Something went wrong! Please try again later.");
+                throw new Exception("Unsupported action (".$pageAction.")");
         }
     } catch(Exception $ex) {
         $output = array("error" => $ex->getMessage());
