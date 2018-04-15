@@ -8,16 +8,17 @@
             background-color: #4CAF50;
             border: none;
             color: white;
-            padding: 15px 32px;
+            padding: 20px 102px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
+            font-size: 30px;
             margin: 4px 2px;
             cursor: pointer;
             transition: 0.5s;
             top: 18px;
-            left: 18px;
+            left: 48px;
+            position: relative;
         }
     
         .button {
@@ -348,6 +349,7 @@
     	/* Set the width of the side navigation to 250px */
     	function openNav() {
         	$(".button").css("left", "250");
+        	$(".addEntryButton").css("left", "298");
         	$(".topLeft").css("left", "298");
     	    $(".bottomLeft").css("left", "298");
     		$("#Menu").css("width", "250");
@@ -357,6 +359,7 @@
     	/* Set the width of the side navigation to 0 */
     	function closeNav() {
         	$(".button").css("left", "0");
+        	$(".addEntryButton").css("left", "48");
         	$(".topLeft").css("left", "48");
     	    $(".bottomLeft").css("left", "48")
     	    $("#Menu").css("width", "0");
