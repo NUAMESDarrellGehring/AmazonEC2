@@ -28,7 +28,7 @@
             }
             
             return $this->runQuery("INSERT INTO books(title, authorfirst, authorlast, bookownerid, isbn) VALUES('".$this->escapeString($title)."','".$this->escapeString($authorfirst).
-                                    "','".$this->escapeString($authorlast)."',".$_SESSION['USER_ID'].", ".$sql.");");
+                                    "','".$this->escapeString($authorlast)."',".$_SESSION['USER_ID'].", '".$sql."');");
         }
         
         public function removebook($bookID){
