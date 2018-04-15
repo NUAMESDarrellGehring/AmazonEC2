@@ -303,7 +303,7 @@
         	        }
         	      },
         	      close: function() {
-        	        form[ 0 ].reset();
+        	        $("#newEntryForm"].reset();
         	        allFields.removeClass( "ui-state-error" );
         	      }
         	    });
@@ -321,6 +321,10 @@
     
     	<div id="creatorForm">
     		<p>Hellp</p>
+    		<form id="newEntryForm">
+    			Test Entry: <input type="text">
+    		
+    		</form>
     	</div>
     
     	<button type="button" id="testBtn">Push here to get an error</button>
