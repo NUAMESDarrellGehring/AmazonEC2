@@ -291,6 +291,7 @@
 
             $("#bookTable tbody").on('click', 'tr', function() {
             	let data = $("#bookTable").DataTable().row(this).data();
+            	alert("here 1");
     			_dialog = $("#creatorForm").dialog({
         	      //autoOpen: false,
         	      height: 400,
@@ -304,21 +305,17 @@
         	      },
         	      close: function() {
         	        $("#newEntryForm").trigger("reset");
-        	        allFields.removeClass( "ui-state-error" );
         	      }
         	    });
+        	    alert("here 2");
             });                
                 
-	   	});
-
-    	
-    		
+	   	});    		
     </script>
     
     </head>
     
     <body>
-    
     	<div id="creatorForm">
     		<p>Hellp</p>
     		<form id="newEntryForm">
