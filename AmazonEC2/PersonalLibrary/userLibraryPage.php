@@ -186,7 +186,7 @@
     		});
     		return false;
     	}
-    	editEntry(){
+    	function editEntry(){
         	var bookID = $("input[name='hiddenID']").val();
         	var isbn = $("input[name='isbnDialog']").val();
     		var authorfirst = $("input[name='authorfirstDialog']").val();
