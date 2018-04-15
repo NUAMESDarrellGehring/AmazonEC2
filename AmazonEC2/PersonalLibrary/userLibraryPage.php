@@ -208,6 +208,7 @@
             console.log("About to draw");
             
             $('#bookTable').DataTable( {
+                
         		"bLengthChange": false,
         		"bFilter": false,
         		"bSortable": false,
@@ -342,7 +343,7 @@
  		
 	   	<div id="mainPage">
     	   	<div class="bottomLeft" id="tableDiv">
-    			<table style="height:700px" id="bookTable" class="display" style="width:800px">
+    			<table style="height:500px" id="bookTable" class="display" style="width:800px">
             		<thead>
                         <tr>
                             <th>Book</th>
