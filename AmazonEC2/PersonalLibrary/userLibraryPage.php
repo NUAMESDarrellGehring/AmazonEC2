@@ -284,6 +284,7 @@
 	   	});
 
     	$("#bookTable tbody").on('click', 'tr', function() {
+        	alert("test");
 			var data = $("#bookTable").DataTable().row(this).data();
 			$("#creatorForm").dialog({
     	      autoOpen: false,
