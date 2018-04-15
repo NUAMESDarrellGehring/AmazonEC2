@@ -288,7 +288,6 @@
     	let _dialog = null;
     	$(document).ready(function() {
             dynamicDataTable();
-
             $("#bookTable tbody").on('click', 'tr', function() {
             	let data = $("#bookTable").DataTable().row(this).data();
     			_dialog = $("#creatorForm").dialog({
@@ -317,7 +316,7 @@
     
     <body>
     
-    	<div id="creatorForm" style="display: none;">
+    	<div id="creatorForm"<!--  style="display: none;"-->>
     		<form id="newEntryForm">
         		Author's First Name: <input type="text" name="authorfirst"><br>
         		Author's Last Name: <input type="text" name="authorlast"><br>
