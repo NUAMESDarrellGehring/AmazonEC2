@@ -457,7 +457,7 @@
     		<a href="#">Help & Support</a>
     	</div>
     	
- 		<div class="button" id="menuToggle" onclick="toggleNav()"></div>
+ 		<div class="button" id="menuToggle" onclick="toggleNav()">Add Book</div>
  		
 	   	<div id="mainPage">
 	    	<div class="addEntryButton" id="addEntry" onclick="addEntryDialog()"></div>
