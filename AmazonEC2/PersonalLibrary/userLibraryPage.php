@@ -293,7 +293,7 @@
             	alert("test");
     			//var data = $("#bookTable").DataTable().row(this).data();
     			$("#creatorForm").dialog({
-        	      autoOpen: false,
+        	      //autoOpen: false,
         	      height: 400,
         	      width: 350,
         	      modal: true,
@@ -321,7 +321,7 @@
     
     <body>
     
-    	<div id="creatorForm" style="display: none;">
+    	<div id="creatorForm">
     		<p>Hellp</p>
     	</div>
     
