@@ -292,7 +292,6 @@
             $("#bookTable tbody").on('click', 'tr', function() {
             	let data = $("#bookTable").DataTable().row(this).data();
     			_dialog = $("#creatorForm").dialog({
-        	      autoOpen: false,
         	      height: 400,
         	      width: 450,
         	      modal: true,
@@ -318,7 +317,7 @@
     
     <body>
     
-    	<div id="creatorForm">
+    	<div id="creatorForm" style="display: none;">
     		<form id="newEntryForm">
         		Author's First Name: <input type="text" name="authorfirst"><br>
         		Author's Last Name: <input type="text" name="authorlast"><br>
