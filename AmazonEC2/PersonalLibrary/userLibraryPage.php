@@ -416,35 +416,33 @@
     	
  		<div class="button" id="menuToggle" onclick="toggleNav()"></div>
  		
- 		<div>
-     		<div id="UserSelection">
-            	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
-            		Author's First Name: <input type="text" name="authorfirst"><br>
-            		Author's Last Name: <input type="text" name="authorlast"><br>
-            		Book Title: <input type="text" name="title"><br>
-            		ISBN: <input type="text" name="isbn"><br>
-            		Add/Remove: <select name="choice" id="choice">
-        				<option value="1">Add</option>
-        				<option value="2">Remove</option>
-        			</select><br>
-            		<input type="submit" name="submit" value="Submit">
-            	</form>
-        	</div>
-    	
-    	   	<div id="mainPage">
-        	   	<div class="bottomLeft" id="tableDiv">
-        			<table id="bookTable" class="display">
-                		<thead>
-                            <tr>
-                                <th>Book</th>
-                                <th>Author First</th>
-                                <th>Author Last</th>
-                                <th>ISBN#</th>
-                            </tr>
-                        </thead>
-            		</table>
-               	</div>
-            </div>
+	   	<div id="mainPage">
+    	   	<div id="tableDiv">
+    	   		<div id="UserSelection">
+                	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
+                		Author's First Name: <input type="text" name="authorfirst"><br>
+                		Author's Last Name: <input type="text" name="authorlast"><br>
+                		Book Title: <input type="text" name="title"><br>
+                		ISBN: <input type="text" name="isbn"><br>
+                		Add/Remove: <select name="choice" id="choice">
+            				<option value="1">Add</option>
+            				<option value="2">Remove</option>
+            			</select><br>
+                		<input type="submit" name="submit" value="Submit">
+                	</form>
+        		</div>
+    	   	
+    			<table id="bookTable" class="display">
+            		<thead>
+                        <tr>
+                            <th>Book</th>
+                            <th>Author First</th>
+                            <th>Author Last</th>
+                            <th>ISBN#</th>
+                        </tr>
+                    </thead>
+        		</table>
+           	</div>
         </div>
         
     </body>
