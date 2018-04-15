@@ -29,7 +29,7 @@ abstract class BaseDBWrapper
         }
         
         if($start !== null && $length !== null) {
-            $sql .= " LIMIT ".$start.", ".$limit;
+            $sql .= " LIMIT ".$start.", ".$length;
         }
         
         $results = $this->conn->query($sql);
