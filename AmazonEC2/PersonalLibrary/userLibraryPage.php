@@ -292,7 +292,7 @@
             $("#bookTable tbody").on('click', 'tr', function() {
             	let data = $("#bookTable").DataTable().row(this).data();
     			_dialog = $("#creatorForm").dialog({
-        	      //autoOpen: false,
+        	      autoOpen: false,
         	      height: 400,
         	      width: 450,
         	      modal: true,
