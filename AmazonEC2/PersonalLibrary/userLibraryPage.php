@@ -281,15 +281,29 @@
     	
     	$(document).ready(function() {
             dynamicDataTable();
-            
-            $("#bookTable tbody").on('click', 'tr', function() {
-				var data = $("#bookTable").DataTable().row(this).data();
-				$("#creatorForm").dialog();
-				
-				console.log(data);
-            });                
-    	});
-    	
+	   	});
+
+    	$("#bookTable tbody").on('click', 'tr', function() {
+			var data = $("#bookTable").DataTable().row(this).data();
+			$("#creatorForm").dialog({
+    	      autoOpen: false,
+    	      height: 400,
+    	      width: 350,
+    	      modal: true,
+    	      buttons: {
+    	        "Create an entry": addEntry,
+    	        Cancel: function() {
+    	          dialog.dialog( "close" );
+    	        }
+    	      },
+    	      close: function() {
+    	        form[ 0 ].reset();
+    	        allFields.removeClass( "ui-state-error" );
+    	      }
+    	    });
+        });                
+
+    		
     </script>
     
     </head>
