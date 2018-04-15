@@ -304,6 +304,7 @@
         	      },
         	      close: function() {
         	        $("#newEntryForm").trigger("reset");
+        	        
         	      }
         	    });
             });                
@@ -319,11 +320,10 @@
     <body>
     
     	<div id="creatorForm">
+    		<p>Hellp</p>
     		<form id="newEntryForm">
-    			Author's First Name: <input type="text" name="authorfirst"><br>
-        		Author's Last Name: <input type="text" name="authorlast"><br>
-        		Book Title: <input type="text" name="title"><br>
-        		ISBN: <input type="text" name="isbn"><br>
+    			Test Entry: <input type="text">
+    		
     		</form>
     	</div>
     
