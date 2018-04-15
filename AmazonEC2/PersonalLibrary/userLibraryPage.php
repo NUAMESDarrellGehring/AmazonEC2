@@ -186,7 +186,6 @@
     		});
     		return false;
     	}
-
     	editEntry(){
         	var bookID = $("input[name='hiddenID']").val();
         	var isbn = $("input[name='isbnDialog']").val();
