@@ -324,7 +324,7 @@
     		<p>Hellp</p>
     	</div>
     
-    	<button id="testBtn" value="pushhh"></button>
+    	<button type="button" id="testBtn">Push here to get an error</button>
     
     	<div class="sidenav" id="Menu">
     		<a href="#"><b>Your Library</b></a>
