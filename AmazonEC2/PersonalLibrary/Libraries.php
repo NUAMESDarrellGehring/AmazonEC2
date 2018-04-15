@@ -105,6 +105,9 @@
             }
             if($cnt > 0) $sql .= " AND ";
             $sql .= " bookownerid=".$_SESSION['USER_ID'];
+
+            echo $sql;
+            exit;
             
             $results = $this->getQueryResults($sql, $start, $length);
             $rowCount = $this->getQueryResults("SELECT FOUND_ROWS() as cnt;")[0]['cnt'];
