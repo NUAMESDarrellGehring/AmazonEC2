@@ -83,7 +83,6 @@
             white-space: nowrap;
         }
         
-        .dataTables_scrollBody {min-height:55px}
     </style>
     
  	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.jqueryui.min.css"/>
