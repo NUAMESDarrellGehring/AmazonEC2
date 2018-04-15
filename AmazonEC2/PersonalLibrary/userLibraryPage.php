@@ -1,5 +1,8 @@
 <?php session_start();?>
 <html>
+	<head></head>
+	<body>
+
     <style>
         .button {
             cursor: pointer;
@@ -337,4 +340,7 @@
             	</form>
         	</div>
         </div>
+        
+    </body>
+        
 </html>
