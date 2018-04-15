@@ -304,7 +304,7 @@
         	      },
         	      close: function() {
         	        $("#newEntryForm").trigger("reset");
-        	        
+        	        allFields.removeClass( "ui-state-error" );
         	      }
         	    });
             });                
