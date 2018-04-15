@@ -312,7 +312,10 @@
         	      }
         	    });
 
-        	    $("input[name='authorfirstDialog']").val("Gooooob");
+        	    $("input[name='authorfirstDialog']").val(data[0]);
+        	    $("input[name='authorlastDialog']").val(data[1]);
+        	    $("input[name='titleDialog']").val(data[2]);
+        	    $("input[name='isbnDialog']").val(data[3]);
             });                
                 
 	   	});
