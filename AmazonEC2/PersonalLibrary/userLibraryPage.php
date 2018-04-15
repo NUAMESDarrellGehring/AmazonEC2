@@ -1,6 +1,8 @@
 <?php session_start();?>
 
 <html>
+	<title>//Librarian V0.7</title>
+
 	<head>
 
     <style>
