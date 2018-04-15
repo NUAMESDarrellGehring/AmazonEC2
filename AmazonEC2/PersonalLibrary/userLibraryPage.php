@@ -416,7 +416,7 @@
     	
  		<div class="button" id="menuToggle" onclick="toggleNav()"></div>
  		
-	   	<div id="mainPage" class="topLeft" style="width:500px">
+	   	<div id="mainPage" class="topLeft" style="width:500px;left:100px">
     	   	<div id="tableDiv">
     	   		<div id="UserSelection">
                 	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
