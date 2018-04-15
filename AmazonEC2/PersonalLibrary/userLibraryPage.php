@@ -294,7 +294,7 @@
     			_dialog = $("#creatorForm").dialog({
         	      //autoOpen: false,
         	      height: 400,
-        	      width: 350,
+        	      width: 450,
         	      modal: true,
         	      buttons: {
         	        "Submit": addEntry,
@@ -326,9 +326,7 @@
         		ISBN: <input type="text" name="isbn"><br>
     		</form>
     	</div>
-    
-    	<button type="button" id="testBtn">Push here to get an error</button>
-    
+        
     	<div class="sidenav" id="Menu">
     		<a href="#"><b>Your Library</b></a>
     		<a href="#">Forum</a>
