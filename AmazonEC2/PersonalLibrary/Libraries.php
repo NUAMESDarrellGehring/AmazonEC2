@@ -50,7 +50,7 @@
                 throw new Exception("Authors Last Name is a required");
             }
             
-            $existingBooks = $this->getbookds($title, $authorfirst, $authorlast, $isbn);
+            $existingBooks = $this->getbooks($title, $authorfirst, $authorlast, $isbn);
             if(count($existingBooks) > 0) {
                 throw new Exception("Another book already exists with these properties");
             }
