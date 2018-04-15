@@ -59,8 +59,8 @@
                 //Make the data friendly for data tables
                 $output = array(
                     "data" => $results,
-                    "recordsTotal" => $rowCount,
-                    "recordsFiltered" => count($results),
+                    "recordsTotal" => count($results),
+                    "recordsFiltered" => $rowCount,
                     "draw" => $draw
                 );
                 
