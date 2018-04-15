@@ -408,12 +408,12 @@
         	      buttons: {
             	    "Remove": function() {
 						removeBook();
-            	        _dialog.dialog("close");
+            	        _dialog.dialog( "close" );
             	        _dialog.dialog( "destroy" );
             	    },
         	        "Submit": function() {
             	        editEntry();
-            	        _dialog.dialog("close");
+            	        _dialog.dialog( "close" );
             	        _dialog.dialog( "destroy" );
         	        },
         	        "Cancel": function() {
@@ -440,7 +440,7 @@
     
     </head>
     
-    <body>
+    <body style="background-color: #666666">
     	<div id="creatorForm" style="display: none;" class="topRight">
     		<form id="newEntryForm">
         		Author's First Name: <input type="text" name="authorfirstDialog"><br>
