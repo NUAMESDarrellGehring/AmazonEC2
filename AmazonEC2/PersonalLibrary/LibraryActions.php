@@ -41,14 +41,23 @@
                 $authorfirst = (isset($_REQUEST['authorfirst']) ? $_REQUEST['authorfirst'] : null);
                 $authorlast = (isset($_REQUEST['authorlast']) ? $_REQUEST['authorlast'] : null);
                 $isbn = (isset($_REQUEST['isbn']) ? $_REQUEST['isbn'] : null);
-                                
-                $output = $library->getbooks(
+                              
+                $rowCount = 0;
+                $results = $library->getbooks(
                     $title, 
                     $authorfirst,
                     $authorlast,
                     $isbn,
                     $start,
-                    $length
+                    $length,
+                    $rowCount
+                );
+                
+                //Make the data friendly for data tables
+                $output = array(
+                    "data" => $results,
+                    "recordsTotal" => $rowCount,
+                    "recordsFiltered" => count($results)
                 );
                 
             break;
