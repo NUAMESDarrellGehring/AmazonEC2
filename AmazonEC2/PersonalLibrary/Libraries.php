@@ -107,8 +107,7 @@
             $sql .= " bookownerid=".$_SESSION['USER_ID'];
             
             $results = $this->getQueryResults($sql, $start, $length);
-            $rowCount = $this->getQueryResults("SELECT FOUND_ROWS();");
-            
+            $rowCount = $this->getQueryResults("SELECT FOUND_ROWS() as cnt;")[0]['cnt'];
             return array(
                 "data" => $results, 
                 "recordsTotal" => $rowCount, 
