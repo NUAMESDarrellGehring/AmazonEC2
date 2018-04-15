@@ -297,7 +297,7 @@
         	      width: 350,
         	      modal: true,
         	      buttons: {
-        	        "Create an entry": addEntry,
+        	        "Submit": editEntry,
         	        Cancel: function() {
         	          _dialog.dialog( "close" );
         	        }
@@ -306,6 +306,7 @@
         	        $("#newEntryForm").trigger("reset");
         	      }
         	    });
+        	    
             });                
                 
 	   	});
@@ -319,11 +320,12 @@
     <body>
     
     	<div id="creatorForm">
-    		<p>Hellp</p>
-    		<form id="newEntryForm">
-    			Test Entry: <input type="text">
-    		
-    		</form>
+			<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
+        		Author's First Name: <input type="text" name="authorfirst"><br>
+        		Author's Last Name: <input type="text" name="authorlast"><br>
+        		Book Title: <input type="text" name="title"><br>
+        		ISBN: <input type="text" name="isbn"><br>
+        	</form>
     	</div>
     
     	<button type="button" id="testBtn">Push here to get an error</button>
