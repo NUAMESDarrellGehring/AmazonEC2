@@ -4,6 +4,19 @@
 	<head>
 
     <style>
+        .addEntryButton {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    
         .button {
             cursor: pointer;
             height: 100%; /* 100% Full-height */
@@ -138,10 +151,10 @@
     	}
         
     	function addBook(){
-        	var isbn = $("input[name='isbn']").val();
-    		var authorfirst = $("input[name='authorfirst']").val();
-    		var authorlast = $("input[name='authorlast']").val();
-    		var title = $("input[name='title']").val();
+        	var isbn = $("input[name='isbnDialog']").val();
+    		var authorfirst = $("input[name='authorfirstDialog']").val();
+    		var authorlast = $("input[name='authorlastDialog']").val();
+    		var title = $("input[name='titleDialog']").val();
 
 			console.log(authorfirst+" "+authorlast+" "+title);
     		
@@ -355,12 +368,28 @@
 			}
     	}
 
-    	//Do stuff to create an entry
-    	function addEntry()
-    	{
-        	alert("Adding Entry");
-    	}
-
+		function addEntryDialog(){
+			_dialog = $("#creatorForm").dialog({
+      	      height: 400,
+      	      width: 450,
+      	      modal: true,
+      	      buttons: {
+      	        "Submit": function() {
+          	        addBook();
+          	        _dialog.dialog("close");
+          	        _dialog.dialog( "destroy" );
+      	        },
+      	        "Cancel": function() {
+      	          _dialog.dialog( "close" );
+      	          _dialog.dialog( "destroy" );
+      	        }
+      	      },
+      	      close: function() {
+      	        $("#newEntryForm").trigger("reset");
+      	      }
+      	    });
+		}
+    	
     	let _dialog = null;
     	$(document).ready(function() {
             dynamicDataTable();
@@ -393,8 +422,7 @@
         	    $("input[name='authorfirstDialog']").val(data['authorfirst']);
         	    $("input[name='authorlastDialog']").val(data['authorlast']);
         	    $("input[name='titleDialog']").val(data['title']);
-        	    $("input[name='isbnDialog']").val(data['isbn']);
-        	    
+        	    $("input[name='isbnDialog']").val(data['isbn']);	    
         	    $("input[name='hiddenID']").val(data['id']);
             });                
                 
@@ -417,6 +445,8 @@
     		</form>
     	</div>
     	
+    	<div class="addEntryButton" id="addEntry" onclick="addEntryDialog()"></div>
+    	
     	<div class="sidenav" id="Menu">
     		<a href="#"><b>Your Library</b></a>
     		<a href="#">Forum</a>
@@ -438,22 +468,6 @@
                     </thead>
         		</table>
            	</div>
-        
-    		<div class="topLeft" id="UserSelection">
-            	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
-            		Author's First Name: <input type="text" name="authorfirst"><br>
-            		Author's Last Name: <input type="text" name="authorlast"><br>
-            		Book Title: <input type="text" name="title"><br>
-            		ISBN: <input type="text" name="isbn"><br>
-            		Add/Remove: <select name="choice" id="choice">
-        				<option value="1">Add</option>
-        				<option value="2">Remove</option>
-        			</select><br>
-            		<input type="submit" name="submit" value="Submit">
-            	</form>
-        	</div>
         </div>
-        
-    </body>
-        
+    </body>   
 </html>
