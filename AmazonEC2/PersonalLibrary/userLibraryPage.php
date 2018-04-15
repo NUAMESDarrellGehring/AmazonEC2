@@ -5,7 +5,7 @@
 
     <style>
         .addEntryButton {
-            background-color: #4CAF50;
+            background-color: #7d0200;
             border: none;
             color: white;
             padding: 20px 102px;
