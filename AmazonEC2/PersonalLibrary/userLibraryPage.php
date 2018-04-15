@@ -281,6 +281,7 @@
             
             $("#bookTable tbody").on('click', 'tr', function() {
 				var data = $("#bookTable").DataTable().row(this).data();
+				alert($("#creatorForm"));
 				$("#creatorForm").dialog();
 				console.log(data);
             });                
