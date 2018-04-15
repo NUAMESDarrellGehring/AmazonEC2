@@ -320,10 +320,11 @@
     <body>
     
     	<div id="creatorForm">
-    		Author's First Name: <input type="text" name="authorfirst"><br>
+    		<!--Author's First Name: <input type="text" name="authorfirst"><br>
     		Author's Last Name: <input type="text" name="authorlast"><br>
     		Book Title: <input type="text" name="title"><br>
-    		ISBN: <input type="text" name="isbn"><br>
+    		ISBN: <input type="text" name="isbn"><br>-->
+    		<p>asdads</p>
     	</div>
     
     	<button type="button" id="testBtn">Push here to get an error</button>
