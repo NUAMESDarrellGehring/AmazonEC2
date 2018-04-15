@@ -341,7 +341,7 @@
  		
 	   	<div id="mainPage">
     	   	<div class="bottomLeft" id="tableDiv">
-    			<table style="height:500px" id="bookTable" class="display" style="width:500px">
+    			<table style="height:500px" id="bookTable" class="display" style="width:1000px">
             		<thead>
                         <tr>
                             <th>Book</th>
