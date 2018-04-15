@@ -105,12 +105,10 @@
     	var menuOpen=false;
 
         function removeBook(){
-    		var authorlast = $("input[name='authorlast']").val();
-    		var title = $("input[name='title']").val();
+    		var bookID = $("input[name='hiddenID']").val();
 
     		var bookdata = new FormData();
-    		bookdata.append('authorlast', authorlast);
-    		bookdata.append('title', title); 
+    		bookdata.append('bookID', bookID);
     		bookdata.append('pageAction', "deleteBook")
 
     		$.ajax({
@@ -373,6 +371,9 @@
         	      width: 450,
         	      modal: true,
         	      buttons: {
+            	    "Remove": function() {
+						
+            	    },
         	        "Submit": function() {
             	        editEntry();
             	        _dialog.dialog("close");

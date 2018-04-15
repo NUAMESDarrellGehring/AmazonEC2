@@ -25,7 +25,7 @@
             break;
             
             case "deletebook":
-                $output = array("data" => $library->removebook($_REQUEST['title'], $_REQUEST['authorlast']));
+                $output = array("data" => $library->removebook($_REQUEST['bookID']));
             break;
             
             case "editbook":                

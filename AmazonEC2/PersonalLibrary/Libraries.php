@@ -30,9 +30,9 @@
                                     "','".$this->escapeString($authorlast)."',".$_SESSION['USER_ID'].", ".$sql.");");
         }
         
-        public function removebook($title, $authorlast){
-            if(sizeof($this->getQueryResults("SELECT * FROM books WHERE title='".$title."' AND authorlast='".$authorlast."';"))>0){
-                return($this->runQuery("DELETE FROM books WHERE title='".$title."' AND authorlast='".$authorlast."';"));
+        public function removebook($bookID){
+            if(sizeof($this->getQueryResults("SELECT * FROM books WHERE id='".$bookID."';"))>0){
+                return($this->runQuery("DELETE FROM books WHERE id='".$bookID."';"));
             }else{
                 return(array("error" => "nonexistant"));
             }
