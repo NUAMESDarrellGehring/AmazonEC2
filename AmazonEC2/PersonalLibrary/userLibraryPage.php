@@ -285,7 +285,7 @@
         	alert("Adding Entry");
     	}
 
-    	let _dialog = null;
+    	var _dialog = null;
     	$(document).ready(function() {
             dynamicDataTable();
 
