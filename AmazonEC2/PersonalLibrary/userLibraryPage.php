@@ -208,9 +208,7 @@
             console.log("About to draw");
             
             $('#bookTable').DataTable( {
-                
         		"bLengthChange": false,
-        		"scrollY": 
         		"bFilter": false,
         		"bSortable": false,
                 "serverSide": true,
