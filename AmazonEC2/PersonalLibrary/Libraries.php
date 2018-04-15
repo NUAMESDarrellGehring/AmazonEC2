@@ -75,7 +75,15 @@
         }
         */
         
-        public function getbooks($title = null, $authorfirst = null, $authorlast = null, $isbn = null, $start = 0, $length = 0) {
+        public function getbooks(
+            $title = null, 
+            $authorfirst = null, 
+            $authorlast = null, 
+            $isbn = null, 
+            $start = 0, 
+            $length = 0,
+            &$rowCount = 0
+        ) {
             
             $sql = "
                 SELECT 
@@ -106,18 +114,22 @@
             if($cnt > 0) $sql .= " AND ";
             $sql .= " bookownerid=".$_SESSION['USER_ID'];
 
-            if(isset($_REQUEST['debug'])) {
-                echo $sql;
-                exit;
-            }
-            
             $results = $this->getQueryResults($sql, $start, $length);
             $rowCount = $this->getQueryResults("SELECT FOUND_ROWS() as cnt;")[0]['cnt'];
-            return array(
+            /*return array(
                 "data" => $results, 
                 "recordsTotal" => $rowCount, 
                 "recordsFiltered" => count($results)
-            );
+            );*/
+            
+            if(isset($_REQUEST['debug'])) {
+                echo "Query='".$sql.".\nData:'".var_export($results, true)."'\nCount:".$rowCount."\n";
+                exit;
+            }
+            
+            
+            
+            return $results;
             
         }
     }
