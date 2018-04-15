@@ -23,7 +23,7 @@
             if($isbn!=""){
                 $sql = $this->escapeString($isbn);
             } else {
-                $sql = "NULL";
+                $sql = "";
             }
             
             return $this->runQuery("INSERT INTO books(title, authorfirst, authorlast, bookownerid, isbn) VALUES('".$this->escapeString($title)."','".$this->escapeString($authorfirst).
@@ -59,7 +59,7 @@
             if($isbn!=""){
                 $sql = $this->escapeString($isbn);
             } else {
-                $sql = "NULL";
+                $sql = "";
             }
             
             return $this->runQuery("UPDATE books SET title='".$this->escapeString($title)
