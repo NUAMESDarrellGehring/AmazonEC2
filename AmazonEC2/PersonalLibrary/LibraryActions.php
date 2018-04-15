@@ -28,9 +28,19 @@
                 $output = array("data" => $library->removebook($_REQUEST['title'], $_REQUEST['authorlast']));
             break;
             
-            case "editbook":
-                $output = array("data" => $library->editbook($_REQUEST['bookID'], $_REQUEST['title'], 
-                                $_REQUEST['authorfirst'], $_REQUEST['authorlast'], $_REQUEST['isbn']));
+            case "editbook":                
+                if($_REQUEST['isbn']==""){
+                    $output = array("data" => $library->editbook($_REQUEST['bookID'], $_REQUEST['title'],
+                        $_REQUEST['authorfirst'], $_REQUEST['authorlast'], $_REQUEST['isbn']));
+                } else if(strlen($_REQUEST['isbn'])==13&&ctype_digit($_REQUEST['isbn'])){
+                    $output = array("data" => $library->editbook($_REQUEST['bookID'], $_REQUEST['title'],
+                        $_REQUEST['authorfirst'], $_REQUEST['authorlast'], $_REQUEST['isbn']));
+                } else if(strlen($_REQUEST['isbn'])==10&&ctype_digit($_REQUEST['isbn'])){
+                    $output = array("data" => $library->editbook($_REQUEST['bookID'], $_REQUEST['title'],
+                        $_REQUEST['authorfirst'], $_REQUEST['authorlast'], $_REQUEST['isbn']));
+                } else {
+                    $output = array("error" => "invalidisbn");
+                }
             break;
             
             case "getbooks":
