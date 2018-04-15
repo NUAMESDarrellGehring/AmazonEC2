@@ -372,7 +372,9 @@
         	      modal: true,
         	      buttons: {
             	    "Remove": function() {
-						
+						removeBook();
+            	        _dialog.dialog("close");
+            	        _dialog.dialog( "destroy" );
             	    },
         	        "Submit": function() {
             	        editEntry();
