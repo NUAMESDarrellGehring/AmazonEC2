@@ -311,6 +311,8 @@
         	        $("#newEntryForm").trigger("reset");
         	      }
         	    });
+
+        	    $("td=[name=authorFirst]").val("Gooooob");
             });                
                 
 	   	});
@@ -324,10 +326,10 @@
     <body>
     	<div id="creatorForm" style="display: none;" class="topRight">
     		<form id="newEntryForm">
-        		Author's First Name: <input type="text" name="authorfirst"><br>
-        		Author's Last Name: <input type="text" name="authorlast"><br>
-        		Book Title: <input type="text" name="title"><br>
-        		ISBN: <input type="text" name="isbn"><br>
+        		Author's First Name: <input type="text" name="authorfirstDialog"><br>
+        		Author's Last Name: <input type="text" name="authorlastDialog"><br>
+        		Book Title: <input type="text" name="titleDialog"><br>
+        		ISBN: <input type="text" name="isbnDialog"><br>
     		</form>
     	</div>
     	
