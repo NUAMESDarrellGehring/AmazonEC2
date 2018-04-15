@@ -284,14 +284,14 @@
     	{
         	alert("Adding Entry");
     	}
-    	
+
+    	let _dialog = null;
     	$(document).ready(function() {
             dynamicDataTable();
 
-            //$("#bookTable tbody").on('click', 'tr', function() {
-            $("#testBtn").on('click', function() {
-            	//var data = $("#bookTable").DataTable().row(this).data();
-    			$("#creatorForm").dialog({
+            $("#bookTable tbody").on('click', 'tr', function() {
+            	let data = $("#bookTable").DataTable().row(this).data();
+    			_dialog = $("#creatorForm").dialog({
         	      //autoOpen: false,
         	      height: 400,
         	      width: 350,
@@ -299,7 +299,7 @@
         	      buttons: {
         	        "Create an entry": addEntry,
         	        Cancel: function() {
-        	          dialog.dialog( "close" );
+        	          _dialog.dialog( "close" );
         	        }
         	      },
         	      close: function() {
