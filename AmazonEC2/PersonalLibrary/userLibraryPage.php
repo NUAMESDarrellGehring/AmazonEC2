@@ -291,14 +291,13 @@
 
             $("#bookTable tbody").on('click', 'tr', function() {
             	let data = $("#bookTable").DataTable().row(this).data();
-            	alert("here 1");
     			_dialog = $("#creatorForm").dialog({
         	      //autoOpen: false,
         	      height: 400,
         	      width: 350,
         	      modal: true,
         	      buttons: {
-        	        "Create an entry": addEntry,
+        	        "Submit": addEntry,
         	        Cancel: function() {
         	          _dialog.dialog( "close" );
         	        }
@@ -307,20 +306,24 @@
         	        $("#newEntryForm").trigger("reset");
         	      }
         	    });
-        	    alert("here 2");
             });                
                 
-	   	});    		
+	   	});
+
+    	
+    		
     </script>
     
     </head>
     
     <body>
+    
     	<div id="creatorForm">
-    		<p>Hellp</p>
     		<form id="newEntryForm">
-    			Test Entry: <input type="text">
-    		
+        		Author's First Name: <input type="text" name="authorfirst"><br>
+        		Author's Last Name: <input type="text" name="authorlast"><br>
+        		Book Title: <input type="text" name="title"><br>
+        		ISBN: <input type="text" name="isbn"><br>
     		</form>
     	</div>
     
