@@ -29,8 +29,8 @@
                 $sql = "NULL";
             }
             
-            return $this->runQuery("UPDATE books SET title='".$this.escapeString($title)
-                ."', authorfirst='".$this.escapeString($authorfirst)."', authorlast='".$this.escapeString($authorlast)."', isbn='".$sql."'"
+            return $this->runQuery("UPDATE books SET title='".$this->escapeString($title)
+                ."', authorfirst='".$this->escapeString($authorfirst)."', authorlast='".$this->escapeString($authorlast)."', isbn='".$sql."'"
                 ." WHERE id=".$bookID.";");
         }
         
