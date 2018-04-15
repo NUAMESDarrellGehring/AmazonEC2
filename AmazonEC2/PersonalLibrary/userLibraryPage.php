@@ -1,7 +1,6 @@
 <?php session_start();?>
 <html>
-	<head></head>
-	<body>
+	<head>
 
     <style>
         .button {
@@ -292,6 +291,10 @@
     	});
     	
     </script>
+    
+    </head>
+    
+    <body>
     
     	<div id="creatorForm" style="display: none;">
     		<p>Hellp</p>
