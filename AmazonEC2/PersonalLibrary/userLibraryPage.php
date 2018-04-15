@@ -457,10 +457,10 @@
     		<a href="#">Help & Support</a>
     	</div>
     	
- 		<div class="button" id="menuToggle" onclick="toggleNav()">Add Book</div>
+ 		<div class="button" id="menuToggle" onclick="toggleNav()"></div>
  		
 	   	<div id="mainPage">
-	    	<div class="addEntryButton" id="addEntry" onclick="addEntryDialog()"></div>
+	    	<div class="addEntryButton" id="addEntry" onclick="addEntryDialog()">Add Book</div>
     	   	<div class="bottomLeft" id="tableDiv">
     			<table id="bookTable" class="display">
             		<thead>
