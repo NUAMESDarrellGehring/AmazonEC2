@@ -297,7 +297,7 @@
         	      width: 350,
         	      modal: true,
         	      buttons: {
-        	        "Submit": editEntry,
+        	        "Create an entry": addEntry,
         	        Cancel: function() {
         	          _dialog.dialog( "close" );
         	        }
@@ -306,7 +306,6 @@
         	        $("#newEntryForm").trigger("reset");
         	      }
         	    });
-        	    
             });                
                 
 	   	});
@@ -320,11 +319,12 @@
     <body>
     
     	<div id="creatorForm">
-    		<!--Author's First Name: <input type="text" name="authorfirst"><br>
-    		Author's Last Name: <input type="text" name="authorlast"><br>
-    		Book Title: <input type="text" name="title"><br>
-    		ISBN: <input type="text" name="isbn"><br>-->
-    		<p>asdads</p>
+    		<form id="newEntryForm">
+    			Author's First Name: <input type="text" name="authorfirst"><br>
+        		Author's Last Name: <input type="text" name="authorlast"><br>
+        		Book Title: <input type="text" name="title"><br>
+        		ISBN: <input type="text" name="isbn"><br>
+    		</form>
     	</div>
     
     	<button type="button" id="testBtn">Push here to get an error</button>
