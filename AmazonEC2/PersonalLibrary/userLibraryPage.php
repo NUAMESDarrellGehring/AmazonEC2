@@ -323,7 +323,6 @@
     </head>
     
     <body>
-    <!-- 
     	<div id="creatorForm" class="topRight">
     		<form id="newEntryForm">
         		Author's First Name: <input type="text" name="authorfirst"><br>
@@ -332,7 +331,6 @@
         		ISBN: <input type="text" name="isbn"><br>
     		</form>
     	</div>
-         -->
     	<div class="sidenav" id="Menu">
     		<a href="#"><b>Your Library</b></a>
     		<a href="#">Forum</a>
