@@ -52,7 +52,7 @@
             
             $existingBooks = $this->getbooks($title, $authorfirst, $authorlast, $isbn);
             if(count($existingBooks) > 0) {
-                throw new Exception("Another book already exists with these properties (".var_export($existingBookgs, true).")");
+                throw new Exception("Another book already exists with these properties (".var_export($existingBooks, true).")");
             }
             
             if($isbn!=""){
