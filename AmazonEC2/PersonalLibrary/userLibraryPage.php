@@ -308,6 +308,7 @@
         	        allFields.removeClass( "ui-state-error" );
         	      }
         	    });
+        	    alert("test2");
             });                
                 
 	   	});
