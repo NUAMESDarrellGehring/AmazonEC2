@@ -278,6 +278,12 @@
 				closeNav();
 			}
     	}
+
+    	//Do stuff to create an entry
+    	function addEntry()
+    	{
+        	alert("Adding Entry");
+    	}
     	
     	$(document).ready(function() {
             dynamicDataTable();
