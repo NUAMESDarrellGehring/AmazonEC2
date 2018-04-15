@@ -286,11 +286,12 @@
     	}
     	
     	$(document).ready(function() {
-            dynamicDataTable();
+            //dynamicDataTable();
 
-            $("#bookTable tbody").on('click', 'tr', function() {
+            //$("#bookTable tbody").on('click', 'tr', function() {
+            $("#testBtn").on('click', function() {
             	alert("test");
-    			var data = $("#bookTable").DataTable().row(this).data();
+    			//var data = $("#bookTable").DataTable().row(this).data();
     			$("#creatorForm").dialog({
         	      autoOpen: false,
         	      height: 400,
@@ -322,6 +323,8 @@
     	<div id="creatorForm" style="display: none;">
     		<p>Hellp</p>
     	</div>
+    
+    	<button id="testBtn" value="pushhh"></button>
     
     	<div class="sidenav" id="Menu">
     		<a href="#"><b>Your Library</b></a>
