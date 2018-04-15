@@ -316,7 +316,7 @@
     
     <body>
     
-    	<div id="creatorForm" class="topRight" style="display: none;">
+    	<div id="creatorForm" class="topRight">
     		<form id="newEntryForm">
         		Author's First Name: <input type="text" name="authorfirst"><br>
         		Author's Last Name: <input type="text" name="authorlast"><br>
