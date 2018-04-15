@@ -103,10 +103,11 @@
                 $sql .= " isbn like '".$this->escapeString(trim($isbn))."'";
                 $cnt++;
             }
-            $sql .= " AND bookownerid=".$_SESSION['USER_ID'];
+            if($cnt > 0) $sql .= " AND ";
+            $sql .= " bookownerid=".$_SESSION['USER_ID'];
             
             $results = $this->getQueryResults($sql, $start, $length);
-            $rowCount = $this->getQueryResults("SELECT FOUND_ROWS() as cnt");
+            $rowCount = $this->getQueryResults("SELECT FOUND_ROWS();");
             
             return array(
                 "data" => $results, 
