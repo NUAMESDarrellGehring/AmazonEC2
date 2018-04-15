@@ -398,7 +398,7 @@
     </head>
     
     <body>
-    	<div id="creatorForm" style="display: none;">
+    	<div id="creatorForm" style="display: none;" class="topRight">
     		<form id="newEntryForm">
         		Author's First Name: <input type="text" name="authorfirstDialog"><br>
         		Author's Last Name: <input type="text" name="authorlastDialog"><br>
@@ -416,22 +416,8 @@
     	
  		<div class="button" id="menuToggle" onclick="toggleNav()"></div>
  		
-	   	<div id="mainPage" class="topLeft" style="width:500px;left:100px">
-    	   	<div id="tableDiv">
-    	   		<div id="UserSelection">
-                	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
-                		Author's First Name: <input type="text" name="authorfirst"><br>
-                		Author's Last Name: <input type="text" name="authorlast"><br>
-                		Book Title: <input type="text" name="title"><br>
-                		ISBN: <input type="text" name="isbn"><br>
-                		Add/Remove: <select name="choice" id="choice">
-            				<option value="1">Add</option>
-            				<option value="2">Remove</option>
-            			</select><br>
-                		<input type="submit" name="submit" value="Submit">
-                	</form>
-        		</div>
-    	   	
+	   	<div id="mainPage">
+    	   	<div class="bottomLeft" id="tableDiv">
     			<table id="bookTable" class="display">
             		<thead>
                         <tr>
@@ -443,6 +429,20 @@
                     </thead>
         		</table>
            	</div>
+        
+    		<div class="topLeft" id="UserSelection">
+            	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
+            		Author's First Name: <input type="text" name="authorfirst"><br>
+            		Author's Last Name: <input type="text" name="authorlast"><br>
+            		Book Title: <input type="text" name="title"><br>
+            		ISBN: <input type="text" name="isbn"><br>
+            		Add/Remove: <select name="choice" id="choice">
+        				<option value="1">Add</option>
+        				<option value="2">Remove</option>
+        			</select><br>
+            		<input type="submit" name="submit" value="Submit">
+            	</form>
+        	</div>
         </div>
         
     </body>
