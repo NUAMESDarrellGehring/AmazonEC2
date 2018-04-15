@@ -281,6 +281,7 @@
             $('#bookTable').DataTable( {
                 
         		"bLengthChange": false,
+        		"processing": true,
         		"bFilter": false,
         		"bSortable": false,
                 "serverSide": true,
