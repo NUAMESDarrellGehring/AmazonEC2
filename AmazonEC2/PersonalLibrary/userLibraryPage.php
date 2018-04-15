@@ -320,12 +320,10 @@
     <body>
     
     	<div id="creatorForm">
-			<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
-        		Author's First Name: <input type="text" name="authorfirst"><br>
-        		Author's Last Name: <input type="text" name="authorlast"><br>
-        		Book Title: <input type="text" name="title"><br>
-        		ISBN: <input type="text" name="isbn"><br>
-        	</form>
+    		Author's First Name: <input type="text" name="authorfirst"><br>
+    		Author's Last Name: <input type="text" name="authorlast"><br>
+    		Book Title: <input type="text" name="title"><br>
+    		ISBN: <input type="text" name="isbn"><br>
     	</div>
     
     	<button type="button" id="testBtn">Push here to get an error</button>
