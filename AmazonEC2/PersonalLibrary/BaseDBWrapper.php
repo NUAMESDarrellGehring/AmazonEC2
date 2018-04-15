@@ -22,15 +22,14 @@ abstract class BaseDBWrapper
     
     public function getQueryResults($sql, $start = null, $length = null){
         if($start === null || $start < 0) {
-            $start = 0; //Default to start at 0 if invalid or not given
+            $start = null;
         }
         if($length === null || $length <= 0) {
             $length = null; //Default to null if invalid or not giver
         }
         
-        $sql .= " LIMIT ".$start;
-        if($length !== null) {
-            $sql .= ", ".$length;
+        if($start !== null && $length !== null) {
+            $sql .= " LIMIT ".$start.", ".$limit;
         }
         
         $results = $this->conn->query($sql);
