@@ -106,7 +106,7 @@
             $sql .= " AND bookownerid=".$_SESSION['USER_ID'];
             
             $results = $this->getQueryResults("SELECT * FROM books WHERE bookownerid = ".$_SESSION['USER_ID'], $start, $length);
-            $rowCount = $this->getQueryResults("SELECT FOUND_ROWS() as cnt")[0]['cnt'];
+            $rowCount = $this->getQueryResults("SELECT FOUND_ROWS() as cnt");
             
             return array(
                 "data" => $results, 
