@@ -312,7 +312,7 @@
         	      }
         	    });
 
-        	    $("td=[name=authorFirst]").val("Gooooob");
+        	    $("input[name='authorFirstDialog']").val("Gooooob");
             });                
                 
 	   	});
