@@ -15,6 +15,9 @@
             font-size: 16px;
             margin: 4px 2px;
             cursor: pointer;
+            transition: 0.5s;
+            top: 18px;
+            left: 18px;
         }
     
         .button {
@@ -444,9 +447,7 @@
         		<input type="hidden" name="hiddenID">
     		</form>
     	</div>
-    	
-    	<div class="addEntryButton" id="addEntry" onclick="addEntryDialog()"></div>
-    	
+    	    	
     	<div class="sidenav" id="Menu">
     		<a href="#"><b>Your Library</b></a>
     		<a href="#">Forum</a>
@@ -456,6 +457,7 @@
  		<div class="button" id="menuToggle" onclick="toggleNav()"></div>
  		
 	   	<div id="mainPage">
+	    	<div class="addEntryButton" id="addEntry" onclick="addEntryDialog()"></div>
     	   	<div class="bottomLeft" id="tableDiv">
     			<table id="bookTable" class="display">
             		<thead>
