@@ -315,10 +315,10 @@
 				console.log(data);
 				console.log(data[0]+ " " + data[1] + " " + data[2] + " " + data[3]);
 				
-        	    $("input[name='authorfirstDialog']").val(data[0]);
-        	    $("input[name='authorlastDialog']").val(data[1]);
-        	    $("input[name='titleDialog']").val(data[2]);
-        	    $("input[name='isbnDialog']").val(data[3]);
+        	    $("input[name='authorfirstDialog']").val(data['authorfirst']);
+        	    $("input[name='authorlastDialog']").val(data['authorlast']);
+        	    $("input[name='titleDialog']").val(data['title']);
+        	    $("input[name='isbnDialog']").val(data['isbn']);
             });                
                 
 	   	});
