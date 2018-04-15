@@ -398,7 +398,7 @@
     </head>
     
     <body>
-    	<div id="creatorForm" style="display: none;" class="topRight">
+    	<div id="creatorForm" style="display: none;">
     		<form id="newEntryForm">
         		Author's First Name: <input type="text" name="authorfirstDialog"><br>
         		Author's Last Name: <input type="text" name="authorlastDialog"><br>
@@ -416,7 +416,7 @@
     	
  		<div class="button" id="menuToggle" onclick="toggleNav()"></div>
  		
-	   	<div id="mainPage">
+	   	<div id="mainPage" class="topLeft" style="width:500px">
     	   	<div id="tableDiv">
     	   		<div id="UserSelection">
                 	<form onsubmit="return userChoice();" method="post" enctype="multipart/form-data">
