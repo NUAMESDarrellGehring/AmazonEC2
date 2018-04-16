@@ -51,7 +51,7 @@
             transition: 0.5s;
             top: 18px;
             right: 18px;
-            position: relative;
+            position: absolute;
        }
        
        .topLeft {
