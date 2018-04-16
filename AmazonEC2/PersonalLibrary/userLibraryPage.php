@@ -1,9 +1,10 @@
 <?php session_start();?>
 
 <html>
+	<head>
+
 	<title>//Librarian V0.7</title>
 	<link rel="icon" href="https://i.imgur.com/WDP3esx.png">
-	<head>
 
     <style>
         .addEntryButton {
