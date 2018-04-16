@@ -464,7 +464,7 @@
 	   	<div id="mainPage">
 	    	<div class="addEntryButton" id="addEntry" onclick="addEntryDialog()">Add Book</div>
     	   	<div class="bottomLeft" id="tableDiv">
-    			<table id="bookTable" class="display" style="width: 200px">
+    			<table id="bookTable" class="display" style="width: 200px; background: #666666;">
             		<thead>
                         <tr>
                             <th>Book</th>
