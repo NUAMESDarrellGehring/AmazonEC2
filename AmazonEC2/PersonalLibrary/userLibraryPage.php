@@ -3,6 +3,7 @@
 <html>
 	<title>//Librarian V0.7</title>
 	<head>
+	<link rel="icon" href="https://i.imgur.com/WDP3esx.png">
 
     <style>
         .addEntryButton {
