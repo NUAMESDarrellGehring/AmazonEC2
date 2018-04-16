@@ -134,6 +134,7 @@
     	var menuOpen=false;
 
 		function logout(){
+			</script><?php session_abort();?><script>
 			window.location.href = 'http://34.212.128.254/AmazonEC2/PersonalLibrary/libraryHome.php';			
 		}
     	
