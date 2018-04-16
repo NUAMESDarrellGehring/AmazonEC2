@@ -38,10 +38,20 @@
         }
     
        .topRight {
-           position: absolute;
-           top: 18px;
-           right: 18px;
-           transition: 0.5s;
+            background-color: #7d0200;
+            border: none;
+            color: white;
+            padding: 20px 50px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: 0.5s;
+            top: 18px;
+            right: 18px;
+            position: relative;
        }
        
        .topLeft {
@@ -123,6 +133,11 @@
 
     	var menuOpen=false;
 
+		function logout(){
+			<?php unset($_SESSION['USER_ID']); ?>
+			window.location.href = 'http://34.212.128.254/AmazonEC2/PersonalLibrary/libraryHome.php';			
+		}
+    	
         function removeBook(){
     		var bookID = $("input[name='hiddenID']").val();
 
@@ -452,7 +467,9 @@
         		<input type="hidden" name="hiddenID">
     		</form>
     	</div>
-    	    	
+    	
+    	<div class="topRight" id="logout" onclick="logout()">Logout</div>
+    	
     	<div class="sidenav" id="Menu">
     		<a href="#"><b>Your Library</b></a>
     		<a href="#">Forum</a>
