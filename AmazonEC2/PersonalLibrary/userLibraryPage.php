@@ -471,7 +471,7 @@
     	
     	<div class="sidenav" id="Menu">
     		<a href="#"><b>Your Library</b></a>
-    		<a href="#">Forum</a>
+    		<a href="http://34.212.128.254/AmazonEC2/PersonalLibrary/LibraryActions.php">Forum</a>
     		<a href="#">Help & Support</a>
     	</div>
     	
