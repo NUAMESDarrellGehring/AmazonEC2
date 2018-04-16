@@ -2,7 +2,6 @@
 
 <html>
 	<title>//Librarian V0.7</title>
-
 	<head>
 
     <style>
